@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Music Progressions`,
+    title: `Progressions`,
     description: `Explore music progressions with the circle of fifths.`,
     author: `@tdsfugal`,
   },

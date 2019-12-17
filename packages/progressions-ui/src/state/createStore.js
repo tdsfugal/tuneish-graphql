@@ -1,4 +1,5 @@
 import { createStore as reduxCreateStore } from "redux"
+import { randomKey } from "../theory/keys"
 
 const reducer = (state, action) => {
   if (action.type === `INCREMENT`) {
@@ -9,7 +10,7 @@ const reducer = (state, action) => {
   return state
 }
 
-const initialState = { count: 0 }
+const initialState = { key: randomKey() }
 
 const createStore = () => reduxCreateStore(reducer, initialState)
 export default createStore
