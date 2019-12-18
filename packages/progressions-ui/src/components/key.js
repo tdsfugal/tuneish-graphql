@@ -10,11 +10,12 @@ const Key = ({ name, type }) => (
 )
 
 Key.propTypes = {
-  key: PropTypes.object.isRequired,
+  name: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
 }
 
 const mapStateToProps = ({ key }) => {
-  return { name: key.name, type: key.type }
+  return key
 }
 
 export default connect(mapStateToProps)(Key)
