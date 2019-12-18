@@ -4,9 +4,9 @@ import PropTypes from "prop-types"
 import { connect } from "react-redux"
 
 const Key = ({ name, type }) => (
-  <p>
-    Key: {name} {type}
-  </p>
+  <span>
+    {name} {type}
+  </span>
 )
 
 Key.propTypes = {

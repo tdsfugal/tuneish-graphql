@@ -38,10 +38,10 @@ const Header = () => {
               textDecoration: `none`,
             }}
           >
-            {title}
+            {title} in {}
+            <Key />
           </Link>
         </h1>
-        <Key />
       </div>
     </header>
   )
