@@ -1,6 +1,6 @@
-export const pitch = [
+export const tones = [
   {
-    offset: 0, // half steps from C
+    offset: 0, // half steps up from C
     sofledge: ["do"],
   },
   {

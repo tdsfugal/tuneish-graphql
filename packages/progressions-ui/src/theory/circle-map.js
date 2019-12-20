@@ -43,7 +43,7 @@ import {
  * 0   1   2   3   4   5   6   7   8   9   10  11
  * Cn, Cs, Dn, Ds, En, Fn, Fs, Gn, Gs, An, As, Bn
  */
-const offsetMap = [0, 7, 2, 9, 4, 11, 6, 1, 8, 3, 10, 5]
+const toneMap = [0, 7, 2, 9, 4, 11, 6, 1, 8, 3, 10, 5]
 
 // Proper names for the circle stations for the given tonics:
 const circleMap = {
