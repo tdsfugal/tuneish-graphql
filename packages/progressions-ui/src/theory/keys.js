@@ -20,7 +20,7 @@ import {
   Es,
   Fs,
   Gs,
-} from "./notes"
+} from "./note-names"
 
 export const majorKeys = [
   {

@@ -34,7 +34,7 @@ import {
   Ess,
   Fss,
   Gss,
-} from "./notes"
+} from "./note-names"
 
 /* Half-tone offsets up from C around the circle.
  * "C: is at the 12 o'clock position, "Cs" at one o'clock, and so on.
