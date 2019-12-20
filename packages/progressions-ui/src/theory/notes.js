@@ -1,41 +1,46 @@
 import { DOUBLE_FLAT, FLAT, SHARP, DOUBLE_SHARP } from "./unicode"
 
-export const A = "A"
-export const B = "B"
-export const C = "C"
-export const D = "D"
-export const E = "E"
-export const F = "F"
-export const G = "G"
+// Naturals
+export const An = "A"
+export const Bn = "B"
+export const Cn = "C"
+export const Dn = "D"
+export const En = "E"
+export const Fn = "F"
+export const Gn = "G"
 
-export const Ab = A + FLAT
-export const Bb = B + FLAT
-export const Cb = C + FLAT
-export const Db = D + FLAT
-export const Eb = E + FLAT
-export const Fb = F + FLAT
-export const Gb = G + FLAT
+// Sharps
+export const Ab = An + FLAT
+export const Bb = Bn + FLAT
+export const Cb = Cn + FLAT
+export const Db = Dn + FLAT
+export const Eb = En + FLAT
+export const Fb = Fn + FLAT
+export const Gb = Gn + FLAT
 
-export const As = A + SHARP
-export const Bs = B + SHARP
-export const Cs = C + SHARP
-export const Ds = D + SHARP
-export const Es = E + SHARP
-export const Fs = F + SHARP
-export const Gs = G + SHARP
+// Flats
+export const As = An + SHARP
+export const Bs = Bn + SHARP
+export const Cs = Cn + SHARP
+export const Ds = Dn + SHARP
+export const Es = En + SHARP
+export const Fs = Fn + SHARP
+export const Gs = Gn + SHARP
 
-export const Abb = A + DOUBLE_FLAT
-export const Bbb = B + DOUBLE_FLAT
-export const Cbb = C + DOUBLE_FLAT
-export const Dbb = D + DOUBLE_FLAT
-export const Ebb = E + DOUBLE_FLAT
-export const Fbb = F + DOUBLE_FLAT
-export const Gbb = G + DOUBLE_FLAT
+// Double sharps
+export const Ass = An + DOUBLE_SHARP
+export const Bss = Bn + DOUBLE_SHARP
+export const Css = Cn + DOUBLE_SHARP
+export const Dss = Dn + DOUBLE_SHARP
+export const Ess = En + DOUBLE_SHARP
+export const Fss = Fn + DOUBLE_SHARP
+export const Gss = Gn + DOUBLE_SHARP
 
-export const Ass = A + DOUBLE_SHARP
-export const Bss = B + DOUBLE_SHARP
-export const Css = C + DOUBLE_SHARP
-export const Dss = D + DOUBLE_SHARP
-export const Ess = E + DOUBLE_SHARP
-export const Fss = F + DOUBLE_SHARP
-export const Gss = G + DOUBLE_SHARP
+// Double flats
+export const Abb = An + DOUBLE_FLAT
+export const Bbb = Bn + DOUBLE_FLAT
+export const Cbb = Cn + DOUBLE_FLAT
+export const Dbb = Dn + DOUBLE_FLAT
+export const Ebb = En + DOUBLE_FLAT
+export const Fbb = Fn + DOUBLE_FLAT
+export const Gbb = Gn + DOUBLE_FLAT
