@@ -9,7 +9,7 @@ export default ({ r }) => {
   const r_outer = r
   const r_inner = r * (1 - THICK)
   function makeArc(i) {
-    return <ARC i={i} r_outer={r_outer} r_inner={r_inner} />
+    return <ARC key={`${i}-key`} i={i} r_outer={r_outer} r_inner={r_inner} />
   }
   return (
     <svg

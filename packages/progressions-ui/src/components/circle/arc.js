@@ -36,7 +36,7 @@ export default ({ i, r_outer, r_inner }) => {
       d={`M ${x1} ${y1} ${inner} ${right} ${outer} ${left} z`}
       fill={fill}
       stroke="gray"
-      stroke-width="1px"
+      strokeWidth="1px"
     />
   )
 }

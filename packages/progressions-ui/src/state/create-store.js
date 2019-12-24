@@ -7,5 +7,4 @@ const reducer = (state, action) => {
 
 const initialState = { key: randomKey() }
 
-const createStore = () => reduxCreateStore(reducer, initialState)
-export default createStore
+export default () => reduxCreateStore(reducer, initialState)
