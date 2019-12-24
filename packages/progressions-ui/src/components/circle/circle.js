@@ -25,6 +25,7 @@ export default ({ r }) => {
             i={i}
             r_outer={r_outer}
             r_inner={r_inner}
+            music_key={music_key}
           />
         )
       })}

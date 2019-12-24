@@ -24,6 +24,9 @@ export default ({ i, r_outer, r_inner, tone }) => {
   const x4 = r_outer * s0
   const y4 = r_outer * c0
 
+  const xt = (x1 + x2 + x3 + x4) / 4 - 12
+  const yt = (y1 + y2 + y3 + y4) / 4 + 7
+
   const inner = `A${r_inner} ${r_inner} 0  0,0 ${x2}, ${y2} `
   const right = `L${x3}, ${y3} `
   const outer = `A${r_outer} ${r_outer} 0  0,1 ${x4}, ${y4} `
@@ -39,8 +42,8 @@ export default ({ i, r_outer, r_inner, tone }) => {
         stroke="gray"
         strokeWidth="1px"
       />
-      <text x={x1} y={y1}>
-        foo
+      <text x={xt} y={yt}>
+        {tone}
       </text>
     </>
   )
