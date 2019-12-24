@@ -1,5 +1,3 @@
-import Tone from "tone"
-
 import startUserInput from "./audio/input"
 
 export default class Services {
