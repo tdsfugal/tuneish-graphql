@@ -12,7 +12,12 @@ export default ({ r }) => {
     return <ARC i={i} r_outer={r_outer} r_inner={r_inner} />
   }
   return (
-    <svg viewBox="-200 -200 400 400" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      viewBox="-200 -200 400 400"
+      width="400px"
+      height="400px"
+      xmlns="http://www.w3.org/2000/svg"
+    >
       {ARCS.map(i => makeArc(i))}
     </svg>
   )
