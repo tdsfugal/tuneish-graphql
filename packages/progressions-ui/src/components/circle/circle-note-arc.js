@@ -2,7 +2,7 @@ import React from "react"
 
 const ATOR = Math.PI / 180
 
-export default ({ i, r_outer, r_inner }) => {
+export default ({ i, r_outer, r_inner, tone }) => {
   const angle = i * 30
   const start_ang = (angle - 15) * ATOR
   const end_ang = (angle + 15) * ATOR
@@ -32,11 +32,16 @@ export default ({ i, r_outer, r_inner }) => {
   const fill = i % 2 ? "#66AAEE" : "#EEAA66"
 
   return (
-    <path
-      d={`M ${x1} ${y1} ${inner} ${right} ${outer} ${left} z`}
-      fill={fill}
-      stroke="gray"
-      strokeWidth="1px"
-    />
+    <>
+      <path
+        d={`M ${x1} ${y1} ${inner} ${right} ${outer} ${left} z`}
+        fill={fill}
+        stroke="gray"
+        strokeWidth="1px"
+      />
+      <text x={x1} y={y1}>
+        foo
+      </text>
+    </>
   )
 }

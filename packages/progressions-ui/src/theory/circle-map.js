@@ -1,11 +1,5 @@
 import {
-  Abb,
   Bbb,
-  Cbb,
-  Dbb,
-  Ebb,
-  Fbb,
-  Gbb,
   Ab,
   Bb,
   Cb,
@@ -28,10 +22,8 @@ import {
   Fs,
   Gs,
   Ass,
-  Bss,
   Css,
   Dss,
-  Ess,
   Fss,
   Gss,
 } from "./note-names"
@@ -43,10 +35,10 @@ import {
  * 0   1   2   3   4   5   6   7   8   9   10  11
  * Cn, Cs, Dn, Ds, En, Fn, Fs, Gn, Gs, An, As, Bn
  */
-const toneMap = [0, 7, 2, 9, 4, 11, 6, 1, 8, 3, 10, 5]
+export const toneMap = [0, 7, 2, 9, 4, 11, 6, 1, 8, 3, 10, 5]
 
 // Proper names for the circle stations for the given tonics:
-const circleMap = {
+export const circleMap = {
   // Extended sharps
   Bs: [Bs, Fss, Css, Gss, Dss, Ass, Fs, Cs, Gs, Ds, As, Es],
   Es: [Bs, Fss, Css, Gss, Dss, Bn, Fs, Cs, Gs, Ds, As, Es],
