@@ -1,50 +1,92 @@
-export const notes = [
+import {
+  Bbb,
+  Ab,
+  Bb,
+  Cb,
+  Db,
+  Eb,
+  Fb,
+  Gb,
+  An,
+  Bn,
+  Cn,
+  Dn,
+  En,
+  Fn,
+  Gn,
+  As,
+  Bs,
+  Cs,
+  Ds,
+  Es,
+  Fs,
+  Gs,
+  Ass,
+  Css,
+  Dss,
+  Fss,
+  Gss,
+} from "./note-names"
+
+export default [
   {
-    offset: 0, // number of half steps up from C
+    tone: 0, // number of half steps up from C
+    names: [Cn, Bs, Dbb],
     sofledge: ["do"],
   },
   {
-    offset: 1,
+    tone: 1,
+    names: [Cs, Db],
     sofledge: ["di", "ra"],
   },
   {
-    offset: 2,
+    tone: 2,
+    names: [Dn, Css, Ebb],
     sofledge: ["re"],
   },
   {
-    offset: 3,
+    tone: 3,
+    names: [Ds, Eb],
     sofledge: ["ri", "me"],
   },
   {
-    offset: 4,
+    tone: 4,
+    names: [En, Css, Fb],
     sofledge: ["mi"],
   },
   {
-    offset: 5,
+    tone: 5,
+    names: [Fn, Es, Gbb],
     sofledge: ["fa"],
   },
   {
-    offset: 6,
+    tone: 6,
+    names: [Fs, Ess, Gb],
     sofledge: ["fi", "se"],
   },
   {
-    offset: 7,
+    tone: 7,
+    names: [Gn, Fss, Abb],
     sofledge: ["sol"],
   },
   {
-    offset: 8,
+    tone: 8,
+    names: [Gs, Ab],
     sofledge: ["si", "le"],
   },
   {
-    offset: 9,
+    tone: 9,
+    names: [An, Gss, Bbb],
     sofledge: ["la"],
   },
   {
-    offset: 10,
+    tone: 10,
+    names: [As, Bb],
     sofledge: ["le", "te"],
   },
   {
-    offset: 11,
+    tone: 11,
+    names: [Bn, Ass, Cb],
     sofledge: ["ti"],
   },
 ]
