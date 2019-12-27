@@ -8,14 +8,9 @@ const DEGREE_COLORS = {
   Dim: "green",
 }
 
-export default ({
-  pos,
-  r_outer,
-  r_inner,
-  note_name,
-  degree_name,
-  degree_type,
-}) => {
+export default ({ pos, r_outer, r_inner, note }) => {
+  const { name, degree } = note
+
   const angle = pos * 30
   const start_ang = (angle - 15) * ATOR
   const end_ang = (angle + 15) * ATOR
@@ -45,8 +40,8 @@ export default ({
   const outer = `A${r_outer} ${r_outer} 0  0,0 ${x4}, ${y4} `
   const left = `L${x1}, ${y1} `
 
-  const fill = degree_type ? "#66AAEE" : "#EEAA66"
-  const stroke = DEGREE_COLORS[degree_type] || "none"
+  const fill = degree.type ? "#66AAEE" : "#EEAA66"
+  const stroke = DEGREE_COLORS[degree.type] || "none"
 
   return (
     <>
@@ -63,7 +58,10 @@ export default ({
         strokeWidth="5px"
       />
       <text x={xt} y={yt}>
-        {note_name}
+        {name}
+      </text>
+      <text x={xt + 50} y={yt}>
+        {degree.name}
       </text>
     </>
   )
