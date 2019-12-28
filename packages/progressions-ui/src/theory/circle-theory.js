@@ -99,7 +99,7 @@ export default class CircleTheory {
             degree_type = "Dim"
             break
           case 2:
-            degree_name = "III"
+            degree_name = "III" // TODO = Not showing up.  Bug.
             degree_type = "Maj"
             break
           case 3:
