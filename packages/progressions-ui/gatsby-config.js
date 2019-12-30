@@ -4,6 +4,10 @@ module.exports = {
     description: `Explore music progressions with the circle of fifths.`,
     author: `@tdsfugal`,
   },
+  proxy: {
+    prefix: "/api",
+    url: "https://cprogs.com",
+  },
   plugins: [
     `gatsby-plugin-react-helmet`,
     {
