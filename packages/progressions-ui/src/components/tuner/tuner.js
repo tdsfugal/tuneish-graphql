@@ -2,13 +2,14 @@ import React from "react"
 import Tone from "tone"
 
 import TunerView from "./tuner-view"
+import MeterView from "./meter-view"
 
 class Tuner extends React.Component {
   constructor(props) {
     super()
     console.log(`Supported = ${Tone.UserMedia.supported}`)
     Tone.UserMedia.enumerateDevices().then(d => console.log(d))
-    this.userMedia = new Tone.UserMedia(0).toMaster()
+    this.userMedia = new Tone.UserMedia(0)
     this.state = { status: this.userMedia.state }
   }
 
@@ -28,12 +29,8 @@ class Tuner extends React.Component {
         console.log(`NumberOfInputs = ${um.numberOfInputs}`)
         console.log(`NumberOfOutputs = ${um.numberOfOutputs}`)
         console.log(`Mute = ${um.mute}`)
-
         this.meter = new Tone.Meter()
         um.connect(this.meter)
-
-        // const osc = new Tone.Oscillator(400, "sine").start().toMaster()
-        // osc.connect(this.meter)
         this.setState({ status: um.state })
       })
       .catch(x => console.log(x))
@@ -46,7 +43,17 @@ class Tuner extends React.Component {
   render() {
     const { status } = this.state
     if (status === "started") {
-      return <TunerView meter={this.meter} />
+      return (
+        <svg
+          viewBox="0 0 400 400"
+          width="400px"
+          height="400px"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <TunerView meter={this.meter} />
+          <MeterView meter={this.meter} />
+        </svg>
+      )
     }
     return null
   }
