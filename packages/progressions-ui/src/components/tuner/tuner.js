@@ -29,8 +29,11 @@ class Tuner extends React.Component {
         console.log(`NumberOfInputs = ${um.numberOfInputs}`)
         console.log(`NumberOfOutputs = ${um.numberOfOutputs}`)
         console.log(`Mute = ${um.mute}`)
-        this.meter = new Tone.Meter()
-        um.connect(this.meter)
+
+        const ctx = um.context
+
+        console.log(ctx)
+
         this.setState({ status: um.state })
       })
       .catch(x => console.log(x))
@@ -50,8 +53,8 @@ class Tuner extends React.Component {
           height="400px"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <TunerView meter={this.meter} />
-          <MeterView meter={this.meter} />
+          <TunerView userMedia={this.userMedia} />
+          <MeterView userMedia={this.userMedia} />
         </svg>
       )
     }

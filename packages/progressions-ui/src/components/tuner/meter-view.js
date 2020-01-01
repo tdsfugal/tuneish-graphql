@@ -1,36 +1,30 @@
 import React from "react"
+import Tone from "tone"
 
 const NORM = 70
 
 export default class MeterView extends React.Component {
-  constructor() {
-    super()
-    this.state = { width: 150 }
+  constructor(props) {
+    super(props)
+    this.state = { level: -100 }
   }
 
   componentDidMount() {
-    const { meter } = this.props
+    this.meter = new Tone.Meter()
+    this.props.userMedia.connect(this.meter)
     console.log("meter:")
-    console.log(meter)
-    console.log(`NumberOfInputs = ${meter.numberOfInputs}`)
+    console.log(this.meter)
+    console.log(`NumberOfInputs = ${this.meter.numberOfInputs}`)
     setInterval(() => {
-      const level = meter.getLevel()
-      const factor = (NORM + level) / NORM
-      const width = 150 * (factor > 0 ? factor : 0)
-      this.setState({ width, level })
+      this.setState({ level: this.meter.getLevel() })
     }, 100)
   }
 
   render() {
-    const { width, level } = this.state
+    const { level } = this.state
+    const factor = (NORM + level) / NORM
+    const width = 150 * (factor > 0 ? factor : 0)
     const color = "green"
-    return (
-      <>
-        <rect x="0" y="200" width={width} height="80" fill={color} />
-        <text x="0" y="200">
-          {level}
-        </text>
-      </>
-    )
+    return <rect x="0" y="200" width={width} height="80" fill={color} />
   }
 }
