@@ -96,7 +96,8 @@ describe("Notes", () => {
       const correctFreq = foo.getNoteByMidi(correctMidi).freq
       const y = foo.getNearestMidi(freq)
       expect(y.midi).toEqual(correctMidi)
-      expect(y.error).toBeCloseTo(freq - correctFreq, 5)
+      const cent = 1200 * Math.log2(freq / correctFreq)
+      expect(y.cent).toBeCloseTo(cent, 5)
     })
   })
 })

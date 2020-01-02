@@ -155,8 +155,9 @@ export default class Notes {
     if (freq > upper) index += 1
     if (freq < lower) index -= 1
 
-    // Finaly, compute the error
+    // Finaly, compute the cent error
     const correct = this._freq[index].freq
-    return { midi: index, error: freq - correct }
+    const cent = 1200 * Math.log2(freq / correct)
+    return { midi: index, cent }
   }
 }

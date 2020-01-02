@@ -12,9 +12,6 @@ export default class MeterView extends React.Component {
   componentDidMount() {
     this.meter = new Tone.Meter()
     this.props.userMedia.connect(this.meter)
-    console.log("meter:")
-    console.log(this.meter)
-    console.log(`NumberOfInputs = ${this.meter.numberOfInputs}`)
     setInterval(() => {
       this.setState({ level: this.meter.getLevel() })
     }, 100)

@@ -7,8 +7,7 @@ import MeterView from "./meter-view"
 class Tuner extends React.Component {
   constructor(props) {
     super()
-    console.log(`Supported = ${Tone.UserMedia.supported}`)
-    Tone.UserMedia.enumerateDevices().then(d => console.log(d))
+    // Tone.UserMedia.enumerateDevices().then(d => console.log(d))
     this.userMedia = new Tone.UserMedia(0)
     this.state = { status: this.userMedia.state }
   }
@@ -17,22 +16,18 @@ class Tuner extends React.Component {
     this.userMedia
       .open()
       .then(um => {
-        console.log(`Volume = ${um.volume.value}`)
-        console.log(`Units = ${um.volume.units}`)
-        console.log(`DeviceId = ${um.deviceId}`)
-        console.log(`GroupId = ${um.deviceId}`)
-        console.log(`Label = ${um.label}`)
-        console.log(`State = ${um.state}`)
-        console.log(`ChannelCountMode = ${um.channelCountMode}`)
-        console.log(`ChannelInterpretation = ${um.channelInterpretation}`)
-        console.log(`ChannelCount = ${um.channelCount}`)
-        console.log(`NumberOfInputs = ${um.numberOfInputs}`)
-        console.log(`NumberOfOutputs = ${um.numberOfOutputs}`)
-        console.log(`Mute = ${um.mute}`)
-
-        const ctx = um.context
-
-        console.log(ctx)
+        // console.log(`Volume = ${um.volume.value}`)
+        // console.log(`Units = ${um.volume.units}`)
+        // console.log(`DeviceId = ${um.deviceId}`)
+        // console.log(`GroupId = ${um.deviceId}`)
+        // console.log(`Label = ${um.label}`)
+        // console.log(`State = ${um.state}`)
+        // console.log(`ChannelCountMode = ${um.channelCountMode}`)
+        // console.log(`ChannelInterpretation = ${um.channelInterpretation}`)
+        // console.log(`ChannelCount = ${um.channelCount}`)
+        // console.log(`NumberOfInputs = ${um.numberOfInputs}`)
+        // console.log(`NumberOfOutputs = ${um.numberOfOutputs}`)
+        // console.log(`Mute = ${um.mute}`)
 
         this.setState({ status: um.state })
       })
