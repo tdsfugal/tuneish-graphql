@@ -1,6 +1,10 @@
 import React from "react"
 import Tone from "tone"
 
+import Notes from "../../theory/notes"
+
+const NOTES = new Notes()
+
 const MAX_FREQ = 4000 //Hz
 const MIN_FREQ = 40 //Hz
 
@@ -9,8 +13,6 @@ const SAMPLE_RATE = 48000 // Hz
 const SIZE = Math.pow(2, 14)
 const MAX = SAMPLE_RATE / MIN_FREQ
 const MIN = SAMPLE_RATE / MAX_FREQ
-
-console.log(`SIZE = ${SIZE},  MAX = ${MAX},  MIN = ${MIN}`)
 
 const getCrosses = arr => {
   const ups = []
@@ -119,13 +121,36 @@ export default class TunerView extends React.Component {
       if (combined.length > 0) {
         // Condense the results
         const peak_freq = condense(combined)
-        this.setState({ width: 100 * (peak_freq / 41) })
+        const nearest = NOTES.getNearestMidi(peak_freq)
+        if (nearest) {
+          const note = NOTES.getNoteByMidi(nearest.midi)
+          if (note) {
+            this.setState({
+              peak_freq,
+              name: note.names[0],
+              error: nearest.error,
+            })
+          }
+        }
       }
     }, 100)
   }
   render() {
-    const { width } = this.state
-    const color = "gray"
-    return <rect x="0" y="0" width={width} height="80" fill={color} />
+    const { peak_freq, name, error } = this.state
+    if (peak_freq > MIN && peak_freq < MAX) {
+      const width = Math.abs(error * 100)
+      const x = error < 0 ? 100 - width : 100
+      const color = "gray"
+      return (
+        <>
+          <rect x={x} y="0" width={width} height="80" fill={color} />
+          <text x="50" y="50">
+            {name}
+          </text>
+        </>
+      )
+    } else {
+      return null
+    }
   }
 }

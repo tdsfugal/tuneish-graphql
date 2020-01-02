@@ -157,6 +157,6 @@ export default class Notes {
 
     // Finaly, compute the error
     const correct = this._freq[index].freq
-    return { midi: index, error: correct - freq }
+    return { midi: index, error: freq - correct }
   }
 }
