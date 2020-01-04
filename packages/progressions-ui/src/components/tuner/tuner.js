@@ -1,15 +1,26 @@
 import React from "react"
 import Tone from "tone"
 
-import TunerView from "./tuner-view"
-import MeterView from "./meter-view"
+import TunerWorker from "./tuner-worker"
 
 class Tuner extends React.Component {
   constructor(props) {
-    super()
+    super(props)
+
+    this.tunerView = props.tunerView
+
     // Tone.UserMedia.enumerateDevices().then(d => console.log(d))
     this.userMedia = new Tone.UserMedia(0)
-    this.state = { status: this.userMedia.state }
+    this.state = { status: this.userMedia.state, freq: -1, note: null, cent: 0 }
+
+    // Set up the callbacks bound to "this"
+    this.updateTunerView = params => {
+      this.setState(params)
+    }
+    this.updateAppState = note => {
+      console.log("update app")
+      console.log(note)
+    }
   }
 
   componentDidMount() {
@@ -29,18 +40,30 @@ class Tuner extends React.Component {
         // console.log(`NumberOfOutputs = ${um.numberOfOutputs}`)
         // console.log(`Mute = ${um.mute}`)
 
+        // Set up the worker
+        this.worker = new TunerWorker(
+          um,
+          this.updateTunerView,
+          this.updateAppState
+        )
+        return um
+      })
+      .then(um => {
+        // Start the component views
         this.setState({ status: um.state })
       })
       .catch(x => console.log(x))
   }
 
   componentWillUnmount() {
+    this.worker.close()
     this.userMedia.close()
   }
 
   render() {
-    const { status } = this.state
-    if (status === "started") {
+    const { TunerView } = this.props
+    const { status, freq, note, cent } = this.state
+    if (status === "started" && freq > 0) {
       return (
         <svg
           viewBox="0 0 400 400"
@@ -48,12 +71,12 @@ class Tuner extends React.Component {
           height="400px"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <TunerView userMedia={this.userMedia} />
-          <MeterView userMedia={this.userMedia} />
+          <TunerView freq={freq} note={note} cent={cent} />
         </svg>
       )
+    } else {
+      return null
     }
-    return null
   }
 }
 

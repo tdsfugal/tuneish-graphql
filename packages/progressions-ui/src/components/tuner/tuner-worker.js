@@ -1,4 +1,3 @@
-import React from "react"
 import Tone from "tone"
 
 import Notes from "../../theory/notes"
@@ -10,9 +9,17 @@ const MIN_FREQ = 40 //Hz
 
 const SAMPLE_RATE = 48000 // Hz
 
-const SIZE = Math.pow(2, 14)
 const MAX = SAMPLE_RATE / MIN_FREQ
 const MIN = SAMPLE_RATE / MAX_FREQ
+
+const SIZE = Math.pow(2, 12)
+const SAMPLE_FREQ = SAMPLE_RATE / SIZE
+const LOOP_TIME = 1000 / SAMPLE_FREQ
+
+console.log(`Minimum Size = ${2 * MAX}`)
+console.log(`Sample size = ${SIZE}`)
+console.log(`Sample frequency = ${SAMPLE_FREQ}`)
+console.log(`Loop time (ms) = ${LOOP_TIME}`)
 
 const getCrosses = arr => {
   const ups = []
@@ -89,16 +96,29 @@ const condense = arr => {
   return SAMPLE_RATE / peak
 }
 
-export default class TunerView extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = { width: 150 }
+// Debounce
+let history = []
+const debounce = note => {
+  history.push(note) // Add the newest at the front
+  if (history.length > 3) history.shift() // discard the oldest
+  for (let i = 0; i < history.length - 1; i++) {
+    if (history[i].oct !== note.oct || history[i].tone !== note.tone) {
+      // There is no consensus.
+      return null
+    }
   }
+  return note
+}
 
-  componentDidMount() {
+export default class TunerWorker {
+  constructor(userMedia, viewCallback, stateCallback) {
+    this.userMedia = userMedia
+    this.viewCallback = viewCallback // Fast update of tuner views
+    this.stateCallback = stateCallback // Deliberative update of app state
+
     // Only process signals above a -30 db threshold
-    this.gate = new Tone.Gate(-30, 0.2, 0.2)
-    this.props.userMedia.connect(this.gate)
+    this.gate = new Tone.Gate(-30)
+    this.userMedia.connect(this.gate)
 
     // Setup computation of the positive and negative zones
     this.gt0 = new Tone.GreaterThanZero()
@@ -108,6 +128,7 @@ export default class TunerView extends React.Component {
     this.waveform = new Tone.Waveform(SIZE)
     this.gt0.connect(this.waveform)
 
+    // Start working
     setInterval(() => {
       // Get the array of positive (1) and negative (0) values
       const arr = this.waveform.getValue()
@@ -119,39 +140,39 @@ export default class TunerView extends React.Component {
       // combine the up and down counts
       const combined = combine(u, d)
       if (combined.length > 0) {
-        // Condense the results
-        const peak_freq = condense(combined)
-        const nearest = NOTES.getNearestMidi(peak_freq)
-        if (nearest) {
-          const note = NOTES.getNoteByMidi(nearest.midi)
-          if (note) {
-            this.setState({
-              peak_freq,
-              name: note.names[0],
-              cent: nearest.cent,
-            })
+        // Data was there; Condense the results
+        const freq = condense(combined)
+        if (freq > MIN && freq < MAX) {
+          const nearest = NOTES.getNearestMidi(freq)
+          if (nearest) {
+            const note = NOTES.getNoteByMidi(nearest.midi)
+            if (note && debounce(note)) {
+              // // On major change, notify redux
+              // const { tone, oct } = this.state
+              // if (note.tone !== tone || note.oct !== oct) {
+              //   stateCallback(note)
+              // }
+              // Update the tuner view
+              viewCallback({
+                freq,
+                note,
+                cent: nearest.cent,
+              })
+            }
           }
         }
+      } else {
+        // No data, inform the tuner that nothing is going on
+        viewCallback({
+          freq: -1,
+          note: null,
+          cent: 0,
+        })
       }
-    }, 100)
+    }, LOOP_TIME)
   }
-  render() {
-    const { peak_freq, name, cent } = this.state
-    if (peak_freq > MIN && peak_freq < MAX) {
-      const width = Math.abs(cent * 2)
-      const x = cent < 0 ? 120 - width : 120
-      const color = "gray"
-      return (
-        <>
-          <rect x="20" y="0" width="200" height="80" fill="#ddd" />
-          <rect x={x} y="0" width={width} height="80" fill={color} />
-          <text x="50" y="50">
-            {name}
-          </text>
-        </>
-      )
-    } else {
-      return null
-    }
+
+  close() {
+    console.log("closing")
   }
 }
