@@ -1,5 +1,7 @@
 import React from "react"
 
+import FrettedNote from "./fretted-note"
+
 const STRING_THICKNESS = 4
 const FRET_THICKNESS = 1
 const BOARD_COLOR = "#420"
@@ -46,6 +48,9 @@ export default ({
   })
 
   // Compute the notes
+  const notes = [
+    <FrettedNote key="foo" stringPosition={20} fretPosition={50} />,
+  ]
 
   // Render the package deal
   return (
@@ -61,6 +66,7 @@ export default ({
         />
         {frets}
         {strings}
+        {notes}
       </svg>
     </div>
   )
