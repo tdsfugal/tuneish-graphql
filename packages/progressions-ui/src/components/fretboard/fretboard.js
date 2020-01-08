@@ -20,7 +20,7 @@ export default ({ tuning, nFrets }) => {
   const boardWidth = 2 * EDGE_MARGIN + STRING_SPACING * (tuning.length - 1)
 
   // Compute the frets
-  const fretPositions = []
+  const fretPositions = [0]
   const scaleLength = boardLength / FRET_POSITIONS[nFrets]
   for (let fret = 1; fret < nFrets + 1; fret++) {
     fretPositions.push(computeFretPosition(fret, scaleLength))

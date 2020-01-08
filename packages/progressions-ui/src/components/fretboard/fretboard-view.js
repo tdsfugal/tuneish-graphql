@@ -48,9 +48,20 @@ export default ({
   })
 
   // Compute the notes
-  const notes = [
-    <FrettedNote key="foo" stringPosition={20} fretPosition={50} />,
-  ]
+  const notes = []
+  for (let string = 0; string < stringPositions.length; string++) {
+    for (let fret = 0; fret < fretPositions.length; fret++) {
+      const note = tuning[string]
+      notes.push(
+        <FrettedNote
+          key={`n_${string}_${fret}`}
+          note={note}
+          stringPosition={stringPositions[string]}
+          fretPosition={fretPositions[fret]}
+        />
+      )
+    }
+  }
 
   // Render the package deal
   return (
