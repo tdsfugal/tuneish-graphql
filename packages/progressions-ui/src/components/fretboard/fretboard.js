@@ -1,50 +1,69 @@
 import React from "react"
 
-const String = ({ yPos, thick, width }) => {
+import FRET_POSITIONS from "../../theory/fret-positions"
+
+const STRING_SPACING = 30
+const EDGE_MARGIN = 10
+
+const String = ({ yPos, thick, length }) => {
   return (
     <rect
       x="0"
-      y={yPos.toString()}
-      width={width}
+      y={(yPos - thick / 2).toString()}
+      width={length}
       height={thick.toString()}
       fill="#AAA"
     />
   )
 }
 
-const Fret = ({ xPos, thick, height }) => {
+const Fret = ({ xPos, thick, boardWidth }) => {
   return (
     <rect
       x={xPos.toString()}
       y="0"
       width={thick.toString()}
-      height={height}
+      height={boardWidth}
       fill="#933"
     />
   )
 }
 
-export default ({ tuning }) => {
-  const width = 1000
-  const height = 20 + 30 * (tuning.length - 1)
+const computeFretPosition = (fret, scaleLength) => {
+  return scaleLength * FRET_POSITIONS[fret]
+}
+
+const computeStringPosition = string => {
+  return EDGE_MARGIN + STRING_SPACING * string
+}
+
+export default ({ tuning, nFrets }) => {
+  const length = 1000
+  const boardWidth = 2 * EDGE_MARGIN + STRING_SPACING * (tuning.length - 1)
   const color = "#420"
 
-  // Compute the strings
-  const strings = tuning.map((note, ind) => {
-    const thick = 4 // Base on the note.  TODO
-    const yPos = 10 + 30 * ind - thick / 2
-    const key = `s_${note}`
-    return <String key={key} yPos={yPos} thick={thick} width={width} />
-  })
+  // Compute the frets
+  const frets = []
+  const scaleLength = length / FRET_POSITIONS[nFrets]
+  for (let fret = 1; fret < nFrets + 1; fret++) {
+    const thick = 1 // Base on the note.  TODO
+    const xPos = computeFretPosition(fret, scaleLength)
+    const key = `f_${fret}`
+    frets.push(
+      <Fret key={key} xPos={xPos} thick={thick} boardWidth={boardWidth} />
+    )
+  }
 
   // Compute the strings
-  const frets = []
-  for (let fret = 0; fret < 21; fret++) {
-    const thick = 1 // Base on the note.  TODO
-    const xPos = 10 + 30 * fret // TODO
-    const key = `f_${fret}`
-    frets.push(<Fret key={key} xPos={xPos} thick={thick} height={height} />)
-  }
+  const strings = tuning.map((note, string) => {
+    const thick = 4 // Base on the note.  TODO
+    const yPos = computeStringPosition(string)
+    const key = `s_${note}`
+    return <String key={key} yPos={yPos} thick={thick} length={length} />
+  })
+
+  // Compute the notes
+
   // Render the package deal
   return (
     <div width="100%">
@@ -53,8 +72,8 @@ export default ({ tuning }) => {
           key="wood"
           x="0"
           y="0"
-          width={width}
-          height={height}
+          width={length}
+          height={boardWidth}
           fill={color}
         />
         {frets}

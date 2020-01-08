@@ -39,7 +39,7 @@ const IndexPage = () => (
     <SEO title="Home" />
     <div style={{ display: "flex", flexDirection: "column" }}>
       <Circle r={r} />
-      <Fretboard tuning={[En, An, Dn, Gn]} />
+      <Fretboard tuning={[En, An, Dn, Gn]} nFrets={21} />
       <Tuner TunerView={TunerView} />
     </div>
   </Layout>
