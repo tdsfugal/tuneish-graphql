@@ -27,12 +27,12 @@ export default ({
   // to determine how to render themselves.  Many are invisible.
   const notes = []
   for (let string = 0; string < stringPositions.length; string++) {
+    const rootNote = tuning[string]
     for (let fret = 0; fret < fretPositions.length; fret++) {
-      const note = tuning[string]
       notes.push(
         <FrettedNote
           key={`n_${string}_${fret}`}
-          note={note}
+          note={rootNote}
           stringPosition={stringPositions[string]}
           fretPosition={fretPositions[fret]}
         />
