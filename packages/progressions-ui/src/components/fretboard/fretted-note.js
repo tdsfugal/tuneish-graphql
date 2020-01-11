@@ -6,9 +6,10 @@ const FrettedNoteView = ({ noteName, state, stringPosition, fretPosition }) => {
     <>
       <circle r={10} cx={fretPosition} cy={stringPosition} fill={color} />
       <text
-        x={(fretPosition - 6).toString()}
-        y={(stringPosition + 7).toString()}
+        x={(fretPosition - 5).toString()}
+        y={(stringPosition + 5).toString()}
         fill={"white"}
+        style={{ fontSize: 14 }}
       >
         {noteName}
       </text>
@@ -24,7 +25,7 @@ export default class FrettedNote extends React.Component {
   }
 
   render() {
-    const { note, stringPosition, fretPosition } = this.props
+    const { stringPosition, fretPosition } = this.props
     const { noteName } = this.state
     return (
       <FrettedNoteView
