@@ -13,7 +13,7 @@ export default ({
   // to determine how to render themselves.  Many are invisible.
   const notes = []
   for (let string = 0; string < stringPositions.length; string++) {
-    const rootNote = tuning[string]
+    const rootNote = tuning[string].name
     for (let fret = 0; fret < fretPositions.length; fret++) {
       notes.push(
         <HarmonyNote

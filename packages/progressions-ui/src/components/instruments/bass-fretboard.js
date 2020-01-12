@@ -27,8 +27,19 @@ import {
 } from "../../theory/note-names"
 
 const TUNINGS = {
-  4: [En, An, Dn, Gn],
-  5: [Bn, En, An, Dn, Gn],
+  4: [
+    { name: En, octave: 1 },
+    { name: An, octave: 1 },
+    { name: Dn, octave: 1 },
+    { name: Gn, octave: 1 },
+  ],
+  5: [
+    { name: Bn, octave: 1 },
+    { name: En, octave: 1 },
+    { name: An, octave: 1 },
+    { name: Dn, octave: 1 },
+    { name: Gn, octave: 1 },
+  ],
 }
 
 const BassFretboard = ({ nStrings, nFrets }) => {
