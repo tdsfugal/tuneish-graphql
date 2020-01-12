@@ -23,7 +23,6 @@ export default class BassPage extends React.Component {
     return (
       <Layout>
         <SEO title="Home" />
-        <Link to="/">Go back to the homepage</Link>
         <div style={{ display: "flex", flexDirection: "column" }}>
           <Circle r={r} />
           <BassFretboard nStrings={nStrings} nFrets={nFrets} />
