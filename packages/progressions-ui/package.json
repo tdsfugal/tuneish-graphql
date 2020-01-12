@@ -23,7 +23,6 @@
   },
   "devDependencies": {
     "babel-jest": "^24.9.0",
-    "gatsby-cli": "^2.8.26",
     "babel-preset-gatsby": "^0.2.26",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.9.0",
