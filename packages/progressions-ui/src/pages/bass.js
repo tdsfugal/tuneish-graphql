@@ -5,7 +5,7 @@ import SEO from "../components/seo"
 import Circle from "../components/circle"
 import Tuner from "../components/tuner"
 
-import TunerView from "../components/tuner/views/tuner-view"
+import GenericTunerView from "../components/tuner/generic-tuner-view"
 
 import { BassFretboard } from "../components/instruments"
 
@@ -25,7 +25,7 @@ export default class BassPage extends React.Component {
         <div style={{ display: "flex", flexDirection: "column" }}>
           <Circle r={r} />
           <BassFretboard nStrings={nStrings} nFrets={nFrets} />
-          <Tuner TunerView={TunerView} />
+          <Tuner TunerView={GenericTunerView} />
         </div>
       </Layout>
     )
