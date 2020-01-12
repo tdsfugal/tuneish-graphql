@@ -1,6 +1,6 @@
 import React from "react"
 
-import { NoteView } from "./fretboard-view-elements"
+import { NoteView } from "../_styles/fretboard-view-elements"
 
 export default class FrettedNote extends React.Component {
   constructor(props) {
