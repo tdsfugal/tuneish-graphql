@@ -10,6 +10,7 @@ const HarmonyNote = props => {
   if (index >= 0) {
     return (
       <NoteView
+        scaleIndex={index + 1}
         noteName={current_key.notes[index]}
         stringPosition={stringPosition}
         fretPosition={fretPosition}
