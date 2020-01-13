@@ -6,8 +6,6 @@ import HarmonyNote from "./harmony-note"
 
 const notes = new Notes()
 
-console.log(notes)
-
 export default ({
   tuning,
   boardLength,

@@ -37,8 +37,8 @@ const Circle = ({ r, current_key }) => {
   )
 }
 
-const mapStateToProps = ({ key }) => {
-  return { current_key: key }
+const mapStateToProps = ({ current_key }) => {
+  return { current_key }
 }
 
 export default connect(mapStateToProps)(Circle)

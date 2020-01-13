@@ -5,6 +5,6 @@ const reducer = (state, action) => {
   return state
 }
 
-const initialState = { key: randomKey() }
+const initialState = { current_key: randomKey() }
 
 export default () => reduxCreateStore(reducer, initialState)

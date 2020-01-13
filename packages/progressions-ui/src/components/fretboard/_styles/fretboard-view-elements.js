@@ -41,11 +41,10 @@ export const FretView = ({ xPos, boardWidth }) => {
   )
 }
 
-export const NoteView = ({ noteName, state, stringPosition, fretPosition }) => {
-  const color = state.tonic ? "grey" : "green"
+export const NoteView = ({ noteName, stringPosition, fretPosition }) => {
   return (
     <>
-      <circle r={10} cx={fretPosition} cy={stringPosition} fill={color} />
+      <circle r={10} cx={fretPosition} cy={stringPosition} fill={"green"} />
       <text
         x={(fretPosition - 5).toString()}
         y={(stringPosition + 5).toString()}

@@ -14,8 +14,8 @@ Key.propTypes = {
   type: PropTypes.string.isRequired,
 }
 
-const mapStateToProps = ({ key }) => {
-  return key
+const mapStateToProps = ({ current_key }) => {
+  return current_key
 }
 
 export default connect(mapStateToProps)(Key)
