@@ -1,7 +1,7 @@
 import React from "react"
 
 const STRING_THICKNESS = 4
-const FRET_THICKNESS = 1
+const FRET_THICKNESS = 3
 const BOARD_COLOR = "#420"
 
 export const BoardView = ({ boardLength, boardWidth }) => {
@@ -32,23 +32,33 @@ export const StringView = ({ yPos, length }) => {
 export const FretView = ({ xPos, boardWidth }) => {
   return (
     <rect
-      x={xPos.toString()}
+      x={xPos - FRET_THICKNESS / 2}
       y="0"
-      width={FRET_THICKNESS.toString()}
+      width={FRET_THICKNESS}
       height={boardWidth}
       fill="#933"
     />
   )
 }
 
-const COLORS = {
+const SCALE_COLORS = {
   1: "red",
-  2: "green",
-  3: "green",
+  2: "transparent",
+  3: "transparent",
   4: "blue",
   5: "blue",
-  6: "green",
-  7: "green",
+  6: "transparent",
+  7: "transparent",
+}
+
+const CHORD_COLORS = {
+  1: "white",
+  2: "white",
+  3: "white",
+  4: "white",
+  5: "white",
+  6: "white",
+  7: "white",
 }
 
 export const NoteView = ({
@@ -57,19 +67,35 @@ export const NoteView = ({
   stringPosition,
   fretPosition,
 }) => {
+  const chordIndex = 1
+  const scaleColor = SCALE_COLORS[scaleIndex]
+  const chordColor = CHORD_COLORS[chordIndex]
   return (
     <>
       <circle
-        r={10}
+        r={13}
         cx={fretPosition}
         cy={stringPosition}
-        fill={COLORS[scaleIndex]}
+        stroke={scaleColor}
+        strokeWidth="3"
+        fill="transparent"
+      />
+      <circle
+        r={12}
+        cx={fretPosition}
+        cy={stringPosition}
+        stroke="transparent"
+        fill={chordColor}
       />
       <text
-        x={(fretPosition - 5).toString()}
+        x={fretPosition}
         y={(stringPosition + 5).toString()}
-        fill={"white"}
-        style={{ fontSize: 14 }}
+        fill="black"
+        fontFamily="sans-serif"
+        fontWeight="bold"
+        fontSize="12"
+        textAnchor="middle"
+        textLength="19"
       >
         {noteName}
       </text>
