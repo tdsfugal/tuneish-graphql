@@ -30,15 +30,15 @@ const TUNINGS = {
   4: [
     { name: En, octave: 1 },
     { name: An, octave: 1 },
-    { name: Dn, octave: 1 },
-    { name: Gn, octave: 1 },
+    { name: Dn, octave: 2 },
+    { name: Gn, octave: 2 },
   ],
   5: [
-    { name: Bn, octave: 1 },
+    { name: Bn, octave: 0 },
     { name: En, octave: 1 },
     { name: An, octave: 1 },
-    { name: Dn, octave: 1 },
-    { name: Gn, octave: 1 },
+    { name: Dn, octave: 2 },
+    { name: Gn, octave: 2 },
   ],
 }
 

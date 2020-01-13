@@ -2,10 +2,11 @@ import React from "react"
 
 import { NoteView } from "../_styles/fretboard-view-elements"
 
-export default class FrettedNote extends React.Component {
+export default class HarmonyNote extends React.Component {
   constructor(props) {
     super(props)
-    const noteName = this.props.note
+    console.log(props)
+    const noteName = this.props.note.names[0]
     this.state = { tonic: false, noteName }
   }
 
