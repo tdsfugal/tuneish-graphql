@@ -1,22 +1,38 @@
 import React from "react"
-import PropTypes from "prop-types"
 
-import KeyArcView from "./key-arc-view"
+import ArcView from "./arc-view"
+
+// const DEGREE_COLORS = {
+//   Maj: "blue",
+//   Min: "red",
+//   Dim: "green",
+// }
 
 // This higher order component handles the note metadata
-const KeyArc = ({ pos, r_outer, r_inner, theory }) => {
-  const note = theory.getNote(pos)
-
+const KeyArc = ({ pos, r_outer, r_inner, circle_note }) => {
+  const { name, degree } = circle_note
   return (
-    <KeyArcView pos={pos} r_outer={r_outer} r_inner={r_inner} note={note} />
+    <svg id={`key-arc-${name}`}>
+      <ArcView
+        pos={pos}
+        r_outer={r_outer}
+        r_inner={r_inner}
+        text={name}
+        fill={degree.type ? "#66AAEE" : "#EEAA66"}
+        stroke={"gray"}
+      />
+      {!degree.type ? null : (
+        <ArcView
+          pos={pos}
+          r_outer={r_inner}
+          r_inner={r_inner * 0.7}
+          text={degree.name}
+          fill={"transparent"}
+          stroke={"transparent"}
+        />
+      )}
+    </svg>
   )
-}
-
-KeyArc.propTypes = {
-  pos: PropTypes.number.isRequired,
-  r_outer: PropTypes.number.isRequired,
-  r_inner: PropTypes.number.isRequired,
-  theory: PropTypes.object.isRequired,
 }
 
 export default KeyArc

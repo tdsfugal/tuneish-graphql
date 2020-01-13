@@ -10,11 +10,16 @@ const THICK = 0.3
 const ARCS = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 
 const Circle = ({ r, current_key }) => {
+  // Determine the notes and note names in the current key
+  const circleTheory = new CircleTheory(current_key)
+
+  // Compute the geometry of the final component
   const box = r * (2 + MARGIN)
   const bCent = box / 2
   const r_outer = r
   const r_inner = r * (1 - THICK)
-  const theory = new CircleTheory(current_key)
+
+  // Render the component.
   return (
     <svg
       viewBox={`-${bCent} -${bCent} ${box} ${box}`}
@@ -23,13 +28,14 @@ const Circle = ({ r, current_key }) => {
       xmlns="http://www.w3.org/2000/svg"
     >
       {ARCS.map(pos => {
+        const circleNote = circleTheory.getNote(pos)
         return (
           <KeyArc
             key={`k${pos}`}
             pos={pos}
             r_outer={r_outer}
             r_inner={r_inner}
-            theory={theory}
+            circle_note={circleNote}
           />
         )
       })}
