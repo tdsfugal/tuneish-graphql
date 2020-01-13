@@ -8,6 +8,7 @@ const notes = new Notes()
 
 export default ({
   tuning,
+  left,
   boardLength,
   boardWidth,
   stringPositions,

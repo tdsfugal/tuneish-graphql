@@ -8,6 +8,7 @@ import {
 
 export default ({
   tuning,
+  left,
   boardLength,
   boardWidth,
   stringPositions,

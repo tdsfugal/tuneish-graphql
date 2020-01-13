@@ -43,7 +43,7 @@ const TUNINGS = {
 }
 
 const BassFretboard = ({ nStrings, nFrets }) => {
-  return <Fretboard tuning={TUNINGS[nStrings]} nFrets={nFrets} />
+  return <Fretboard tuning={TUNINGS[nStrings]} nFrets={nFrets} left={false} />
 }
 
 export default BassFretboard

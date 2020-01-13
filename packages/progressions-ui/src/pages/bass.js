@@ -14,7 +14,7 @@ const r = 160
 export default class BassPage extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { nStrings: 5, nFrets: 21 }
+    this.state = { nStrings: 4, nFrets: 21 }
   }
 
   render() {
