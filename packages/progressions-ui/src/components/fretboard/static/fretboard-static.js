@@ -27,19 +27,24 @@ const PUT_DOTS_AT = [
 
 export default ({
   tuning,
-  left,
   boardLength,
   boardWidth,
   stringPositions,
   fretPositions,
+  fretless,
+  left,
 }) => {
   // Compute the board
   const board = <BoardView boardLength={boardLength} boardWidth={boardWidth} />
 
   // Compute the frets
-  const frets = fretPositions.map((xPos, fret) => {
-    return <FretView key={`f_${fret}`} xPos={xPos} boardWidth={boardWidth} />
-  })
+  const frets = fretless
+    ? []
+    : fretPositions.map((xPos, fret) => {
+        return (
+          <FretView key={`f_${fret}`} xPos={xPos} boardWidth={boardWidth} />
+        )
+      })
 
   // Compute the strings
   const strings = stringPositions.map((yPos, string) => {

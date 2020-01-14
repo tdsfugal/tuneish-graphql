@@ -8,7 +8,7 @@ import FretboardNotes from "./notes/fretboard-notes"
 const STRING_SPACING = 30
 const EDGE_MARGIN = 10
 
-export default ({ tuning, nFrets, left }) => {
+export default ({ tuning, nFrets, fretless, left }) => {
   // compute the board dimensions
   const boardLength = 1000
   const boardWidth = 2 * EDGE_MARGIN + STRING_SPACING * (tuning.length - 1)
@@ -32,11 +32,12 @@ export default ({ tuning, nFrets, left }) => {
     <svg viewBox={viewDims} xmlns="http://www.w3.org/2000/svg">
       <FretboardStatic
         tuning={tuning}
-        left={left}
         boardLength={boardLength}
         boardWidth={boardWidth}
         stringPositions={stringPositions}
         fretPositions={fretPositions}
+        left={left}
+        fretless={fretless}
       />
       <FretboardNotes
         tuning={tuning}

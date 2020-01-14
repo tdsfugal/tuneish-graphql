@@ -42,8 +42,15 @@ const TUNINGS = {
   ],
 }
 
-const BassFretboard = ({ nStrings, nFrets }) => {
-  return <Fretboard tuning={TUNINGS[nStrings]} nFrets={nFrets} left={false} />
+const BassFretboard = ({ nStrings, nFrets, fretless, left }) => {
+  return (
+    <Fretboard
+      tuning={TUNINGS[nStrings]}
+      nFrets={nFrets}
+      fretless={fretless}
+      left={left}
+    />
+  )
 }
 
 export default BassFretboard
