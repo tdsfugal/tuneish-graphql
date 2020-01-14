@@ -16,13 +16,19 @@ figcaption,
 figure,
 footer,
 header,
-main,
 menu,
 nav,
 section,
 summary {
   display: block;
 }
+
+main {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
 audio,
 canvas,
 progress,

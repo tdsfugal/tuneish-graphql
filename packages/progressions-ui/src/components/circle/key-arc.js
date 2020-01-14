@@ -76,7 +76,7 @@ const KeyArc = ({ pos, r_outer, r_inner, circle_note }) => {
       r_inner={r_inner}
       text={name}
       shape_style={{
-        fill: degree.type ? "white" : "#a4d1a4",
+        fill: degree.type ? "white" : "#b6e5b6",
         stroke: "maroon",
         strokeWidth: 0.5,
       }}

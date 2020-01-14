@@ -47,17 +47,18 @@ export default ({
   const right = `L${x3}, ${y3} `
   const outer = `A${r_outer} ${r_outer} 0  0,0 ${x4}, ${y4} `
   const left = `L${x1}, ${y1} `
+  const pathString = `M ${x1} ${y1} ${inner} ${right} ${outer} ${left} z`
 
   // Compute the text offset and oother parameters to make it look right
-  const thick = r_outer - r_inner
-  const yOff = thick * 0.17
   return (
     <>
-      <path
-        d={`M ${x1} ${y1} ${inner} ${right} ${outer} ${left} z`}
-        style={shape_style}
-      />
-      <text x={xc} y={yc + yOff} textAnchor="middle" style={text_style}>
+      <path d={pathString} style={shape_style} />
+      <text
+        x={xc}
+        y={yc + (r_outer - r_inner) * 0.17}
+        textAnchor="middle"
+        style={text_style}
+      >
         {text}
       </text>
     </>
