@@ -34,16 +34,6 @@ const DEGREE_STROKES = {
 const KeyArc = ({ pos, r_outer, r_inner, circle_note }) => {
   const { name, degree } = circle_note
 
-  const noteShapeStyle = {
-    fill: degree.type ? "white" : "lightgray",
-    stroke: "gray",
-  }
-
-  const noteTextStyle = {
-    fontSize: 20,
-    fontFamily: "Arial Black, sans-serif",
-  }
-
   // generate the svg for the scale degree annotation, if any
   let scaleDegree = null
   let chordType = null
@@ -67,27 +57,40 @@ const KeyArc = ({ pos, r_outer, r_inner, circle_note }) => {
         text={degree.name}
         shape_style={{
           fill: "transparent",
+          stroke: "transparent",
         }}
         text_style={{
-          fontSize: 18,
-          fontFamily: "comic sans",
+          fontSize: 25,
+          fontWeight: 700,
+          fontFamily: "Georgia",
           fill: DEGREE_STROKES[degree.name],
         }}
       />
     )
   }
 
+  const noteElement = (
+    <ArcView
+      pos={pos}
+      r_outer={r_outer}
+      r_inner={r_inner}
+      text={name}
+      shape_style={{
+        fill: degree.type ? "white" : "#a4d1a4",
+        stroke: "maroon",
+        strokeWidth: 0.5,
+      }}
+      text_style={{
+        fontSize: 25,
+        fontFamily: "Arial Black",
+      }}
+    />
+  )
+
   return (
     <svg id={`key-arc-${name}`}>
       {chordType}
-      <ArcView
-        pos={pos}
-        r_outer={r_outer}
-        r_inner={r_inner}
-        text={name}
-        shape_style={noteShapeStyle}
-        text_style={noteTextStyle}
-      />
+      {noteElement}
       {scaleDegree}
     </svg>
   )

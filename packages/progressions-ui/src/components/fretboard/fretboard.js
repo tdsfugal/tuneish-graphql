@@ -29,11 +29,7 @@ export default ({ tuning, nFrets, left }) => {
   // Render the package deal
   const viewDims = `-15 -15 ${boardLength + 30} ${boardWidth + 30}`
   return (
-    <div
-      width={`${boardLength + 420}px`}
-      height={`${boardWidth + 45}px`}
-      style={{ backgroundColor: "tan" }}
-    >
+    <div width={`${boardLength + 420}px`} height={`${boardWidth + 45}px`}>
       <svg viewBox={viewDims} xmlns="http://www.w3.org/2000/svg">
         <FretboardStatic
           tuning={tuning}
