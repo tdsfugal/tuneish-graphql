@@ -1,8 +1,9 @@
 import React from "react"
 
+const BOARD_COLOR = "#420"
 const STRING_THICKNESS = 4
 const FRET_THICKNESS = 3
-const BOARD_COLOR = "#420"
+const DOT_RADIUS = 3
 
 export const BoardView = ({ boardLength, boardWidth }) => {
   return (
@@ -39,6 +40,21 @@ export const FretView = ({ xPos, boardWidth }) => {
       fill="#933"
     />
   )
+}
+
+export const DotView = ({ xPos, boardWidth, double = false }) => {
+  const cy = boardWidth + 10
+  if (double) {
+    const halfSpace = DOT_RADIUS * 1.5 // The first 1.0 is to get to the center
+    return (
+      <>
+        <circle cx={xPos - halfSpace} cy={cy} r={DOT_RADIUS} fill="black" />
+        <circle cx={xPos + halfSpace} cy={cy} r={DOT_RADIUS} fill="black" />
+      </>
+    )
+  } else {
+    return <circle cx={xPos} cy={cy} r={DOT_RADIUS} fill="black" />
+  }
 }
 
 const SCALE_COLORS = {
