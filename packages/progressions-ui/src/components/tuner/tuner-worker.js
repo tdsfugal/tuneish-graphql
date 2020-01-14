@@ -15,11 +15,11 @@ const MIN = SAMPLE_RATE / MAX_FREQ
 const SIZE = Math.pow(2, 12)
 const SAMPLE_FREQ = SAMPLE_RATE / SIZE
 const LOOP_TIME = 1000 / SAMPLE_FREQ
-
-console.log(`Minimum Size = ${2 * MAX}`)
-console.log(`Sample size = ${SIZE}`)
-console.log(`Sample frequency = ${SAMPLE_FREQ}`)
-console.log(`Loop time (ms) = ${LOOP_TIME}`)
+//
+// console.log(`Minimum Size = ${2 * MAX}`)
+// console.log(`Sample size = ${SIZE}`)
+// console.log(`Sample frequency = ${SAMPLE_FREQ}`)
+// console.log(`Loop time (ms) = ${LOOP_TIME}`)
 
 const getCrosses = arr => {
   const ups = []

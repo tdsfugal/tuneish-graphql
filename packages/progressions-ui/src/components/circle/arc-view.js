@@ -6,10 +6,9 @@ export default ({
   pos,
   r_outer,
   r_inner,
-  text,
-  fill,
-  stroke,
-  strokeWidth = 2,
+  text = "",
+  text_style = {},
+  shape_style = {},
 }) => {
   // centerline of the arc
   const angle = pos * 30
@@ -56,11 +55,9 @@ export default ({
     <>
       <path
         d={`M ${x1} ${y1} ${inner} ${right} ${outer} ${left} z`}
-        fill={fill}
-        stroke={stroke}
-        strokeWidth={strokeWidth}
+        style={shape_style}
       />
-      <text x={xc} y={yc + yOff} textAnchor="middle">
+      <text x={xc} y={yc + yOff} textAnchor="middle" style={text_style}>
         {text}
       </text>
     </>

@@ -2,20 +2,20 @@ import React from "react"
 
 import ArcView from "./arc-view"
 
-const DEGREE_FILLS = {
-  Maj: "lightblue",
-  Min: "lightpink",
-  Dim: "lightgreen",
+const TYPE_FILLS = {
+  Maj: "purple",
+  Min: "orange",
+  Dim: "green",
 }
 
 const DEGREE_STROKES = {
   I: "red",
   i: "red",
 
-  ii: "transparent",
+  ii: "white",
 
-  iii: "transparent",
-  III: "transparent",
+  iii: "white",
+  III: "white",
 
   IV: "blue",
   iv: "blue",
@@ -23,44 +23,70 @@ const DEGREE_STROKES = {
   V: "blue",
   v: "blue",
 
-  vi: "transparent",
-  VI: "transparent",
+  vi: "white",
+  VI: "white",
 
-  vii: "transparent",
-  VII: "transparent",
+  vii: "white",
+  VII: "white",
 }
 
 // This higher order component handles the note metadata
 const KeyArc = ({ pos, r_outer, r_inner, circle_note }) => {
   const { name, degree } = circle_note
 
+  const noteShapeStyle = {
+    fill: degree.type ? "white" : "lightgray",
+    stroke: "gray",
+  }
+
+  const noteTextStyle = {
+    fontSize: 20,
+    fontFamily: "Arial Black, sans-serif",
+  }
+
   // generate the svg for the scale degree annotation, if any
   let scaleDegree = null
-  if (degree.type) {
-    const degreeFill = DEGREE_FILLS[degree.type]
-    const degreeStroke = DEGREE_STROKES[degree.name]
+  let chordType = null
 
+  if (degree.type) {
+    chordType = (
+      <ArcView
+        pos={pos}
+        r_outer={r_outer * 1.07}
+        r_inner={r_outer}
+        shape_style={{
+          fill: TYPE_FILLS[degree.type],
+        }}
+      />
+    )
     scaleDegree = (
       <ArcView
         pos={pos}
-        r_outer={r_inner}
-        r_inner={r_inner * 0.7}
+        r_outer={r_inner * 0.95}
+        r_inner={r_inner * 0.65}
         text={degree.name}
-        fill={degreeFill}
-        stroke={degreeStroke}
+        shape_style={{
+          fill: "transparent",
+        }}
+        text_style={{
+          fontSize: 18,
+          fontFamily: "comic sans",
+          fill: DEGREE_STROKES[degree.name],
+        }}
       />
     )
   }
 
   return (
     <svg id={`key-arc-${name}`}>
+      {chordType}
       <ArcView
         pos={pos}
         r_outer={r_outer}
         r_inner={r_inner}
         text={name}
-        fill={degree.type ? "#66AAEE" : "#EEAA66"}
-        stroke={"gray"}
+        shape_style={noteShapeStyle}
+        text_style={noteTextStyle}
       />
       {scaleDegree}
     </svg>
