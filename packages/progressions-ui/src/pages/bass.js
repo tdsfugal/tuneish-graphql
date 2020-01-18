@@ -3,6 +3,7 @@ import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Circle from "../components/circle"
+
 import { BassFretboard } from "../components/instruments"
 
 const r = 160
@@ -31,3 +32,5 @@ export default class BassPage extends React.Component {
     )
   }
 }
+
+//  <Tuner TunerView={GenericTunerView} />

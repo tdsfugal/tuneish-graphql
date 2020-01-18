@@ -1,0 +1,15 @@
+{
+  "projectName": "progressions",
+  "version": "3.0",
+  "frontend": "javascript",
+  "javascript": {
+    "framework": "react",
+    "config": {
+      "SourceDir": "src",
+      "DistributionDir": "public/build",
+      "BuildCommand": "yarn build",
+      "StartCommand": "yarn serve"
+    }
+  },
+  "providers": ["awscloudformation"]
+}
