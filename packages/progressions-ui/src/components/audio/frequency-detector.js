@@ -111,10 +111,11 @@ const debounce = note => {
 }
 
 export default class TunerWorker {
-  constructor(userMedia, viewCallback, stateCallback) {
+  // Do not cunstruct this class unless in a loaded component in a browser
+  constructor(userMedia, fastCallback, stableCallback) {
     this.userMedia = userMedia
-    this.viewCallback = viewCallback // Fast update of tuner views
-    this.stateCallback = stateCallback // Deliberative update of app state
+    this.fastCallback = fastCallback // Fast update of tuner views
+    this.stableCallback = stableCallback // Deliberative update of app state
 
     // Only process signals above a -30 db threshold
     this.gate = new Tone.Gate(-30)
@@ -150,10 +151,10 @@ export default class TunerWorker {
               // // On major change, notify redux
               // const { tone, oct } = this.state
               // if (note.tone !== tone || note.oct !== oct) {
-              //   stateCallback(note)
+              //   stableCallback(note)
               // }
               // Update the tuner view
-              viewCallback({
+              fastCallback({
                 freq,
                 note,
                 cent: nearest.cent,
@@ -163,7 +164,7 @@ export default class TunerWorker {
         }
       } else {
         // No data, inform the tuner that nothing is going on
-        viewCallback({
+        fastCallback({
           freq: -1,
           note: null,
           cent: 0,

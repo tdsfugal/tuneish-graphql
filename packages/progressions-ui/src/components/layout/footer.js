@@ -1,4 +1,5 @@
 import React from "react"
+import AudioListener from "../audio"
 
 const Footer = () => {
   return (
@@ -8,7 +9,8 @@ const Footer = () => {
         marginBottom: `1.45rem`,
       }}
     >
-      <h1>{"footer"}</h1>
+      <AudioListener />
+      <h1>{"footer"}</h1>1
     </footer>
   )
 }
