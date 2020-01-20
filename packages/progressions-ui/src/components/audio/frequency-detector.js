@@ -91,8 +91,10 @@ export default class FrequencyDetector {
               if (nearest) {
                 const note = NOTES.getNoteByMidi(nearest.midi)
                 if (note && debounce(note)) {
-                  // call the stable callback when the note has definately changed
+                  // Only call the stable callback when the note has definately changed
                   if (note.tone !== this.tone || note.oct !== this.oct) {
+                    this.tone = note.tone
+                    this.oct = note.oct
                     this.stableCallback(note)
                   }
                   // call the fast callback on every change

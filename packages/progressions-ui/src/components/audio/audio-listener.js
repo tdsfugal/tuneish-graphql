@@ -1,8 +1,10 @@
 import React from "react"
+import { connect } from "react-redux"
+import { UPDATE_FAST_NOTE, UPDATE_STABLE_NOTE } from "../../state/action-types"
 
 import FrequencyDetector from "./frequency-detector"
 
-export default class AudioListener extends React.Component {
+class AudioListener extends React.Component {
   constructor(props) {
     super(props)
 
@@ -18,18 +20,8 @@ export default class AudioListener extends React.Component {
     console.log("In Browser, listening enabled.")
 
     // Set up the frequency detector to push updates to redux state
-    this.fastUpdate = () => {
-      console.log("fast update")
-    }
-
-    this.stableUpdate = () => {
-      console.log("stable update")
-    }
-
-    this._frequencyDetector = new FrequencyDetector(
-      this.fastUpdate,
-      this.stableUpdate
-    )
+    const { updateFast, updateStable } = this.props
+    this._frequencyDetector = new FrequencyDetector(updateFast, updateStable)
 
     // set the initial state to stopped. Wait to start the frequency detector.
     this.state = {
@@ -52,3 +44,14 @@ export default class AudioListener extends React.Component {
     return <div className="audio-listener"></div>
   }
 }
+
+const mapDispatchToProps = dispatch => {
+  return {
+    // dispatching plain actions
+    updateFast: ({ freq, note, cent }) =>
+      dispatch({ type: UPDATE_FAST_NOTE, freq, note, cent }),
+    updateStable: ({ note }) => dispatch({ type: UPDATE_STABLE_NOTE, note }),
+  }
+}
+
+export default connect(null, mapDispatchToProps)(AudioListener)
