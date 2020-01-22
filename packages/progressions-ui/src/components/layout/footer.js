@@ -1,17 +1,14 @@
 import React from "react"
+import { FooterView } from "../_styles"
+
 import AudioListener from "../audio"
 
 const Footer = () => {
   return (
-    <footer
-      style={{
-        background: `#aaa`,
-        marginBottom: `1.45rem`,
-      }}
-    >
+    <FooterView>
       <AudioListener />
       <h1>{"footer"}</h1>1
-    </footer>
+    </FooterView>
   )
 }
 
