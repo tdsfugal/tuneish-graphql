@@ -6,8 +6,8 @@ import AudioListener from "../audio"
 const Footer = () => {
   return (
     <FooterView>
+      footer
       <AudioListener />
-      <h1>{"footer"}</h1>1
     </FooterView>
   )
 }

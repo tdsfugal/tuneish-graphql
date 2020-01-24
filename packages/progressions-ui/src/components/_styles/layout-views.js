@@ -2,47 +2,46 @@ import styled from "@emotion/styled"
 
 export const LayoutView = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-flow: column nowrap;
+  height: 100vh;
+  width: 100vw;
   margin: 0;
   padding: 0;
 `
 
 export const HeaderView = styled.div`
-  flex: none;
-  display: flex;
-  flexdirection: row;
-  background: #aaa;
+  flex: 0 0 auto;
   width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  font-family: sans-serif;
+  color: white;
+  background: #aaa;
 `
 
 export const MainView = styled.div`
-  flex: auto;
-  display: flex;
-  flexdirection: column;
-  background: darkseagreen;
-  height: 100%;
+  flex: 1 1 80%;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  background: darkseagreen;
 `
 
 export const FooterView = styled.div`
-  flex: none;
-  display: flex;
-  flexdirection: row;
-  background: #aaa;
+  flex: 0 0 auto;
   width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  font-size: 1rem;
+  font-family: sans-serif;
+  color: white;
+  background: #aaa;
 `
 
 export const HeaderTitleView = styled.div`
-  margin-left: 0;
-  margin-right: 0;
-  margin-top: 0;
-  padding-bottom: 0;
-  padding-left: 0;
-  padding-right: 0;
-  padding-top: 0;
-  margin-bottom: 1.45rem;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  margin: 0px;
+  padding: 20px;
+  font-family: sans-serif;
   font-weight: bold;
   text-rendering: optimizeLegibility;
   font-size: 2.25rem;
@@ -53,6 +52,5 @@ export const HeaderTitleView = styled.div`
 
 export const LogoView = styled.div`
   padding: 10px;
-  margin: 20px;
-  background: #5ab;
+  margin: 10px;
 `

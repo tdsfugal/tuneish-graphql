@@ -77,7 +77,7 @@ const CHORD_COLORS = {
   7: "white",
 }
 
-export const NoteView = ({
+export const FretNoteView = ({
   noteName,
   scaleIndex,
   stringPosition,

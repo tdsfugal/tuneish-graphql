@@ -1,6 +1,6 @@
 import React from "react"
 
-import Notes from "../../../theory/notes"
+import Notes from "../../theory/notes"
 
 import HarmonyNote from "./harmony-note"
 

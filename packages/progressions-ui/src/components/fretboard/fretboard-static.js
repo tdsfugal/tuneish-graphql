@@ -5,7 +5,7 @@ import {
   FretView,
   StringView,
   DotView,
-} from "../_styles/fretboard-view-elements"
+} from "./fretboard-view-elements"
 
 const PUT_DOTS_AT = [
   { fret: 3 },

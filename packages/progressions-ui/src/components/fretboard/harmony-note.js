@@ -1,7 +1,7 @@
 import React from "react"
 import { connect } from "react-redux"
 
-import { NoteView } from "../_styles/fretboard-view-elements"
+import { FretNoteView } from "./fretboard-view-elements"
 
 const HarmonyNote = props => {
   const { stringPosition, fretPosition, current_key, note } = props
@@ -9,7 +9,7 @@ const HarmonyNote = props => {
   const index = current_key.tones.indexOf(note.tone)
   if (index >= 0) {
     return (
-      <NoteView
+      <FretNoteView
         scaleIndex={index + 1}
         noteName={current_key.notes[index]}
         stringPosition={stringPosition}

@@ -2,8 +2,8 @@ import React from "react"
 
 import FRET_POSITIONS from "../../theory/fret-positions"
 
-import FretboardStatic from "./static/fretboard-static"
-import FretboardNotes from "./notes/fretboard-notes"
+import FretboardStatic from "./fretboard-static"
+import FretboardNotes from "./fretboard-notes"
 
 const STRING_SPACING = 30
 const EDGE_MARGIN = 10
