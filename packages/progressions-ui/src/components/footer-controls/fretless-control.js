@@ -5,7 +5,11 @@ import { FooterControl } from "../_styles"
 import { TOGGLE_FRETLESS } from "../../state/action-types"
 
 const FretlessControl = ({ fretless, toggleFretless }) => (
-  <FooterControl active={fretless} onClick={() => toggleFretless(!fretless)}>
+  <FooterControl
+    key={"fretless"}
+    active={fretless}
+    onClick={() => toggleFretless(!fretless)}
+  >
     <p>Fretless</p>
   </FooterControl>
 )

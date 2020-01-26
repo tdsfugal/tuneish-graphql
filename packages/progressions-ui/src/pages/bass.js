@@ -21,20 +21,22 @@ export default class BassPage extends React.Component {
 
   render() {
     const { nStrings, nFrets, fretless, left } = this.state
-    const controls = [<FretlessControl />, <HandIndicatorControl />]
+    const controls = [
+      <FretlessControl key={"fl"} />,
+      <HandIndicatorControl key={"hi"} />,
+    ]
 
     return (
       <Layout footerControls={controls}>
-        <SEO title="Home" />
-        <div style={{ display: "flex", flexDirection: "column" }}>
-          <Circle r={r} />
-          <Bass
-            nStrings={nStrings}
-            nFrets={nFrets}
-            fretless={fretless}
-            left={left}
-          />
-        </div>
+        <SEO key="se" title="Home" />
+        <Circle key="ci" r={r} />
+        <Bass
+          key="ba"
+          nStrings={nStrings}
+          nFrets={nFrets}
+          fretless={fretless}
+          left={left}
+        />
       </Layout>
     )
   }

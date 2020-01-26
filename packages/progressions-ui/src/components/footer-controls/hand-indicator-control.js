@@ -6,6 +6,7 @@ import { TOGGLE_HAND_INDICATOR } from "../../state/action-types"
 
 const HandIndicatorControl = ({ hand_indicator, toggleHandIndicator }) => (
   <FooterControl
+    key={"handInd"}
     active={hand_indicator}
     onClick={() => toggleHandIndicator(!hand_indicator)}
   >

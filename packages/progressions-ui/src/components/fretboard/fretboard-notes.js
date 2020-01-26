@@ -29,6 +29,7 @@ const FretboardNotes = ({
         noteElements.push(
           <HarmonyNote
             key={`n_${string}_${fret}`}
+            fret={fret}
             note={notes.getNoteByMidi(rootNoteMidi + fret)}
             stringPosition={stringPositions[string]}
             fretPosition={fretPositions[fret]}
