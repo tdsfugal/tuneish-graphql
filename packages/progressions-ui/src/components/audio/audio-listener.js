@@ -1,5 +1,8 @@
 import React from "react"
 import { connect } from "react-redux"
+
+import { FooterControl } from "../_styles"
+
 import { UPDATE_FAST_NOTE, UPDATE_STABLE_NOTE } from "../../state/action-types"
 
 import FrequencyDetector from "./frequency-detector"
@@ -7,32 +10,34 @@ import FrequencyDetector from "./frequency-detector"
 class AudioListener extends React.Component {
   constructor(props) {
     super(props)
+    this.state = {
+      status: "disabled",
+      active: false,
+    }
 
+    // if not in a browser then no "window" for the Tone package to use.
     if (typeof window == undefined) {
-      // if not in a browser then no "window" for the Tone package to use.
       console.log("Not in browser, listening disabled")
-      // this._frequencyDetector = null
-      this.state = {
-        status: "disabled",
-      }
       return
     }
-    console.log("In Browser, listening enabled.")
-
-    // Set up the frequency detector to push updates to redux state
-    const { updateFast, updateStable } = this.props
-    this._frequencyDetector = new FrequencyDetector(updateFast, updateStable)
 
     // set the initial state to stopped. Wait to start the frequency detector.
-    this.state = {
-      status: "stopped",
+    this.state.status = "stopped"
+
+    this.toggleActive = async () => {
+      if (this.state.active) {
+        this._frequencyDetector.stop(() => this.setState({ active: false }))
+      } else {
+        this._frequencyDetector.start(() => this.setState({ active: true }))
+      }
     }
   }
 
   componentDidMount() {
     if (this.state.status === "disabled") return
-    // Once the component is mounted Tone can add an audio component.  Ok to start
-    this._frequencyDetector.start(status => this.setState({ status }))
+    // construct a frequency detector that pushes updates to the redux state
+    const { updateFast, updateStable } = this.props
+    this._frequencyDetector = new FrequencyDetector(updateFast, updateStable)
   }
 
   componentWillUnmount() {
@@ -40,8 +45,13 @@ class AudioListener extends React.Component {
   }
 
   render() {
-    // eventually this will be a control for the user to start and stop the tuner
-    return <div className="audio-listener"></div>
+    const { active } = this.state
+    return (
+      <FooterControl active={active} onClick={this.toggleActive}>
+        <div className="audio-listener"></div>
+        <p>Tuner</p>
+      </FooterControl>
+    )
   }
 }
 

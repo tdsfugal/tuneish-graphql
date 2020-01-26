@@ -37,6 +37,7 @@ export default class FrequencyDetector {
     this.tone = ""
     this.oct = 0
     this.freq = 0
+    this.running = false
   }
 
   start(callback) {
@@ -73,7 +74,21 @@ export default class FrequencyDetector {
         this.gt0.connect(this.waveform)
 
         // setup and start the sensing event loup
+        this.running = true
         this.intervalTimer = setInterval(() => {
+          // Check to see that the detector is not in the middle of a shutdown
+          if (
+            !(
+              this.running &&
+              this.userMedia &&
+              this.gate &&
+              this.gt0 &&
+              this.waveform
+            )
+          ) {
+            return
+          }
+
           // Get the array of positive (1) and negative (0) values
           const arr = this.waveform.getValue()
           // Find where 1->0 and 0->1.  Ignore constant regions.
@@ -123,13 +138,21 @@ export default class FrequencyDetector {
   }
 
   stop(callback) {
-    console.log("closing")
-    clearInterval(this.intervalTimer)
+    this.running = false
     this.userMedia.close()
+    clearInterval(this.intervalTimer)
     this.waveform.dispose()
     this.gt0.dispose()
     this.gate.dispose()
     this.userMedia.dispose()
+    this.fastCallback({
+      freq: 0,
+      note: null,
+      cent: 0.0,
+    })
+    this.stableCallback({
+      note: null,
+    })
     callback("stopped")
   }
 }

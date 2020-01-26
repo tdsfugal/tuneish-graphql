@@ -38,6 +38,19 @@ export const FooterView = styled.div`
   background: #aaa;
 `
 
+export const FooterControl = styled.div`
+  width: 100px;
+  height: 62px;
+  font-family: sans-serif;
+  font-size: 20;
+  font-weight: bold;
+  background-color: ${({ active }) => (active ? "pink" : "darkblue")};
+  color: ${({ active }) => (active ? "maroon" : "white")};
+  padding: 0px;
+  margin: 16px 24px 16px 24px;
+  text-align: center;
+`
+
 export const HeaderTitleView = styled.div`
   margin: 0px;
   padding: 20px;

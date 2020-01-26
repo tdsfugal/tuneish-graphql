@@ -6,7 +6,6 @@ import AudioListener from "../audio"
 const Footer = () => {
   return (
     <FooterView>
-      footer
       <AudioListener />
     </FooterView>
   )
