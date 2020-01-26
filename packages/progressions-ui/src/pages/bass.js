@@ -9,6 +9,7 @@ import { Bass } from "../components/instruments"
 import {
   FretlessControl,
   HandIndicatorControl,
+  LeftHandedControl,
 } from "../components/footer-controls"
 
 const r = 160
@@ -24,6 +25,7 @@ export default class BassPage extends React.Component {
     const controls = [
       <FretlessControl key={"fl"} />,
       <HandIndicatorControl key={"hi"} />,
+      <LeftHandedControl key={"lh"} />,
     ]
 
     return (

@@ -119,6 +119,6 @@ export const FretNoteView = ({
   )
 }
 
-export const HandView = ({ xLow, xHigh }) => {
-  return <rect x={xLow} y="-50" width={xHigh - xLow} height={30} fill="blue" />
+export const HandView = ({ xMin, xMax }) => {
+  return <rect x={xMin} y="-50" width={xMax - xMin} height={30} fill="blue" />
 }

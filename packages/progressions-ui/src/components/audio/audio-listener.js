@@ -49,7 +49,7 @@ class AudioListener extends React.Component {
     return (
       <FooterControl key={"audio"} active={active} onClick={this.toggleActive}>
         <div className="audio-listener"></div>
-        <p>Tuner</p>
+        <p>Tuner Active</p>
       </FooterControl>
     )
   }

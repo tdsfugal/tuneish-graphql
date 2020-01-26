@@ -6,17 +6,25 @@ import { HandView } from "./fretboard-view-elements"
 const EXTRA_WIDTH = 20
 
 const FretboardHandPosition = ({
+  left_handed,
   fretPositions,
   hand_indicator,
   low_fret,
   high_fret,
 }) => {
   if (hand_indicator) {
-    const xLow = fretPositions[low_fret] - EXTRA_WIDTH
-    const xHigh = fretPositions[high_fret] + EXTRA_WIDTH
+    let xMin
+    let xMax
+    if (left_handed) {
+      xMin = fretPositions[high_fret] - EXTRA_WIDTH
+      xMax = fretPositions[low_fret] + EXTRA_WIDTH
+    } else {
+      xMin = fretPositions[low_fret] - EXTRA_WIDTH
+      xMax = fretPositions[high_fret] + EXTRA_WIDTH
+    }
     return (
       <svg id="fretboard-hand-position">
-        <HandView xLow={xLow} xHigh={xHigh} />
+        <HandView xMin={xMin} xMax={xMax} />
       </svg>
     )
   }

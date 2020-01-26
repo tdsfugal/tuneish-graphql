@@ -4,6 +4,7 @@ import {
   UPDATE_FAST_NOTE,
   UPDATE_STABLE_NOTE,
   TOGGLE_FRETLESS,
+  TOGGLE_LEFT_HANDED,
   TOGGLE_HAND_INDICATOR,
 } from "./action-types"
 
@@ -29,6 +30,10 @@ const reducer = (state, action) => {
       return Object.assign({}, state, {
         fretless: action.fretless,
       })
+    case TOGGLE_LEFT_HANDED:
+      return Object.assign({}, state, {
+        left_handed: action.left_handed,
+      })
     case TOGGLE_HAND_INDICATOR:
       return Object.assign({}, state, {
         hand_indicator: action.hand_indicator,
@@ -52,10 +57,10 @@ const initialState = {
   },
   fretless: false,
   left_handed: false,
-  hand_indicator: true,
+  hand_indicator: false,
   hand_range: {
-    low_fret: 1,
-    high_fret: 5,
+    low_fret: 2,
+    high_fret: 6,
   },
 }
 

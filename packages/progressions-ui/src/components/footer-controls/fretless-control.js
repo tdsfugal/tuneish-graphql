@@ -14,8 +14,8 @@ const FretlessControl = ({ fretless, toggleFretless }) => (
   </FooterControl>
 )
 
-const mapStateToProps = state => {
-  return { fretless: state.fretless }
+const mapStateToProps = ({ fretless }) => {
+  return { fretless }
 }
 
 const mapDispatchToProps = dispatch => {

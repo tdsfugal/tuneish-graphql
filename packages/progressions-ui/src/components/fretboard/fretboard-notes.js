@@ -1,5 +1,4 @@
 import React from "react"
-import { connect } from "react-redux"
 
 import Notes from "../../theory/notes"
 
@@ -42,8 +41,4 @@ const FretboardNotes = ({
   return <svg id="fretboard-notes">{noteElements}</svg>
 }
 
-const mapStateToProps = state => {
-  return { left: state.left_handed }
-}
-
-export default connect(mapStateToProps)(FretboardNotes)
+export default FretboardNotes

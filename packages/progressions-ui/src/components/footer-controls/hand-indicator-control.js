@@ -10,7 +10,7 @@ const HandIndicatorControl = ({ hand_indicator, toggleHandIndicator }) => (
     active={hand_indicator}
     onClick={() => toggleHandIndicator(!hand_indicator)}
   >
-    <p>Hand</p>
+    <p>Hand Focus</p>
   </FooterControl>
 )
 

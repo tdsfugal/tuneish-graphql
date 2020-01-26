@@ -40,9 +40,12 @@ export const FooterView = styled.div`
 `
 
 export const FooterControl = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100px;
-  height: 62px;
-  border-radius: 30% 15%;
+  height: 80px;
+  border-radius: 10% 15%;
   padding: 0px;
   margin: 16px 12px 16px 12px;
   font-family: sans-serif;
