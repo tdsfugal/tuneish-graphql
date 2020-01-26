@@ -6,7 +6,10 @@ import Circle from "../components/circle"
 
 import { Bass } from "../components/instruments"
 
-import FretlessControl from "../components/fretboard/fretless-control"
+import {
+  FretlessControl,
+  HandIndicatorControl,
+} from "../components/footer-controls"
 
 const r = 160
 
@@ -18,7 +21,7 @@ export default class BassPage extends React.Component {
 
   render() {
     const { nStrings, nFrets, fretless, left } = this.state
-    const controls = <FretlessControl />
+    const controls = [<FretlessControl />, <HandIndicatorControl />]
 
     return (
       <Layout footerControls={controls}>

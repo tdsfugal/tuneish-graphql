@@ -3,7 +3,8 @@ import { createStore as reduxCreateStore } from "redux"
 import {
   UPDATE_FAST_NOTE,
   UPDATE_STABLE_NOTE,
-  UPDATE_FRETLESS,
+  TOGGLE_FRETLESS,
+  TOGGLE_HAND_INDICATOR,
 } from "./action-types"
 
 import { randomKey } from "../theory/keys"
@@ -24,9 +25,13 @@ const reducer = (state, action) => {
           note: action.note,
         },
       })
-    case UPDATE_FRETLESS:
+    case TOGGLE_FRETLESS:
       return Object.assign({}, state, {
         fretless: action.fretless,
+      })
+    case TOGGLE_HAND_INDICATOR:
+      return Object.assign({}, state, {
+        hand_indicator: action.hand_indicator,
       })
     default:
       return state
@@ -46,6 +51,11 @@ const initialState = {
     cent: 0.0,
   },
   fretless: false,
+  hand_indicator: false,
+  hand_range: {
+    low_fret: 1,
+    high_fret: 5,
+  },
 }
 
 export default () => reduxCreateStore(reducer, initialState)
