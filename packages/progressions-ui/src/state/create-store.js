@@ -51,7 +51,8 @@ const initialState = {
     cent: 0.0,
   },
   fretless: false,
-  hand_indicator: false,
+  left_handed: false,
+  hand_indicator: true,
   hand_range: {
     low_fret: 1,
     high_fret: 5,

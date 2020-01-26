@@ -80,7 +80,7 @@ const FretboardStatic = ({
 }
 
 const mapStateToProps = state => {
-  return { fretless: state.fretless }
+  return { fretless: state.fretless, left: state.left_handed }
 }
 
 export default connect(mapStateToProps)(FretboardStatic)

@@ -1,4 +1,5 @@
 import React from "react"
+import { connect } from "react-redux"
 
 import Notes from "../../theory/notes"
 
@@ -6,13 +7,15 @@ import HarmonyNote from "./harmony-note"
 
 const notes = new Notes()
 
-export default ({
+const FretboardNotes = ({
   tuning,
   left,
   boardLength,
   boardWidth,
   stringPositions,
   fretPositions,
+  hand_indicator,
+  hand_range,
 }) => {
   // Compute the notes.  These are active components that listen to the Redux state
   // to determine how to render themselves.  Many are invisible.
@@ -37,3 +40,9 @@ export default ({
 
   return <svg id="fretboard-notes">{noteElements}</svg>
 }
+
+const mapStateToProps = state => {
+  return { left: state.left_handed }
+}
+
+export default connect(mapStateToProps)(FretboardNotes)

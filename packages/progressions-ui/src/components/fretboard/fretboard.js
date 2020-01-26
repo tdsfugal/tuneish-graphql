@@ -4,11 +4,12 @@ import FRET_POSITIONS from "../../theory/fret-positions"
 
 import FretboardStatic from "./fretboard-static"
 import FretboardNotes from "./fretboard-notes"
+import FretboardHandPosition from "./fretboard-hand-position"
 
 const STRING_SPACING = 30
 const EDGE_MARGIN = 10
 
-export default ({ tuning, nFrets, fretless, left }) => {
+export default ({ tuning, nFrets, left }) => {
   // compute the board dimensions
   const boardLength = 1000
   const boardWidth = 2 * EDGE_MARGIN + STRING_SPACING * (tuning.length - 1)
@@ -36,8 +37,6 @@ export default ({ tuning, nFrets, fretless, left }) => {
         boardWidth={boardWidth}
         stringPositions={stringPositions}
         fretPositions={fretPositions}
-        left={left}
-        fretless={fretless}
       />
       <FretboardNotes
         tuning={tuning}
@@ -47,6 +46,7 @@ export default ({ tuning, nFrets, fretless, left }) => {
         stringPositions={stringPositions}
         fretPositions={fretPositions}
       />
+      <FretboardHandPosition fretPositions={fretPositions} />
     </svg>
   )
 }
