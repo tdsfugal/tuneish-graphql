@@ -6,6 +6,8 @@ import Circle from "../components/circle"
 
 import { Bass } from "../components/instruments"
 
+import FretlessControl from "../components/fretboard/fretless-control"
+
 const r = 160
 
 export default class BassPage extends React.Component {
@@ -16,8 +18,10 @@ export default class BassPage extends React.Component {
 
   render() {
     const { nStrings, nFrets, fretless, left } = this.state
+    const controls = <FretlessControl />
+
     return (
-      <Layout>
+      <Layout footerControls={controls}>
         <SEO title="Home" />
         <div style={{ display: "flex", flexDirection: "column" }}>
           <Circle r={r} />

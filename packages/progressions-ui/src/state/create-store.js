@@ -1,6 +1,10 @@
 import { createStore as reduxCreateStore } from "redux"
 
-import { UPDATE_FAST_NOTE, UPDATE_STABLE_NOTE } from "./action-types"
+import {
+  UPDATE_FAST_NOTE,
+  UPDATE_STABLE_NOTE,
+  UPDATE_FRETLESS,
+} from "./action-types"
 
 import { randomKey } from "../theory/keys"
 
@@ -20,6 +24,10 @@ const reducer = (state, action) => {
           note: action.note,
         },
       })
+    case UPDATE_FRETLESS:
+      return Object.assign({}, state, {
+        fretless: action.fretless,
+      })
     default:
       return state
   }
@@ -37,6 +45,7 @@ const initialState = {
     note: null,
     cent: 0.0,
   },
+  fretless: false,
 }
 
 export default () => reduxCreateStore(reducer, initialState)

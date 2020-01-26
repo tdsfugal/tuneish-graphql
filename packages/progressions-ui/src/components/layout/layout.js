@@ -2,15 +2,19 @@ import React from "react"
 import PropTypes from "prop-types"
 
 import Header from "./header"
-import Footer from "./footer"
-import { LayoutView, MainView } from "../_styles"
+import { LayoutView, MainView, FooterView } from "../_styles"
 
-const Layout = ({ children }) => {
+import AudioListener from "../audio"
+
+const Layout = ({ children, footerControls }) => {
   return (
     <LayoutView>
       <Header />
       <MainView>{children}</MainView>
-      <Footer />
+      <FooterView>
+        <AudioListener />
+        {footerControls}
+      </FooterView>
     </LayoutView>
   )
 }

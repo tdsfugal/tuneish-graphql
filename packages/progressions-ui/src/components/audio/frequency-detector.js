@@ -139,8 +139,8 @@ export default class FrequencyDetector {
 
   stop(callback) {
     this.running = false
-    this.userMedia.close()
     clearInterval(this.intervalTimer)
+    if (this.userMedia) this.userMedia.close()
     this.waveform.dispose()
     this.gt0.dispose()
     this.gate.dispose()

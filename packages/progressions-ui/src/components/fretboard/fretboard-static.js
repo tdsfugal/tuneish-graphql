@@ -1,4 +1,5 @@
 import React from "react"
+import { connect } from "react-redux"
 
 import {
   BoardView,
@@ -25,7 +26,7 @@ const PUT_DOTS_AT = [
   { fret: 36, double: true },
 ]
 
-export default ({
+const FretboardStatic = ({
   tuning,
   boardLength,
   boardWidth,
@@ -53,10 +54,14 @@ export default ({
 
   // Compute the dots
   const dots = PUT_DOTS_AT.map(({ fret, double = false }) => {
-    return fret > fretPositions.length ? null : (
+    if (fret === 0 || fret >= fretPositions.length) return null
+    const xPos = fretless
+      ? fretPositions[fret]
+      : (fretPositions[fret - 1] + fretPositions[fret]) / 2
+    return (
       <DotView
         key={`d_${fret}`}
-        xPos={fretPositions[fret]}
+        xPos={xPos}
         boardWidth={boardWidth}
         double={double}
       />
@@ -73,3 +78,9 @@ export default ({
     </svg>
   )
 }
+
+const mapStateToProps = state => {
+  return { fretless: state.fretless }
+}
+
+export default connect(mapStateToProps)(FretboardStatic)
