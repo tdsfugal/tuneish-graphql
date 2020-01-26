@@ -8,7 +8,7 @@ import { Bass } from "../components/instruments"
 
 import {
   FretlessControl,
-  HandIndicatorControl,
+  RangeFocusControl,
   LeftHandedControl,
 } from "../components/footer-controls"
 
@@ -17,14 +17,14 @@ const r = 160
 export default class BassPage extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { nStrings: 4, nFrets: 20, fretless: true, left: false }
+    this.state = { nStrings: 4, nFrets: 20 }
   }
 
   render() {
-    const { nStrings, nFrets, fretless, left } = this.state
+    const { nStrings, nFrets } = this.state
     const controls = [
       <FretlessControl key={"fl"} />,
-      <HandIndicatorControl key={"hi"} />,
+      <RangeFocusControl key={"hf"} />,
       <LeftHandedControl key={"lh"} />,
     ]
 
@@ -32,13 +32,7 @@ export default class BassPage extends React.Component {
       <Layout footerControls={controls}>
         <SEO key="se" title="Home" />
         <Circle key="ci" r={r} />
-        <Bass
-          key="ba"
-          nStrings={nStrings}
-          nFrets={nFrets}
-          fretless={fretless}
-          left={left}
-        />
+        <Bass key="ba" nStrings={nStrings} nFrets={nFrets} />
       </Layout>
     )
   }

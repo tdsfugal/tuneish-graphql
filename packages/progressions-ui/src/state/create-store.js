@@ -5,7 +5,7 @@ import {
   UPDATE_STABLE_NOTE,
   TOGGLE_FRETLESS,
   TOGGLE_LEFT_HANDED,
-  TOGGLE_HAND_INDICATOR,
+  TOGGLE_RANGE_FOCUS,
 } from "./action-types"
 
 import { randomKey } from "../theory/keys"
@@ -34,9 +34,9 @@ const reducer = (state, action) => {
       return Object.assign({}, state, {
         left_handed: action.left_handed,
       })
-    case TOGGLE_HAND_INDICATOR:
+    case TOGGLE_RANGE_FOCUS:
       return Object.assign({}, state, {
-        hand_indicator: action.hand_indicator,
+        range_focus: action.range_focus,
       })
     default:
       return state
@@ -57,7 +57,7 @@ const initialState = {
   },
   fretless: false,
   left_handed: false,
-  hand_indicator: false,
+  range_focus: false,
   hand_range: {
     low_fret: 2,
     high_fret: 6,

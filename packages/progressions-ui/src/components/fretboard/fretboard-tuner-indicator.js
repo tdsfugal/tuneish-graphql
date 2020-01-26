@@ -16,7 +16,7 @@ const FretboardTunerIndicator = ({
 }
 
 const mapStateToProps = ({
-  hand_indicator,
+  range_focus,
   hand_range,
   fast_note,
   left_handed,
@@ -26,7 +26,7 @@ const mapStateToProps = ({
     freq: fast_note.freq,
     note: fast_note.note,
     cent: fast_note.cent,
-    hand_indicator: hand_indicator,
+    range_focus: range_focus,
     low_fret: hand_range.low_fret,
     high_fret: hand_range.high_fret,
   }

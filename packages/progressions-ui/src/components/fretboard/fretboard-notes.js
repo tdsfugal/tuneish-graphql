@@ -13,7 +13,7 @@ const FretboardNotes = ({
   boardWidth,
   stringPositions,
   fretPositions,
-  hand_indicator,
+  range_focus,
   hand_range,
 }) => {
   // Compute the notes.  These are active components that listen to the Redux state

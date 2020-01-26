@@ -9,14 +9,14 @@ const HarmonyNote = ({
   fretPosition,
   current_key,
   note,
-  hand_indicator,
+  range_focus,
   low_fret,
   high_fret,
 }) => {
   // Check to see if note is in the key
   const index = current_key.tones.indexOf(note.tone)
   // Check to see if note should display
-  if (index < 0 || (hand_indicator && !(fret >= low_fret && fret <= high_fret)))
+  if (index < 0 || (range_focus && !(fret >= low_fret && fret <= high_fret)))
     return null
   // All is good, display the note
   return (
@@ -30,10 +30,10 @@ const HarmonyNote = ({
   )
 }
 
-const mapStateToProps = ({ current_key, hand_indicator, hand_range }) => {
+const mapStateToProps = ({ current_key, range_focus, hand_range }) => {
   return {
     current_key,
-    hand_indicator,
+    range_focus,
     low_fret: hand_range.low_fret,
     high_fret: hand_range.high_fret,
   }

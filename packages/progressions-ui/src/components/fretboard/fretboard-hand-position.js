@@ -8,11 +8,11 @@ const EXTRA_WIDTH = 20
 const FretboardHandPosition = ({
   left_handed,
   fretPositions,
-  hand_indicator,
+  range_focus,
   low_fret,
   high_fret,
 }) => {
-  if (hand_indicator) {
+  if (range_focus) {
     let xMin
     let xMax
     if (left_handed) {
@@ -33,7 +33,7 @@ const FretboardHandPosition = ({
 
 const mapStateToProps = state => {
   return {
-    hand_indicator: state.hand_indicator,
+    range_focus: state.range_focus,
     low_fret: state.hand_range.low_fret,
     high_fret: state.hand_range.high_fret,
   }
