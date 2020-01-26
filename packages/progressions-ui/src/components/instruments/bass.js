@@ -30,17 +30,17 @@ import {
 
 const TUNINGS = {
   4: [
-    { name: En, octave: 1 },
-    { name: An, octave: 1 },
-    { name: Dn, octave: 2 },
-    { name: Gn, octave: 2 },
+    { name: En, tone: 4, octave: 1 },
+    { name: An, tone: 9, octave: 1 },
+    { name: Dn, tone: 2, octave: 2 },
+    { name: Gn, tone: 7, octave: 2 },
   ],
   5: [
-    { name: Bn, octave: 0 },
-    { name: En, octave: 1 },
-    { name: An, octave: 1 },
-    { name: Dn, octave: 2 },
-    { name: Gn, octave: 2 },
+    { name: Bn, tone: 11, octave: 0 },
+    { name: En, tone: 4, octave: 1 },
+    { name: An, tone: 9, octave: 1 },
+    { name: Dn, tone: 2, octave: 2 },
+    { name: Gn, tone: 7, octave: 2 },
   ],
 }
 

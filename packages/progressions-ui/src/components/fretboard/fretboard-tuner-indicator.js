@@ -1,10 +1,10 @@
 import React from "react"
 import { connect } from "react-redux"
 
+import { FretboardTunerView } from "./fretboard-view-elements"
+
 const FretboardTunerIndicator = ({
   tuning,
-  boardLength,
-  boardWidth,
   stringPositions,
   fretPositions,
   left,
@@ -12,7 +12,25 @@ const FretboardTunerIndicator = ({
   note,
   cent,
 }) => {
-  return null
+  // Note - It isn't important to explicitly know if the tuner is on. Fast notes show up only
+  //        when it is active.  A null indicator on the note value is sufficient.
+  if (!note) return null
+
+  return tuning.map(({ tone, octave }, string) => {
+    const deltaTone = note.tone - tone
+    const deltaOct = note.oct - octave
+    const fret = deltaTone + 12 * deltaOct
+    // TODO - check this math.  Not sure it is correct.
+    if (fret < 0 || fret >= fretPositions.length) return null
+    return (
+      <FretboardTunerView
+        key={`str-${string}`}
+        noteName={note.name}
+        stringPosition={stringPositions[string]}
+        fretPosition={fretPositions[fret]}
+      />
+    )
+  })
 }
 
 const mapStateToProps = ({

@@ -44,6 +44,10 @@ const Fretboard = ({ tuning, nFrets, left_handed }) => {
         fretPositions={fretPositions}
         left_handed={left_handed}
       />
+      <FretboardHandPosition
+        left_handed={left_handed}
+        fretPositions={fretPositions}
+      />
       <FretboardNotes
         tuning={tuning}
         boardLength={boardLength}
@@ -52,14 +56,8 @@ const Fretboard = ({ tuning, nFrets, left_handed }) => {
         fretPositions={fretPositions}
         left_handed={left_handed}
       />
-      <FretboardHandPosition
-        left_handed={left_handed}
-        fretPositions={fretPositions}
-      />
       <FretboardTunerIndicator
         tuning={tuning}
-        boardLength={boardLength}
-        boardWidth={boardWidth}
         stringPositions={stringPositions}
         fretPositions={fretPositions}
         left_handed={left_handed}

@@ -122,3 +122,33 @@ export const FretNoteView = ({
 export const HandView = ({ xMin, xMax }) => {
   return <rect x={xMin} y="-50" width={xMax - xMin} height={30} fill="blue" />
 }
+
+export const FretboardTunerView = ({
+  noteName,
+  stringPosition,
+  fretPosition,
+}) => {
+  return (
+    <>
+      <circle
+        r={12}
+        cx={fretPosition}
+        cy={stringPosition}
+        stroke="transparent"
+        fill="purple"
+      />
+      <text
+        x={fretPosition}
+        y={(stringPosition + 5).toString()}
+        fill="black"
+        fontFamily="sans-serif"
+        fontWeight="bold"
+        fontSize="12"
+        textAnchor="middle"
+        textLength="19"
+      >
+        {noteName}
+      </text>
+    </>
+  )
+}
