@@ -30,6 +30,7 @@ export const MainView = styled.div`
 export const FooterView = styled.div`
   flex: 0 0 auto;
   width: 100%;
+  padding: 0px 20px 0px 20px;
   display: flex;
   flex-flow: row nowrap;
   font-size: 1rem;
@@ -41,14 +42,15 @@ export const FooterView = styled.div`
 export const FooterControl = styled.div`
   width: 100px;
   height: 62px;
+  border-radius: 30% 15%;
+  padding: 0px;
+  margin: 16px 12px 16px 12px;
   font-family: sans-serif;
-  font-size: 20;
+  font-size: 20px;
   font-weight: bold;
+  text-align: center;
   background-color: ${({ active }) => (active ? "pink" : "darkblue")};
   color: ${({ active }) => (active ? "maroon" : "white")};
-  padding: 0px;
-  margin: 16px 24px 16px 24px;
-  text-align: center;
 `
 
 export const HeaderTitleView = styled.div`
