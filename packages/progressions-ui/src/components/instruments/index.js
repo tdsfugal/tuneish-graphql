@@ -1,1 +1,1 @@
-export { default as BassFretboard } from "./bass-fretboard"
+export { default as Bass } from "./bass"

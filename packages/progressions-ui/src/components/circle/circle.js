@@ -1,6 +1,8 @@
 import React from "react"
 import { connect } from "react-redux"
 
+import { CircleView } from "../_styles"
+
 import KeyArc from "./key-arc"
 
 import CircleTheory from "../../theory/circle-theory"
@@ -21,25 +23,27 @@ const Circle = ({ r, current_key }) => {
 
   // Render the component.
   return (
-    <svg
-      viewBox={`-${bCent} -${bCent} ${box} ${box}`}
-      width={`${box}px`}
-      height={`${box}px`}
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      {ARCS.map(pos => {
-        const circleNote = circleTheory.getNote(pos)
-        return (
-          <KeyArc
-            key={`k${pos}`}
-            pos={pos}
-            r_outer={r_outer}
-            r_inner={r_inner}
-            circle_note={circleNote}
-          />
-        )
-      })}
-    </svg>
+    <CircleView>
+      <svg
+        viewBox={`-${bCent} -${bCent} ${box} ${box}`}
+        width={`${box}px`}
+        height={`${box}px`}
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        {ARCS.map(pos => {
+          const circleNote = circleTheory.getNote(pos)
+          return (
+            <KeyArc
+              key={`k${pos}`}
+              pos={pos}
+              r_outer={r_outer}
+              r_inner={r_inner}
+              circle_note={circleNote}
+            />
+          )
+        })}
+      </svg>
+    </CircleView>
   )
 }
 

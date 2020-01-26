@@ -1,5 +1,7 @@
 import React from "react"
 
+import { BassView } from "../_styles"
+
 import Fretboard from "../fretboard/fretboard"
 
 import {
@@ -42,15 +44,17 @@ const TUNINGS = {
   ],
 }
 
-const BassFretboard = ({ nStrings, nFrets, fretless, left }) => {
+const Bass = ({ nStrings, nFrets, fretless, left }) => {
   return (
-    <Fretboard
-      tuning={TUNINGS[nStrings]}
-      nFrets={nFrets}
-      fretless={fretless}
-      left={left}
-    />
+    <BassView>
+      <Fretboard
+        tuning={TUNINGS[nStrings]}
+        nFrets={nFrets}
+        fretless={fretless}
+        left={left}
+      />
+    </BassView>
   )
 }
 
-export default BassFretboard
+export default Bass

@@ -1,3 +1,3 @@
 import "./main.css"
 
-export * from "./layout-views"
+export * from "./emotion-views"

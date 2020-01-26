@@ -54,3 +54,7 @@ export const LogoView = styled.div`
   padding: 10px;
   margin: 10px;
 `
+
+export const CircleView = styled.div``
+
+export const BassView = styled.div``

@@ -4,7 +4,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Circle from "../components/circle"
 
-import { BassFretboard } from "../components/instruments"
+import { Bass } from "../components/instruments"
 
 const r = 160
 
@@ -21,7 +21,7 @@ export default class BassPage extends React.Component {
         <SEO title="Home" />
         <div style={{ display: "flex", flexDirection: "column" }}>
           <Circle r={r} />
-          <BassFretboard
+          <Bass
             nStrings={nStrings}
             nFrets={nFrets}
             fretless={fretless}
