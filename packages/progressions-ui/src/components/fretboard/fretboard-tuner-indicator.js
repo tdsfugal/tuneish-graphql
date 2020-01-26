@@ -11,17 +11,21 @@ const FretboardTunerIndicator = ({
   freq,
   note,
   cent,
+  range_focus,
+  low_fret,
+  high_fret,
 }) => {
   // Note - It isn't important to explicitly know if the tuner is on. Fast notes show up only
   //        when it is active.  A null indicator on the note value is sufficient.
   if (!note) return null
 
+  const min_fret = range_focus ? low_fret : 0
+  const max_fret = range_focus ? high_fret : fretPositions.length - 1
   return tuning.map(({ tone, octave }, string) => {
     const deltaTone = note.tone - tone
     const deltaOct = note.oct - octave
     const fret = deltaTone + 12 * deltaOct
-    // TODO - check this math.  Not sure it is correct.
-    if (fret < 0 || fret >= fretPositions.length) return null
+    if (fret < min_fret || fret > max_fret) return null
     return (
       <FretboardTunerView
         key={`str-${string}`}
