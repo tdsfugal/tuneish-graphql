@@ -3,12 +3,15 @@ import { connect } from "react-redux"
 
 import { FretboardTunerView } from "./fretboard-view-elements"
 
+var cents = []
+const MAX_CENTS = 10
+var lastMidi = null
+
 const FretboardTunerIndicator = ({
   tuning,
   stringPositions,
   fretPositions,
   left,
-  freq,
   note,
   cent,
   range_focus,
@@ -17,8 +20,20 @@ const FretboardTunerIndicator = ({
 }) => {
   // Note - It isn't important to explicitly know if the tuner is on. Fast notes show up only
   //        when it is active.  A null indicator on the note value is sufficient.
-  if (!note) return null
+  if (!note) {
+    cents = []
+    return null
+  }
 
+  // Update cents. Cents are deviations from perfect pitch for the note.  cent is in range (-50, +50)
+  if (note.midi !== lastMidi) {
+    lastMidi = note.midi
+    cents = []
+  }
+  cents.push(cent)
+  if (cents.length >= MAX_CENTS) cents.unshift()
+
+  // compute the location infos
   const min_fret = range_focus ? low_fret : 0
   const max_fret = range_focus ? high_fret : fretPositions.length - 1
   return tuning.map(({ tone, octave }, string) => {
@@ -29,7 +44,7 @@ const FretboardTunerIndicator = ({
     return (
       <FretboardTunerView
         key={`str-${string}`}
-        noteName={note.name}
+        cents={cents}
         stringPosition={stringPositions[string]}
         fretPosition={fretPositions[fret]}
       />
@@ -45,7 +60,6 @@ const mapStateToProps = ({
 }) => {
   return {
     left: left_handed,
-    freq: fast_note.freq,
     note: fast_note.note,
     cent: fast_note.cent,
     range_focus: range_focus,

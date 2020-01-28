@@ -123,32 +123,37 @@ export const HandView = ({ xMin, xMax }) => {
   return <rect x={xMin} y="-50" width={xMax - xMin} height={30} fill="blue" />
 }
 
-export const FretboardTunerView = ({
-  noteName,
-  stringPosition,
-  fretPosition,
-}) => {
+const RAY_HEIGHT_FRACTION = 70 / 50 / 60
+const RAY_WIDTH_FRACTION = 60 / 50 / 50 / 50
+
+export const FretboardTunerView = ({ stringPosition, fretPosition, cents }) => {
+  // compute the tuner rays.  They fade with age.
+  const rays = cents.map((cent, index) => {
+    const wide = RAY_WIDTH_FRACTION * cent * cent * cent
+    const high = 16 + RAY_HEIGHT_FRACTION * cent * cent
+    return (
+      <line
+        key={wide + index}
+        x1={fretPosition - wide}
+        y1={stringPosition + high}
+        x2={fretPosition + wide}
+        y2={stringPosition - high}
+        stroke="yellow"
+      />
+    )
+  })
+
   return (
     <>
+      {rays}
       <circle
-        r={12}
+        r={16}
         cx={fretPosition}
         cy={stringPosition}
-        stroke="transparent"
-        fill="purple"
+        stroke="orange"
+        strokeWidth="2"
+        fill="transparent"
       />
-      <text
-        x={fretPosition}
-        y={(stringPosition + 5).toString()}
-        fill="black"
-        fontFamily="sans-serif"
-        fontWeight="bold"
-        fontSize="12"
-        textAnchor="middle"
-        textLength="19"
-      >
-        {noteName}
-      </text>
     </>
   )
 }
