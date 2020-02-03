@@ -2,7 +2,7 @@ import React from "react"
 import { connect } from "react-redux"
 
 import { FooterControl } from "../_styles"
-import { TOGGLE_RANGE_FOCUS } from "../../state/action-types"
+import { TOGGLE_RANGE_FOCUS } from "../../state/redux/action-types"
 
 const RangeFocusControl = ({ range_focus, toggleRangeFocus }) => (
   <FooterControl

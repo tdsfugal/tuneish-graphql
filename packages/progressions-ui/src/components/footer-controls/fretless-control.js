@@ -2,7 +2,7 @@ import React from "react"
 import { connect } from "react-redux"
 
 import { FooterControl } from "../_styles"
-import { TOGGLE_FRETLESS } from "../../state/action-types"
+import { TOGGLE_FRETLESS } from "../../state/redux/action-types"
 
 const FretlessControl = ({ fretless, toggleFretless }) => (
   <FooterControl

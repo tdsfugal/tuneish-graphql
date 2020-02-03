@@ -3,7 +3,10 @@ import { connect } from "react-redux"
 
 import { FooterControl } from "../_styles"
 
-import { UPDATE_FAST_NOTE, UPDATE_STABLE_NOTE } from "../../state/action-types"
+import {
+  UPDATE_FAST_NOTE,
+  UPDATE_STABLE_NOTE,
+} from "../../state/redux/action-types"
 
 import FrequencyDetector from "./frequency-detector"
 

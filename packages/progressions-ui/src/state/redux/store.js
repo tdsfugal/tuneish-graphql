@@ -8,7 +8,7 @@ import {
   TOGGLE_RANGE_FOCUS,
 } from "./action-types"
 
-import { randomKey } from "../theory/keys"
+import { randomKey } from "../../theory/keys"
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -64,4 +64,6 @@ const initialState = {
   },
 }
 
-export default () => reduxCreateStore(reducer, initialState)
+const reduxStore = reduxCreateStore(reducer, initialState)
+
+export default reduxStore

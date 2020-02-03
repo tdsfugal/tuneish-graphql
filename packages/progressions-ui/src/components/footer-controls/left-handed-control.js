@@ -2,7 +2,7 @@ import React from "react"
 import { connect } from "react-redux"
 
 import { FooterControl } from "../_styles"
-import { TOGGLE_LEFT_HANDED } from "../../state/action-types"
+import { TOGGLE_LEFT_HANDED } from "../../state/redux/action-types"
 
 const LeftHandedControl = ({ left_handed, toggleLeftHanded }) => (
   <FooterControl

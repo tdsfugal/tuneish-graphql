@@ -1,14 +1,20 @@
 import React from "react"
+// import { ApolloProvider } from "react-apollo"
 import { Provider } from "react-redux"
 
-import createStore from "./create-store"
+// import apolloClient from "./apollo/client"
+import reduxStore from "./redux/store"
 
-// eslint-disable-next-line react/display-name,react/prop-types
 export default ({ element }) => {
-  // Instantiating store in `wrapRootElement` handler ensures:
-  //  - there is fresh store for each SSR page
-  //  - it will be called only once in browser, when React mounts
-  const store = createStore()
+  // TODO - does this really need both Apollo and Redux???
+  //        It would be better if the config informaiton on the
+  //        page was persisted in the user's account for cookie-less
+  //        services.  Make it so! Transfer the redux state to GraphQL.
+  // return (
+  //   <ApolloProvider client={apolloClient}>
+  //     <Provider store={reduxStore}>{element}</Provider>
+  //   </ApolloProvider>
+  // )
 
-  return <Provider store={store}>{element}</Provider>
+  return <Provider store={reduxStore}>{element}</Provider>
 }
