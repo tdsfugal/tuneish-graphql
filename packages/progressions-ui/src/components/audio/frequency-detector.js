@@ -140,11 +140,13 @@ export default class FrequencyDetector {
   stop(callback) {
     this.running = false
     clearInterval(this.intervalTimer)
-    if (this.userMedia) this.userMedia.close()
-    this.waveform.dispose()
-    this.gt0.dispose()
-    this.gate.dispose()
-    this.userMedia.dispose()
+    if (this.userMedia) {
+      this.userMedia.close()
+      this.userMedia.dispose()
+    }
+    if (this.waveform) this.waveform.dispose()
+    if (this.gt0) this.gt0.dispose()
+    if (this.gate) this.gate.dispose()
     this.fastCallback({
       freq: 0,
       note: null,

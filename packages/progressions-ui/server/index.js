@@ -17,9 +17,9 @@ const app = express()
 app.use(cors({ origin: CORS_ADDRESS }))
 app.use(morgan("tiny"))
 
-apolloServer.applyMiddleware({ app, path: GQL_URL })
+// app.use(express.static("public"))
 
-app.use(express.static("public"))
+apolloServer.applyMiddleware({ app, path: GQL_URL })
 
 app.get("*", function(req, res) {
   res.redirect("/404")
