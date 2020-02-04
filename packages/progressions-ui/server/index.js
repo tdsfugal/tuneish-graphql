@@ -17,7 +17,7 @@ const app = express()
 app.use(cors({ origin: CORS_ADDRESS }))
 app.use(morgan("tiny"))
 
-// app.use(express.static("public"))
+// app.use(express.static("public"))  // Note - not a good idea in dev. Might work in production.
 
 apolloServer.applyMiddleware({ app, path: GQL_URL })
 
