@@ -6,9 +6,9 @@
   "author": "Tim Smith <tim.smith@fugaltech.com",
   "license": "LicenseRef-LICENSE",
   "scripts": {
-    "develop": "nodemon -r esm server/index.js",
+    "dev": "nodemon -r esm src/index.js",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "serve": "node -r esm server/index.js",
+    "serve": "node -r esm src/index.js",
     "test": "jest --watch"
   },
   "dependencies": {
