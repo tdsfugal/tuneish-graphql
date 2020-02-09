@@ -1,9 +1,18 @@
 {
-  "name": "prog-ui",
+  "name": "app-tune-ish",
   "private": true,
-  "description": "Progressions user interface",
+  "description": "Tune-ish web app",
   "version": "0.1.0",
   "author": "Tim Smith <tim.smith@fugaltech.com",
+  "license": "LicenseRef-LICENSE",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "test": "jest --watch"
+  },
   "dependencies": {
     "@emotion/core": "^10.0.27",
     "@emotion/styled": "^10.0.27",
@@ -29,25 +38,7 @@
     "tone": "^13.8.25",
     "typescript": "^3.7.5"
   },
-  "devDependencies": {
-    "babel-jest": "^24.9.0",
-    "babel-preset-gatsby": "^0.2.26",
-    "eslint-plugin-graphql": "^3.1.1",
-    "identity-obj-proxy": "^3.0.0",
-    "jest": "^24.9.0",
-    "prettier": "^1.19.1",
-    "react-test-renderer": "^16.12.0"
-  },
   "keywords": [
     "gatsby"
-  ],
-  "license": "MIT",
-  "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "test": "jest --watch"
-  }
+  ]
 }

@@ -1,9 +1,16 @@
 {
-  "name": "prog-gql",
+  "name": "server-gql",
   "private": true,
-  "description": "GQL server for progressions app",
+  "description": "GQL server for Tune-ish",
   "version": "0.1.0",
   "author": "Tim Smith <tim.smith@fugaltech.com",
+  "license": "LicenseRef-LICENSE",
+  "scripts": {
+    "develop": "nodemon -r esm server/index.js",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "serve": "node -r esm server/index.js",
+    "test": "jest --watch"
+  },
   "dependencies": {
     "apollo-server": "^2.9.16",
     "apollo-server-express": "^2.9.16",
@@ -16,18 +23,5 @@
     "mongoose": "^5.8.11",
     "morgan": "^1.9.1",
     "typescript": "^3.7.5"
-  },
-  "devDependencies": {
-    "babel-jest": "^24.9.0",
-    "eslint-plugin-graphql": "^3.1.1",
-    "identity-obj-proxy": "^3.0.0",
-    "jest": "^24.9.0",
-    "prettier": "^1.19.1"
-  },
-  "scripts": {
-    "develop": "nodemon -r esm server/index.js",
-    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "serve": "node -r esm server/index.js",
-    "test": "jest --watch"
   }
 }
