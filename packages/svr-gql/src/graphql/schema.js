@@ -1,6 +1,6 @@
 import { gql } from "apollo-server-express"
 
-import getLogger from "./getLogger"
+import getLogger from "../getLogger"
 const logger = getLogger(__filename)
 
 const schema = gql`

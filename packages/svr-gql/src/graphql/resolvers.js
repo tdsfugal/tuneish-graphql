@@ -3,7 +3,7 @@
 //
 import { subscriptionConnector } from "../connectors"
 
-import getLogger from "./getLogger"
+import getLogger from "../getLogger"
 const logger = getLogger(__filename)
 
 const resolvers = {

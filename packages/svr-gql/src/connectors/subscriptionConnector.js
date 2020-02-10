@@ -1,6 +1,6 @@
 import mongoose from "mongoose"
 
-import getLogger from "./getLogger"
+import getLogger from "../getLogger"
 const logger = getLogger(__filename)
 
 const dbURL = process.env.DATABASE_URL || "mongodb://localhost:27017/tunish"

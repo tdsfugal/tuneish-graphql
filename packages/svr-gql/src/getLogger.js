@@ -10,7 +10,9 @@ export default filename => {
       new winston.transports.File({ filename: "error.log", level: "error" }),
       new winston.transports.File({ filename: "combined.log" }),
     ],
-    exceptionHandlers: [new transports.File({ filename: "exceptions.log" })],
+    exceptionHandlers: [
+      new winston.transports.File({ filename: "exceptions.log" }),
+    ],
   })
 
   // Add console if not in production
