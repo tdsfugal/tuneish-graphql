@@ -1,12 +1,10 @@
-require("dotenv").config()
-
 import app from "./app"
 
-import getLogger from "./getLogger"
+import { getLogger, getEnvVariable } from "./util"
 const logger = getLogger(__filename)
 
-const SERVE_PORT = process.env.GQL_PORT || 3000
+const GQL_PORT = parseInt(getEnvVariable("GQL_PORT", logger))
 
-app.listen({ port: SERVE_PORT }, () => {
-  logger.info(`Server running on http://localhost:${SERVE_PORT}`)
+app.listen({ port: GQL_PORT }, () => {
+  logger.info(`Server running on http://localhost:${GQL_PORT}`)
 })

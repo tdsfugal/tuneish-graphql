@@ -1,20 +1,27 @@
 import { gql } from "apollo-server-express"
 
-import getLogger from "../getLogger"
+import { getLogger } from "../util"
 const logger = getLogger(__filename)
 
 const schema = gql`
-  # Need at least one query to keep server from crashing
+  type Subscription {
+    firstName: String!
+    lastName: String!
+    email: String!
+  }
+
   type Query {
     dummy: String
   }
 
   type Mutation {
-    signUp(firstName: String!, lastName: String!, email: String!): Response
-  }
+    subscribe(
+      firstName: String!
+      lastName: String!
+      email: String!
+    ): Subscription
 
-  type Response {
-    result: String
+    unsubscribe(email: String!): Subscription
   }
 `
 

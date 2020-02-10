@@ -1,3 +1,1 @@
-import SubscriptionConnector from "./subscriptionConnector"
-
-export const subscriptionConnector = new SubscriptionConnector()
+export { default as SubscriptionsConnector } from "./subscriptionsConnector"

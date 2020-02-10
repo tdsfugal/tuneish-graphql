@@ -1,7 +1,7 @@
 import winston from "winston"
 import path from "path"
 
-export default filename => {
+export default function getLogger(filename) {
   const logger = winston.createLogger({
     level: "info",
     format: winston.format.json(),

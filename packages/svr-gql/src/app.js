@@ -5,11 +5,11 @@ var morgan = require("morgan")
 
 import apolloServer from "./apolloServer"
 
-import getLogger from "./getLogger"
+import { getLogger, getEnvVariable } from "./util"
 const logger = getLogger(__filename)
 
-const GQL_URL = process.env.GQL_URL || "/api/v1"
-const CORS_ADDRESS = process.env.COORS_ADDRESS || "*"
+const GQL_URL = getEnvVariable("GQL_URL", logger)
+const CORS_ADDRESS = getEnvVariable("CORS_ADDRESS", logger)
 
 const app = express()
   .use(cors({ origin: CORS_ADDRESS }))
