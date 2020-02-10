@@ -1,5 +1,5 @@
 {
-  "name": "server-gql",
+  "name": "svr-gql",
   "private": true,
   "description": "GQL server for Tune-ish",
   "version": "0.1.0",

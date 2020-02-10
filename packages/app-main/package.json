@@ -1,7 +1,7 @@
 {
-  "name": "app-tune-ish",
+  "name": "app-main",
   "private": true,
-  "description": "Tune-ish web app",
+  "description": "Main Tune-ish app",
   "version": "0.1.0",
   "author": "Tim Smith <tim.smith@fugaltech.com",
   "license": "LicenseRef-LICENSE",
