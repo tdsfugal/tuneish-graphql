@@ -1,7 +1,6 @@
 import mongoose from "mongoose"
 
-const dbURL =
-  process.env.DATABASE_URL || "mongodb://localhost:27017/progressions"
+const dbURL = process.env.DATABASE_URL || "mongodb://localhost:27017/tunish"
 
 mongoose.connect(dbURL).catch(err => {
   console.log(err)

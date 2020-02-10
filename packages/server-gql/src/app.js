@@ -4,7 +4,7 @@ import dotenv from "dotenv"
 // import morgan from "morgan"
 var morgan = require("morgan") // until bug gets fixed
 
-import apolloServer from "./apollo"
+import apolloServer from "./apolloServer"
 
 dotenv.config()
 
