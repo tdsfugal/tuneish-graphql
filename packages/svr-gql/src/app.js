@@ -5,6 +5,9 @@ var morgan = require("morgan")
 
 import apolloServer from "./apolloServer"
 
+import getLogger from "./getLogger"
+const logger = getLogger(__filename)
+
 const GQL_URL = process.env.GQL_URL || "/api/v1"
 const CORS_ADDRESS = process.env.COORS_ADDRESS || "*"
 

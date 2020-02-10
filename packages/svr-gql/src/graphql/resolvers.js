@@ -3,6 +3,9 @@
 //
 import { subscriptionConnector } from "../connectors"
 
+import getLogger from "./getLogger"
+const logger = getLogger(__filename)
+
 const resolvers = {
   Mutation: {
     signUp: async (parent, args) => {

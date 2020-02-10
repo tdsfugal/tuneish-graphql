@@ -1,7 +1,7 @@
-//
-// Credits to Dan Ford, https://dlford.io/gatsby-graphql-client-side-mutation/
-//
 import { gql } from "apollo-server-express"
+
+import getLogger from "./getLogger"
+const logger = getLogger(__filename)
 
 const schema = gql`
   # Need at least one query to keep server from crashing
