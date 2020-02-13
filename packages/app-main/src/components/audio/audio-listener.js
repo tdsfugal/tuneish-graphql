@@ -50,7 +50,7 @@ class AudioListener extends React.Component {
   render() {
     const { active } = this.state
     return (
-      <FooterControl key={"audio"} active={active} onClick={this.toggleActive}>
+      <FooterControl active={active} onClick={this.toggleActive}>
         <div className="audio-listener"></div>
         <p>Tuner Active</p>
       </FooterControl>
@@ -67,4 +67,7 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(AudioListener)
+export default connect(
+  null,
+  mapDispatchToProps
+)(AudioListener)

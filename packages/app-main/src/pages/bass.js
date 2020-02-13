@@ -6,6 +6,7 @@ import Circle from "../components/circle"
 
 import { Bass } from "../components/instruments"
 
+import AudioListener from "../components/audio"
 import {
   FretlessControl,
   RangeFocusControl,
@@ -23,9 +24,10 @@ export default class BassPage extends React.Component {
   render() {
     const { nStrings, nFrets } = this.state
     const controls = [
-      <FretlessControl key={"fl"} />,
-      <RangeFocusControl key={"hf"} />,
-      <LeftHandedControl key={"lh"} />,
+      <AudioListener key="al" />,
+      <FretlessControl key="fl" />,
+      <RangeFocusControl key="hf" />,
+      <LeftHandedControl key="lh" />,
     ]
 
     return (
