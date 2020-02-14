@@ -3,7 +3,7 @@ import { gql } from "apollo-server-express"
 import { getLogger } from "../util"
 const logger = getLogger(__filename)
 
-export const resolvers = {
+export const usersResolvers = {
   Mutation: {
     subscribe: async (_, { firstName, lastName, email }, { subscriptions }) => {
       const subscription = await subscriptions.subscribe({
@@ -16,7 +16,7 @@ export const resolvers = {
   },
 }
 
-export const schema = gql`
+export const usersSchema = gql`
   type Subscription {
     firstName: String!
     lastName: String!
