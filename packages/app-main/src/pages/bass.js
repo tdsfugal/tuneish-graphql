@@ -1,10 +1,13 @@
 import React from "react"
 
+import { RowView } from "../components/_styles"
+
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Circle from "../components/circle"
 
 import { Bass } from "../components/instruments"
+import { SheetMusic } from "../components/sheet-music"
 
 import AudioListener from "../components/audio"
 import {
@@ -33,7 +36,10 @@ export default class BassPage extends React.Component {
     return (
       <Layout footerControls={controls}>
         <SEO key="se" title="Home" />
-        <Circle key="ci" r={r} />
+        <RowView>
+          <Circle key="ci" r={r} />
+          <SheetMusic />
+        </RowView>
         <Bass key="ba" nStrings={nStrings} nFrets={nFrets} />
       </Layout>
     )

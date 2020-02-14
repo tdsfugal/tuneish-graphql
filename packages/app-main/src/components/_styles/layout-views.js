@@ -1,5 +1,17 @@
 import styled from "@emotion/styled"
 
+export const RowView = styled.div`
+  display: flex;
+  flex-flow: row no-wrap;
+  width: 100%;
+`
+
+export const ColumnView = styled.div`
+  display: flex;
+  flex-flow: column no-wrap;
+  height: 100%;
+`
+
 export const LayoutView = styled.div`
   display: flex;
   flex-flow: column nowrap;
@@ -72,7 +84,3 @@ export const LogoView = styled.div`
   padding: 10px;
   margin: 10px;
 `
-
-export const CircleView = styled.div``
-
-export const BassView = styled.div``
