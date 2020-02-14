@@ -6,7 +6,7 @@
   "author": "Tim Smith <tim.smith@fugaltech.com",
   "license": "LicenseRef-LICENSE",
   "scripts": {
-    "dev": "nodemon -r esm -r dotenv/config src/server.js",
+    "dev": "nodemon -r esm -r dotenv/config --inspect src/server.js",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "serve": "node -r esm -r dotenv/config src/server.js",
     "test": "jest --watch"
