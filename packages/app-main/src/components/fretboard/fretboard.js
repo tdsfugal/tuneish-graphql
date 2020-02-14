@@ -1,6 +1,8 @@
 import React from "react"
 import { connect } from "react-redux"
 
+import { FretboardView } from "../_styles"
+
 import FRET_POSITIONS from "../../theory/fret-positions"
 
 import FretboardStatic from "./fretboard-static"
@@ -33,9 +35,8 @@ const Fretboard = ({ tuning, nFrets, left_handed }) => {
   })
 
   // Render the package deal
-  const viewDims = `-15 -15 ${boardLength + 30} ${boardWidth + 30}`
   return (
-    <svg viewBox={viewDims} xmlns="http://www.w3.org/2000/svg">
+    <FretboardView boardLength={boardLength} boardWidth={boardWidth}>
       <FretboardStatic
         tuning={tuning}
         boardLength={boardLength}
@@ -62,7 +63,7 @@ const Fretboard = ({ tuning, nFrets, left_handed }) => {
         fretPositions={fretPositions}
         left_handed={left_handed}
       />
-    </svg>
+    </FretboardView>
   )
 }
 

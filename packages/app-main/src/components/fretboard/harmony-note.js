@@ -1,7 +1,7 @@
 import React from "react"
 import { connect } from "react-redux"
 
-import { FretNoteView } from "./fretboard-view-elements"
+import { FretNoteView } from "../_styles"
 
 const HarmonyNote = ({
   fret,

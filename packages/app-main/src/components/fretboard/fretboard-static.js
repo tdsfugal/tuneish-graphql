@@ -1,12 +1,7 @@
 import React from "react"
 import { connect } from "react-redux"
 
-import {
-  BoardView,
-  FretView,
-  StringView,
-  DotView,
-} from "./fretboard-view-elements"
+import { BoardView, FretView, StringView, DotView } from "../_styles"
 
 const PUT_DOTS_AT = [
   { fret: 3 },

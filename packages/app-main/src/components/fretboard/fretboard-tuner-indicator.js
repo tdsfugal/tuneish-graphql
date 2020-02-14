@@ -1,7 +1,7 @@
 import React from "react"
 import { connect } from "react-redux"
 
-import { FretboardTunerView } from "./fretboard-view-elements"
+import { FretboardTunerView } from "../_styles"
 
 var cents = []
 const MAX_CENTS = 10

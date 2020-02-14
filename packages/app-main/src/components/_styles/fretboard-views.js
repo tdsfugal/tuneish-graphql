@@ -1,9 +1,30 @@
 import React from "react"
 
+const BOARD_FRAME = 15
 const BOARD_COLOR = "#420"
 const STRING_THICKNESS = 4
 const FRET_THICKNESS = 3
 const DOT_RADIUS = 3
+
+export const FretboardView = ({ boardLength, boardWidth, children }) => {
+  const height = boardWidth + 2 * BOARD_FRAME
+  const width = boardLength + 2 * BOARD_FRAME
+  const viewDims = `-${BOARD_FRAME} -${BOARD_FRAME} ${width} ${height}`
+  return (
+    <div
+      css={{
+        flex: "1 1 auto",
+        width: `${width}px`,
+        height: `${height}px`,
+        margin: "20px",
+      }}
+    >
+      <svg viewBox={viewDims} xmlns="http://www.w3.org/2000/svg">
+        {children}
+      </svg>
+    </div>
+  )
+}
 
 export const BoardView = ({ boardLength, boardWidth }) => {
   return (

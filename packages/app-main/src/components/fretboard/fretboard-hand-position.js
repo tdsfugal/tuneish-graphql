@@ -1,7 +1,7 @@
 import React from "react"
 import { connect } from "react-redux"
 
-import { HandView } from "./fretboard-view-elements"
+import { HandView } from "../_styles"
 
 const EXTRA_WIDTH = 20
 
