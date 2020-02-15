@@ -7,7 +7,7 @@
   "license": "LicenseRef-LICENSE",
   "scripts": {
     "build": "gatsby build",
-    "dev": "gatsby develop",
+    "dev": "gatsby develop --https",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "serve": "yarn run build && gatsby serve --host tunish.local -port 80",
     "clean": "gatsby clean",
