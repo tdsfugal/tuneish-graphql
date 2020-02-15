@@ -1,12 +1,12 @@
 module.exports = {
   siteMetadata: {
-    title: `Progressions`,
-    description: `Explore music progressions with the circle of fifths.`,
+    title: `Tuneish`,
+    description: `A woodshed app for musicians.`,
     author: `@tdsfugal`,
   },
   proxy: {
-    prefix: "/api",
-    url: "https://cprogs.com",
+    prefix: "/",
+    url: "https://tuneish.com",
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -22,8 +22,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Tune-ish - a woodshed app for musicians`,
+        short_name: `tuneish`,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
