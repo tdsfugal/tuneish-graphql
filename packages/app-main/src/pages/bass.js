@@ -1,6 +1,6 @@
 import React from "react"
 
-import { RowView, ColumnView } from "../components/_styles"
+import { RowView, ColumnView, ItemView } from "../components/_styles"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -37,12 +37,18 @@ export default class BassPage extends React.Component {
       <Layout footerControls={controls}>
         <SEO key="se" title="Home" />
         <ColumnView>
-          <RowView>
-            <Circle key="ci" r={r} />
-            <SheetMusic />
+          <RowView flex="2 1 auto">
+            <ItemView flex="1 1 auto">
+              <Circle key="ci" r={r} />
+            </ItemView>
+            <ItemView flex="5 5 auto">
+              <SheetMusic />
+            </ItemView>
           </RowView>
-          <RowView>
-            <Bass key="ba" nStrings={nStrings} nFrets={nFrets} />
+          <RowView flex="3 1 auto">
+            <ItemView flex="1 1 auto">
+              <Bass key="ba" nStrings={nStrings} nFrets={nFrets} />
+            </ItemView>
           </RowView>
         </ColumnView>
       </Layout>

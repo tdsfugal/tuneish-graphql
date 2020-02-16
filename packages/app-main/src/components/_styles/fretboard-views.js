@@ -1,10 +1,13 @@
 import React from "react"
 
-const BOARD_FRAME = 15
 const BOARD_COLOR = "#420"
 const STRING_THICKNESS = 4
 const FRET_THICKNESS = 3
 const DOT_RADIUS = 3
+
+const BOARD_FRAME = 50
+const MIN_SIZE = 0.2
+const MAX_SIZE = 1.6
 
 export const FretboardView = ({ boardLength, boardWidth, children }) => {
   // compute the desired pixel area.  If this is the flex size then svg space
@@ -16,11 +19,12 @@ export const FretboardView = ({ boardLength, boardWidth, children }) => {
   return (
     <div
       css={{
-        flex: "1 1 auto",
+        minWidth: `${width * MIN_SIZE}px`,
+        minHeight: `${height * MIN_SIZE}px`,
+        maxWidth: `${width * MAX_SIZE}px`,
+        maxHeight: `${height * MAX_SIZE}px`,
         width: "100%",
         height: "100%",
-        margin: "20px",
-        padding: "50px",
       }}
     >
       <svg

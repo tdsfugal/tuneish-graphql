@@ -6,7 +6,9 @@ import { connect } from "react-redux"
 import { SheetMusicView } from "../_styles"
 
 const SheetMusic = ({ key, type }) => (
-  <SheetMusicView>SheetMusic</SheetMusicView>
+  <SheetMusicView>
+    <h1>SheetMusic</h1>
+  </SheetMusicView>
 )
 
 SheetMusic.propTypes = {

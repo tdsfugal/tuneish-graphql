@@ -56,21 +56,31 @@ export const MainView = styled.div`
 // Use these utility classes to lay out the interior of the main space.
 
 export const RowView = styled.div`
-  flex: 1 1 100%;
+  flex: ${props => props.flex || "1 1 100%"};
   display: flex;
   flex-flow: row nowrap;
   align-items: stretch;
+  justify-content: space-around;
   width: 100%;
   height: auto;
 `
 
 export const ColumnView = styled.div`
-  flex: 1 1 100%;
+  flex: ${props => props.flex || "1 1 100%"};
   display: flex;
   flex-flow: column nowrap;
   align-items: stretch;
+  justify-content: space-around;
   height: 100%;
   width: auto;
+`
+
+export const ItemView = styled.div`
+  flex: ${props => props.flex || "1 1 100%"};
+  contain: content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `
 // ============== Footer section =================================
 

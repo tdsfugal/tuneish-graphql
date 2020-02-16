@@ -1,8 +1,11 @@
 import styled from "@emotion/styled"
 
 export const SheetMusicView = styled.div`
-  flex: 1 1 auto;
+  background-color: lightgray;
   height: 100%;
   width: 100%;
-  background-color: white;
+  display: flex;
+  flex: column nowrap;
+  align-items: center;
+  justify-content: center;
 `

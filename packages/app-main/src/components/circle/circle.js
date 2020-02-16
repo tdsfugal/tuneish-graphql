@@ -23,7 +23,7 @@ const Circle = ({ r, current_key }) => {
 
   // Render the component.
   return (
-    <CircleView>
+    <CircleView box={box}>
       <svg
         viewBox={`-${bCent} -${bCent} ${box} ${box}`}
         width="100%"
