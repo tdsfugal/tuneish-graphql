@@ -14,7 +14,7 @@ const STRING_SPACING = 30
 const EDGE_MARGIN = 10
 
 const Fretboard = ({ tuning, nFrets, left_handed }) => {
-  // compute the board dimensions
+  // compute the internal SVG dimensions.  Does not affect the css pixel area.
   const boardLength = 1000
   const boardWidth = 2 * EDGE_MARGIN + STRING_SPACING * (tuning.length - 1)
 

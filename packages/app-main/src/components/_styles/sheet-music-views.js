@@ -1,8 +1,8 @@
 import styled from "@emotion/styled"
 
 export const SheetMusicView = styled.div`
-  margin: 50px;
-  height: 300px;
-  width: 500px;
+  flex: 1 1 auto;
+  height: 100%;
+  width: 100%;
   background-color: white;
 `

@@ -7,19 +7,28 @@ const FRET_THICKNESS = 3
 const DOT_RADIUS = 3
 
 export const FretboardView = ({ boardLength, boardWidth, children }) => {
+  // compute the desired pixel area.  If this is the flex size then svg space
+  // and pixel space match up.
   const height = boardWidth + 2 * BOARD_FRAME
   const width = boardLength + 2 * BOARD_FRAME
-  const viewDims = `-${BOARD_FRAME} -${BOARD_FRAME} ${width} ${height}`
+  // The SVG rectangle (0,0) to (width, height) is framed by a BORDER_FRAME
+  // sized margin to account for overflow in the drawn components (e.g. note markers)
   return (
     <div
       css={{
         flex: "1 1 auto",
-        width: `${width}px`,
-        height: `${height}px`,
+        width: "100%",
+        height: "100%",
         margin: "20px",
+        padding: "50px",
       }}
     >
-      <svg viewBox={viewDims} xmlns="http://www.w3.org/2000/svg">
+      <svg
+        width="100%"
+        height="100%"
+        viewBox={`-${BOARD_FRAME} -${BOARD_FRAME} ${width} ${height}`}
+        xmlns="http://www.w3.org/2000/svg"
+      >
         {children}
       </svg>
     </div>

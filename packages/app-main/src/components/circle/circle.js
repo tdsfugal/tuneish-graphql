@@ -26,8 +26,8 @@ const Circle = ({ r, current_key }) => {
     <CircleView>
       <svg
         viewBox={`-${bCent} -${bCent} ${box} ${box}`}
-        width={`${box}px`}
-        height={`${box}px`}
+        width="100%"
+        height="100%"
         xmlns="http://www.w3.org/2000/svg"
       >
         {ARCS.map(pos => {
