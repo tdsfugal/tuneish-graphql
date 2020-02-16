@@ -1,20 +1,40 @@
-FROM node:10-alpine
+# Container 1 ----------- Get the dependencies ---------------
+FROM node:12
 
-ENV NODE_ENV=production
-ENV GQL_URL=/api/v1
-ENV GATSBY_API_URI=/api/v1
-ENV SERVE_PORT=3000
-ENV CORS_ADDRESS=https://yourdomain.com
-ENV DATABASE_URL=mongodb://172.16.32.7:27017/progressions
+# Provide a stable command environment
+SHELL ["/bin/sh", "-c"]
 
-COPY ./ /opt/app
-RUN apk add --no-cache --virtual .gyp python make g++
-RUN npm install --global gatsby-cli
+# Create a working directory
+RUN mkdir /usr/tuneish
+WORKDIR /usr/tuneish
 
-WORKDIR /opt/app
-RUN npm install
-RUN npm run build
+# get the production dependencies
+COPY ./package.json .
 
-EXPOSE 8000/tcp
+# Add the global dependencies that do not exist in here
+RUN yarn add --dev @babel/core babel-preset-gatsby gatsby-cli
 
-CMD npm run serve
+# install everything else
+RUN yarn install
+
+# Container 2 ----------- Build the app ----------------------
+
+# Move the files to compile into the container
+COPY ./src ./src
+COPY ./gatsby-browser.js .
+COPY ./gatsby-config.js .
+COPY ./gatsby-ssr.js .
+COPY ./loadershim.js .
+COPY ./.babelrc .
+
+
+RUN ls -la
+
+# Assemble the ./public production folder
+RUN npx gatsby build
+
+# Container 3 ----------- Serve the app ----------------------
+
+EXPOSE 9000
+
+CMD ["npx", "gatsby", "serve"]
