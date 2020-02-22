@@ -1,0 +1,20 @@
+{
+  "URN": {
+    "title": "Twelve Bar Blues",
+    "URN": "uuid",
+    "meta": {
+      "credits": [],
+      "preferreed_key": [],
+      "createdOn": "timestamp",
+      "lastEdited": "timestamp",
+      "private": false
+    },
+    "music": {
+      "form": ["A", "A", "B"],
+      "systems": {
+        "A": {},
+        "B": {}
+      }
+    }
+  }
+}

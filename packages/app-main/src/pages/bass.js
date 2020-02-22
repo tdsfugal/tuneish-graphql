@@ -55,5 +55,3 @@ export default class BassPage extends React.Component {
     )
   }
 }
-
-//  <Tuner TunerView={GenericTunerView} />

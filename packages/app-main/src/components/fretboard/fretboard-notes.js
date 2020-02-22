@@ -2,21 +2,18 @@ import React from "react"
 
 import Notes from "../../theory/notes"
 
-import HarmonyNote from "./harmony-note"
+import FretboardNote from "./fretboard-note"
 
 const notes = new Notes()
 
 const FretboardNotes = ({
   tuning,
-  left,
   boardLength,
   boardWidth,
   stringPositions,
   fretPositions,
-  range_focus,
-  hand_range,
 }) => {
-  // Compute the notes.  These are active components that listen to the Redux state
+  // Compute the notes.  These are active components that listen to the cache
   // to determine how to render themselves.  Many are invisible.
   const noteElements = []
   for (let string = 0; string < stringPositions.length; string++) {
@@ -26,7 +23,7 @@ const FretboardNotes = ({
     if (rootNoteMidi) {
       for (let fret = 0; fret < fretPositions.length; fret++) {
         noteElements.push(
-          <HarmonyNote
+          <FretboardNote
             key={`n_${string}_${fret}`}
             fret={fret}
             note={notes.getNoteByMidi(rootNoteMidi + fret)}

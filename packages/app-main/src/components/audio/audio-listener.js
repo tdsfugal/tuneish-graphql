@@ -1,73 +1,55 @@
-import React from "react"
-import { connect } from "react-redux"
+import React, { useState, useEffect } from "react"
 
 import { FooterControl } from "../_styles"
 
-import {
-  UPDATE_FAST_NOTE,
-  UPDATE_STABLE_NOTE,
-} from "../../state/redux/action-types"
-
 import FrequencyDetector from "./frequency-detector"
 
-class AudioListener extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      status: "disabled",
-      active: false,
-    }
+const AudioListener = () => {
+  // Bind this component to the Apollo cache
+  const updateStable = args => console.log("stable -- ", args)
+  const updateFast = args => console.log("fast -- ", args)
 
-    // if not in a browser then no "window" for the Tone package to use.
+  // The active state doesn't have to leave the component so useState is fine.
+  const [active, updateActive] = useState(false)
+  const [status, updateStatus] = useState("stopped")
+  const [frequencyDetector] = useState(() => {
+    console.log("((((((((((( NEW FREQUENCY DETECTOR )))))))))))")
+    return new FrequencyDetector(updateFast, updateStable)
+  })
+
+  // Run this effect every time active changes
+  useEffect(() => {
+    // if not in a browser (e.g. SSR) then skip this effect.
     if (typeof window == undefined) {
       console.log("Not in browser, listening disabled")
-      return
+      updateStatus("dead")
+      return () => null
     }
 
-    // set the initial state to stopped. Wait to start the frequency detector.
-    this.state.status = "stopped"
-
-    this.toggleActive = async () => {
-      if (this.state.active) {
-        this._frequencyDetector.stop(() => this.setState({ active: false }))
-      } else {
-        this._frequencyDetector.start(() => this.setState({ active: true }))
+    if (active) {
+      if (status === "stopped") {
+        updateStatus("starting")
+        frequencyDetector.start(() => updateStatus("running"))
+      }
+    } else {
+      if (status === "running") {
+        updateStatus("stopping")
+        frequencyDetector.stop(() => updateStatus("stopped"))
       }
     }
-  }
+  }, [active, status, frequencyDetector])
 
-  componentDidMount() {
-    if (this.state.status === "disabled") return
-    // construct a frequency detector that pushes updates to the redux state
-    const { updateFast, updateStable } = this.props
-    this._frequencyDetector = new FrequencyDetector(updateFast, updateStable)
-  }
-
-  componentWillUnmount() {
-    this._frequencyDetector.stop(status => this.setState({ status }))
-  }
-
-  render() {
-    const { active } = this.state
-    return (
-      <FooterControl active={active} onClick={this.toggleActive}>
-        <div className="audio-listener"></div>
-        <p>Tuner Active</p>
-      </FooterControl>
-    )
-  }
+  return (
+    <FooterControl
+      key={"al"}
+      active={active}
+      status={status}
+      onClick={() => updateActive(!active)}
+    >
+      <div className="audio-listener"></div>
+      <p>Tuner</p>
+    </FooterControl>
+  )
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    // dispatching plain actions
-    updateFast: ({ freq, note, cent }) =>
-      dispatch({ type: UPDATE_FAST_NOTE, freq, note, cent }),
-    updateStable: ({ note }) => dispatch({ type: UPDATE_STABLE_NOTE, note }),
-  }
-}
-
-export default connect(
-  null,
-  mapDispatchToProps
-)(AudioListener)
+export default AudioListener

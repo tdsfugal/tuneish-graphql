@@ -1,5 +1,6 @@
 import React from "react"
-import { connect } from "react-redux"
+import gql from "graphql-tag"
+import { useQuery } from "@apollo/react-hooks"
 
 import { BoardView, FretView, StringView, DotView } from "../_styles"
 
@@ -21,15 +22,28 @@ const PUT_DOTS_AT = [
   { fret: 36, double: true },
 ]
 
+const GET_FRETLESS = gql`
+  {
+    fretboard @client {
+      fretless
+    }
+  }
+`
+
 const FretboardStatic = ({
   tuning,
   boardLength,
   boardWidth,
   stringPositions,
   fretPositions,
-  fretless,
-  left,
 }) => {
+  const { loading, error, data } = useQuery(GET_FRETLESS)
+
+  if (loading) return "Loading..."
+  if (error) return `Error! ${error.message}`
+
+  const { fretless } = data.fretboard
+
   // Compute the board
   const board = <BoardView boardLength={boardLength} boardWidth={boardWidth} />
 
@@ -74,8 +88,4 @@ const FretboardStatic = ({
   )
 }
 
-const mapStateToProps = state => {
-  return { fretless: state.fretless, left: state.left_handed }
-}
-
-export default connect(mapStateToProps)(FretboardStatic)
+export default FretboardStatic

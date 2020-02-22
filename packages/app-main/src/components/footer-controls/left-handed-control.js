@@ -1,29 +1,40 @@
 import React from "react"
-import { connect } from "react-redux"
+import gql from "graphql-tag"
+import { useQuery, useMutation } from "@apollo/react-hooks"
 
 import { FooterControl } from "../_styles"
-import { TOGGLE_LEFT_HANDED } from "../../state/redux/action-types"
 
-const LeftHandedControl = ({ left_handed, toggleLeftHanded }) => (
-  <FooterControl
-    key={"left_handed"}
-    active={left_handed}
-    onClick={() => toggleLeftHanded(!left_handed)}
-  >
-    <p>Left Handed</p>
-  </FooterControl>
-)
-
-const mapStateToProps = ({ left_handed }) => {
-  return { left_handed }
-}
-
-const mapDispatchToProps = dispatch => {
-  return {
-    // dispatching plain actions
-    toggleLeftHanded: left_handed =>
-      dispatch({ type: TOGGLE_LEFT_HANDED, left_handed }),
+const GET_LEFT_HANDED = gql`
+  query {
+    fretboard @client {
+      left_handed
+    }
   }
+`
+
+const UPDATE_LEFT_HANDED = gql`
+  mutation UpdateLeftHanded($left_handed: Boolean!) {
+    updateLeftHanded(left_handed: $left_handed) @client
+  }
+`
+
+const LeftHandedControl = () => {
+  const { loading, error, data } = useQuery(GET_LEFT_HANDED)
+  const [updateLeftHanded] = useMutation(UPDATE_LEFT_HANDED)
+
+  if (loading) return <p>Loading...</p>
+  if (error) return <p>Error :(</p>
+
+  const { left_handed } = data.fretboard
+
+  const toggleLeftHanded = () =>
+    updateLeftHanded({ variables: { left_handed: !left_handed } })
+
+  return (
+    <FooterControl key={"lh"} active={left_handed} onClick={toggleLeftHanded}>
+      <p>Lefty?</p>
+    </FooterControl>
+  )
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(LeftHandedControl)
+export default LeftHandedControl

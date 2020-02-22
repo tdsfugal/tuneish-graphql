@@ -5,25 +5,42 @@ import { onError } from "apollo-link-error"
 import { ApolloLink } from "apollo-link"
 import fetch from "isomorphic-fetch"
 
-const API_URI = process.env.GATSBY_API_URI || "http://localhost:3000/api/v1"
+import { resolvers, typeDefs, initialState } from "./graphql"
 
-const apolloClient = new ApolloClient({
-  link: ApolloLink.from([
-    onError(({ graphQLErrors, networkError }) => {
-      if (graphQLErrors)
-        graphQLErrors.forEach(({ message, locations, path }) =>
-          console.log(
-            `[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`
-          )
-        )
-      if (networkError) console.log(`[Network error]: ${networkError}`)
-    }),
-    new HttpLink({
-      uri: API_URI,
-      fetch,
-    }),
-  ]),
-  cache: new InMemoryCache(),
+// The cache intelligently stores data from both internal client and external
+// server sources.  All the local data values are initialized here.
+const cache = new InMemoryCache()
+cache.writeData({ data: initialState })
+
+// The error link handles exceptions
+const errorLink = onError(({ graphQLErrors, networkError }) => {
+  if (graphQLErrors)
+    graphQLErrors.forEach(({ message, locations, path }) =>
+      console.log(
+        `[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`
+      )
+    )
+  if (networkError) console.log(`[Network error]: ${networkError}`)
 })
+
+// The http link handles the datat traffic between client and graphql server
+const httpLink = new HttpLink({
+  uri: process.env.GQL_URI || "http://localhost:3000/api/v1",
+  fetch,
+})
+
+// This command consolidates all the links
+const link = ApolloLink.from([errorLink, httpLink])
+
+// ... and this one builds the client
+const apolloClient = new ApolloClient({
+  link,
+  cache,
+  resolvers,
+  typeDefs,
+})
+
+// In case the user logs out or something
+apolloClient.onResetStore(() => cache.writeData({ data: initialState }))
 
 export default apolloClient

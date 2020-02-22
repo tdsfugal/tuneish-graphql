@@ -1,28 +1,40 @@
 import React from "react"
-import { connect } from "react-redux"
+import gql from "graphql-tag"
+import { useQuery, useMutation } from "@apollo/react-hooks"
 
 import { FooterControl } from "../_styles"
-import { TOGGLE_FRETLESS } from "../../state/redux/action-types"
 
-const FretlessControl = ({ fretless, toggleFretless }) => (
-  <FooterControl
-    key={"fretless"}
-    active={fretless}
-    onClick={() => toggleFretless(!fretless)}
-  >
-    <p>Fretless</p>
-  </FooterControl>
-)
-
-const mapStateToProps = ({ fretless }) => {
-  return { fretless }
-}
-
-const mapDispatchToProps = dispatch => {
-  return {
-    // dispatching plain actions
-    toggleFretless: fretless => dispatch({ type: TOGGLE_FRETLESS, fretless }),
+const GET_FRETLESS = gql`
+  query {
+    fretboard @client {
+      fretless
+    }
   }
+`
+
+const UPDATE_FRETLESS = gql`
+  mutation UpdateFretless($fretless: Boolean!) {
+    updateFretless(fretless: $fretless) @client
+  }
+`
+
+const FretlessControl = () => {
+  const { loading, error, data } = useQuery(GET_FRETLESS)
+  const [updateFretless] = useMutation(UPDATE_FRETLESS)
+
+  if (loading) return <p>Loading...</p>
+  if (error) return <p>Error :(</p>
+
+  const { fretless } = data.fretboard
+
+  const toggleFretless = () =>
+    updateFretless({ variables: { fretless: !fretless } })
+
+  return (
+    <FooterControl key={"fl"} active={fretless} onClick={toggleFretless}>
+      <p>Fretless</p>
+    </FooterControl>
+  )
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(FretlessControl)
+export default FretlessControl

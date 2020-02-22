@@ -1,7 +1,24 @@
 import React from "react"
-import { connect } from "react-redux"
+import gql from "graphql-tag"
+import { useQuery } from "@apollo/react-hooks"
 
-const Tuner = ({ freq, note, cent }) => {
+const GET_FAST_NOTE = gql`
+  {
+    fast_note @client {
+      freq
+      note
+      cent
+    }
+  }
+`
+
+const Tuner = () => {
+  const { loading, error, data } = useQuery(GET_FAST_NOTE)
+  if (loading) return "Loading..."
+  if (error) return `Error! ${error.message}`
+
+  const { freq, note, cent } = data.fast_note
+
   const width = Math.abs(cent * 2)
   const x = cent < 0 ? 120 - width : 120
   const color = "gray"
@@ -23,8 +40,4 @@ const Tuner = ({ freq, note, cent }) => {
   )
 }
 
-const mapStateToProps = state => {
-  return state.fast_note || { freq: 1, note: null, cent: 0 }
-}
-
-export default connect(mapStateToProps)(Tuner)
+export default Tuner

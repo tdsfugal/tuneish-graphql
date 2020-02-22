@@ -1,21 +1,28 @@
 import React from "react"
-import PropTypes from "prop-types"
+import gql from "graphql-tag"
+import { useQuery } from "@apollo/react-hooks"
 
-import { connect } from "react-redux"
+const GET_CURRENT_KEY = gql`
+  {
+    current_key @client {
+      name
+      type
+    }
+  }
+`
 
-const Key = ({ name, type }) => (
-  <span>
-    {name} {type}
-  </span>
-)
+const Key = () => {
+  const { loading, error, data } = useQuery(GET_CURRENT_KEY)
 
-Key.propTypes = {
-  name: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
+  if (loading) return "Loading..."
+  if (error) return `Error! ${error.message}`
+
+  const { name, type } = data.current_key
+
+  return (
+    <span>
+      {name} {type}
+    </span>
+  )
 }
-
-const mapStateToProps = ({ current_key }) => {
-  return current_key
-}
-
-export default connect(mapStateToProps)(Key)
+export default Key

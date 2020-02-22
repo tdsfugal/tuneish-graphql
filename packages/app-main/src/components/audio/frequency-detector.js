@@ -123,6 +123,7 @@ export default class FrequencyDetector {
             }
           } else {
             // No data, inform the tuner that nothing is going on
+            // TODO - this is leaking the same value at high rates. Fix.
             this.fastCallback({
               freq: -1,
               note: null,
@@ -132,7 +133,7 @@ export default class FrequencyDetector {
         }, LOOP_TIME)
 
         // Notify the React component of the change
-        callback(this.userMedia.status)
+        if (callback) callback(this.userMedia.status)
       })
       .catch(e => console.log(e))
   }
@@ -140,13 +141,7 @@ export default class FrequencyDetector {
   stop(callback) {
     this.running = false
     clearInterval(this.intervalTimer)
-    if (this.userMedia) {
-      this.userMedia.close()
-      this.userMedia.dispose()
-    }
-    if (this.waveform) this.waveform.dispose()
-    if (this.gt0) this.gt0.dispose()
-    if (this.gate) this.gate.dispose()
+    if (this.userMedia) this.userMedia.close()
     this.fastCallback({
       freq: 0,
       note: null,
@@ -155,6 +150,6 @@ export default class FrequencyDetector {
     this.stableCallback({
       note: null,
     })
-    callback("stopped")
+    if (callback) callback("stopped")
   }
 }
