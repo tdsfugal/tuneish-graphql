@@ -1,9 +1,0 @@
-FROM nginx
-
-# Provide a stable command environment
-SHELL ["/bin/sh", "-c"]
-
-# Copy the built files
-COPY public /usr/share/nginx/html
-
-EXPOSE 8080
