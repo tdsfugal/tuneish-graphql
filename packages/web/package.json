@@ -6,13 +6,13 @@
   "author": "Tim Smith <tim.smith@fugaltech.com",
   "license": "LicenseRef-LICENSE",
   "scripts": {
-    "build": "gatsby build",
+    "build": "docker build -t tuneish .",
     "dev": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "jest --watch",
-    "deploy": "docker build -t tuneish . && docker run -d -p 0.0.0.0:80:80 tuneish"
+    "start": "docker run -d -p 0.0.0.0:80:80 tuneish"
   },
   "dependencies": {
     "@babel/core": "^7.0.0",
