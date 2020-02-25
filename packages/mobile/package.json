@@ -1,0 +1,8 @@
+{
+  "name": "mobile",
+  "private": true,
+  "description": "Tune-ish mobile app",
+  "version": "0.1.0",
+  "author": "Tim Smith <tim.smith@fugaltech.com",
+  "license": "LicenseRef-LICENSE"
+}

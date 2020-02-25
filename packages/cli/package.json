@@ -1,0 +1,8 @@
+{
+  "name": "cli",
+  "private": true,
+  "description": "Tune-ish command interfaces",
+  "version": "0.1.0",
+  "author": "Tim Smith <tim.smith@fugaltech.com",
+  "license": "LicenseRef-LICENSE"
+}

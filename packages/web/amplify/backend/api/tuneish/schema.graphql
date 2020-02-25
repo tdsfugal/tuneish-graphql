@@ -1,0 +1,5 @@
+type tune @model {
+  id: ID!
+  title: String!
+  content: String!
+}

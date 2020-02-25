@@ -1,0 +1,8 @@
+{
+  "name": "services",
+  "private": true,
+  "description": "All the tune-ish back-end needs that Amplify doesn't cover",
+  "version": "0.1.0",
+  "author": "Tim Smith <tim.smith@fugaltech.com",
+  "license": "LicenseRef-LICENSE"
+}
