@@ -12,32 +12,33 @@ const AudioListener = () => {
   // The active state doesn't have to leave the component so useState is fine.
   const [active, updateActive] = useState(false)
   const [status, updateStatus] = useState("stopped")
-  const [frequencyDetector] = useState(() => {
-    console.log("((((((((((( NEW FREQUENCY DETECTOR )))))))))))")
-    return new FrequencyDetector(updateFast, updateStable)
-  })
 
-  // Run this effect every time active changes
-  useEffect(() => {
-    // if not in a browser (e.g. SSR) then skip this effect.
-    if (typeof window == undefined) {
-      console.log("Not in browser, listening disabled")
-      updateStatus("dead")
-      return () => null
-    }
-
-    if (active) {
-      if (status === "stopped") {
-        updateStatus("starting")
-        frequencyDetector.start(() => updateStatus("running"))
-      }
-    } else {
-      if (status === "running") {
-        updateStatus("stopping")
-        frequencyDetector.stop(() => updateStatus("stopped"))
-      }
-    }
-  }, [active, status, frequencyDetector])
+  // const [frequencyDetector] = useState(() => {
+  //   console.log("((((((((((( NEW FREQUENCY DETECTOR )))))))))))")
+  //   return new FrequencyDetector(updateFast, updateStable)
+  // })
+  //
+  // // Run this effect every time active changes
+  // useEffect(() => {
+  //   // if not in a browser (e.g. SSR) then skip this effect.
+  //   if (typeof window == undefined) {
+  //     console.log("Not in browser, listening disabled")
+  //     updateStatus("dead")
+  //     return () => null
+  //   }
+  //
+  //   if (active) {
+  //     if (status === "stopped") {
+  //       updateStatus("starting")
+  //       frequencyDetector.start(() => updateStatus("running"))
+  //     }
+  //   } else {
+  //     if (status === "running") {
+  //       updateStatus("stopping")
+  //       frequencyDetector.stop(() => updateStatus("stopped"))
+  //     }
+  //   }
+  // }, [active, status, frequencyDetector])
 
   return (
     <FooterControl
