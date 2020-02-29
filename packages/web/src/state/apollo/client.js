@@ -25,9 +25,7 @@ const errorLink = onError(({ graphQLErrors, networkError }) => {
 
 // Throw error to alert developers of the problem
 if (!process.env.GATSBY_GQL_URI)
-  throw Error(
-    "Environment variable for gql uri is missing. Use .env.development to set locally"
-  )
+  throw Error("Environment variable for gql uri is missing.")
 // The http link handles the datat traffic between client and graphql server
 const httpLink = new HttpLink({
   uri: process.env.GATSBY_GQL_URI,

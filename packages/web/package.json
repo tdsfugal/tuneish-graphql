@@ -47,6 +47,9 @@
     "tone": "^13.8.25",
     "typescript": "^3.7.5"
   },
+  "devDependencies": {
+    "babel-preset-gatsby": "^0.2.26"
+  },
   "keywords": [
     "gatsby"
   ]
