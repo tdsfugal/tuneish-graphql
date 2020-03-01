@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 
 import { withAuthenticator } from "aws-amplify-react"
 
@@ -8,32 +8,19 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Circle from "../components/circle"
 
-import { Bass } from "../components/instruments"
+import { Trumpet } from "../components/instruments"
 import { SheetMusic } from "../components/sheet-music"
 
 import AudioListener from "../components/audio"
-import {
-  FretlessControl,
-  RangeFocusControl,
-  LeftHandedControl,
-} from "../components/footer-controls"
 
 const r = 160
 
-const BassPage = props => {
-  const [nStrings] = useState(4)
-  const [nFrets] = useState(20)
-
-  const controls = [
-    <AudioListener key="al" />,
-    <FretlessControl key="fl" />,
-    <RangeFocusControl key="hf" />,
-    <LeftHandedControl key="lh" />,
-  ]
+const TrumpetPage = props => {
+  const controls = [<AudioListener key="al" />]
 
   return (
     <Layout footerControls={controls}>
-      <SEO key="se" title="Bass Practice Page" />
+      <SEO key="se" title="Trumpet Practice Page" />
       <ColumnView>
         <RowView flex="2 1 auto">
           <ItemView flex="1 1 auto">
@@ -45,7 +32,7 @@ const BassPage = props => {
         </RowView>
         <RowView flex="3 1 auto">
           <ItemView flex="1 1 auto">
-            <Bass key="ba" nStrings={nStrings} nFrets={nFrets} />
+            <Trumpet key="ba" />
           </ItemView>
         </RowView>
       </ColumnView>
@@ -53,4 +40,4 @@ const BassPage = props => {
   )
 }
 
-export default withAuthenticator(BassPage)
+export default withAuthenticator(TrumpetPage)

@@ -1,0 +1,20 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-tuneish-dev-184011-authRole",
+            "UnauthRoleArn": "arn:aws:iam::310775346298:role/amplify-tuneish-dev-184011-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::310775346298:role/amplify-tuneish-dev-184011-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "amplify-tuneish-dev-184011-deployment",
+            "UnauthRoleName": "amplify-tuneish-dev-184011-unauthRole",
+            "StackName": "amplify-tuneish-dev-184011",
+            "StackId": "arn:aws:cloudformation:us-east-1:310775346298:stack/amplify-tuneish-dev-184011/d4b427c0-5b4c-11ea-af00-127e1ad2bd25",
+            "AmplifyAppId": "d22zz2nu44xknn"
+        },
+        "categories": {
+            "auth": {
+                "tuneish36e2e5d3": {}
+            }
+        }
+    }
+}
