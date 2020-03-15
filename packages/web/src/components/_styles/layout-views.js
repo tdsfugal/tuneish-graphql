@@ -24,6 +24,8 @@ export const HeaderView = styled.div`
   display: flex;
   flex-flow: row nowrap;
   font-family: sans-serif;
+  align-items: stretch;
+  justify-content: space-between;
   color: ${HF_FOREGROUND_COLOR};
   background: ${HF_BACKGROUND_COLOR};
 `
@@ -41,8 +43,21 @@ export const HeaderTitleView = styled.div`
 `
 
 export const LogoView = styled.div`
+  flex: 0 0 50px;
   padding: 10px;
   margin: 10px;
+  height: 50px;
+  width: 50px;
+  background-color:
+  background-color: "blue";
+`
+
+export const UserIconView = styled.div`
+  flex: 0 0 50px;
+  padding: 10px;
+  margin: 10px;
+  height: 50px;
+  background-color: "lightblue";
 `
 
 // ============== Main section =================================

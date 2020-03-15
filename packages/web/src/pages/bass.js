@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 
-import { withAuthenticator } from "aws-amplify-react"
+// import { withAuthenticator } from "aws-amplify-react"
 
 import { RowView, ColumnView, ItemView } from "../components/_styles"
 
@@ -33,7 +33,7 @@ const BassPage = props => {
 
   return (
     <Layout footerControls={controls}>
-      <SEO key="se" title="Bass Practice Page" />
+      <SEO key="se" title="Bass" />
       <ColumnView>
         <RowView flex="2 1 auto">
           <ItemView flex="1 1 auto">
@@ -53,4 +53,6 @@ const BassPage = props => {
   )
 }
 
-export default withAuthenticator(BassPage)
+export default BassPage
+
+// export default withAuthenticator(BassPage)

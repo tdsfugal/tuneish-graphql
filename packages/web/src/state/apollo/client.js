@@ -1,9 +1,9 @@
 import { ApolloClient } from "apollo-client"
 import { InMemoryCache } from "apollo-cache-inmemory"
-import { HttpLink } from "apollo-link-http"
+// import { HttpLink } from "apollo-link-http"
 import { onError } from "apollo-link-error"
 import { ApolloLink } from "apollo-link"
-import fetch from "isomorphic-fetch"
+// import fetch from "isomorphic-fetch"
 
 import { resolvers, typeDefs, initialState } from "./graphql"
 
@@ -22,18 +22,19 @@ const errorLink = onError(({ graphQLErrors, networkError }) => {
     )
   if (networkError) console.log(`[Network error]: ${networkError}`)
 })
-
-// Throw error to alert developers of the problem
-if (!process.env.GATSBY_GQL_URI)
-  throw Error("Environment variable for gql uri is missing.")
-// The http link handles the datat traffic between client and graphql server
-const httpLink = new HttpLink({
-  uri: process.env.GATSBY_GQL_URI,
-  fetch,
-})
+//
+// // Throw error to alert developers of the problem
+// if (!process.env.GATSBY_GQL_URI)
+//   throw Error("Environment variable for gql uri is missing.")
+// // The http link handles the datat traffic between client and graphql server
+// const httpLink = new HttpLink({
+//   uri: process.env.GATSBY_GQL_URI,
+//   fetch,
+// })
 
 // This command consolidates all the links
-const link = ApolloLink.from([errorLink, httpLink])
+// const link = ApolloLink.from([errorLink, httpLink])
+const link = ApolloLink.from([errorLink])
 
 // ... and this one builds the client
 const apolloClient = new ApolloClient({

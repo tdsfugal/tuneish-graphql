@@ -1,6 +1,6 @@
 import React from "react"
 
-import { withAuthenticator } from "aws-amplify-react"
+// import { withAuthenticator } from "aws-amplify-react"
 
 import { RowView, ColumnView, ItemView } from "../components/_styles"
 
@@ -20,7 +20,7 @@ const TrumpetPage = props => {
 
   return (
     <Layout footerControls={controls}>
-      <SEO key="se" title="Trumpet Practice Page" />
+      <SEO key="se" title="Trumpet" />
       <ColumnView>
         <RowView flex="2 1 auto">
           <ItemView flex="1 1 auto">
@@ -40,4 +40,5 @@ const TrumpetPage = props => {
   )
 }
 
-export default withAuthenticator(TrumpetPage)
+export default TrumpetPage
+// export default withAuthenticator(TrumpetPage)

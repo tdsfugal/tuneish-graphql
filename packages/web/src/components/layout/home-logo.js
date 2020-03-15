@@ -7,7 +7,7 @@ import { LogoView } from "../_styles"
 const HomeLogo = () => {
   const data = useStaticQuery(graphql`
     query {
-      placeholderImage: file(relativePath: { eq: "logo.png" }) {
+      placeholderImage: file(relativePath: { eq: "tuneish.logo.png" }) {
         childImageSharp {
           fixed(width: 40, height: 40) {
             ...GatsbyImageSharpFixed

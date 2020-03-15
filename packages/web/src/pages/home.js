@@ -13,4 +13,5 @@ const HomePage = () => (
   </Layout>
 )
 
-export default withAuthenticator(HomePage)
+export default HomePage
+// export default withAuthenticator(HomePage)
