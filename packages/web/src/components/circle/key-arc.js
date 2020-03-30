@@ -1,38 +1,38 @@
 import React from "react"
+import gql from "graphql-tag"
+import { useQuery, useMutation } from "@apollo/react-hooks"
 
 import ArcView from "./arc-view"
 
-const TYPE_FILLS = {
-  Maj: "purple",
-  Min: "orange",
-  Dim: "green",
-}
+import { TYPE_FILLS, DEGREE_STROKES } from "./params"
 
-const DEGREE_STROKES = {
-  I: "red",
-  i: "red",
+const SET_KEY_ROOT = gql`
+  mutation SetKeyRoot($tone: Int) {
+    setKeyRoot(tone: $tone) @client
+  }
+`
 
-  ii: "white",
-
-  iii: "white",
-  III: "white",
-
-  IV: "blue",
-  iv: "blue",
-
-  V: "blue",
-  v: "blue",
-
-  vi: "white",
-  VI: "white",
-
-  vii: "white",
-  VII: "white",
-}
+const GET_STABLE_NOTE = gql`
+  query GetStableNote {
+    stable_note @client {
+      tone
+    }
+  }
+`
 
 // This higher order component handles the note metadata
 const KeyArc = ({ pos, r_outer, r_inner, circle_note }) => {
-  const { name, degree } = circle_note
+  const [setKeyRoot] = useMutation(SET_KEY_ROOT)
+  const { loading, error, data } = useQuery(GET_STABLE_NOTE)
+
+  const { name, tone, degree } = circle_note
+
+  const playing =
+    !loading &&
+    error === undefined &&
+    data &&
+    data.stable_note &&
+    data.stable_note.tone === tone
 
   // generate the svg for the scale degree annotation, if any
   let scaleDegree = null
@@ -83,12 +83,19 @@ const KeyArc = ({ pos, r_outer, r_inner, circle_note }) => {
       text_style={{
         fontSize: 25,
         fontFamily: "Arial Black",
+        fill: playing ? "red" : "black",
+        stroke: playing ? "yellow" : "transparent",
       }}
     />
   )
 
+  const handleKeyRootChange = e => {
+    e.preventDefault()
+    setKeyRoot({ variables: { tone } })
+  }
+
   return (
-    <svg id={`key-arc-${name}`}>
+    <svg id={`key-arc-${name}`} onClick={handleKeyRootChange}>
       {chordType}
       {noteElement}
       {scaleDegree}

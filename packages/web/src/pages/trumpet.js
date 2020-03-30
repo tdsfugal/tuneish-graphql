@@ -7,11 +7,12 @@ import { RowView, ColumnView, ItemView } from "../components/_styles"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Circle from "../components/circle"
+import Key from "../components/key"
 
 import { Trumpet } from "../components/instruments"
 import { SheetMusic } from "../components/sheet-music"
 
-import AudioListener from "../components/audio"
+import { AudioListener } from "../components/footer-controls"
 
 const r = 160
 
@@ -19,7 +20,7 @@ const TrumpetPage = props => {
   const controls = [<AudioListener key="al" />]
 
   return (
-    <Layout footerControls={controls}>
+    <Layout footerControls={controls} title={[<Key key="key" />]}>
       <SEO key="se" title="Trumpet" />
       <ColumnView>
         <RowView flex="2 1 auto">

@@ -5,8 +5,9 @@ import { useQuery } from "@apollo/react-hooks"
 import { CircleView } from "../_styles"
 
 import KeyArc from "./key-arc"
+import MajMinSelector from "./maj-min-selector"
 
-import CircleTheory from "../../theory/circle-theory"
+import { CircleTheory } from "../../theory"
 
 const MARGIN = 1.0
 const THICK = 0.3
@@ -19,7 +20,7 @@ const GET_CURRENT_KEY = gql`
       type
       acc
       tones
-      notes
+      circleNames
     }
   }
 `
@@ -60,6 +61,7 @@ const Circle = ({ r }) => {
             />
           )
         })}
+        <MajMinSelector />
       </svg>
     </CircleView>
   )

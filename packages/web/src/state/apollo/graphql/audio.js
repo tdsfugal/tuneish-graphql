@@ -1,42 +1,35 @@
 import gql from "graphql-tag"
 
 export const audioInitialState = {
-  // These values are the note that is ringing out. Slowly varying.
   stable_note: {
-    note: null,
-    __typename: "StableNote",
-  },
-  // These values vary at near animationframerate speed
-  fast_note: {
-    freq: 0,
-    note: null,
-    cent: 0.0,
-    __typename: "FastNote",
+    id: "stable",
+    name: "",
+    tone: -1,
+    oct: null,
+    idealFreq: -1,
+    __typename: "NamedNote",
   },
 }
 
 export const audioTypeDefs = gql`
-  type StableNote {
-    note: Note
-    __typename: StableNote
-  }
-
-  type FastNote {
-    freq: Float
-    note: Note
-    cent: Float
-    __typename: FastNote
-  }
-
   extend type Query {
-    stable_note: Note
-    fast_note: Note
+    stable_note: NamedNote
+  }
+
+  extend type Mutation {
+    updateStableNote(note: Note): NamedNote
   }
 `
 
 export const audioResolvers = {
   Mutation: {
-    updateFast: (_, { freq, note, cent }) => null,
-    updateStable: (_, { note }) => null,
+    updateStableNote: (_, { note }, { cache }) => {
+      const stable_note = Object.assign({}, note, {
+        id: "stable",
+        __typename: "NamedNote",
+      })
+      cache.writeData({ data: { stable_note } })
+      return stable_note
+    },
   },
 }

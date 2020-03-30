@@ -1,31 +1,26 @@
-import {
-  majorKeys,
-  minorKeys,
-  allKeys,
-  randomMajorKey,
-  randomMinorKey,
-  randomKey,
-} from "./keys"
+import Keys, { MAJOR_KEYS, MINROR_KEYS, ALL_KEYS } from "./keys"
 
 describe("Music keys", () => {
   it("generates random major keys", () => {
     for (let i = 0; i < 100; i++) {
-      const foo = randomMajorKey()
-      expect(majorKeys).toContain(foo)
+      const foo = Keys.randomKey("Major")
+      expect(MAJOR_KEYS).toContain(foo)
     }
   })
 
   it("generates random minor keys", () => {
     for (let i = 0; i < 100; i++) {
-      const foo = randomMinorKey()
-      expect(minorKeys).toContain(foo)
+      const foo = Keys.randomKey("minor")
+      expect(MINOR_KEYS).toContain(foo)
     }
   })
 
   it("generates random keys", () => {
     for (let i = 0; i < 100; i++) {
-      const foo = randomKey()
-      expect(allKeys).toContain(foo)
+      const foo = randomKey("All")
+      expect(ALL_KEYS).toContain(foo)
+      const bar = randomKey()
+      expect(ALL_KEYS).toContain(bar)
     }
   })
 })

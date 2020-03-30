@@ -1,29 +1,3 @@
-import {
-  Ab,
-  Bb,
-  Db,
-  Eb,
-  Gb,
-  An,
-  Bn,
-  Cn,
-  Dn,
-  En,
-  Fn,
-  Gn,
-  As,
-  Cs,
-  Ds,
-  Fs,
-  Gs,
-} from "./note-names"
-
-// Proper names for the circle stations for given number of sharps or flats:
-const LABELS = {
-  sharps: [Cn, Gn, Dn, An, En, Bn, Fs, Cs, Gs, Ds, As, Fn],
-  flats: [Cn, Gn, Dn, An, En, Bn, Gb, Db, Ab, Eb, Bb, Fn],
-}
-
 /* Half-tone offsets up from C around the circle.
  * "C: is at the 12 o'clock position, "Cs" at one o'clock, and so on.
  *
@@ -36,7 +10,6 @@ const TONES = [0, 7, 2, 9, 4, 11, 6, 1, 8, 3, 10, 5]
 export default class CircleTheory {
   constructor(key) {
     this.key = key
-    this.labels = key.acc > 0 ? LABELS.sharps.slice(0) : LABELS.flats.slice(0)
   }
 
   getKey() {
@@ -127,7 +100,7 @@ export default class CircleTheory {
         console.log("Unknown key type")
     }
     return {
-      name: this.labels[pos],
+      name: this.key.circleNames[pos],
       tone: tone,
       degree: {
         name: degree_name,

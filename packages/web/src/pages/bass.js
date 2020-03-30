@@ -11,12 +11,14 @@ import Circle from "../components/circle"
 import { Bass } from "../components/instruments"
 import { SheetMusic } from "../components/sheet-music"
 
-import AudioListener from "../components/audio"
 import {
+  AudioListener,
   FretlessControl,
   RangeFocusControl,
   LeftHandedControl,
 } from "../components/footer-controls"
+
+import Key from "../components/key"
 
 const r = 160
 
@@ -32,7 +34,7 @@ const BassPage = props => {
   ]
 
   return (
-    <Layout footerControls={controls}>
+    <Layout footerControls={controls} title={[<Key key="key" />]}>
       <SEO key="se" title="Bass" />
       <ColumnView>
         <RowView flex="2 1 auto">

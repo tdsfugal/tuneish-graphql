@@ -4,7 +4,7 @@ import { useQuery } from "@apollo/react-hooks"
 
 import { FretboardView } from "../_styles"
 
-import FRET_POSITIONS from "../../theory/fret-positions"
+import { FRET_POSITIONS } from "../../theory"
 
 import FretboardStatic from "./fretboard-static"
 import FretboardNotes from "./fretboard-notes"

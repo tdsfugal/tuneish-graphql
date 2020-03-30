@@ -34,6 +34,8 @@ import {
   Gss,
 } from "./note-names"
 
+// TODO - these tests are terribly out of date. Fix.
+
 describe("Notes", () => {
   it("compiles", () => {
     const foo = new Notes()
