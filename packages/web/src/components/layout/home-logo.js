@@ -9,7 +9,7 @@ const HomeLogo = () => {
     query {
       placeholderImage: file(relativePath: { eq: "tuneish.logo.png" }) {
         childImageSharp {
-          fixed(width: 40, height: 40) {
+          fixed(width: 50, height: 50) {
             ...GatsbyImageSharpFixed
           }
         }

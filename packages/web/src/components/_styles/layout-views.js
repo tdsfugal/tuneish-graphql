@@ -19,32 +19,32 @@ export const LayoutView = styled.div`
 
 export const HeaderView = styled.div`
   flex: 0 0 auto;
-  width: 100%;
-  height: 100px;
+  width: 100% - 40px;
+  padding: 0px 20px 0px 20px;
   display: flex;
   flex-flow: row nowrap;
   font-family: sans-serif;
-  align-items: stretch;
+  align-items: center;
   justify-content: space-between;
   color: ${HF_FOREGROUND_COLOR};
   background: ${HF_BACKGROUND_COLOR};
 `
 
 export const HeaderTitleView = styled.div`
-  margin: 0px;
-  padding: 20px;
+  flex: 0 0 auto;
+  margin: 10px;
   font-family: sans-serif;
   font-weight: bold;
   text-rendering: optimizeLegibility;
-  font-size: 2.25rem;
-  line-height: 1.1;
+  font-size: 2em;
+  line-height: 2em;
   color: white;
+  text-align: center;
   textdecoration: none;
 `
 
 export const LogoView = styled.div`
   flex: 0 0 50px;
-  padding: 10px;
   margin: 10px;
   height: 50px;
   width: 50px;
@@ -54,7 +54,8 @@ export const LogoView = styled.div`
 
 export const UserIconView = styled.div`
   flex: 0 0 50px;
-  padding: 10px;
+  font-size: 1.6em;
+  line-height: 1.6em;
   margin: 10px;
   height: 50px;
   background-color: "lightblue";
@@ -102,8 +103,8 @@ export const ItemView = styled.div`
 export const FooterView = styled.div`
   flex: 0 0 auto;
   width: 100%;
-  height: 100px;
-  padding: 0px 20px 0px 20px;
+  height: 60px;
+  padding: 0px 10px 0px 10px;
   display: flex;
   flex-flow: row nowrap;
   font-size: 1rem;
@@ -117,7 +118,7 @@ export const FooterControl = styled.div`
   justify-content: center;
   align-items: center;
   width: 100px;
-  height: 60px;
+  height: 40px;
   border-radius: 10% 15%;
   padding: 0px;
   margin: 16px 12px 16px 12px;

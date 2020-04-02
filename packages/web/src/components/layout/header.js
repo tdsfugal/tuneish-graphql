@@ -1,6 +1,6 @@
 import React from "react"
 import { HeaderView, HeaderTitleView } from "../_styles"
-import { UserIcon } from "../user"
+import UserIcon from "./user-icon"
 import HomeLogo from "./home-logo"
 
 const Header = ({ title = "" }) => {

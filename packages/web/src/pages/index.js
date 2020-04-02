@@ -8,20 +8,18 @@ import Logo from "../components/logo"
 import Welcome from "../components/welcome"
 
 const IndexPage = () => (
-  <Layout>
-    <SEO title="Landing Page" /> 
-    <ItemView flex="1 1 100px" />
+  <Layout title={"Tuneish.com"}>
+    <SEO title="Landing Page" />
     <ColumnView>
-      <ItemView flex="1 1 500px">
+      <ItemView flex="1 1 400px">
         <Logo />
       </ItemView>
-      <ItemView flex="1 1 400px">
+      <ItemView flex="1 1 200px">
         <Link to="/subscribe">
           <Welcome />
         </Link>
       </ItemView>
-      <ItemView flex="1 1 100px" />
-    </ColumnView> 
+    </ColumnView>
   </Layout>
 )
 
