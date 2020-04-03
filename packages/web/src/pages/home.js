@@ -12,6 +12,8 @@ const HomePage = () => (
     <br />
     <Link to="/guitar">Guitar</Link>
     <br />
+    <Link to="/steel-guitar">SteelGuitar</Link>
+    <br />
     <Link to="/trumpet">Trumpet</Link>
     <br />
     <Link to="/flute">Flute</Link>
