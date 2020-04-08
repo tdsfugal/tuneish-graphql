@@ -4,7 +4,7 @@ export const audioInitialState = {
   stable_note: {
     id: "stable",
     name: "",
-    tone: -1,
+    pitch: -1,
     oct: null,
     idealFreq: -1,
     __typename: "NamedNote",

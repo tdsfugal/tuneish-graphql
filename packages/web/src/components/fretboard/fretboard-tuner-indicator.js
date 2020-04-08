@@ -21,7 +21,7 @@ const GET_RANGE_FOCUS = gql`
 `
 
 const NULL_EVENT = {
-  tone: NULL_NOTE.tone,
+  pitch: NULL_NOTE.pitch,
   oct: NULL_NOTE.oct,
   cents: [],
 }
@@ -40,7 +40,7 @@ const FretboardTunerIndicator = ({
         return NULL_EVENT
       case "PLAY":
         const newState = {}
-        if (action.tone === state.tone && action.oct === state.oct) {
+        if (action.pitch === state.pitch && action.oct === state.oct) {
           // Same note. Stack up the cents.
           state.cents.splice(0, 0, action.cent)
           while (state.cents.length > MAX_CENTS) state.cents.pop()
@@ -49,7 +49,7 @@ const FretboardTunerIndicator = ({
           // New note
           newState.cents = []
         }
-        newState.tone = action.tone
+        newState.pitch = action.pitch
         newState.oct = action.oct
         return newState
       default:
@@ -61,10 +61,10 @@ const FretboardTunerIndicator = ({
   useEffect(() => {
     audioDistributor.connect(audio$ => {
       // Convert to actions. Let the reducer handle the chatter.
-      const action$ = map(({ tone, oct, cent }) => {
-        return tone === NULL_NOTE.tone
+      const action$ = map(({ pitch, oct, cent }) => {
+        return pitch === NULL_NOTE.pitch
           ? { type: "STOP" }
-          : { type: "PLAY", tone, oct, cent }
+          : { type: "PLAY", pitch, oct, cent }
       }, audio$)
       // Dispatch the action
       return tap(action => dispatch(action), action$)
@@ -85,10 +85,10 @@ const FretboardTunerIndicator = ({
   if (state === NULL_EVENT) return null
 
   // Draw the playing note and it's error bars
-  return tuning.map(({ tone, oct }, string) => {
-    const deltaTone = state.tone - tone
+  return tuning.map(({ pitch, oct }, string) => {
+    const deltaPitch = state.pitch - pitch
     const deltaOct = state.oct - oct
-    const fret = deltaTone + 12 * deltaOct
+    const fret = deltaPitch + 12 * deltaOct
     if (fret < min_fret || fret > max_fret) return null
     return (
       <FretboardTunerView

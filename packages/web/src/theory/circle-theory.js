@@ -1,11 +1,27 @@
-/* Half-tone offsets up from C around the circle.
+import {
+  ROM_I,
+  ROM_III,
+  ROM_IV,
+  ROM_V,
+  ROM_VI,
+  ROM_VII,
+  ROM_i,
+  ROM_ii,
+  ROM_iii,
+  ROM_iv,
+  ROM_v,
+  ROM_vi,
+  ROM_vii,
+} from "./symbols"
+
+/* Pitch (semitone) offsets up from C around the circle.
  * "C: is at the 12 o'clock position, "Cs" at one o'clock, and so on.
  *
- * The offsets for the chromatic tones are:
+ * The offsets for the chromatic pitches are:
  * 0   1   2   3   4   5   6   7   8   9   10  11
  * Cn, Cs, Dn, Ds, En, Fn, Fs, Gn, Gs, An, As, Bn
  */
-const TONES = [0, 7, 2, 9, 4, 11, 6, 1, 8, 3, 10, 5]
+const PITCHES = [0, 7, 2, 9, 4, 11, 6, 1, 8, 3, 10, 5]
 
 export default class CircleTheory {
   constructor(key) {
@@ -17,43 +33,43 @@ export default class CircleTheory {
   }
 
   getNote(pos) {
-    const tone = TONES[pos]
+    const pitch = PITCHES[pos]
 
     // Compute the degree in the scale
 
     // TODO - Simplify this!!
-    const degree = this.key.tones.indexOf(tone)
+    const degree = this.key.pitches.indexOf(pitch)
     let degree_name = ""
     let degree_type = null
     switch (this.key.type) {
       case "Major":
         switch (degree) {
           case 0:
-            degree_name = "I"
+            degree_name = ROM_I
             degree_type = "Maj"
             break
           case 1:
-            degree_name = "ii"
+            degree_name = ROM_ii
             degree_type = "Min"
             break
           case 2:
-            degree_name = "iii"
+            degree_name = ROM_iii
             degree_type = "Min"
             break
           case 3:
-            degree_name = "IV"
+            degree_name = ROM_IV
             degree_type = "Maj"
             break
           case 4:
-            degree_name = "V"
+            degree_name = ROM_V
             degree_type = "Maj"
             break
           case 5:
-            degree_name = "vi"
+            degree_name = ROM_vi
             degree_type = "Min"
             break
           case 6:
-            degree_name = "vii"
+            degree_name = ROM_vii
             degree_type = "Dim"
             break
           default:
@@ -64,31 +80,31 @@ export default class CircleTheory {
       case "minor":
         switch (degree) {
           case 0:
-            degree_name = "i"
+            degree_name = ROM_i
             degree_type = "Min"
             break
           case 1:
-            degree_name = "ii"
+            degree_name = ROM_ii
             degree_type = "Dim"
             break
           case 2:
-            degree_name = "III" // TODO = Not showing up.  Bug.
+            degree_name = ROM_III
             degree_type = "Maj"
             break
           case 3:
-            degree_name = "iv"
+            degree_name = ROM_iv
             degree_type = "Min"
             break
           case 4:
-            degree_name = "v"
+            degree_name = ROM_v
             degree_type = "Min"
             break
           case 5:
-            degree_name = "VI"
+            degree_name = ROM_VI
             degree_type = "Maj"
             break
           case 6:
-            degree_name = "VII"
+            degree_name = ROM_VII
             degree_type = "Maj"
             break
           default:
@@ -101,7 +117,7 @@ export default class CircleTheory {
     }
     return {
       name: this.key.circleNames[pos],
-      tone: tone,
+      pitch: pitch,
       degree: {
         name: degree_name,
         type: degree_type,

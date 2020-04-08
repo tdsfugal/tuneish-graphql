@@ -42,7 +42,7 @@ describe("Notes", () => {
     expect(foo).toBeInstanceOf(Notes)
   })
 
-  it("returns note names by tone", () => {
+  it("returns note names by pitch", () => {
     const foo = new Notes()
     const cases = [
       [0, [Cn, Bs, Dbb], ["do"]],
@@ -60,9 +60,9 @@ describe("Notes", () => {
     ]
 
     cases.map(x => {
-      const [tone, names, solfege] = x
-      const y = foo.getNoteByTone(tone)
-      expect(y.tone).toEqual(tone)
+      const [pitch, names, solfege] = x
+      const y = foo.getNoteByPitch(pitch)
+      expect(y.pitch).toEqual(pitch)
       expect(y.names).toEqual(names)
       expect(y.solfege).toEqual(solfege)
     })
@@ -119,7 +119,7 @@ describe("Notes", () => {
     expect(c4.solfege).toEqual(["do"])
 
     const a4 = foo.getNoteByMidi(69)
-    expect(a4.tone).toBe(9)
+    expect(a4.pitch).toBe(9)
     expect(a4.oct).toBe(4)
     expect(a4.freq).toBeCloseTo(440, 3)
     expect(a4.names).toEqual([An, Gss, Bbb])

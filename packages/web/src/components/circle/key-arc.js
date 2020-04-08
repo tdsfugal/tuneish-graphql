@@ -7,15 +7,24 @@ import ArcView from "./arc-view"
 import { TYPE_FILLS, DEGREE_STROKES } from "./params"
 
 const SET_KEY_ROOT = gql`
-  mutation SetKeyRoot($tone: Int) {
-    setKeyRoot(tone: $tone) @client
+  mutation SetKeyRoot($pitch: Int) {
+    setKeyRoot(pitch: $pitch) @client
   }
 `
 
-const GET_STABLE_NOTE = gql`
+const GET_NOTE = gql`
   query GetStableNote {
     stable_note @client {
-      tone
+      pitch
+    }
+  }
+`
+
+const GET_CHORD = gql`
+  {
+    current_chord @client {
+      pitches
+      intervals
     }
   }
 `
@@ -23,23 +32,57 @@ const GET_STABLE_NOTE = gql`
 // This higher order component handles the note metadata
 const KeyArc = ({ pos, r_outer, r_inner, circle_note }) => {
   const [setKeyRoot] = useMutation(SET_KEY_ROOT)
-  const { loading, error, data } = useQuery(GET_STABLE_NOTE)
+  const { loading: sLoading, error: sError, data: sData } = useQuery(GET_NOTE)
+  const { loading: cLoading, error: cError, data: cData } = useQuery(GET_CHORD)
 
-  const { name, tone, degree } = circle_note
+  if (cError) return `Error! ${cError.message}`
+  if (cLoading || !cData) return "Chord Loading..."
+
+  const { name, pitch, degree } = circle_note
 
   const playing =
-    !loading &&
-    error === undefined &&
-    data &&
-    data.stable_note &&
-    data.stable_note.tone === tone
+    !sLoading &&
+    sError === undefined &&
+    sData &&
+    sData.stable_note &&
+    sData.stable_note.pitch === pitch
+
+  const chord =
+    !cLoading && cError === undefined && cData && cData.current_chord
+      ? cData.current_chord
+      : { pitches: [], intervals: [] }
+
+  const cInterval = chord.pitches.reduce((acc, p, index) => {
+    if (pitch === p) acc = chord.intervals[index]
+    return acc
+  }, null)
+
+  // generate the svg for the scale degree annotation, if any
+  const chordInterval = !cInterval ? null : (
+    <ArcView
+      pos={pos}
+      r_outer={r_outer * 1.45}
+      r_inner={r_inner * 1.6}
+      text={cInterval}
+      shape_style={{
+        fill: cInterval === "P1" ? TYPE_FILLS[degree.type] : "white",
+        stroke: "black",
+      }}
+      text_style={{
+        fontSize: 25,
+        fontWeight: 700,
+        fontFamily: "Georgia",
+        fill: cInterval === "P1" ? "white" : "rebeccapurple",
+      }}
+    />
+  )
 
   // generate the svg for the scale degree annotation, if any
   let scaleDegree = null
-  let chordType = null
+  let chordQual = null
 
   if (degree.type) {
-    chordType = (
+    chordQual = (
       <ArcView
         pos={pos}
         r_outer={r_outer * 1.07}
@@ -91,12 +134,13 @@ const KeyArc = ({ pos, r_outer, r_inner, circle_note }) => {
 
   const handleKeyRootChange = e => {
     e.preventDefault()
-    setKeyRoot({ variables: { tone } })
+    setKeyRoot({ variables: { pitch } })
   }
 
   return (
     <svg id={`key-arc-${name}`} onClick={handleKeyRootChange}>
-      {chordType}
+      {chordInterval}
+      {chordQual}
       {noteElement}
       {scaleDegree}
     </svg>

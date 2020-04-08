@@ -33,11 +33,11 @@ const AudioListener = () => {
   const updateStable =
     loading || error
       ? () => null
-      : ({ tone, oct, idealFreq }) => {
+      : ({ pitch, oct, idealFreq }) => {
           const { chromaticNames } = data.current_key
           const note =
-            tone >= 0
-              ? { name: chromaticNames[tone], tone, oct, idealFreq }
+            pitch >= 0
+              ? { name: chromaticNames[pitch], pitch, oct, idealFreq }
               : NULL_NOTE
           updateStableNote({ variables: { note } })
         }
@@ -75,7 +75,7 @@ const AudioListener = () => {
             // AudioListener
             // Filter out the repeats
             const stableS = skipRepeatsWith(
-              (e1, e2) => e1.tone === e2.tone && e1.oct === e2.oct,
+              (e1, e2) => e1.pitch === e2.pitch && e1.oct === e2.oct,
               audioSource
             )
             // And publish the changes via the GraphQL cache. This stable note

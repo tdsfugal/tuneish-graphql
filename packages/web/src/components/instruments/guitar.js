@@ -29,12 +29,12 @@ import {
 // Tunings go from top string on screen (high side of the FB) to bottom
 const TUNINGS = {
   6: [
-    { name: En, tone: 4, oct: 4 },
-    { name: Bn, tone: 11, oct: 3 },
-    { name: Gn, tone: 7, oct: 3 },
-    { name: Dn, tone: 2, oct: 3 },
-    { name: An, tone: 9, oct: 2 },
-    { name: En, tone: 4, oct: 2 },
+    { name: En, pitch: 4, oct: 4 },
+    { name: Bn, pitch: 11, oct: 3 },
+    { name: Gn, pitch: 7, oct: 3 },
+    { name: Dn, pitch: 2, oct: 3 },
+    { name: An, pitch: 9, oct: 2 },
+    { name: En, pitch: 4, oct: 2 },
   ],
 }
 

@@ -91,7 +91,7 @@ export const DotView = ({ xPos, boardWidth, double = false }) => {
   }
 }
 
-const SCALE_COLORS = {
+const KEY_COLORS = {
   1: "red",
   2: "transparent",
   3: "transparent",
@@ -102,7 +102,7 @@ const SCALE_COLORS = {
 }
 
 const CHORD_COLORS = {
-  1: "white",
+  1: "darkred",
   2: "white",
   3: "white",
   4: "white",
@@ -111,22 +111,33 @@ const CHORD_COLORS = {
   7: "white",
 }
 
+const CHORD_TEXT_COLORS = {
+  1: "white",
+  2: "black",
+  3: "black",
+  4: "black",
+  5: "black",
+  6: "black",
+  7: "black",
+}
+
 export const FretNoteView = ({
   noteName,
-  scaleIndex,
+  kIndex,
+  cIndex,
   stringPosition,
   fretPosition,
 }) => {
-  const chordIndex = 1
-  const scaleColor = SCALE_COLORS[scaleIndex]
-  const chordColor = CHORD_COLORS[chordIndex]
+  const ringColor = cIndex === 1 ? "white" : KEY_COLORS[kIndex]
+  const fillColor = cIndex > 0 ? CHORD_COLORS[cIndex] : "white"
+  const textColor = cIndex > 0 ? CHORD_TEXT_COLORS[cIndex] : "black"
   return (
     <>
       <circle
         r={13}
         cx={fretPosition}
         cy={stringPosition}
-        stroke={scaleColor}
+        stroke={ringColor}
         strokeWidth="3"
         fill="transparent"
       />
@@ -135,12 +146,12 @@ export const FretNoteView = ({
         cx={fretPosition}
         cy={stringPosition}
         stroke="transparent"
-        fill={chordColor}
+        fill={fillColor}
       />
       <text
         x={fretPosition}
         y={(stringPosition + 5).toString()}
-        fill="black"
+        fill={textColor}
         fontFamily="sans-serif"
         fontWeight="bold"
         fontSize="12"

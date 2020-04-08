@@ -63,7 +63,7 @@ const extendedChromatic = doubleFlats
 
 // The goal in selecting note sets for keys is to not have any duplicate names.
 //
-// Theorem:  Every 12 tone sequence in extendedChromatic has a unique set of
+// Theorem:  Every 12 pitch sequence in extendedChromatic has a unique set of
 //           note names.  (proof by observation)
 //
 // Also, the set should contain only sharps or flats, never a mix.

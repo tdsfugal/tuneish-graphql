@@ -1,5 +1,5 @@
 export const NULL_NOTE = {
-  tone: -1,
+  pitch: -1,
   oct: null,
   idealFreq: -1,
 }
@@ -28,14 +28,14 @@ const computeMidiNotes = () => {
   const midiNotes = []
   let oct_mult = 1 / 32
 
-  let oct, tone
+  let oct, pitch
   const upRatio = Math.pow(semiTone, 0.5)
   for (oct = -1; oct < 11; oct++) {
-    for (tone = 0; tone < 12; tone++) {
-      const f = fours[tone] * oct_mult
+    for (pitch = 0; pitch < 12; pitch++) {
+      const f = fours[pitch] * oct_mult
       midiNotes.push({
         oct: oct,
-        tone: tone,
+        pitch: pitch,
         idealFreq: f,
         _upper: f * upRatio,
       })
@@ -50,7 +50,7 @@ const computeMidiNotes = () => {
 // other classes or objects.
 export class Notes {
   constructor() {
-    this._midisByTone = {
+    this._midisByPitch = {
       0: [0, 12, 24, 36, 48, 60, 72, 84, 96, 108, 120],
       1: [1, 13, 25, 37, 49, 61, 73, 85, 97, 109, 121],
       2: [2, 14, 26, 38, 50, 62, 74, 86, 98, 110, 122],
@@ -66,8 +66,8 @@ export class Notes {
     }
     this._notes = computeMidiNotes()
 
-    this.getMidi = ({ tone, oct }) => {
-      const midis = this._midisByTone[tone]
+    this.getMidi = ({ pitch, oct }) => {
+      const midis = this._midisByPitch[pitch]
       return midis ? midis[oct] : null
     }
 
@@ -77,7 +77,7 @@ export class Notes {
       } else {
         const note = this._notes[midiNumber]
         return {
-          tone: note.tone,
+          pitch: note.pitch,
           oct: note.oct,
           idealFreq: note.idealFreq,
         }
@@ -127,51 +127,51 @@ export class Notes {
 
 // const solfegev = [
 //   {
-//     tone: 0, // number of half steps up from C
+//     pitch: 0, // number of half steps up from C
 //     solfege: ["do"],
 //   },
 //   {
-//     tone: 1,
+//     pitch: 1,
 //     solfege: ["di", "ra"],
 //   },
 //   {
-//     tone: 2,
+//     pitch: 2,
 //     solfege: ["re"],
 //   },
 //   {
-//     tone: 3,
+//     pitch: 3,
 //     solfege: ["ri", "me"],
 //   },
 //   {
-//     tone: 4,
+//     pitch: 4,
 //     solfege: ["mi"],
 //   },
 //   {
-//     tone: 5,
+//     pitch: 5,
 //     solfege: ["fa"],
 //   },
 //   {
-//     tone: 6,
+//     pitch: 6,
 //     solfege: ["fi", "se"],
 //   },
 //   {
-//     tone: 7,
+//     pitch: 7,
 //     solfege: ["sol"],
 //   },
 //   {
-//     tone: 8,
+//     pitch: 8,
 //     solfege: ["si", "le"],
 //   },
 //   {
-//     tone: 9,
+//     pitch: 9,
 //     solfege: ["la"],
 //   },
 //   {
-//     tone: 10,
+//     pitch: 10,
 //     solfege: ["le", "te"],
 //   },
 //   {
-//     tone: 11,
+//     pitch: 11,
 //     solfege: ["ti"],
 //   },
 // ]

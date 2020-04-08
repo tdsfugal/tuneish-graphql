@@ -13,26 +13,26 @@ const MARGIN = 1.0
 const THICK = 0.3
 const ARCS = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 
-const GET_CURRENT_KEY = gql`
+const GET_KEY = gql`
   {
     current_key @client {
       name
       type
       acc
-      tones
+      pitches
       circleNames
     }
   }
 `
 
 const Circle = ({ r }) => {
-  const { loading, error, data } = useQuery(GET_CURRENT_KEY)
+  const { loading: kLoading, error: kError, data: kData } = useQuery(GET_KEY)
 
-  if (loading) return "Loading..."
-  if (error) return `Error! ${error.message}`
+  if (kError) return `Error! ${kError.message}`
+  if (kLoading || !kData) return "Key Loading..."
 
   // Determine the notes and note names in the current key
-  const circleTheory = new CircleTheory(data.current_key)
+  const circleTheory = new CircleTheory(kData.current_key)
 
   // Compute the geometry of the final component
   const box = r * (2 + MARGIN)

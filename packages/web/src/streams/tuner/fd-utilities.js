@@ -79,7 +79,7 @@ export const debounce = note => {
   history.push(note) // Add the newest at the front
   if (history.length > 3) history.shift() // discard the oldest
   for (let i = 0; i < history.length - 1; i++) {
-    if (history[i].oct !== note.oct || history[i].tone !== note.tone) {
+    if (history[i].oct !== note.oct || history[i].pitch !== note.pitch) {
       // There is no consensus.
       return null
     }

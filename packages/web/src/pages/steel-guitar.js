@@ -9,7 +9,8 @@ import SEO from "../components/seo"
 import Circle from "../components/circle"
 
 import { SteelGuitar } from "../components/instruments"
-import { SheetMusic } from "../components/sheet-music"
+// import { SheetMusic } from "../components/sheet-music"
+import { ChordConsole } from "../components/chord-console"
 
 import {
   AudioListener,
@@ -41,7 +42,7 @@ const SteelGuitarPage = props => {
             <Circle key="ci" r={r} />
           </ItemView>
           <ItemView flex="5 5 auto">
-            <SheetMusic />
+            <ChordConsole />
           </ItemView>
         </RowView>
         <RowView flex="3 1 auto">

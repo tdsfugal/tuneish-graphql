@@ -97,7 +97,7 @@ export const MAJOR_KEYS = [
     name: Cb,
     type: "Major",
     acc: -7,
-    tones: [11, 1, 3, 4, 6, 8, 10],
+    pitches: [11, 1, 3, 4, 6, 8, 10],
     chromaticNames: CHROMATIC_NAMES_BY_MAJOR_KEY[Cb],
     // TODO - Use one or the toher, not both. Single referene.  Prefer
     // NoteNames in chromatic form.  An index map covers the circle use case.
@@ -107,7 +107,7 @@ export const MAJOR_KEYS = [
     name: Gb,
     type: "Major",
     acc: -6,
-    tones: [6, 8, 10, 11, 1, 3, 5],
+    pitches: [6, 8, 10, 11, 1, 3, 5],
     chromaticNames: CHROMATIC_NAMES_BY_MAJOR_KEY[Gb],
     circleNames: CIRCLE_NAMES_BY_MAJOR_KEY[Gb],
   },
@@ -115,7 +115,7 @@ export const MAJOR_KEYS = [
     name: Db,
     type: "Major",
     acc: -5,
-    tones: [1, 3, 5, 6, 8, 10, 0],
+    pitches: [1, 3, 5, 6, 8, 10, 0],
     chromaticNames: CHROMATIC_NAMES_BY_MAJOR_KEY[Db],
     circleNames: CIRCLE_NAMES_BY_MAJOR_KEY[Db],
   },
@@ -123,7 +123,7 @@ export const MAJOR_KEYS = [
     name: Ab,
     type: "Major",
     acc: -4,
-    tones: [8, 10, 0, 1, 3, 5, 7],
+    pitches: [8, 10, 0, 1, 3, 5, 7],
     chromaticNames: CHROMATIC_NAMES_BY_MAJOR_KEY[Ab],
     circleNames: CIRCLE_NAMES_BY_MAJOR_KEY[Ab],
   },
@@ -131,7 +131,7 @@ export const MAJOR_KEYS = [
     name: Eb,
     type: "Major",
     acc: -3,
-    tones: [3, 5, 7, 8, 10, 0, 2],
+    pitches: [3, 5, 7, 8, 10, 0, 2],
     chromaticNames: CHROMATIC_NAMES_BY_MAJOR_KEY[Eb],
     circleNames: CIRCLE_NAMES_BY_MAJOR_KEY[Eb],
   },
@@ -139,7 +139,7 @@ export const MAJOR_KEYS = [
     name: Bb,
     type: "Major",
     acc: -2,
-    tones: [10, 0, 2, 3, 5, 7, 9],
+    pitches: [10, 0, 2, 3, 5, 7, 9],
     chromaticNames: CHROMATIC_NAMES_BY_MAJOR_KEY[Bb],
     circleNames: CIRCLE_NAMES_BY_MAJOR_KEY[Bb],
   },
@@ -147,7 +147,7 @@ export const MAJOR_KEYS = [
     name: Fn,
     type: "Major",
     acc: -1,
-    tones: [5, 7, 9, 10, 0, 2, 4],
+    pitches: [5, 7, 9, 10, 0, 2, 4],
     chromaticNames: CHROMATIC_NAMES_BY_MAJOR_KEY[Fn],
     circleNames: CIRCLE_NAMES_BY_MAJOR_KEY[Fn],
   },
@@ -157,7 +157,7 @@ export const MAJOR_KEYS = [
     name: Cn,
     type: "Major",
     acc: 0,
-    tones: [0, 2, 4, 5, 7, 9, 11],
+    pitches: [0, 2, 4, 5, 7, 9, 11],
     chromaticNames: CHROMATIC_NAMES_BY_MAJOR_KEY[Cn],
     circleNames: CIRCLE_NAMES_BY_MAJOR_KEY[Cn],
   },
@@ -165,7 +165,7 @@ export const MAJOR_KEYS = [
     name: Gn,
     type: "Major",
     acc: +1,
-    tones: [7, 9, 11, 0, 2, 4, 6],
+    pitches: [7, 9, 11, 0, 2, 4, 6],
     chromaticNames: CHROMATIC_NAMES_BY_MAJOR_KEY[Gn],
     circleNames: CIRCLE_NAMES_BY_MAJOR_KEY[Gn],
   },
@@ -173,7 +173,7 @@ export const MAJOR_KEYS = [
     name: Dn,
     type: "Major",
     acc: +2,
-    tones: [2, 4, 6, 7, 9, 11, 1],
+    pitches: [2, 4, 6, 7, 9, 11, 1],
     chromaticNames: CHROMATIC_NAMES_BY_MAJOR_KEY[Dn],
     circleNames: CIRCLE_NAMES_BY_MAJOR_KEY[Dn],
   },
@@ -181,7 +181,7 @@ export const MAJOR_KEYS = [
     name: An,
     type: "Major",
     acc: +3,
-    tones: [9, 11, 1, 2, 4, 6, 8],
+    pitches: [9, 11, 1, 2, 4, 6, 8],
     chromaticNames: CHROMATIC_NAMES_BY_MAJOR_KEY[An],
     circleNames: CIRCLE_NAMES_BY_MAJOR_KEY[An],
   },
@@ -189,7 +189,7 @@ export const MAJOR_KEYS = [
     name: En,
     type: "Major",
     acc: +4,
-    tones: [4, 6, 8, 9, 11, 1, 3],
+    pitches: [4, 6, 8, 9, 11, 1, 3],
     chromaticNames: CHROMATIC_NAMES_BY_MAJOR_KEY[En],
     circleNames: CIRCLE_NAMES_BY_MAJOR_KEY[En],
   },
@@ -197,7 +197,7 @@ export const MAJOR_KEYS = [
     name: Bn,
     type: "Major",
     acc: +5,
-    tones: [11, 1, 3, 4, 6, 8, 10],
+    pitches: [11, 1, 3, 4, 6, 8, 10],
     chromaticNames: CHROMATIC_NAMES_BY_MAJOR_KEY[Bn],
     circleNames: CIRCLE_NAMES_BY_MAJOR_KEY[Bn],
   },
@@ -205,7 +205,7 @@ export const MAJOR_KEYS = [
     name: Fs,
     type: "Major",
     acc: +6,
-    tones: [6, 8, 10, 11, 1, 3, 5],
+    pitches: [6, 8, 10, 11, 1, 3, 5],
     chromaticNames: CHROMATIC_NAMES_BY_MAJOR_KEY[Fs],
     circleNames: CIRCLE_NAMES_BY_MAJOR_KEY[Fs],
   },
@@ -213,13 +213,13 @@ export const MAJOR_KEYS = [
     name: Cs,
     type: "Major",
     acc: +7,
-    tones: [1, 3, 5, 6, 8, 10, 0],
+    pitches: [1, 3, 5, 6, 8, 10, 0],
     chromaticNames: CHROMATIC_NAMES_BY_MAJOR_KEY[Cs],
     circleNames: CIRCLE_NAMES_BY_MAJOR_KEY[Cs],
   },
 ]
 
-export const MAJOR_KEYS_BY_ROOT_TONE = {
+export const MAJOR_KEYS_BY_ROOT_PITCH = {
   0: [7],
   1: [2, 14],
   2: [9],
@@ -240,7 +240,7 @@ export const MINOR_KEYS = [
     name: Ab,
     type: "minor",
     acc: -7,
-    tones: [8, 10, 11, 1, 3, 4, 6],
+    pitches: [8, 10, 11, 1, 3, 4, 6],
     chromaticNames: CHROMATIC_NAMES_BY_MAJOR_KEY[Cb],
     circleNames: CIRCLE_NAMES_BY_MAJOR_KEY[Cb],
   },
@@ -248,7 +248,7 @@ export const MINOR_KEYS = [
     name: Eb,
     type: "minor",
     acc: -6,
-    tones: [3, 5, 6, 8, 10, 11, 1],
+    pitches: [3, 5, 6, 8, 10, 11, 1],
     chromaticNames: CHROMATIC_NAMES_BY_MAJOR_KEY[Gb],
     circleNames: CIRCLE_NAMES_BY_MAJOR_KEY[Gb],
   },
@@ -256,7 +256,7 @@ export const MINOR_KEYS = [
     name: Bb,
     type: "minor",
     acc: -5,
-    tones: [10, 0, 1, 3, 5, 6, 8],
+    pitches: [10, 0, 1, 3, 5, 6, 8],
     chromaticNames: CHROMATIC_NAMES_BY_MAJOR_KEY[Db],
     circleNames: CIRCLE_NAMES_BY_MAJOR_KEY[Db],
   },
@@ -264,7 +264,7 @@ export const MINOR_KEYS = [
     name: Fn,
     type: "minor",
     acc: -4,
-    tones: [5, 7, 8, 10, 0, 1, 3],
+    pitches: [5, 7, 8, 10, 0, 1, 3],
     chromaticNames: CHROMATIC_NAMES_BY_MAJOR_KEY[Ab],
     circleNames: CIRCLE_NAMES_BY_MAJOR_KEY[Ab],
   },
@@ -272,7 +272,7 @@ export const MINOR_KEYS = [
     name: Cn,
     type: "minor",
     acc: -3,
-    tones: [0, 2, 3, 5, 7, 8, 10],
+    pitches: [0, 2, 3, 5, 7, 8, 10],
     chromaticNames: CHROMATIC_NAMES_BY_MAJOR_KEY[Eb],
     circleNames: CIRCLE_NAMES_BY_MAJOR_KEY[Eb],
   },
@@ -280,7 +280,7 @@ export const MINOR_KEYS = [
     name: Gn,
     type: "minor",
     acc: -2,
-    tones: [7, 9, 10, 0, 2, 3, 5],
+    pitches: [7, 9, 10, 0, 2, 3, 5],
     chromaticNames: CHROMATIC_NAMES_BY_MAJOR_KEY[Bb],
     circleNames: CIRCLE_NAMES_BY_MAJOR_KEY[Bb],
   },
@@ -288,7 +288,7 @@ export const MINOR_KEYS = [
     name: Dn,
     type: "minor",
     acc: -1,
-    tones: [2, 4, 5, 7, 9, 10, 0],
+    pitches: [2, 4, 5, 7, 9, 10, 0],
     chromaticNames: CHROMATIC_NAMES_BY_MAJOR_KEY[Fn],
     circleNames: CIRCLE_NAMES_BY_MAJOR_KEY[Fn],
   },
@@ -296,7 +296,7 @@ export const MINOR_KEYS = [
     name: An,
     type: "minor",
     acc: 0,
-    tones: [9, 11, 0, 2, 4, 5, 7],
+    pitches: [9, 11, 0, 2, 4, 5, 7],
     chromaticNames: CHROMATIC_NAMES_BY_MAJOR_KEY[Cn],
     circleNames: CIRCLE_NAMES_BY_MAJOR_KEY[Cn],
   },
@@ -304,7 +304,7 @@ export const MINOR_KEYS = [
     name: En,
     type: "minor",
     acc: +1,
-    tones: [4, 6, 7, 9, 11, 0, 2],
+    pitches: [4, 6, 7, 9, 11, 0, 2],
     chromaticNames: CHROMATIC_NAMES_BY_MAJOR_KEY[Gn],
     circleNames: CIRCLE_NAMES_BY_MAJOR_KEY[Gn],
   },
@@ -312,7 +312,7 @@ export const MINOR_KEYS = [
     name: Bn,
     type: "minor",
     acc: +2,
-    tones: [11, 1, 2, 4, 6, 7, 9],
+    pitches: [11, 1, 2, 4, 6, 7, 9],
     chromaticNames: CHROMATIC_NAMES_BY_MAJOR_KEY[Dn],
     circleNames: CIRCLE_NAMES_BY_MAJOR_KEY[Dn],
   },
@@ -320,7 +320,7 @@ export const MINOR_KEYS = [
     name: Fs,
     type: "minor",
     acc: +3,
-    tones: [6, 8, 9, 11, 1, 2, 4],
+    pitches: [6, 8, 9, 11, 1, 2, 4],
     chromaticNames: CHROMATIC_NAMES_BY_MAJOR_KEY[An],
     circleNames: CIRCLE_NAMES_BY_MAJOR_KEY[An],
   },
@@ -328,7 +328,7 @@ export const MINOR_KEYS = [
     name: Cs,
     type: "minor",
     acc: +4,
-    tones: [1, 3, 4, 6, 8, 9, 11],
+    pitches: [1, 3, 4, 6, 8, 9, 11],
     chromaticNames: CHROMATIC_NAMES_BY_MAJOR_KEY[En],
     circleNames: CIRCLE_NAMES_BY_MAJOR_KEY[En],
   },
@@ -336,7 +336,7 @@ export const MINOR_KEYS = [
     name: Gs,
     type: "minor",
     acc: +5,
-    tones: [8, 10, 11, 1, 3, 4, 6],
+    pitches: [8, 10, 11, 1, 3, 4, 6],
     chromaticNames: CHROMATIC_NAMES_BY_MAJOR_KEY[Bn],
     circleNames: CIRCLE_NAMES_BY_MAJOR_KEY[Bn],
   },
@@ -344,7 +344,7 @@ export const MINOR_KEYS = [
     name: Ds,
     type: "minor",
     acc: +6,
-    tones: [3, 5, 6, 8, 10, 11, 1],
+    pitches: [3, 5, 6, 8, 10, 11, 1],
     chromaticNames: CHROMATIC_NAMES_BY_MAJOR_KEY[Fs],
     circleNames: CIRCLE_NAMES_BY_MAJOR_KEY[Fs],
   },
@@ -352,13 +352,13 @@ export const MINOR_KEYS = [
     name: As,
     type: "minor",
     acc: +7,
-    tones: [10, 0, 1, 3, 5, 6, 8],
+    pitches: [10, 0, 1, 3, 5, 6, 8],
     chromaticNames: CHROMATIC_NAMES_BY_MAJOR_KEY[Cs],
     circleNames: CIRCLE_NAMES_BY_MAJOR_KEY[Cs],
   },
 ]
 
-export const MINOR_KEYS_BY_ROOT_TONE = {
+export const MINOR_KEYS_BY_ROOT_PITCH = {
   0: [4],
   1: [11],
   2: [6],
@@ -387,12 +387,12 @@ export default class Keys {
     return null
   }
 
-  static getKeys({ tone, type }) {
+  static getKeys({ pitch, type }) {
     if (type === "Major") {
-      return MAJOR_KEYS_BY_ROOT_TONE[tone].map(index => MAJOR_KEYS[index])
+      return MAJOR_KEYS_BY_ROOT_PITCH[pitch].map(index => MAJOR_KEYS[index])
     }
     if (type === "minor") {
-      return MINOR_KEYS_BY_ROOT_TONE[tone].map(index => MINOR_KEYS[index])
+      return MINOR_KEYS_BY_ROOT_PITCH[pitch].map(index => MINOR_KEYS[index])
     }
     return null
   }
@@ -405,9 +405,9 @@ export default class Keys {
 
   static getRelativeKey({ name, type }) {
     const key = this.getKey({ name, type })
-    const nextTone = type === "Major" ? key.tones[5] : key.tones[2]
+    const nextpitch = type === "Major" ? key.pitches[5] : key.pitches[2]
     const nextKeys = this.getKeys({
-      tone: nextTone,
+      pitch: nextpitch,
       type: type === "minor" ? "Major" : "minor",
     })
     return nextKeys[0]

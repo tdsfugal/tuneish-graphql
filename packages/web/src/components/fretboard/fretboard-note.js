@@ -4,46 +4,57 @@ import { useQuery } from "@apollo/react-hooks"
 
 import { FretNoteView } from "../_styles"
 
-const GET_FRETBOARD_NOTE = gql`
+const GET_KEY = gql`
   {
     current_key @client {
       chromaticNames
-      tones
+      pitches
     }
-    fretboard @client {
-      range_focus {
-        active
-        low
-        high
-      }
+  }
+`
+
+const GET_CHORD = gql`
+  {
+    current_chord @client {
+      pitches
     }
   }
 `
 
 const FretboardNote = ({ fret, note, stringPosition, fretPosition }) => {
-  const { loading, error, data } = useQuery(GET_FRETBOARD_NOTE)
+  const { loading: kLoading, error: kError, data: kData } = useQuery(GET_KEY)
+  const { loading: cLoading, error: cError, data: cData } = useQuery(GET_CHORD)
 
-  if (loading) return "Loading..."
-  if (error) return `Error! ${error.message}`
+  if (kLoading || cLoading || !kData || !cData) return null
+  if (kError) {
+    console.log(`Error! ${cError.message}`)
+    return null
+  }
+  if (cError) {
+    console.log(`Error! ${cError.message}`)
+    return null
+  }
 
-  const {
-    current_key: { chromaticNames, tones },
-    fretboard: {
-      range_focus: { active, low, high },
-    },
-  } = data
+  const { chromaticNames, pitches: keyPitches } = kData.current_key
+  const { pitches: chordPitches } = cData.current_chord
+  // Check to see if note is in the chord
+  let cIndex = -100
+  if (chordPitches.length > 0) {
+    cIndex = chordPitches.indexOf(note.pitch)
+    if (cIndex < 0) return null
+  }
 
   // Check to see if note is in the key
-  const index = tones.indexOf(note.tone)
+  const kIndex = keyPitches.indexOf(note.pitch)
+  if (kIndex < 0) return null
   // Check to see if note should display
-  if (index < 0 || (active && !(fret >= low && fret <= high))) return null
-  const noteName = chromaticNames[note.tone]
   // All is good, display the note
   return (
     <FretNoteView
       key={`no-${stringPosition}-${fretPosition}`}
-      scaleIndex={index + 1}
-      noteName={noteName}
+      kIndex={kIndex + 1}
+      cIndex={cIndex + 1}
+      noteName={chromaticNames[note.pitch]}
       stringPosition={stringPosition}
       fretPosition={fretPosition}
     />

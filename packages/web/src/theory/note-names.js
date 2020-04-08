@@ -1,9 +1,5 @@
 // Unicode
-export const DOUBLE_FLAT = "\u{1D12B}"
-export const FLAT = "\u266D"
-export const NATURAL = "\u266E"
-export const SHARP = "\u266F"
-export const DOUBLE_SHARP = "\u{1D12A}"
+import { DOUBLE_FLAT, FLAT, SHARP, DOUBLE_SHARP } from "./symbols"
 
 // Naturals
 export const An = "A"
