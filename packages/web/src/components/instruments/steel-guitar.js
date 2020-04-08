@@ -29,16 +29,16 @@ import {
 const TUNINGS = {
   10: {
     E9: [
-      { name: Bn, pitch: 11, oct: 2 },
-      { name: Dn, pitch: 2, oct: 3 },
-      { name: En, pitch: 4, oct: 3 },
-      { name: Fs, pitch: 6, oct: 3 },
-      { name: Gs, pitch: 8, oct: 3 },
-      { name: Bn, pitch: 11, oct: 3 },
-      { name: En, pitch: 4, oct: 4 },
-      { name: Gs, pitch: 8, oct: 4 },
-      { name: Ds, pitch: 3, oct: 4 },
       { name: Fs, pitch: 6, oct: 4 },
+      { name: Ds, pitch: 3, oct: 4 },
+      { name: Gs, pitch: 8, oct: 4 },
+      { name: En, pitch: 4, oct: 4 },
+      { name: Bn, pitch: 11, oct: 3 },
+      { name: Gs, pitch: 8, oct: 3 },
+      { name: Fs, pitch: 6, oct: 3 },
+      { name: En, pitch: 4, oct: 3 },
+      { name: Dn, pitch: 2, oct: 3 },
+      { name: Bn, pitch: 11, oct: 2 },
     ],
   },
 }
