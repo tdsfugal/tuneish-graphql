@@ -36,7 +36,7 @@ const FretboardNote = ({ fret, note, stringPosition, fretPosition }) => {
   }
 
   const { chromaticNames, pitches: keyPitches } = kData.current_key
-  const { pitches: chordPitches } = cData.current_chord
+  const { pitches: chordPitches } = cData.current_chord 
 
   // Set some flags
   const keyActive = keyPitches.length > 0
@@ -66,7 +66,7 @@ const FretboardNote = ({ fret, note, stringPosition, fretPosition }) => {
   return (
     <FretNoteView
       key={`no-${stringPosition}-${fretPosition}`}
-      colors={pickColors(kIndex, cIndex)}
+      colors={pickColors(kIndex, cIndex)} 
       noteName={chromaticNames[note.pitch]}
       stringPosition={stringPosition}
       fretPosition={fretPosition}

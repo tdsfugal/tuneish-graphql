@@ -90,7 +90,7 @@ export const DotView = ({ xPos, boardWidth, double = false }) => {
     return <circle cx={xPos} cy={cy} r={DOT_RADIUS} fill="black" />
   }
 }
-
+ 
 const RING_COLORS = {
   0: "transparent",
   1: "#FDEEF4",
@@ -114,11 +114,21 @@ const FILL_COLORS = {
 const TEXT_COLORS = {
   0: "transparent",
   1: "black",
-  2: "#FDEEF4",
+  2: "#FDEEF4", 
+}
+
+const CHORD_TEXT_COLORS = {
+  1: "white",
+  2: "black",
+  3: "black",
+  4: "black",
+  5: "black",
+  6: "black",
+  7: "black",
 }
 
 export const FretNoteView = ({
-  noteName,
+  noteName, 
   colors: { ringColorIndex, fillColorIndex, textColorIndex },
   stringPosition,
   fretPosition,
@@ -152,7 +162,7 @@ export const FretNoteView = ({
       {noteName}
     </text>
   </>
-)
+) 
 
 export const HandView = ({ xMin, xMax }) => {
   return <rect x={xMin} y="-50" width={xMax - xMin} height={30} fill="blue" />
