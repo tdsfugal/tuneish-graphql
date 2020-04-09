@@ -91,78 +91,68 @@ export const DotView = ({ xPos, boardWidth, double = false }) => {
   }
 }
 
-const KEY_COLORS = {
-  1: "red",
-  2: "transparent",
-  3: "transparent",
-  4: "blue",
-  5: "blue",
-  6: "transparent",
-  7: "transparent",
+const RING_COLORS = {
+  0: "transparent",
+  1: "#FDEEF4",
+  2: "#C11B17",
+  3: "#3BB9FF",
+  4: "#1589FF",
+  5: "#C0C0C0",
+  6: "#C11B1799",
+  7: "#3BB9FF55",
+  8: "#1589FF55",
+  9: "#C0C0C055",
 }
 
-const CHORD_COLORS = {
-  1: "darkred",
-  2: "white",
-  3: "white",
-  4: "white",
-  5: "white",
-  6: "white",
-  7: "white",
+const FILL_COLORS = {
+  0: "transparent",
+  1: "#FFFFFF",
+  2: "#990012",
+  3: "#FFFFFFDD",
 }
 
-const CHORD_TEXT_COLORS = {
-  1: "white",
-  2: "black",
-  3: "black",
-  4: "black",
-  5: "black",
-  6: "black",
-  7: "black",
+const TEXT_COLORS = {
+  0: "transparent",
+  1: "black",
+  2: "#FDEEF4",
 }
 
 export const FretNoteView = ({
   noteName,
-  kIndex,
-  cIndex,
+  colors: { ringColorIndex, fillColorIndex, textColorIndex },
   stringPosition,
   fretPosition,
-}) => {
-  const ringColor = cIndex === 1 ? "white" : KEY_COLORS[kIndex]
-  const fillColor = cIndex > 0 ? CHORD_COLORS[cIndex] : "white"
-  const textColor = cIndex > 0 ? CHORD_TEXT_COLORS[cIndex] : "black"
-  return (
-    <>
-      <circle
-        r={13}
-        cx={fretPosition}
-        cy={stringPosition}
-        stroke={ringColor}
-        strokeWidth="3"
-        fill="transparent"
-      />
-      <circle
-        r={12}
-        cx={fretPosition}
-        cy={stringPosition}
-        stroke="transparent"
-        fill={fillColor}
-      />
-      <text
-        x={fretPosition}
-        y={(stringPosition + 5).toString()}
-        fill={textColor}
-        fontFamily="sans-serif"
-        fontWeight="bold"
-        fontSize="12"
-        textAnchor="middle"
-        textLength="19"
-      >
-        {noteName}
-      </text>
-    </>
-  )
-}
+}) => (
+  <>
+    <circle
+      r={13}
+      cx={fretPosition}
+      cy={stringPosition}
+      stroke={RING_COLORS[ringColorIndex]}
+      strokeWidth="3"
+      fill="transparent"
+    />
+    <circle
+      r={12}
+      cx={fretPosition}
+      cy={stringPosition}
+      stroke="transparent"
+      fill={FILL_COLORS[fillColorIndex]}
+    />
+    <text
+      x={fretPosition}
+      y={(stringPosition + 5).toString()}
+      fill={TEXT_COLORS[textColorIndex]}
+      fontFamily="sans-serif"
+      fontWeight="bold"
+      fontSize="12"
+      textAnchor="middle"
+      textLength="19"
+    >
+      {noteName}
+    </text>
+  </>
+)
 
 export const HandView = ({ xMin, xMax }) => {
   return <rect x={xMin} y="-50" width={xMax - xMin} height={30} fill="blue" />
