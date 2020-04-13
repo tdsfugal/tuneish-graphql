@@ -1,8 +1,24 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
     title: `Tuneish`,
     description: `A woodshed app for musicians.`,
     author: `@tdsfugal`,
+    instruments: {
+      released: [
+        { pageName: "bass", displayName: "Bass" },
+        { pageName: "guitar", displayName: "Guitar" },
+      ],
+      pending: [
+        { pageName: "voice", displayName: "Voice" },
+        { pageName: "steel_guitar", displayName: "Steel Guitar" },
+        { pageName: "flute", displayName: "Flute" },
+        { pageName: "trumpet", displayName: "Trumpet" },
+      ],
+    },
   },
   proxy: {
     prefix: "/",
