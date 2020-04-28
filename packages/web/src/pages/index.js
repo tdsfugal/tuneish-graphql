@@ -10,16 +10,16 @@ import Welcome from "../components/welcome"
 const IndexPage = () => (
   <Layout title={"Tuneish.com"}>
     <SEO title="Landing Page" />
-    <ColumnView>
-      <ItemView flex="1 1 400px">
-        <Logo />
-      </ItemView>
-      <ItemView flex="1 1 200px">
-        <Link to="/subscribe">
+    <Link to="/home">
+      <ColumnView>
+        <ItemView flex="1 1 400px">
+          <Logo />
+        </ItemView>
+        <ItemView flex="1 1 200px">
           <Welcome />
-        </Link>
-      </ItemView>
-    </ColumnView>
+        </ItemView>
+      </ColumnView>
+    </Link>
   </Layout>
 )
 

@@ -2,17 +2,17 @@ import React from "react"
 
 // import { withAuthenticator } from "aws-amplify-react"
 
-import { RowView, ColumnView, ItemView } from "../components/_styles"
+import { RowView, ColumnView, ItemView } from "../../components/_styles"
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import Circle from "../components/circle"
-import Key from "../components/key"
+import Layout from "../../components/layout"
+import SEO from "../../components/seo"
+import Circle from "../../components/circle"
+import Key from "../../components/key"
 
-import { Voice } from "../components/instruments"
-import { SheetMusic } from "../components/sheet-music"
+import { Voice } from "../../components/instruments"
+import { SheetMusic } from "../../components/sheet-music"
 
-import { AudioListener } from "../components/footer-controls"
+import { AudioListener } from "../../components/footer-controls"
 
 const r = 160
 

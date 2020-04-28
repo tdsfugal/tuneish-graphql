@@ -4,9 +4,9 @@ import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-
-function createLink({ pageName, displayName }) {
-  const path = `/${pageName}`
+ 
+function createInstrumentLink({ pageName, displayName }) {
+  const path = `/instruments/${pageName}` 
   return (
     <div key={pageName}>
       <Link to={path}>{displayName}</Link>
@@ -17,15 +17,14 @@ function createLink({ pageName, displayName }) {
 
 const HomePage = ({ data }) => {
   const { released, pending } = data.site.siteMetadata.instruments
-
-  console.log(released)
+ 
   const instruments = released.reduce((acc, inst) => {
-    acc.push(createLink(inst))
+    acc.push(createInstrumentLink(inst)) 
     return acc
   }, [])
 
-  if (process.env.GATSBY_FEATURE_FLAG === "pending" && pending) {
-    pending.forEach(inst => instruments.push(createLink(inst)))
+  if (process.env.GATSBY_FEATURE_FLAG === "pending" && pending) { 
+    pending.forEach(inst => instruments.push(createInstrumentLink(inst))) 
   }
 
   return (

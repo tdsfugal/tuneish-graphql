@@ -13,8 +13,8 @@ module.exports = {
         { pageName: "guitar", displayName: "Guitar" },
       ],
       pending: [
-        { pageName: "voice", displayName: "Voice" },
-        { pageName: "steel_guitar", displayName: "Steel Guitar" },
+        { pageName: "voice", displayName: "Voice" }, 
+        { pageName: "steel-guitar", displayName: "Steel Guitar" }, 
         { pageName: "flute", displayName: "Flute" },
         { pageName: "trumpet", displayName: "Trumpet" },
       ],

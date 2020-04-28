@@ -5,21 +5,29 @@ import {
   instrumentInitialState,
 } from "./instruments"
 import { theoryTypeDefs, theoryResolvers, theoryInitialState } from "./theory"
+import { userTypeDefs, userResolvers, userInitialState } from "./user"
 
-export const typeDefs = [audioTypeDefs, instrumentTypeDefs, theoryTypeDefs]
+export const typeDefs = [
+  audioTypeDefs,
+  instrumentTypeDefs,
+  theoryTypeDefs,
+  userTypeDefs,
+]
 
 const query = Object.assign(
   {},
   audioResolvers.Query,
   instrumentResolvers.Query,
-  theoryResolvers.Query
+  theoryResolvers.Query,
+  userResolvers.Query
 )
 
 const mutation = Object.assign(
   {},
   audioResolvers.Mutation,
   instrumentResolvers.Mutation,
-  theoryResolvers.Mutation
+  theoryResolvers.Mutation,
+  userResolvers.Mutation
 )
 
 export const resolvers = Object.assign(
@@ -27,6 +35,7 @@ export const resolvers = Object.assign(
   audioResolvers,
   instrumentResolvers,
   theoryResolvers,
+  userResolvers,
   { Query: query, Mutation: mutation }
 )
 
@@ -34,5 +43,6 @@ export const initialState = Object.assign(
   {},
   audioInitialState,
   instrumentInitialState,
-  theoryInitialState
+  theoryInitialState,
+  userInitialState
 )

@@ -2,23 +2,23 @@ import React, { useState } from "react"
 
 // import { withAuthenticator } from "aws-amplify-react"
 
-import { RowView, ColumnView, ItemView } from "../components/_styles"
+import { RowView, ColumnView, ItemView } from "../../components/_styles"
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import Circle from "../components/circle"
+import Layout from "../../components/layout"
+import SEO from "../../components/seo"
+import Circle from "../../components/circle"
 
-import { SteelGuitar } from "../components/instruments"
-// import { SheetMusic } from "../components/sheet-music"
-import { ChordConsole } from "../components/chord-console"
+import { SteelGuitar } from "../../components/instruments"
+// import { SheetMusic } from "../../components/sheet-music"
+import { ChordConsole } from "../../components/chord-console"
 
 import {
   AudioListener,
   RangeFocusControl,
   LeftHandedControl,
-} from "../components/footer-controls"
+} from "../../components/footer-controls"
 
-import Key from "../components/key"
+import Key from "../../components/key"
 
 const r = 160
 

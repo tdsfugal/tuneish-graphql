@@ -2,21 +2,21 @@ import React from "react"
 
 // import { withAuthenticator } from "aws-amplify-react"
 
-import { RowView, ColumnView, ItemView } from "../components/_styles"
+import { RowView, ColumnView, ItemView } from "../../components/_styles"
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import Circle from "../components/circle"
-import Key from "../components/key"
+import Layout from "../../components/layout"
+import SEO from "../../components/seo"
+import Circle from "../../components/circle"
+import Key from "../../components/key"
 
-import { Flute } from "../components/instruments"
-import { SheetMusic } from "../components/sheet-music"
+import { Trumpet } from "../../components/instruments"
+import { SheetMusic } from "../../components/sheet-music"
 
-import { AudioListener } from "../components/footer-controls"
+import { AudioListener } from "../../components/footer-controls"
 
 const r = 160
 
-const FlutePage = props => {
+const TrumpetPage = props => {
   const controls = [<AudioListener key="al" />]
 
   return (
@@ -33,7 +33,7 @@ const FlutePage = props => {
         </RowView>
         <RowView flex="3 1 auto">
           <ItemView flex="1 1 auto">
-            <Flute key="ba" />
+            <Trumpet key="ba" />
           </ItemView>
         </RowView>
       </ColumnView>
@@ -41,5 +41,5 @@ const FlutePage = props => {
   )
 }
 
-export default FlutePage
+export default TrumpetPage
 // export default withAuthenticator(TrumpetPage)

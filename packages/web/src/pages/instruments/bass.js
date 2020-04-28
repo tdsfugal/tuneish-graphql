@@ -2,32 +2,34 @@ import React, { useState } from "react"
 
 // import { withAuthenticator } from "aws-amplify-react"
 
-import { RowView, ColumnView, ItemView } from "../components/_styles"
+import { RowView, ColumnView, ItemView } from "../../components/_styles"
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import Circle from "../components/circle"
+import Layout from "../../components/layout"
+import SEO from "../../components/seo"
+import Circle from "../../components/circle"
 
-import { Guitar } from "../components/instruments"
+import { Bass } from "../../components/instruments"
 // import { SheetMusic } from "../components/sheet-music"
-import { ChordConsole } from "../components/chord-console"
+import { ChordConsole } from "../../components/chord-console"
 
 import {
   AudioListener,
+  FretlessControl,
   RangeFocusControl,
   LeftHandedControl,
-} from "../components/footer-controls"
+} from "../../components/footer-controls"
 
-import Key from "../components/key"
+import Key from "../../components/key"
 
 const r = 160
 
-const GuitarPage = props => {
-  const [nStrings] = useState(6)
+const BassPage = props => {
+  const [nStrings] = useState(4)
   const [nFrets] = useState(20)
 
   const controls = [
     <AudioListener key="al" />,
+    <FretlessControl key="fl" />,
     <RangeFocusControl key="hf" />,
     <LeftHandedControl key="lh" />,
   ]
@@ -46,7 +48,7 @@ const GuitarPage = props => {
         </RowView>
         <RowView flex="3 1 auto">
           <ItemView flex="1 1 auto">
-            <Guitar key="ba" nStrings={nStrings} nFrets={nFrets} />
+            <Bass key="ba" nStrings={nStrings} nFrets={nFrets} />
           </ItemView>
         </RowView>
       </ColumnView>
@@ -54,6 +56,6 @@ const GuitarPage = props => {
   )
 }
 
-export default GuitarPage
+export default BassPage
 
 // export default withAuthenticator(BassPage)
