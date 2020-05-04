@@ -154,8 +154,33 @@ export const FretNoteView = ({
   </>
 )
 
-export const HandView = ({ xMin, xMax }) => {
+export const FretboardRangeView = ({ xMin, xMax }) => {
   return <rect x={xMin} y="-50" width={xMax - xMin} height={30} fill="blue" />
+}
+
+export const FretboardRangeControlView = ({
+  xMin,
+  xMax,
+  focus,
+  dragging,
+  focusHandler,
+  dragStart,
+}) => {
+  return (
+    <rect
+      x={xMin}
+      y="-50"
+      width={xMax - xMin}
+      height={30}
+      fill={focus ? "darkblue" : "transparent"}
+      stroke={dragging ? "white" : "transparent"}
+      onMouseOver={focusHandler(true)}
+      onMouseOut={focusHandler(false)}
+      onFocus={focusHandler(true)}
+      onBlur={focusHandler(false)}
+      onMouseDown={dragStart}
+    />
+  )
 }
 
 const RAY_HEIGHT_FRACTION = 70 / 50 / 60

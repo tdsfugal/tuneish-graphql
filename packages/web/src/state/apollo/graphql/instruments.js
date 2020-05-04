@@ -37,6 +37,7 @@ export const instrumentTypeDefs = gql`
     updateFretless: Boolean
     updateLeftHanded: Boolean
     updateRangeActive: Boolean
+    updateRangeFocus: Boolean
   }
 `
 
@@ -59,6 +60,17 @@ export const instrumentResolvers = {
         data: {
           fretboard: {
             range_focus: { active, __typename: "RangeFocus" },
+            __typename: "Fretboard",
+          },
+        },
+      })
+      return null
+    },
+    updateRangeFocus: (_, { low, high }, { cache }) => {
+      cache.writeData({
+        data: {
+          fretboard: {
+            range_focus: { low, high, __typename: "RangeFocus" },
             __typename: "Fretboard",
           },
         },
