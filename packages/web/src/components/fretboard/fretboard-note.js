@@ -16,6 +16,7 @@ const GET_KEY = gql`
 const GET_CHORD = gql`
   {
     current_chord @client {
+      quality
       pitches
     }
   }
@@ -36,7 +37,9 @@ const FretboardNote = ({ fret, note, stringPosition, fretPosition }) => {
   }
 
   const { chromaticNames, pitches: keyPitches } = kData.current_key
-  const { pitches: chordPitches } = cData.current_chord
+  const { quality, pitches: chordPitches } = cData.current_chord
+
+  console.log(quality)
 
   // Set some flags
   const keyActive = keyPitches.length > 0
@@ -66,7 +69,7 @@ const FretboardNote = ({ fret, note, stringPosition, fretPosition }) => {
   return (
     <FretNoteView
       key={`no-${stringPosition}-${fretPosition}`}
-      colors={pickColors(kIndex, cIndex)}
+      colors={pickColors(kIndex, cIndex, quality)}
       noteName={chromaticNames[note.pitch]}
       stringPosition={stringPosition}
       fretPosition={fretPosition}
@@ -74,10 +77,10 @@ const FretboardNote = ({ fret, note, stringPosition, fretPosition }) => {
   )
 }
 
-function pickColors(kIndex, cIndex) {
-  let ringColorIndex = 0
-  let fillColorIndex = 0
-  let textColorIndex = 0
+function pickColors(kIndex, cIndex, quality) {
+  let ringColorIndex = 0 // Key indicator
+  let fillColorIndex = 0 // Chord indicator
+  let textColorIndex = 0 // Readable contrast
 
   if (kIndex < 0) {
     // ==== Mo Key is set ======
@@ -92,8 +95,19 @@ function pickColors(kIndex, cIndex) {
     } else if (cIndex === 1) {
       // ----- This note is the root of the chord -------
       ringColorIndex = 1
-      fillColorIndex = 2
-      textColorIndex = 2
+      if (quality === "maj") {
+        fillColorIndex = 4
+        textColorIndex = 2
+      } else if (quality === "min") {
+        fillColorIndex = 5
+        textColorIndex = 2
+      } else if (quality === "dim") {
+        fillColorIndex = 6
+        textColorIndex = 2
+      } else {
+        fillColorIndex = 2
+        textColorIndex = 2
+      }
     } else {
       // ----- This note is in the chord but not the root-------
       fillColorIndex = 3
@@ -145,8 +159,19 @@ function pickColors(kIndex, cIndex) {
     } else if (cIndex === 1) {
       // ----- This note is the root of the chord -------
       ringColorIndex = 7
-      fillColorIndex = 2
-      textColorIndex = 2
+      if (quality === "maj") {
+        fillColorIndex = 4
+        textColorIndex = 2
+      } else if (quality === "min") {
+        fillColorIndex = 5
+        textColorIndex = 2
+      } else if (quality === "dim") {
+        fillColorIndex = 6
+        textColorIndex = 2
+      } else {
+        fillColorIndex = 2
+        textColorIndex = 2
+      }
     } else {
       // ----- This note is in the chord but not the root ------
       ringColorIndex = 7
@@ -166,8 +191,19 @@ function pickColors(kIndex, cIndex) {
     } else if (cIndex === 1) {
       // ----- This note is the root of the chord -------
       ringColorIndex = 8
-      fillColorIndex = 2
-      textColorIndex = 2
+      if (quality === "maj") {
+        fillColorIndex = 4
+        textColorIndex = 2
+      } else if (quality === "min") {
+        fillColorIndex = 5
+        textColorIndex = 2
+      } else if (quality === "dim") {
+        fillColorIndex = 6
+        textColorIndex = 2
+      } else {
+        fillColorIndex = 2
+        textColorIndex = 2
+      }
     } else {
       // ----- This note is in the chord but not the root-------
       ringColorIndex = 8
@@ -186,8 +222,19 @@ function pickColors(kIndex, cIndex) {
     } else if (cIndex === 1) {
       // ----- This note is the root of the chord -------
       ringColorIndex = 9
-      fillColorIndex = 2
-      textColorIndex = 2
+      if (quality === "maj") {
+        fillColorIndex = 4
+        textColorIndex = 2
+      } else if (quality === "min") {
+        fillColorIndex = 5
+        textColorIndex = 2
+      } else if (quality === "dim") {
+        fillColorIndex = 6
+        textColorIndex = 2
+      } else {
+        fillColorIndex = 2
+        textColorIndex = 2
+      }
     } else {
       // ----- This note is in the chord but not the root-------
       ringColorIndex = 9

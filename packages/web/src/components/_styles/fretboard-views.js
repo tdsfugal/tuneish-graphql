@@ -91,6 +91,7 @@ export const DotView = ({ xPos, boardWidth, double = false }) => {
   }
 }
 
+// TODO - Move all these out, They code theory; not fretboard specific.
 const RING_COLORS = {
   0: "transparent",
   1: "#FDEEF4",
@@ -109,6 +110,9 @@ const FILL_COLORS = {
   1: "#FFFFFF",
   2: "#990012",
   3: "#FFFFFFDD",
+  4: "purple",
+  5: "orange",
+  6: "green",
 }
 
 const TEXT_COLORS = {
