@@ -1,12 +1,7 @@
 import React, { useState } from "react"
 import { useNavigate } from "@reach/router"
 
-import {
-  checkEmail,
-  checkConfCode,
-  checkPassword,
-  checkPasswordRepeat,
-} from "../../util/account"
+import { checkPassword, checkPasswordRepeat } from "../../util/account"
 
 import Layout from "../../components/layout"
 import SEO from "../../components/seo"
@@ -21,31 +16,18 @@ import {
 
 import { User } from "../../state/auth"
 
-const DEFAULT_EMAIL_MESSAGE = "Account Email"
-const DEFAULT_CONF_CODE_MESSAGE = "Enter confirmation code"
+const DEFAULT_OLD_PASSWORD_MESSAGE = "Old Password"
 const DEFAULT_NEW_PASSWORD_MESSAGE = "New Password"
 const DEFAULT_NEW_PASSWORD_REPEAT_MESSAGE = "Repeat New Password"
 
-const ResetPasswordPage = props => {
+const ChangePasswordPage = props => {
   const [allPass, setAllPass] = useState(false)
-  const [emailObj, setEmailObj] = useState({
-    value:
-      props.location && props.location.state && props.location.state.email
-        ? props.location.state.email
-        : "",
-    ok:
-      props.location && props.location.state && props.location.state.email
-        ? true
-        : false,
-    msg: DEFAULT_EMAIL_MESSAGE,
-  })
 
-  const [confCodeObj, setConfCodeObj] = useState({
+  const [oldPasswordObj, setOldPasswordObj] = useState({
     value: "",
     ok: false,
-    msg: DEFAULT_CONF_CODE_MESSAGE,
+    msg: DEFAULT_OLD_PASSWORD_MESSAGE,
   })
-
   const [newPasswordObj, setNewPasswordObj] = useState({
     value: "",
     ok: false,
@@ -58,75 +40,59 @@ const ResetPasswordPage = props => {
   })
   const navigate = useNavigate()
 
-  const updateEmailObj = event => {
+  const updateOldPasswordObj = event => {
     const value = event.target.value
-    const { ok, msg } = checkEmail(value, DEFAULT_EMAIL_MESSAGE)
-    setEmailObj({ value, ok, msg })
-  }
-
-  const updateConfCodeObj = event => {
-    const value = event.target.value
-    const { ok, msg } = checkConfCode(value, DEFAULT_CONF_CODE_MESSAGE)
-    setAllPass(
-      confCodeObj.ok && ok && newPasswordObj.ok && newPasswordRepeatObj.ok
-    )
-    setConfCodeObj({ value, ok, msg })
+    const { ok, msg } = checkPassword(value, DEFAULT_OLD_PASSWORD_MESSAGE)
+    setAllPass(ok && newPasswordObj.ok && newPasswordRepeatObj.ok)
+    setOldPasswordObj({ value, ok, msg })
   }
 
   const updateNewPasswordObj = event => {
     const value = event.target.value
     const { ok, msg } = checkPassword(value, DEFAULT_NEW_PASSWORD_MESSAGE)
-    setAllPass(confCodeObj.ok && ok && newPasswordRepeatObj.ok)
+    setAllPass(oldPasswordObj.ok && ok && newPasswordRepeatObj.ok)
     setNewPasswordObj({ value, ok, msg })
   }
 
   const updateNewPasswordRepeatObj = event => {
     const value = event.target.value
     const { ok, msg } = checkPasswordRepeat(newPasswordObj.value, value)
-    setAllPass(confCodeObj.ok && newPasswordObj.ok && ok)
+    setAllPass(oldPasswordObj.ok && newPasswordObj.ok && ok)
     setNewPasswordRepeatObj({ value, ok, msg })
   }
 
-  const submitNewPassword = async event => {
+  const submitPasswords = async event => {
     // prevent the form from reloading the page
     event.preventDefault()
     event.stopPropagation()
-    const response = await User.resetPassword({
-      username: emailObj.value,
-      code: confCodeObj.value,
+    const { error } = User.changePassword({
+      oldPassword: oldPasswordObj.value,
       newPassword: newPasswordObj.value,
     })
-    const { error } = response
-    if (!error) navigate("/account/login")
+    if (!error) navigate("/home")
   }
 
   return (
-    <Layout title="Reset Password">
+    <Layout title="Reset Password" restricted>
       <SEO title="Reset Password Page" />
       <ColumnView>
         <ItemView>
           <FormFrameView>
-            <InputLabelView>{emailObj.msg}</InputLabelView>
+            <InputLabelView>{oldPasswordObj.msg}</InputLabelView>
             <InputItemView
-              ok={emailObj.ok}
-              id="username"
-              name="username"
-              autocomplete="username"
-              placeholder="  Email"
-              value={emailObj.value}
-              onChange={updateEmailObj}
-            />
-            <InputLabelView>{confCodeObj.msg}</InputLabelView>
-            <InputItemView
-              ok={confCodeObj.ok}
-              placeholder="  ConfCode"
-              value={confCodeObj.value}
-              onChange={updateConfCodeObj}
+              ok={oldPasswordObj.ok}
+              id="oldPassword"
+              name="password"
+              autocomplete="password"
+              type="password"
+              placeholder="  Password"
+              value={oldPasswordObj.value}
+              onChange={updateOldPasswordObj}
             />
             <InputLabelView>{newPasswordObj.msg}</InputLabelView>
             <InputItemView
               ok={newPasswordObj.ok}
-              id="password"
+              id="newPassword"
               type="password"
               placeholder="  Password"
               value={newPasswordObj.value}
@@ -135,14 +101,14 @@ const ResetPasswordPage = props => {
             <InputLabelView>{newPasswordRepeatObj.msg}</InputLabelView>
             <InputItemView
               ok={newPasswordRepeatObj.ok}
-              id="passwordRepeat"
+              id="newPasswordRepeat"
               type="password"
-              placeholder="  Repeat Password"
+              placeholder="  Repeaat Password"
               value={newPasswordRepeatObj.value}
               onChange={updateNewPasswordRepeatObj}
             />
-            <ButtonView ok={allPass} onClick={submitNewPassword}>
-              Reset Password
+            <ButtonView ok={allPass} onClick={submitPasswords}>
+              Change Password
             </ButtonView>
           </FormFrameView>
         </ItemView>
@@ -151,4 +117,4 @@ const ResetPasswordPage = props => {
   )
 }
 
-export default ResetPasswordPage
+export default ChangePasswordPage

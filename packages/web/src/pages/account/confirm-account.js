@@ -61,8 +61,8 @@ const ConfirmAccountPage = props => {
     event.stopPropagation()
 
     // If all criteria are ok then process the click
-    const { err } = await User.resendConfCode({ username: emailObj.value })
-    if (err === ACCOUNT_ALREADY_CONFIRMED) {
+    const { error } = await User.resendConfCode({ username: emailObj.value })
+    if (error === ACCOUNT_ALREADY_CONFIRMED) {
       navigate("/account/login", { state: { username: emailObj.value } })
     } else {
       setConfCodeObj({

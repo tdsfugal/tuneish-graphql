@@ -10,16 +10,23 @@ import {
   EMAIL_NOT_RECOGNIZED_ERROR,
   USER_NAME_EXISTS_ERROR,
   ACCOUNT_ALREADY_CONFIRMED,
+  RESET_LIMIT_EXCEEDED_ERROR,
+  USER_NOT_FOUND_ERROR,
+  USER_NOT_LOGGED_IN,
   UNKNOWN_AUTH_ERROR,
 } from "../auth-errors"
 
 import setUser from "../setUser"
 
 export default class User {
+  static async isLoggedIn() {
+    const user = await Auth.currentAuthenticatedUser()
+    return user !== undefined && user !== null
+  }
+
   static async getCurrentUser() {
     try {
-      const response = await Auth.currentUserInfo()
-      console.log(response)
+      const response = await Auth.currentAuthenticatedUser()
       return response
     } catch (e) {
       console.log(e)
@@ -133,5 +140,76 @@ export default class User {
       if (e !== "No current user") console.log("Error logging out: ", e)
     }
     setUser({ guest: true })
+  }
+
+  static async changePassword({ oldPassword, newPassword }) {
+    try {
+      const user = await Auth.currentAuthenticatedUser()
+      await Auth.changePassword(user, oldPassword, newPassword)
+      return { error: null }
+    } catch (err) {
+      console.log(err)
+      return { error: UNKNOWN_AUTH_ERROR }
+    }
+  }
+
+  static async requestPasswordReset({ username }) {
+    try {
+      await Auth.forgotPassword(username)
+      return { error: null }
+    } catch (err) {
+      console.log(err)
+      if (err.code === "LimitExceededException") {
+        return { error: RESET_LIMIT_EXCEEDED_ERROR }
+      }
+      if (err.code === "UserNotFoundException") {
+        return { error: USER_NOT_FOUND_ERROR }
+      }
+      return { error: UNKNOWN_AUTH_ERROR }
+    }
+  }
+
+  static async resetPassword({ username, code, newPassword }) {
+    try {
+      await Auth.forgotPasswordSubmit(username, code, newPassword)
+      return { error: null }
+    } catch (err) {
+      console.log(err)
+      return { error: UNKNOWN_AUTH_ERROR }
+    }
+  }
+
+  static async deleteAccount() {
+    try {
+      const user = await User.getCurrentUser()
+      // TODO - reverify user to assure that the request is from the user
+      if (user) {
+        const response = await new Promise((resolve, reject) => {
+          user.deleteUser((err, data) => {
+            if (err) reject(err)
+            if (data) resolve(data)
+          })
+        })
+        if (response === "SUCCESS") {
+          setUser({ guest: true })
+          return { error: null }
+        }
+        console.log(response)
+        return { error: UNKNOWN_AUTH_ERROR }
+      } else {
+        return { error: USER_NOT_LOGGED_IN }
+      }
+    } catch (err) {
+      console.log(err)
+      // InternalErrorException
+      // InvalidParameterException
+      // NotAuthorizedException
+      // PasswordResetRequiredException
+      // ResourceNotFoundException
+      // TooManyRequestsException
+      // UserNotConfirmedException
+      // UserNotFoundException
+      return { error: UNKNOWN_AUTH_ERROR }
+    }
   }
 }

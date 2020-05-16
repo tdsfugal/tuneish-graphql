@@ -139,7 +139,7 @@ const SignUpPage = () => {
             <InputItemView
               ok={passwordRepeatObj.ok}
               type="password"
-              placeholder="  Password"
+              placeholder=" Repeat Password"
               value={passwordRepeatObj.value}
               onChange={updatePasswordRepeatObj}
             />

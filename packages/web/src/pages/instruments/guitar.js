@@ -34,7 +34,7 @@ const GuitarPage = props => {
 
   return (
     <Layout footerControls={controls} title={[<Key key="key" />]}>
-      <SEO key="se" title="Bass" />
+      <SEO key="se" title="Guitar" />
       <ColumnView>
         <RowView flex="2 1 auto">
           <ItemView flex="1 1 auto">

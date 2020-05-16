@@ -13,5 +13,13 @@ export const USER_NAME_EXISTS_ERROR = "This email is already in use."
 // Resend conf code messages
 export const ACCOUNT_ALREADY_CONFIRMED = "This account is already confirmed"
 
+// Password reset errors
+export const RESET_LIMIT_EXCEEDED_ERROR =
+  "Reset limit exceeded. Please try again later."
+export const USER_NOT_FOUND_ERROR = "Could not find an account with this email."
+
+// Delete user errors
+export const USER_NOT_LOGGED_IN = "User not logged in"
+
 // Catch-all error message
 export const UNKNOWN_AUTH_ERROR = "Unknown error"

@@ -35,7 +35,7 @@ export default props => {
       const handleLogout = e => User.logOut()
       content = (
         <UserIconBurgerView>
-          <Link to="/account/manage">
+          <Link to="/account">
             <UserIconItemView>Account</UserIconItemView>
           </Link>
           <Link to="/home">

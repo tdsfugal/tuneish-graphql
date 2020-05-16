@@ -165,7 +165,7 @@ const LoginPage = props => {
             <Link to="/account/signup">
               <p>Don't have an account?</p>
             </Link>
-            <Link to="/account/reset-password">
+            <Link to="/account/request-password-reset">
               <p>Forgot your password?</p>
             </Link>
             <ButtonView onClick={continueAsGuest}>Continue as Guest</ButtonView>
