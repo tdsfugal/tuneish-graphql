@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 
-// import { withAuthenticator } from "aws-amplify-react"
+import gql from "graphql-tag"
+import { useQuery } from "@apollo/react-hooks"
 
 import { RowView, ColumnView, ItemView } from "../../components/_styles"
 
@@ -15,6 +16,7 @@ import { ChordConsole } from "../../components/chord-console"
 import {
   AudioListener,
   FretlessControl,
+  FiveStringControl,
   RangeFocusControl,
   LeftHandedControl,
 } from "../../components/footer-controls"
@@ -23,13 +25,26 @@ import Key from "../../components/key"
 
 const r = 160
 
+const GET_FIVE_STRING = gql`
+  query {
+    fretboard @client {
+      fiveString
+    }
+  }
+`
 const BassPage = props => {
-  const [nStrings] = useState(4)
+  const { loading, error, data } = useQuery(GET_FIVE_STRING)
   const [nFrets] = useState(20)
+
+  const nStrings =
+    loading || error || !data || !data.fretboard || !data.fretboard.fiveString
+      ? 4
+      : 5
 
   const controls = [
     <AudioListener key="al" />,
     <FretlessControl key="fl" />,
+    <FiveStringControl key="fv" />,
     <RangeFocusControl key="hf" />,
     <LeftHandedControl key="lh" />,
   ]
@@ -57,5 +72,3 @@ const BassPage = props => {
 }
 
 export default BassPage
-
-// export default withAuthenticator(BassPage)

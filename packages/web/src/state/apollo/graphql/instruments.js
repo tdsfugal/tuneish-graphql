@@ -3,6 +3,7 @@ import gql from "graphql-tag"
 export const instrumentInitialState = {
   fretboard: {
     fretless: false,
+    fiveString: false,
     left_handed: false,
     range_focus: {
       active: false,
@@ -24,6 +25,7 @@ export const instrumentTypeDefs = gql`
 
   type Fretboard {
     fretless: Boolean!
+    fiveString: Boolean!
     left_handed: Boolean!
     range_focus: RangeFocus!
     __typename: Fretboard
@@ -46,6 +48,12 @@ export const instrumentResolvers = {
     updateFretless: (_, { fretless }, { cache }) => {
       cache.writeData({
         data: { fretboard: { fretless, __typename: "Fretboard" } },
+      })
+      return null
+    },
+    updateFiveString: (_, { fiveString }, { cache }) => {
+      cache.writeData({
+        data: { fretboard: { fiveString, __typename: "Fretboard" } },
       })
       return null
     },

@@ -39,8 +39,6 @@ const FretboardNote = ({ fret, note, stringPosition, fretPosition }) => {
   const { chromaticNames, pitches: keyPitches } = kData.current_key
   const { quality, pitches: chordPitches } = cData.current_chord
 
-  console.log(quality)
-
   // Set some flags
   const keyActive = keyPitches.length > 0
   const chordActive = chordPitches.length > 0
