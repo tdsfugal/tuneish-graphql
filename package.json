@@ -1,6 +1,6 @@
 {
   "name": "Tuneish",
-  "version": "0.0.6-pre",
+  "version": "0.0.7-pre",
   "private": true,
   "license": "LicenseRef-LICENSE",
   "devDependencies": {

@@ -38,7 +38,7 @@ export default props => {
           <Link to="/account">
             <UserIconItemView>Account</UserIconItemView>
           </Link>
-          <Link to="/home">
+          <Link to="/">
             <UserIconItemView onClick={handleLogout}>logout</UserIconItemView>
           </Link>
         </UserIconBurgerView>

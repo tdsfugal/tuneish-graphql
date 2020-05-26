@@ -52,7 +52,9 @@ const keyDefs = [
   return def
 })
 
-const Logo = () => {
+// TODO - make it dance
+
+const DancingLogo = () => {
   const keys = keyDefs.map(def => {
     const white = def[1]
 
@@ -162,4 +164,4 @@ const Logo = () => {
   )
 }
 
-export default Logo
+export default DancingLogo

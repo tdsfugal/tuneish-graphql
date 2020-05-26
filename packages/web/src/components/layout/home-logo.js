@@ -18,7 +18,7 @@ const HomeLogo = () => {
   `)
 
   return (
-    <Link to="/home">
+    <Link to="/">
       <LogoView>
         <Img fixed={data.placeholderImage.childImageSharp.fixed} />
       </LogoView>

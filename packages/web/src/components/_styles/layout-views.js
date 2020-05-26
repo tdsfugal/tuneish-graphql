@@ -85,10 +85,17 @@ export const UserIconItemView = styled.div`
 // ============== Main section =================================
 
 export const MainView = styled.div`
-  flex: 1 1 80%;
+  flex: 1 1 auto;
   width: 100%;
+  height: 80%;
   color: ${MAIN_FOREGROUND_COLOR};
   background: ${MAIN_BACKGROUND_COLOR};
+`
+
+export const MainScrollView = styled.div`
+  margin: auto;
+  max-height: 100%;
+  overflow-y: scroll;
 `
 // Use these utility classes to lay out the interior of the main space.
 
@@ -119,6 +126,7 @@ export const ItemView = styled.div`
   justify-content: center;
   align-items: center;
 `
+
 // ============== Footer section =================================
 
 export const FooterView = styled.div`

@@ -1,12 +1,14 @@
 import React from "react"
 import PropTypes from "prop-types"
 import Header from "./header"
-import { LayoutView, MainView, FooterView } from "../_styles"
+import { LayoutView, MainView, MainScrollView, FooterView } from "../_styles"
 
 const Layout = ({ children, footerControls, title, restricted }) => (
   <LayoutView>
     <Header title={title} />
-    <MainView>{children}</MainView>
+    <MainView>
+      <MainScrollView>{children}</MainScrollView>
+    </MainView>
     <FooterView>{footerControls}</FooterView>
   </LayoutView>
 )

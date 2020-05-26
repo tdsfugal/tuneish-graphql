@@ -13,8 +13,8 @@ module.exports = {
         { pageName: "guitar", displayName: "Guitar" },
       ],
       pending: [
-        { pageName: "voice", displayName: "Voice" }, 
-        { pageName: "steel-guitar", displayName: "Steel Guitar" }, 
+        { pageName: "voice", displayName: "Voice" },
+        { pageName: "steel-guitar", displayName: "Steel Guitar" },
         { pageName: "flute", displayName: "Flute" },
         { pageName: "trumpet", displayName: "Trumpet" },
       ],
@@ -25,10 +25,8 @@ module.exports = {
     url: "https://tuneish.com",
   },
   plugins: [
-    {
-      resolve: `gatsby-transformer-sharp`,
-    },
-    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -36,7 +34,16 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    `gatsby-plugin-sharp`,
+    "gatsby-transformer-remark",
+    "gatsby-transformer-json",
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `content`,
+        path: `${__dirname}/src/content/`,
+      },
+    },
+    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

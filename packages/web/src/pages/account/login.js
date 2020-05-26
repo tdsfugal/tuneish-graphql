@@ -65,7 +65,7 @@ const LoginPage = props => {
 
     // if all criteria are OK then process the click
     User.logOut()
-    navigate("/home")
+    navigate("/")
   }
 
   const submitLogin = async event => {
@@ -116,7 +116,7 @@ const LoginPage = props => {
         return
       }
       // All checks passed, head home
-      if (user) navigate("/home")
+      if (user) navigate("/")
     }
   }
 

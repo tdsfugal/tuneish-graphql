@@ -69,7 +69,7 @@ const ChangePasswordPage = props => {
       oldPassword: oldPasswordObj.value,
       newPassword: newPasswordObj.value,
     })
-    if (!error) navigate("/home")
+    if (!error) navigate("/")
   }
 
   return (
