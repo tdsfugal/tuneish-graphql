@@ -109,7 +109,7 @@ const SignUpPage = () => {
 
   return (
     <Layout title="Sign Up">
-      <SEO title="SignUp Page" />
+      <SEO title="SignUp" />
       <ColumnView>
         <ItemView>
           <FormFrameView>

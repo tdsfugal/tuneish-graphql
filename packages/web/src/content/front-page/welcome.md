@@ -5,6 +5,7 @@ group: front-page
 name: welcome
 ---
 
-Tunes are musical stories made by people.
-This app is tune-ish; it isn't music, but it is musical.
-Tunish displays harmonies to help you make better music.
+# Tuneish is a harmony calculator
+
+_If you are an aspiring musician, practice here._
+_If you are a practicing musician, aspire here._

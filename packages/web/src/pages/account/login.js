@@ -134,7 +134,7 @@ const LoginPage = props => {
 
   return (
     <Layout title="Login">
-      <SEO title="Login Page" />
+      <SEO title="Login" />
       <ColumnView>
         <ItemView>
           <FormFrameView>

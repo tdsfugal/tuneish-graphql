@@ -1,81 +1,36 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import { MDXRenderer } from "gatsby-plugin-mdx"
 
 import Layout from "../components/layout"
-import {
-  ColumnView,
-  RowView,
-  ItemView,
-  FrontPageColumn,
-  FrontPageBlurb,
-} from "../components/_styles"
+import { ColumnView, ItemView, FrontPageBlurb } from "../components/_styles"
 import SEO from "../components/seo"
 import { StaticLogo } from "../components/logo"
 
 export const query = graphql`
   query FrontPageBlurbQuery {
-    allMarkdownRemark(
-      filter: { frontmatter: { group: { eq: "front-page" } } }
-    ) {
-      edges {
-        node {
-          internal {
-            content
-          }
-          frontmatter {
-            group
-            name
-            title
-          }
-        }
-      }
+    mdx(frontmatter: { name: { eq: "welcome" } }) {
+      body
     }
   }
 `
 
-const IndexPage = ({ data }) => {
-  const { edges } = data.allMarkdownRemark
-  const welcome = edges.filter(x => x.node.frontmatter.name === "welcome")[0]
-    .node.internal.content
-
-  return (
-    <Layout title={"Tuneish.com"}>
-      <SEO title="Landing Page" />
-      <ColumnView>
-        <ItemView flex="1 1 400px">
-          <Link to="/practice">
-            <StaticLogo />
-          </Link>
-        </ItemView>
-        <ItemView flex="1 1 200px">
-          <FrontPageBlurb>{welcome}</FrontPageBlurb>
-        </ItemView>
-        <RowView>
-          <ItemView flex="1 1 200px">
-            <Link to="/about">
-              <FrontPageColumn>
-                <p>ABOUT</p>
-              </FrontPageColumn>
-            </Link>
-          </ItemView>
-          <ItemView flex="1 1 200px">
-            <Link to="/theory">
-              <FrontPageColumn>
-                <p>THEORY</p>
-              </FrontPageColumn>
-            </Link>
-          </ItemView>
-          <ItemView flex="1 1 200px">
-            <Link to="/blog">
-              <FrontPageColumn>
-                <p>BLOG</p>
-              </FrontPageColumn>
-            </Link>
-          </ItemView>
-        </RowView>
-      </ColumnView>
-    </Layout>
-  )
-}
+const IndexPage = ({ data }) => (
+  <Layout title={"Welcome"}>
+    <SEO title="Welcome" />
+    <ColumnView>
+      <ItemView flex="1 1 400px">
+        <Link to="/practice/bass">
+          <StaticLogo />
+        </Link>
+      </ItemView>
+      <ItemView flex="1 1 200px">
+        <FrontPageBlurb>
+          <MDXRenderer>{data.mdx.body}</MDXRenderer>
+        </FrontPageBlurb>
+      </ItemView>
+    </ColumnView>
+  </Layout>
+)
 
 export default IndexPage

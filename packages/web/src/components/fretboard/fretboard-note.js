@@ -3,6 +3,7 @@ import gql from "graphql-tag"
 import { useQuery } from "@apollo/react-hooks"
 
 import { FretNoteView } from "../_styles"
+import { MAJ, MIN, DIM } from "../../theory"
 
 const GET_KEY = gql`
   {
@@ -93,13 +94,13 @@ function pickColors(kIndex, cIndex, quality) {
     } else if (cIndex === 1) {
       // ----- This note is the root of the chord -------
       ringColorIndex = 1
-      if (quality === "maj") {
+      if (quality === MAJ) {
         fillColorIndex = 4
         textColorIndex = 2
-      } else if (quality === "min") {
+      } else if (quality === MIN) {
         fillColorIndex = 5
         textColorIndex = 2
-      } else if (quality === "dim") {
+      } else if (quality === DIM) {
         fillColorIndex = 6
         textColorIndex = 2
       } else {
@@ -157,13 +158,13 @@ function pickColors(kIndex, cIndex, quality) {
     } else if (cIndex === 1) {
       // ----- This note is the root of the chord -------
       ringColorIndex = 7
-      if (quality === "maj") {
+      if (quality === MAJ) {
         fillColorIndex = 4
         textColorIndex = 2
-      } else if (quality === "min") {
+      } else if (quality === MIN) {
         fillColorIndex = 5
         textColorIndex = 2
-      } else if (quality === "dim") {
+      } else if (quality === DIM) {
         fillColorIndex = 6
         textColorIndex = 2
       } else {
@@ -189,13 +190,13 @@ function pickColors(kIndex, cIndex, quality) {
     } else if (cIndex === 1) {
       // ----- This note is the root of the chord -------
       ringColorIndex = 8
-      if (quality === "maj") {
+      if (quality === MAJ) {
         fillColorIndex = 4
         textColorIndex = 2
-      } else if (quality === "min") {
+      } else if (quality === MIN) {
         fillColorIndex = 5
         textColorIndex = 2
-      } else if (quality === "dim") {
+      } else if (quality === DIM) {
         fillColorIndex = 6
         textColorIndex = 2
       } else {
@@ -220,13 +221,13 @@ function pickColors(kIndex, cIndex, quality) {
     } else if (cIndex === 1) {
       // ----- This note is the root of the chord -------
       ringColorIndex = 9
-      if (quality === "maj") {
+      if (quality === MAJ) {
         fillColorIndex = 4
         textColorIndex = 2
-      } else if (quality === "min") {
+      } else if (quality === MIN) {
         fillColorIndex = 5
         textColorIndex = 2
-      } else if (quality === "dim") {
+      } else if (quality === DIM) {
         fillColorIndex = 6
         textColorIndex = 2
       } else {

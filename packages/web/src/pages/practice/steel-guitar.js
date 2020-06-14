@@ -7,6 +7,7 @@ import { RowView, ColumnView, ItemView } from "../../components/_styles"
 import Layout from "../../components/layout"
 import SEO from "../../components/seo"
 import Circle from "../../components/circle"
+import Chromatic from "../../components/chromatic"
 
 import { SteelGuitar } from "../../components/instruments"
 // import { SheetMusic } from "../../components/sheet-music"
@@ -17,8 +18,6 @@ import {
   RangeFocusControl,
   LeftHandedControl,
 } from "../../components/footer-controls"
-
-import Key from "../../components/key"
 
 const r = 160
 
@@ -34,9 +33,12 @@ const SteelGuitarPage = props => {
   ]
 
   return (
-    <Layout footerControls={controls} title={[<Key key="key" />]}>
-      <SEO key="se" title="Bass" />
+    <Layout footerControls={controls} practice>
+      <SEO key="se" title="Steel" />
       <ColumnView>
+        <ItemView flex="1 1 auto">
+          <Chromatic />
+        </ItemView>
         <RowView flex="2 1 auto">
           <ItemView flex="1 1 auto">
             <Circle key="ci" r={r} />

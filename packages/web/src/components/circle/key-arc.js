@@ -4,7 +4,7 @@ import { useQuery, useMutation } from "@apollo/react-hooks"
 
 import ArcView from "./arc-view"
 
-import { TYPE_FILLS, DEGREE_STROKES } from "./params"
+import { TYPE_FILLS, DEGREE_STROKES } from "../_styles/params"
 
 const SET_KEY_ROOT = gql`
   mutation SetKeyRoot($pitch: Int) {

@@ -6,6 +6,7 @@ export const theoryInitialState = {
     __typename: "Key",
   }),
   current_chord: Object.assign({}, NULL_CHORD, { __typename: "FixedChord" }),
+  next_chord: Object.assign({}, NULL_CHORD, { __typename: "FixedChord" }),
 }
 
 export const theoryTypeDefs = gql`
@@ -84,6 +85,7 @@ export const theoryTypeDefs = gql`
   extend type Query {
     current_key: Key!
     current_chord: FixedChord!
+    next_chord: FixedChord!
   }
 
   extend type Mutation {

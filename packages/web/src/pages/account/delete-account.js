@@ -72,7 +72,7 @@ const DeleteAccountPage = props => {
 
   return (
     <Layout title="Delete Account" restricted>
-      <SEO title="Delete Account Page" />
+      <SEO title="Delete Account" />
       <ColumnView>
         <ItemView>
           <FormFrameView>

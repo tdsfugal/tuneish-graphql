@@ -102,7 +102,7 @@ const ResetPasswordPage = props => {
 
   return (
     <Layout title="Reset Password">
-      <SEO title="Reset Password Page" />
+      <SEO title="Reset Password" />
       <ColumnView>
         <ItemView>
           <FormFrameView>

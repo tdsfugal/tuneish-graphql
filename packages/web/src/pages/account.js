@@ -15,7 +15,7 @@ import {
 const AccountPage = props => {
   return (
     <Layout title="Manage Your Account" restricted="true">
-      <SEO title="Manage Account Page" />
+      <SEO title="Account" />
       <ColumnView>
         <ItemView>
           <Link to="/account/change-password">

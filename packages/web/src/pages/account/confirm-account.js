@@ -103,7 +103,7 @@ const ConfirmAccountPage = props => {
 
   return (
     <Layout title="Please Confirm Your Account">
-      <SEO title="Confirm Account Page" />
+      <SEO title="Confirm Account" />
       <ColumnView>
         <ItemView>
           <FormFrameView>

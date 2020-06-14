@@ -33,7 +33,7 @@ function createInstrumentLink({ pageName, displayName }) {
   )
 }
 
-const PracticePage = ({ data }) => {
+const HomePage = ({ data }) => {
   const { released, pending } = data.site.siteMetadata.instruments
 
   const instruments = released.reduce((acc, inst) => {
@@ -53,4 +53,4 @@ const PracticePage = ({ data }) => {
   )
 }
 
-export default PracticePage
+export default HomePage

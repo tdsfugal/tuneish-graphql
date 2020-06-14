@@ -12,12 +12,23 @@ import {
   ROM_v,
   ROM_vi,
   ROM_vii,
+  MAJ,
+  MIN,
+  AUG,
+  DIM,
+  HALF_DIM,
+  SUS,
+  DOM,
 } from "../../theory"
 
 export const TYPE_FILLS = {
-  Maj: "purple",
-  Min: "orange",
-  Dim: "green",
+  [MAJ]: "purple",
+  [MIN]: "orange",
+  [DIM]: "green",
+  [AUG]: "black",
+  [HALF_DIM]: "black",
+  [SUS]: "black",
+  [DOM]: "black",
 }
 
 export const DEGREE_STROKES = {

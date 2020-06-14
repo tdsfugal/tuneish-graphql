@@ -16,7 +16,7 @@ import Welcome from "../components/welcome"
 const BlogPage = props => {
   return (
     <Layout title="Blog" restricted="true">
-      <SEO title="Blog Page" />
+      <SEO title="Blog" />
       <ColumnView>
         <ItemView flex="1 1 200px">
           <Welcome />

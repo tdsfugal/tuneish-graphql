@@ -59,7 +59,7 @@ const RequestPasswordResetPage = props => {
 
   return (
     <Layout title="Request Password Reset">
-      <SEO title="Request Password Reset Page" />
+      <SEO title="Request Reset" />
       <ColumnView>
         <ItemView>
           <FormFrameView>

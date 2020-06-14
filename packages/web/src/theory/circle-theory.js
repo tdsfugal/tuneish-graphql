@@ -14,6 +14,8 @@ import {
   ROM_vii,
 } from "./symbols"
 
+import { MAJ, MIN, DIM } from "./degrees"
+
 /* Pitch (semitone) offsets up from C around the circle.
  * "C: is at the 12 o'clock position, "Cs" at one o'clock, and so on.
  *
@@ -46,31 +48,31 @@ export default class CircleTheory {
         switch (degree) {
           case 0:
             degree_name = ROM_I
-            degree_type = "Maj"
+            degree_type = MAJ
             break
           case 1:
             degree_name = ROM_ii
-            degree_type = "Min"
+            degree_type = MIN
             break
           case 2:
             degree_name = ROM_iii
-            degree_type = "Min"
+            degree_type = MIN
             break
           case 3:
             degree_name = ROM_IV
-            degree_type = "Maj"
+            degree_type = MAJ
             break
           case 4:
             degree_name = ROM_V
-            degree_type = "Maj"
+            degree_type = MAJ
             break
           case 5:
             degree_name = ROM_vi
-            degree_type = "Min"
+            degree_type = MIN
             break
           case 6:
             degree_name = ROM_vii
-            degree_type = "Dim"
+            degree_type = DIM
             break
           default:
             break
@@ -81,31 +83,31 @@ export default class CircleTheory {
         switch (degree) {
           case 0:
             degree_name = ROM_i
-            degree_type = "Min"
+            degree_type = MIN
             break
           case 1:
             degree_name = ROM_ii
-            degree_type = "Dim"
+            degree_type = DIM
             break
           case 2:
             degree_name = ROM_III
-            degree_type = "Maj"
+            degree_type = MAJ
             break
           case 3:
             degree_name = ROM_iv
-            degree_type = "Min"
+            degree_type = MIN
             break
           case 4:
             degree_name = ROM_v
-            degree_type = "Min"
+            degree_type = MIN
             break
           case 5:
             degree_name = ROM_VI
-            degree_type = "Maj"
+            degree_type = MAJ
             break
           case 6:
             degree_name = ROM_VII
-            degree_type = "Maj"
+            degree_type = MAJ
             break
           default:
             break
