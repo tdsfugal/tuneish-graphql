@@ -2,16 +2,16 @@
     "providers": [
         "awscloudformation"
     ],
-    "projectName": "tuneish",
+    "projectName": "tuneish-packages/web",
     "version": "3.0",
     "frontend": "javascript",
     "javascript": {
         "framework": "react",
         "config": {
-            "SourceDir": "src",
-            "DistributionDir": "public",
-            "BuildCommand": "yarn run build ",
-            "StartCommand": "yarn run serve"
+            "SourceDir": "packages/web/src",
+            "DistributionDir": "packages/web/public",
+            "BuildCommand": "yarn run build",
+            "StartCommand": "yarn run start"
         }
     }
 }
