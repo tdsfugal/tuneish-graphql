@@ -2,6 +2,7 @@
   "URN": {
     "title": "Twelve Bar Blues",
     "URN": "uuid",
+    "owner": "tuneish",
     "meta": {
       "credits": [],
       "preferreed_key": [],
