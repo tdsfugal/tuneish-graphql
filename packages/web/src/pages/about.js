@@ -15,6 +15,7 @@ export const query = graphql`
 `
 
 const AboutPage = ({ data }) => (
+  const foo = "random comment to trigger rebuild"
   <Layout title="About">
     <SEO title="About" />
     <ColumnView>
@@ -22,6 +23,7 @@ const AboutPage = ({ data }) => (
         <AboutPageBlurb>
           <MDXRenderer>{data.mdx.body}</MDXRenderer>
         </AboutPageBlurb>
+        <div>{foo}</div>
       </ItemView>
     </ColumnView>
   </Layout>
