@@ -10,8 +10,8 @@
         "config": {
             "SourceDir": "packages/web/src",
             "DistributionDir": "packages/web/public",
-            "BuildCommand": "yarn run build",
-            "StartCommand": "yarn run start"
+            "BuildCommand": "yarn run build ",
+            "StartCommand": "yarn run serve"
         }
     }
 }
