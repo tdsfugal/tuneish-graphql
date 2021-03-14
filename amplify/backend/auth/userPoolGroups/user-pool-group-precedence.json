@@ -1,0 +1,10 @@
+[
+    {
+        "groupName": "following",
+        "precedence": 1
+    },
+    {
+        "groupName": "subscribed",
+        "precedence": 2
+    }
+]
