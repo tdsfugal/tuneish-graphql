@@ -4,4 +4,6 @@ import awsconfig from "./aws-exports"
 
 Amplify.configure(awsconfig)
 
+console.log("configured")
+
 export { default as wrapWithProvider } from "./state/wrap-with-provider"
