@@ -1,8 +1,0 @@
-{
-  "name": "commons",
-  "private": true,
-  "description": "Tune-ish commons - stuff that is common",
-  "version": "0.1.0",
-  "author": "Tim Smith <tim.smith@fugaltech.com",
-  "license": "LicenseRef-LICENSE"
-}
