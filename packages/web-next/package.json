@@ -1,0 +1,20 @@
+{
+  "name": "web",
+  "version": "0.0.8-pre",
+  "description": "NextJS variant of Tuneish web app",
+  "author": "Tim Smith <tim.smith@fugaltech.com",
+  "license": "LicenseRef-LICENSE",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "next": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "^13.1.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
