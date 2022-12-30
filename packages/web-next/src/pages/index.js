@@ -1,7 +1,13 @@
 import React from "react";
 
-import { Layout } from "/src/components";
+import { Layout, Main } from "/src/components";
 
 export default function HomePage() {
-  return <Layout>Welcome to Next.js</Layout>;
+  return (
+    <Layout>
+      <Main>
+        <h1>Welcome to Tuneish</h1>
+      </Main>
+    </Layout>
+  );
 }

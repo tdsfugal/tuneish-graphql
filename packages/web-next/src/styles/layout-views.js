@@ -3,11 +3,13 @@ import styled from "@emotion/styled";
 export const LayoutView = styled.div`
   display: flex;
   flex-flow: column nowrap;
+  position: absolute;
   height: 100vh;
   width: 100vw;
   margin: 0;
   padding: 0;
   overflow: hidden;
+  background-color: #ffffff;
 `;
 
 export const RowView = styled.div`
