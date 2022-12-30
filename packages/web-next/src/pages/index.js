@@ -1,5 +1,7 @@
-import React from "react"
+import React from "react";
+
+import { Layout } from "/src/components";
 
 export default function HomePage() {
-    return <div>Welcome to Next.js</div>
+  return <Layout>Welcome to Next.js</Layout>;
 }
