@@ -381,26 +381,45 @@ function randomIndex(nItems) {
 
 export default class Keys {
   static randomKey(type = "Any") {
-    if (type === "Any") return ALL_KEYS[randomIndex(ALL_KEYS.length)];
-    if (type === "Major") return MAJOR_KEYS[randomIndex(MAJOR_KEYS.length)];
-    if (type === "minor") return MINOR_KEYS[randomIndex(MINOR_KEYS.length)];
-    return null;
+    switch (type) {
+      case "Any":
+        return ALL_KEYS[randomIndex(ALL_KEYS.length)];
+      case "Major":
+        return MAJOR_KEYS[randomIndex(MAJOR_KEYS.length)];
+      case "minor":
+        return MINOR_KEYS[randomIndex(MINOR_KEYS.length)];
+      default:
+        console.error(`Unknown Key Type: ${type}`);
+        return null;
+    }
   }
 
   static getKeys({ pitch, type }) {
-    if (type === "Major") {
-      return MAJOR_KEYS_BY_ROOT_PITCH[pitch].map((index) => MAJOR_KEYS[index]);
+    switch (type) {
+      case "Major":
+        return MAJOR_KEYS_BY_ROOT_PITCH[pitch].map(
+          (index) => MAJOR_KEYS[index]
+        );
+      case "minor":
+        return MINOR_KEYS_BY_ROOT_PITCH[pitch].map(
+          (index) => MINOR_KEYS[index]
+        );
+      default:
+        console.error(`Unknown Key Type: ${type}`);
+        return null;
     }
-    if (type === "minor") {
-      return MINOR_KEYS_BY_ROOT_PITCH[pitch].map((index) => MINOR_KEYS[index]);
-    }
-    return null;
   }
 
   static getKey({ name, type }) {
-    if (type === "Major") return MAJOR_KEYS.filter((k) => k.name === name)[0];
-    if (type === "minor") return MINOR_KEYS.filter((k) => k.name === name)[0];
-    return null;
+    switch (type) {
+      case "Major":
+        return MAJOR_KEYS.filter((k) => k.name === name)[0];
+      case "minor":
+        return MINOR_KEYS.filter((k) => k.name === name)[0];
+      default:
+        console.error(`Unknown key type ${type}`);
+        return null;
+    }
   }
 
   static getRelativeKey({ name, type }) {
