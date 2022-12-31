@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
 // TODO - make this more efficient.  Way too many copies will be created.
-import siteMetadata from "/site-metadata.json";
+import design from "/meta/design.json";
 
 export const MainView = styled.div`
   flex: 1 1 100%;
@@ -12,5 +12,5 @@ export const MainView = styled.div`
   align-items: center;
   justify-content: space-between;
   overflow: hidden;
-  background-color: ${siteMetadata.design.palette.dominant};
+  background-color: ${design.palette.dominant};
 `;

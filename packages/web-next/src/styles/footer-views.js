@@ -1,7 +1,5 @@
 import styled from "@emotion/styled";
 
-import { HF_BACKGROUND_COLOR, HF_FOREGROUND_COLOR } from "./palette";
-
 export const FooterView = styled.div`
   flex: 0 0 auto;
   width: 100%;
