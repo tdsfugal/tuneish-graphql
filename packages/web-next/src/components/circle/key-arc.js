@@ -1,61 +1,25 @@
-import React from "react"
-import gql from "graphql-tag"
-import { useQuery, useMutation } from "@apollo/react-hooks"
+import React from "react";
+import { useReactiveVar } from "@apollo/client";
 
-import ArcView from "./arc-view"
+import { TYPE_FILLS, DEGREE_STROKES } from "/src/styles/params";
+import { STABLE_NOTE, CURRENT_CHORD } from "/src/state/reactive";
+import { setKeyRoot } from "/src/state/actions";
 
-import { TYPE_FILLS, DEGREE_STROKES } from "../_styles/params"
-
-const SET_KEY_ROOT = gql`
-  mutation SetKeyRoot($pitch: Int) {
-    setKeyRoot(pitch: $pitch) @client
-  }
-`
-
-const GET_NOTE = gql`
-  query GetStableNote {
-    stable_note @client {
-      pitch
-    }
-  }
-`
-
-const GET_CHORD = gql`
-  {
-    current_chord @client {
-      pitches
-      intervals
-    }
-  }
-`
+import ArcView from "./arc-view";
 
 // This higher order component handles the note metadata
 const KeyArc = ({ pos, r_outer, r_inner, circle_note }) => {
-  const [setKeyRoot] = useMutation(SET_KEY_ROOT)
-  const { loading: sLoading, error: sError, data: sData } = useQuery(GET_NOTE)
-  const { loading: cLoading, error: cError, data: cData } = useQuery(GET_CHORD)
+  const stableNote = useReactiveVar(STABLE_NOTE);
+  const currentChord = useReactiveVar(CURRENT_CHORD);
 
-  if (cError) return `Error! ${cError.message}`
-  if (cLoading || !cData) return "Chord Loading..."
+  const { name, pitch, degree } = circle_note;
 
-  const { name, pitch, degree } = circle_note
+  const isPlaying = stableNote.pitch === pitch;
 
-  const playing =
-    !sLoading &&
-    sError === undefined &&
-    sData &&
-    sData.stable_note &&
-    sData.stable_note.pitch === pitch
-
-  const chord =
-    !cLoading && cError === undefined && cData && cData.current_chord
-      ? cData.current_chord
-      : { pitches: [], intervals: [] }
-
-  const cInterval = chord.pitches.reduce((acc, p, index) => {
-    if (pitch === p) acc = chord.intervals[index]
-    return acc
-  }, null)
+  const cInterval = currentChord.pitches.reduce((acc, p, index) => {
+    if (pitch === p) acc = currentChord.intervals[index];
+    return acc;
+  }, null);
 
   // generate the svg for the scale degree annotation, if any
   const chordInterval = !cInterval ? null : (
@@ -75,11 +39,11 @@ const KeyArc = ({ pos, r_outer, r_inner, circle_note }) => {
         fill: cInterval === "P1" ? "white" : "rebeccapurple",
       }}
     />
-  )
+  );
 
   // generate the svg for the scale degree annotation, if any
-  let scaleDegree = null
-  let chordQual = null
+  let scaleDegree = null;
+  let chordQual = null;
 
   if (degree.type) {
     chordQual = (
@@ -91,7 +55,8 @@ const KeyArc = ({ pos, r_outer, r_inner, circle_note }) => {
           fill: TYPE_FILLS[degree.type],
         }}
       />
-    )
+    );
+
     scaleDegree = (
       <ArcView
         pos={pos}
@@ -109,7 +74,7 @@ const KeyArc = ({ pos, r_outer, r_inner, circle_note }) => {
           fill: DEGREE_STROKES[degree.name],
         }}
       />
-    )
+    );
   }
 
   const noteElement = (
@@ -126,16 +91,16 @@ const KeyArc = ({ pos, r_outer, r_inner, circle_note }) => {
       text_style={{
         fontSize: 25,
         fontFamily: "Arial Black",
-        fill: playing ? "red" : "black",
-        stroke: playing ? "yellow" : "transparent",
+        fill: isPlaying ? "red" : "black",
+        stroke: isPlaying ? "yellow" : "transparent",
       }}
     />
-  )
+  );
 
-  const handleKeyRootChange = e => {
-    e.preventDefault()
-    setKeyRoot({ variables: { pitch } })
-  }
+  const handleKeyRootChange = (e) => {
+    e.preventDefault();
+    setKeyRoot(pitch);
+  };
 
   return (
     <svg id={`key-arc-${name}`} onClick={handleKeyRootChange}>
@@ -144,7 +109,7 @@ const KeyArc = ({ pos, r_outer, r_inner, circle_note }) => {
       {noteElement}
       {scaleDegree}
     </svg>
-  )
-}
+  );
+};
 
-export default KeyArc
+export default KeyArc;

@@ -1,4 +1,5 @@
 export const NULL_NOTE = {
+  name: "",
   pitch: -1,
   oct: null,
   idealFreq: -1,

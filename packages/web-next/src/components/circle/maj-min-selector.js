@@ -1,37 +1,19 @@
-import React from "react"
-import gql from "graphql-tag"
-import { useQuery, useMutation } from "@apollo/react-hooks"
+import React from "react";
+import { useReactiveVar } from "@apollo/client";
 
-const GET_CURRENT_KEY_TYPE = gql`
-  query GetCurrentKey {
-    current_key @client {
-      type
-    }
-  }
-`
+import { CURRENT_KEY } from "/src/state/reactive";
 
-const TOGGLE_CURRENT_KEY_TYPE = gql`
-  mutation ToggleCurrentKeyType($type: MajMin) {
-    toggleKeyType @client {
-      type
-    }
-  }
-`
+import { toggleKeyType } from "/src/state/actions";
 
-export default () => {
-  const { loading, error, data } = useQuery(GET_CURRENT_KEY_TYPE)
-  const [toggleKeyType] = useMutation(TOGGLE_CURRENT_KEY_TYPE)
+const MajMinSelector = () => {
+  const currentKey = useReactiveVar(CURRENT_KEY);
 
-  const {
-    current_key: { type },
-  } = data
+  const text = currentKey.type === "Major" ? "M" : "m";
 
-  const text = loading || error || !type || type === "Major" ? "M" : "m"
-
-  const handleClick = e => {
-    e.preventDefault()
-    toggleKeyType()
-  }
+  const handleClick = (e) => {
+    e.preventDefault();
+    toggleKeyType();
+  };
 
   return (
     <svg style={{ fontSize: "30px" }} onClick={handleClick}>
@@ -40,5 +22,7 @@ export default () => {
         {text}
       </text>
     </svg>
-  )
-}
+  );
+};
+
+export default MajMinSelector;

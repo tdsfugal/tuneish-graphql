@@ -7,7 +7,7 @@ export default function HomePage() {
     <Layout>
       <Main>
         <h1>Welcome to Tuneish</h1>
-        <Circle />
+        <Circle r={400} />
       </Main>
     </Layout>
   );
