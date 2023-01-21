@@ -10,5 +10,4 @@ export const CircleView = styled.div`
   min-width: ${(props) => `${props.box * MIN_GROW}px`};
   width: 100%;
   height: 100%;
-  background-color: blue;
 `;
