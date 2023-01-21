@@ -1,7 +1,6 @@
 import styled from "@emotion/styled";
 
-// TODO - make this more efficient.  Way too many copies will be created.
-import design from "/meta/design.json";
+import { BI_TOKENS } from "/meta/brand";
 
 export const MainView = styled.div`
   flex: 1 1 100%;
@@ -12,5 +11,5 @@ export const MainView = styled.div`
   align-items: center;
   justify-content: space-between;
   overflow: hidden;
-  background-color: ${design.palette.dominant};
+  background-color: ${BI_TOKENS.main.background};
 `;
