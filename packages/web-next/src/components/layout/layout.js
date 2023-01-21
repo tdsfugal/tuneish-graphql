@@ -1,23 +1,10 @@
 import React from "react";
-import { Global, css } from "@emotion/react";
 
-import { LayoutView } from "/src/styles";
-
-const GLOBAL_STYLES = css`
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-
-  .body {
-    background-color: #ffffff;
-  }
-`;
+import { GlobalStyles, LayoutView } from "/src/styles";
 
 const Layout = ({ children }) => (
   <>
-    <Global styles={GLOBAL_STYLES} />
+    <GlobalStyles />
     <LayoutView>{children}</LayoutView>
   </>
 );

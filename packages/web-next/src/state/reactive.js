@@ -1,6 +1,6 @@
 import { makeVar } from "@apollo/client";
 
-import { Keys, NULL_NOTE, NULL_CHORD } from "/src/theory";
+import { Keys, NULL_NOTE, NULL_CHORD, Cn, MAJOR } from "/src/theory";
 
 // The object in CURRENT_KEY must conform to the structure provided by Keys
 //  {
@@ -11,7 +11,7 @@ import { Keys, NULL_NOTE, NULL_CHORD } from "/src/theory";
 //     chromaticNames: CHROMATIC_NAMES_BY_MAJOR_KEY[Cb],
 //     circleNames: CIRCLE_NAMES_BY_MAJOR_KEY[Cb],
 //   },
-export const CURRENT_KEY = makeVar(Keys.randomKey());
+export const CURRENT_KEY = makeVar(Keys.getKey({ name: Cn, type: MAJOR }));
 
 export const STABLE_NOTE = makeVar(NULL_NOTE);
 
