@@ -1,3 +1,5 @@
+import { semantic } from "/src/design/tokens";
+
 import {
   ROM_I,
   ROM_III,
@@ -22,13 +24,13 @@ import {
 } from "/src/theory";
 
 export const TYPE_FILLS = {
-  [MAJ]: "purple",
-  [MIN]: "orange",
-  [DIM]: "green",
-  [AUG]: "black",
-  [HALF_DIM]: "black",
-  [SUS]: "black",
-  [DOM]: "black",
+  [MAJ]: semantic.colors.theory.maj,
+  [MIN]: semantic.colors.theory.min,
+  [DIM]: semantic.colors.theory.dim,
+  [AUG]: semantic.colors.theory.aug,
+  [HALF_DIM]: semantic.colors.theory.half_dim,
+  [SUS]: semantic.colors.theory.sus,
+  [DOM]: semantic.colors.theory.dom,
 };
 
 export const DEGREE_STROKES = {

@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { semantic } from "/src/design/tokens";
 
 export const LayoutView = styled.div`
   position: absolute;
@@ -11,7 +12,7 @@ export const LayoutView = styled.div`
   justify-content: start;
   align-items: center;
   overflow: hidden;
-  background-color: #ffffff;
+  background-color: ${semantic.colors.core.white};
   color: #000000;
   font-familyL -apple-system, Roboto, sans-serif, serif;
 `;

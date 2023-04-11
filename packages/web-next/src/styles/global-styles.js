@@ -1,4 +1,5 @@
 import { Global, css } from "@emotion/react";
+import { semantic } from "/src/design/tokens";
 
 const GLOBAL_STYLES = css`
   * {
@@ -8,13 +9,13 @@ const GLOBAL_STYLES = css`
   }
 
   .body {
-    background-color: #ffffff;
+    background-color: ${semantic.colors.core.white};
   }
   html,
   body {
     padding: 0;
     margin: 0;
-    background: papayawhip;
+    background: ${semantic.colors.core.white};
     min-height: 100%;
     font-family: Helvetica, Arial, sans-serif;
     font-size: 24px;

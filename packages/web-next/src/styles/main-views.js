@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
-
-import { BI_TOKENS } from "/meta/brand";
+import { semantic } from "/src/design/tokens";
 
 export const MainView = styled.div`
   flex: 1 1 100%;
@@ -11,5 +10,5 @@ export const MainView = styled.div`
   align-items: center;
   justify-content: space-between;
   overflow: hidden;
-  background-color: ${BI_TOKENS.main.background};
+  background-color: ${semantic.colors.core.primary};
 `;
