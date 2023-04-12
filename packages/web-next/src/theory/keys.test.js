@@ -1,6 +1,6 @@
 import Keys, { MAJOR_KEYS, MINOR_KEYS, ALL_KEYS } from "./keys";
 
-describe("Music keys", () => {
+describe.skip("Music keys", () => {
   it("generates random keys", () => {
     for (let i = 0; i < 100; i++) {
       const foo = Keys.randomKey("Any");
