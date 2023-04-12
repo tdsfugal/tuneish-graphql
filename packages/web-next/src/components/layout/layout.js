@@ -5,6 +5,7 @@ import { PAGE_META_DATA } from "src/state/reactive";
 import { LayoutView } from "src/styles";
 import { getPageMeta } from "src/util";
 
+import Header from "./header";
 import Main from "./main";
 
 const Layout = ({ children, pagePath }) => {
@@ -14,6 +15,7 @@ const Layout = ({ children, pagePath }) => {
 
   return (
     <LayoutView>
+      <Header />
       <Main> {children} </Main>
     </LayoutView>
   );

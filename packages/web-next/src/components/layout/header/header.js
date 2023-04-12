@@ -1,14 +1,17 @@
 import React from "react";
-import { HeaderView, HeaderTitleView } from "/src/styles";
-import UserIcon from "./user-icon";
-import HomeLogo from "./home-logo";
 
-const Header = ({ title = "" }) => {
+import { useReactiveVar } from "@apollo/client";
+import { PAGE_META_DATA } from "src/state/reactive";
+
+import { HeaderView, HeaderTitleView } from "src/styles";
+
+const Header = () => {
+  const { title } = useReactiveVar(PAGE_META_DATA);
+  console.log(title);
+
   return (
     <HeaderView>
-      <HomeLogo key="hl" />
       <HeaderTitleView key="htl">{title}</HeaderTitleView>
-      <UserIcon key="ui" />
     </HeaderView>
   );
 };
