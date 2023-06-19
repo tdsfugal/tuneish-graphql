@@ -7,7 +7,6 @@ const BackgroundView = styled.div`
   margin: 0;
   padding: 0;
   z-index: -100;
-  color: transparent;
 `;
 
 export const SimpleBackgroundView = styled(BackgroundView)`
