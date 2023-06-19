@@ -1,13 +1,12 @@
 import styled from "@emotion/styled";
 
-export const MainView = styled.div`
-  flex: 1 1 100%;
+export const NavView = styled.div`
+  flex: 0 0 60px;
   height: 100%;
-  overflow: hidden;
+  padding: 0;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
   justify-content: space-between;
-  overflow: hidden;
-  background-color: transparent;
+  color: transparent;
 `;

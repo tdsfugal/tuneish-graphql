@@ -4,7 +4,7 @@ import { semantic } from "/src/design/tokens";
 export const LayoutView = styled.div`
   position: absolute;
   display: flex;
-  flex-flow: column nowrap;
+  flex-flow: row nowrap;
   height: 100%;
   width: 100%;
   margin: 0;
@@ -21,6 +21,7 @@ export const RowView = styled.div`
   flex: ${(props) => props.flex || "1 1 100%"};
   display: flex;
   flex-flow: row nowrap;
+  contain: content;
   align-items: stretch;
   justify-content: space-around;
   width: 100%;
@@ -31,6 +32,7 @@ export const ColumnView = styled.div`
   flex: ${(props) => props.flex || "1 1 100%"};
   display: flex;
   flex-flow: column nowrap;
+  contain: content;
   align-items: stretch;
   justify-content: space-around;
   height: 100%;

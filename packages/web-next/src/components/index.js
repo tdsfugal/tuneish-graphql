@@ -1,2 +1,1 @@
-export * from "./layout";
-export * from "./circle";
+export { default as Page } from "./page";
