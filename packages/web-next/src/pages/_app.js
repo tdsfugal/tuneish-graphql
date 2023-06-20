@@ -1,13 +1,16 @@
 import { ApolloProvider } from "@apollo/client";
 
+import { GlobalStyles } from "src/styles";
 import { apolloClient } from "/src/state/apollo";
-import { GlobalStyles } from "/src/styles";
+import StyledCompoentsRegistry from "src/state/styles-registry.js";
 
 export default function Tuneish({ Component, pageProps }) {
   return (
     <ApolloProvider client={apolloClient}>
       <GlobalStyles />
-      <Component {...pageProps} />
+      <StyledCompoentsRegistry>
+        <Component {...pageProps} />
+      </StyledCompoentsRegistry>
     </ApolloProvider>
   );
 }

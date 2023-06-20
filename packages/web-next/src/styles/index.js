@@ -1,7 +1,6 @@
-export { default as GlobalStyles } from "./global-styles";
-
 // export * from "./footer-views"
 export * from "./background-views";
+export * from "./global-styles";
 export * from "./header-views";
 export * from "./circle-views";
 export * from "./inceptor-views";
