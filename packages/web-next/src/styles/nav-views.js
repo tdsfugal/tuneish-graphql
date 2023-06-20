@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled from "styled-components";
 
 export const NavWrapper = styled.div`
   flex: 0 0 60px;

@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled from "styled-components";
 
 const MAX_GROW = 1.2;
 const MIN_GROW = 0.7;

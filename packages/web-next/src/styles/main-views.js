@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled from "styled-components";
 
 export const MainView = styled.div`
   flex: 1 1 100%;

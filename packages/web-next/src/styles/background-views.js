@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled from "styled-components";
 import { getColorToken } from "src/design";
 
 const BackgroundView = styled.div`
@@ -10,5 +10,7 @@ const BackgroundView = styled.div`
 `;
 
 export const SimpleBackgroundView = styled(BackgroundView)`
-  background-color: ${({ colorToken }) => getColorToken(colorToken)};
+  background-color: ${({ $colorToken }) => {
+    return $colorToken ? getColorToken($colorToken) : "transparent";
+  }};
 `;

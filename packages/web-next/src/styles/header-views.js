@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled from "styled-components";
 import { semantic } from "src/design/tokens";
 
 export const HeaderView = styled.div`
