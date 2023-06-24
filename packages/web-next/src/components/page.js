@@ -2,7 +2,7 @@ import React from "react";
 
 // import { PAGE_META_DATA } from "src/state/reactive";
 
-import { LayoutView } from "src/styles";
+import { LayoutView } from "src/styles/server";
 // import { getPageMeta } from "src/util";
 
 import Nav from "./nav";

@@ -1,5 +1,5 @@
 import React from "react";
-import { MainView } from "/src/styles";
+import { MainView } from "/src/styles/server";
 
 import MainBackground from "./main-background";
 

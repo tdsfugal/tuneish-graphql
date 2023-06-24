@@ -9,8 +9,6 @@ export const FooterView = styled.div`
   flex-flow: row nowrap;
   font-size: 1rem;
   font-family: sans-serif;
-  color: ${HF_FOREGROUND_COLOR};
-  background: ${HF_BACKGROUND_COLOR};
 `;
 
 export const FooterControl = styled.div`

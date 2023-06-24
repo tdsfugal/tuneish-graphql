@@ -3,30 +3,29 @@ import { semantic } from "src/design/tokens";
 
 export const HeaderView = styled.div`
   flex: 0 0 auto;
-  width: 100% - 40px;
-  padding: 0px 20px 0px 20px;
+  width: 100vw;
+  padding: 0px;
   display: flex;
   flex-flow: row nowrap;
-  font-family: sans-serif;
+  position: absolute;
   align-items: center;
-  justify-content: space-between;
-  color: transparent;
-  background-color: ${semantic.colors.core.secondary};
+  justify-content: center;
+  background-color: yellow;
 `;
 
-export const HeaderTitleView = styled.div`
-  flex: 0 0 auto;
-  margin: 10px;
-  font-family: sans-serif;
-  font-weight: bold;
-  text-rendering: optimizeLegibility;
-  font-size: 2em;
-  line-height: 2em;
-  text-align: center;
-  textdecoration: none;
-  color: ${semantic.colors.core.white};
-  background-color: transparent;
-`;
+// export const HeaderTitleView = styled.div`
+//   flex: 0 0 auto;
+//   margin: 10px;
+//   font-family: sans-serif;
+//   font-weight: bold;
+//   text-rendering: optimizeLegibility;
+//   font-size: 2em;
+//   line-height: 2em;
+//   text-align: center;
+//   textdecoration: none;
+//   color: ${semantic.colors.core.white};
+//   background-color: transparent;
+// `;
 
 // export const LogoView = styled.div`
 //   flex: 0 0 50px;
