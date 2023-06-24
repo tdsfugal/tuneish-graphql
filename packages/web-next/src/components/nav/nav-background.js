@@ -1,8 +1,13 @@
 import React from "react";
-import { SimpleBackgroundView } from "/src/styles";
+import { SimpleBackgroundView } from "/src/styles/server";
 
 const NavBackground = () => {
-  return <SimpleBackgroundView $colorToken={["core", "secondary"]} />;
+  return (
+    <SimpleBackgroundView
+      className="NavBackground"
+      $colorToken={["core", "secondary"]}
+    />
+  );
 };
 
 export default NavBackground;

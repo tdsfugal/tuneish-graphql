@@ -1,4 +1,4 @@
-import { FastLinksWrapperView } from "src/styles";
+import { FastLinksWrapperView } from "src/styles/server";
 
 const FastLinks = () => {
   return <FastLinksWrapperView className="FastLinksWrapperView" />;

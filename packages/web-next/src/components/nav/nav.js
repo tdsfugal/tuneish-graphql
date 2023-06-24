@@ -1,26 +1,20 @@
 import React from "react";
 
-import {
-  NavView,
-  NavWrapper,
-  HeaderWrapperView,
-  FastLinksWrapperView,
-  FooterWrapperView,
-} from "src/styles";
+import { NavView, NavWrapper } from "src/styles/server";
 
 import NavBackground from "./nav-background";
-import Header from "./header";
+import HeaderDrawer from "./header-drawer";
 import FastLinks from "./fast-links";
-import Footer from "./footer";
+import FooterDrawer from "./footer-drawer";
 
 const Nav = () => {
   return (
     <NavWrapper className="NavWrapper">
-      <NavBackground className="NavBackground" />
+      <NavBackground />
       <NavView className="navView">
-        <Header />
+        <HeaderDrawer />
         <FastLinks />
-        <Footer />
+        <FooterDrawer />
       </NavView>
     </NavWrapper>
   );
