@@ -35,6 +35,12 @@ export const semantic = {
       dom: foundation.pallet.dark,
     },
   },
+  dimensions: {
+    layout: {
+      header_height: "60px",
+      footer_height: "60px",
+    },
+  },
 };
 
 // Tier 3 tokens apply the semantic tokens to specific use cases.

@@ -9,4 +9,9 @@ export const semantic = {
       min: "theory.min",
     },
   },
+  dimensions: {
+    layout: {
+      header_height: "header",
+    },
+  },
 };
