@@ -36,9 +36,14 @@ export const semantic = {
     },
   },
   dimensions: {
+    default: {
+      button_height: "40px",
+      button_width: "60px",
+    },
     layout: {
-      header_height: "60px",
       footer_height: "60px",
+      header_height: "60px",
+      nav_width: "280px",
     },
   },
 };
