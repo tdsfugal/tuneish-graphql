@@ -7,9 +7,9 @@ import {
 
 import { getDimensionToken } from "src/design";
 
-import ToggleButton from "./toggle-button";
+import { DrawerBar } from "src/components/client";
 
-import { DrawerBarView, DrawerView } from "src/styles/client";
+import { DrawerView } from "src/styles/client";
 
 const HeaderDrawer = ({ children }) => {
   const openVisual = <HeaderButtonTextView>OPEN</HeaderButtonTextView>;

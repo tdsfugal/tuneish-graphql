@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-import { ToggleButtonView } from "src/styles";
+import { ToggleButtonView } from "src/styles/server";
 
 const ToggleButton = ({ onAction, onVisual, offAction, offVisual }) => {
   const [state, setState] = useState(false);

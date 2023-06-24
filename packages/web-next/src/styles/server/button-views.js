@@ -1,12 +1,8 @@
 import styled from "styled-components";
-import { getDimensionToken } from "src/design";
 
 export const ToggleButtonView = styled.button`
-  width:  ${({ height }) =>
-    height | getDimensionToken(["default", "button_height"])};
-  }}
-  }height:${({ width }) =>
-    width | getDimensionToken(["default", "button_width"])}
+  width: 100%;
+  }height: 100%;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
