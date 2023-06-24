@@ -1,16 +1,23 @@
 import styled from "styled-components";
-import { semantic } from "src/design/tokens";
+import { ButtonVisualView } from "./button-views";
 
 export const HeaderView = styled.div`
-  flex: 0 0 auto;
   width: 100vw;
+  height: 100%;
   padding: 0px;
   display: flex;
+  position: relative;
   flex-flow: row nowrap;
-  position: absolute;
   align-items: center;
   justify-content: center;
   background-color: yellow;
+`;
+
+export const HeaderButtonTextView = styled(ButtonVisualView)`
+  font-size: 1.5em;
+  text-align: center;
+  line-height: 100%;
+  font-weight: bold;
 `;
 
 // export const HeaderTitleView = styled.div`

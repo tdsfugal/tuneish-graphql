@@ -39,4 +39,10 @@ export const GlobalStyles = createGlobalStyle`
     margin-block-start: 0.5em;
     margin-block-end: 0.5em;
   }
+
+  button {
+    padding 0;
+    margin 0;
+    border: none;
+  }
 `;
