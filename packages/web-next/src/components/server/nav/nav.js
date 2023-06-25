@@ -1,13 +1,13 @@
 import React from "react";
 
-import { NavView, NavWrapper, HeaderButtonTextView } from "src/styles/server";
+import {
+  NavView,
+  NavWrapper,
+  HeaderButtonTextView,
+  FooterButtonTextView,
+} from "src/styles/server";
 
 import NavBackground from "./nav-background";
-
-import {
-  HeaderControlWrapperView,
-  FooterControlWrapperView,
-} from "src/styles/server";
 
 import {
   HeaderDrawerControl,
@@ -18,29 +18,39 @@ import {
 const Nav = () => {
   const headerOpenVisual = (
     <HeaderButtonTextView className="HeaderButtonTextView">
-      OPEN
+      H-OPEN
     </HeaderButtonTextView>
   );
   const headerCloseVisual = (
     <HeaderButtonTextView className="HeaderButtonTextView">
-      CLOSE
+      H-CLOSE
     </HeaderButtonTextView>
+  );
+
+  const footerOpenVisual = (
+    <FooterButtonTextView className="FooterButtonTextView">
+      F-OPEN
+    </FooterButtonTextView>
+  );
+  const footerCloseVisual = (
+    <FooterButtonTextView className="FooterButtonTextView">
+      F-CLOSE
+    </FooterButtonTextView>
   );
 
   return (
     <NavWrapper className="NavWrapper">
       <NavBackground />
       <NavView className="navView">
-        <HeaderControlWrapperView>
-          <HeaderDrawerControl
-            openVisual={headerOpenVisual}
-            closeVisual={headerCloseVisual}
-          />
-        </HeaderControlWrapperView>
+        <HeaderDrawerControl
+          openVisual={headerOpenVisual}
+          closeVisual={headerCloseVisual}
+        />
         <FastLinks />
-        <FooterControlWrapperView>
-          <FooterDrawerControl />
-        </FooterControlWrapperView>
+        <FooterDrawerControl
+          openVisual={footerOpenVisual}
+          closeVisual={footerCloseVisual}
+        />
       </NavView>
     </NavWrapper>
   );

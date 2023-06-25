@@ -23,29 +23,11 @@ export const NavView = styled.div`
   background-color: transparent;
 `;
 
-export const HeaderControlWrapperView = styled.div`
-  flex: 0 0 ${getDimensionToken(["layout", "header_height"])};
-  width: ${getDimensionToken(["layout", "nav_width"])};
-  background-color: green;
-  position: relative;
-  display: flex;
-  flex-flow: row nowrap;
-  overflow: visible;
-  z-index: 0;
-`;
-
 export const FastLinksWrapperView = styled.div`
   flex: 1 1 auto;
   width: ${getDimensionToken(["layout", "nav_width"])};
   background-color: transparent;
   border: 1px solid red;
-  position: relative;
-  z-index: 0;
-`;
-
-export const FooterControlWrapperView = styled.div`
-  flex: 0 0 ${getDimensionToken(["layout", "footer_height"])};
-  width: ${getDimensionToken(["layout", "nav_width"])};
   position: relative;
   z-index: 0;
 `;

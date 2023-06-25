@@ -1,5 +1,25 @@
 import styled from "styled-components";
+import { getDimensionToken } from "src/design";
+
 import { ButtonVisualView } from "./button-views";
+
+export const HeaderControlView = styled.div`
+  flex: 0 0 ${getDimensionToken(["layout", "header_height"])};
+  width: ${getDimensionToken(["layout", "nav_width"])};
+  background-color: green;
+  position: relative;
+  display: flex;
+  flex-flow: row nowrap;
+  overflow: visible;
+  z-index: 0;
+`;
+
+export const HeaderButtonTextView = styled(ButtonVisualView)`
+  font-size: 1.5em;
+  text-align: center;
+  line-height: 100%;
+  font-weight: bold;
+`;
 
 export const HeaderView = styled.div`
   width: 100vw;
@@ -11,13 +31,6 @@ export const HeaderView = styled.div`
   align-items: center;
   justify-content: center;
   background-color: yellow;
-`;
-
-export const HeaderButtonTextView = styled(ButtonVisualView)`
-  font-size: 1.5em;
-  text-align: center;
-  line-height: 100%;
-  font-weight: bold;
 `;
 
 // export const HeaderTitleView = styled.div`
