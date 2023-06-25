@@ -2,17 +2,18 @@ import { NavView, NavWrapper } from "src/styles/server";
 
 import NavBackground from "./nav-background";
 
-import HeaderDrawerControl from "./header-drawer-control";
-import FooterDrawerControl from "./footer-drawer-control";
+import HeaderControl from "./header-control";
+import FastLinks from "./fast-links";
+import FooterControl from "./footer-control";
 
 const Nav = () => {
   return (
     <NavWrapper className="NavWrapper">
       <NavBackground />
-      <NavView className="navView">
-        <HeaderDrawerControl />
+      <NavView className="NavView">
+        <HeaderControl />
         <FastLinks />
-        <FooterDrawerControl />
+        <FooterControl />
       </NavView>
     </NavWrapper>
   );

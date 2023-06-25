@@ -17,13 +17,13 @@ const HeaderDrawerControl = ({ openVisual, closeVisual }) => {
     setDrawerOpen(false);
   };
 
+  // Toggle button starts in off position
   return (
     <ToggleButton
-      className="ToggleButton"
-      onAction={openDrawer}
-      onVisual={openVisual}
-      offAction={closeDrawer}
-      offVisual={closeVisual}
+      offAction={openDrawer}
+      offVisual={openVisual}
+      onAction={closeDrawer}
+      onVisual={closeVisual}
     />
   );
 };

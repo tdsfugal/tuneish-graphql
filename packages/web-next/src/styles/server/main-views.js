@@ -1,13 +1,12 @@
 import styled from "styled-components";
 
 export const MainView = styled.div`
-  flex: 1 1 100%;
+  position: absolute;
   height: 100%;
-  overflow: hidden;
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  justify-content: space-between;
-  overflow: hidden;
+  width: 100%;
+  display: box;
+  overflow-y: scroll;
+  overflow-x: hidden;
   background-color: transparent;
+  z-index: 100;
 `;

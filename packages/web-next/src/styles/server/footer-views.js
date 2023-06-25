@@ -1,7 +1,5 @@
 import styled from "styled-components";
-import { getDimensionToken } from "src/design";
-
-import { ButtonVisualView } from "./button-views";
+import { getDimensionToken, getColorToken } from "src/design";
 
 export const FooterControlView = styled.div`
   flex: 0 0 ${getDimensionToken(["layout", "footer_height"])};
@@ -15,11 +13,11 @@ export const FooterControlView = styled.div`
   background-color: transparent;
 `;
 
-export const FooterButtonTextView = styled(ButtonVisualView)`
+export const FooterButtonTextView = styled.label`
   font-size: 1.5em;
   text-align: center;
-  line-height: 100%;
   font-weight: bold;
+  color: ${getColorToken(["core", "primary"])};
 `;
 
 // export const FooterView = styled.div`

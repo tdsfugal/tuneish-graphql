@@ -1,7 +1,5 @@
 import styled from "styled-components";
-import { getDimensionToken } from "src/design";
-
-import { ButtonVisualView } from "./button-views";
+import { getDimensionToken, getColorToken } from "src/design";
 
 export const HeaderControlView = styled.div`
   flex: 0 0 ${getDimensionToken(["layout", "header_height"])};
@@ -11,14 +9,14 @@ export const HeaderControlView = styled.div`
   align-items: center;
   justify-content: center;
   z-index: 0;
-  background-color: green;
+  background-color: transparent;
 `;
 
-export const HeaderButtonTextView = styled(ButtonVisualView)`
+export const HeaderButtonTextView = styled.label`
   font-size: 1.5em;
   text-align: center;
-  line-height: 100%;
   font-weight: bold;
+  color: ${getColorToken(["core", "primary"])};
 `;
 
 // export const HeaderView = styled.div`
