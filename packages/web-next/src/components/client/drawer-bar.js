@@ -2,6 +2,12 @@
 
 import { useState } from "react";
 
+import {
+  DrawerBarView,
+  DrawerBarButtonView,
+  DrawerBarDrawerView,
+} from "src/styles/server";
+
 import ToggleButton from "./toggle-button";
 
 const DrawerBar = ({ children }) => {
@@ -21,12 +27,22 @@ const DrawerBar = ({ children }) => {
   };
 
   return (
-    <ToggleButton
-      onAction={openDrawer}
-      onVisual={open}
-      offAction={closeDrawer}
-      offVisual={close}
-    />
+    <DrawerBarView className="DrawerBarView">
+      <DrawerBarButtonView className="DrawerBarButtonView">
+        <ToggleButton
+          className="DrawerToggleButton"
+          onAction={openDrawer}
+          onVisual={open}
+          offAction={closeDrawer}
+          offVisual={close}
+        />
+      </DrawerBarButtonView>
+      {drawerOpen ? (
+        <DrawerBarDrawerView className="DrawerBarDrawerView">
+          {children}
+        </DrawerBarDrawerView>
+      ) : null}
+    </DrawerBarView>
   );
 };
 

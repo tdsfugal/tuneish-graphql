@@ -1,2 +1,3 @@
-export { default as DrawerBar } from "./drawer-bar";
-export { default as ToggleButton } from "./toggle-button";
+export { default as FastLinks } from "./fast-links";
+export { default as FooterDrawerControl } from "./footer-drawer-control";
+export { default as HeaderDrawerControl } from "./header-drawer-control";

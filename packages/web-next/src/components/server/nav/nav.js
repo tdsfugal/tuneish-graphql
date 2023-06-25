@@ -1,20 +1,46 @@
 import React from "react";
 
-import { NavView, NavWrapper } from "src/styles/server";
+import { NavView, NavWrapper, HeaderButtonTextView } from "src/styles/server";
 
 import NavBackground from "./nav-background";
-import HeaderDrawer from "./header-drawer";
-import FastLinks from "./fast-links";
-import FooterDrawer from "./footer-drawer";
+
+import {
+  HeaderControlWrapperView,
+  FooterControlWrapperView,
+} from "src/styles/server";
+
+import {
+  HeaderDrawerControl,
+  FastLinks,
+  FooterDrawerControl,
+} from "src/components/client";
 
 const Nav = () => {
+  const headerOpenVisual = (
+    <HeaderButtonTextView className="HeaderButtonTextView">
+      OPEN
+    </HeaderButtonTextView>
+  );
+  const headerCloseVisual = (
+    <HeaderButtonTextView className="HeaderButtonTextView">
+      CLOSE
+    </HeaderButtonTextView>
+  );
+
   return (
     <NavWrapper className="NavWrapper">
       <NavBackground />
       <NavView className="navView">
-        <HeaderDrawer />
+        <HeaderControlWrapperView>
+          <HeaderDrawerControl
+            openVisual={headerOpenVisual}
+            closeVisual={headerCloseVisual}
+          />
+        </HeaderControlWrapperView>
         <FastLinks />
-        <FooterDrawer />
+        <FooterControlWrapperView>
+          <FooterDrawerControl />
+        </FooterControlWrapperView>
       </NavView>
     </NavWrapper>
   );
