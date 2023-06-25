@@ -6,12 +6,12 @@ import { ButtonVisualView } from "./button-views";
 export const HeaderControlView = styled.div`
   flex: 0 0 ${getDimensionToken(["layout", "header_height"])};
   width: ${getDimensionToken(["layout", "nav_width"])};
-  background-color: green;
-  position: relative;
   display: flex;
   flex-flow: row nowrap;
-  overflow: visible;
+  align-items: center;
+  justify-content: center;
   z-index: 0;
+  background-color: green;
 `;
 
 export const HeaderButtonTextView = styled(ButtonVisualView)`
@@ -21,17 +21,17 @@ export const HeaderButtonTextView = styled(ButtonVisualView)`
   font-weight: bold;
 `;
 
-export const HeaderView = styled.div`
-  width: 100vw;
-  height: 100%;
-  padding: 0px;
-  display: flex;
-  position: relative;
-  flex-flow: row nowrap;
-  align-items: center;
-  justify-content: center;
-  background-color: yellow;
-`;
+// export const HeaderView = styled.div`
+//   width: 100vw;
+//   height: 100%;
+//   padding: 0px;
+//   display: flex;
+//   position: relative;
+//   flex-flow: row nowrap;
+//   align-items: center;
+//   justify-content: center;
+//   background-color: yellow;
+// `;
 
 // export const HeaderTitleView = styled.div`
 //   flex: 0 0 auto;
