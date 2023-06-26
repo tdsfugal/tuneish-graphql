@@ -22,6 +22,7 @@ export const semantic = {
     core: {
       primary: foundation.pallet.green_1,
       secondary: foundation.pallet.purple_1,
+      tertiary: foundation.pallet.orange_1,
       white: foundation.pallet.white,
       black: foundation.pallet.black,
     },
