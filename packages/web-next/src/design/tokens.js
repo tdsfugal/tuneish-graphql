@@ -22,8 +22,8 @@ export const semantic = {
     core: {
       primary: foundation.pallet.green_1,
       secondary: foundation.pallet.purple_1,
-      white: foundation.white,
-      black: foundation.black,
+      white: foundation.pallet.white,
+      black: foundation.pallet.black,
     },
     theory: {
       maj: foundation.pallet.purple_2,
