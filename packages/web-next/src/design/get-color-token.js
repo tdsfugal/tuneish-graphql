@@ -9,13 +9,15 @@ export default function getColorToken(colorTokenPath) {
       if (color.hasOwnProperty(x)) {
         color = color[x];
       } else {
-        throw new Error("Path segment does not exist");
+        const msg = `Color tok path segment error: ${colorTokenPath.join(".")}`;
+        throw new Error(msg);
       }
     }
     if (typeof color == "string") {
       return color;
     } else {
-      throw new Error("Path is too long");
+      const msg = `Color token path is too long: ${colorTokenPath.join(".")}`;
+      throw new Error(msg);
     }
   } catch (e) {
     // TODO add real logging

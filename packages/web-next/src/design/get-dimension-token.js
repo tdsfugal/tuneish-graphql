@@ -9,13 +9,15 @@ export default function getColorToken(dimensionTokenPath) {
       if (dimension.hasOwnProperty(x)) {
         dimension = dimension[x];
       } else {
-        throw new Error("Path segment does not exist");
+        const msg = `Dimension path seg error: ${dimensionTokenPath.join(".")}`;
+        throw new Error(msg);
       }
     }
     if (typeof dimension == "string") {
       return dimension;
     } else {
-      throw new Error("Path is too long");
+      const msg = `Dimension path is too long: ${dimensionTokenPath.join(".")}`;
+      throw new Error(msg);
     }
   } catch (e) {
     // TODO add real logging
