@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+import { getColorToken } from "src/design";
+
+import { BackgroundView } from "./background-views";
+
 export const MainView = styled.div`
   position: absolute;
   height: 100%;
@@ -9,4 +13,8 @@ export const MainView = styled.div`
   overflow-x: hidden;
   background-color: transparent;
   z-index: 100;
+`;
+
+export const MainBackgroundView = styled(BackgroundView)`
+  background-color: ${getColorToken(["core", "primary"])};
 `;

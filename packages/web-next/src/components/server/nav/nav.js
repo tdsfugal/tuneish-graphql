@@ -1,18 +1,15 @@
-import { NavView, NavWrapper } from "src/styles/server";
-
-import NavBackground from "./nav-background";
+import { NavView, NavWrapper, NavBackgroundView } from "src/styles/server";
 
 import HeaderControl from "./header-control";
-import FastLinks from "./fast-links";
 import FooterControl from "./footer-control";
 
-const Nav = () => {
+const Nav = ({ midSection }) => {
   return (
     <NavWrapper className="NavWrapper">
-      <NavBackground />
+      <NavBackgroundView className="NavBackgroundView" />
       <NavView className="NavView">
         <HeaderControl />
-        <FastLinks />
+        {midSection}
         <FooterControl />
       </NavView>
     </NavWrapper>

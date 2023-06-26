@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+import { getColorToken } from "src/design";
+
+import { BackgroundView } from "./background-views";
+
 export const NavView = styled.div`
   position: absolute;
   width: 100%;
@@ -11,4 +15,8 @@ export const NavView = styled.div`
   align-items: center;
   justify-content: space-between;
   background-color: transparent;
+`;
+
+export const NavBackgroundView = styled(BackgroundView)`
+  background-color: ${getColorToken(["core", "secondary"])};
 `;

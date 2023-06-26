@@ -1,13 +1,13 @@
 import React from "react";
-import { MainView, MainWrapper } from "/src/styles/server";
-
-import MainBackground from "./main-background";
+import Link from "next/link";
+import { MainView, MainWrapper, MainBackgroundView } from "/src/styles/server";
 
 const Main = () => {
   return (
     <MainWrapper className="MainWrapperView">
-      <MainBackground />
+      <MainBackgroundView className="MainBackgroundView" />
       <MainView className="MainScrollView">
+        <Link href="/blog">BLOG</Link>
         <div
           style={{
             height: "1100px",

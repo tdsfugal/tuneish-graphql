@@ -5,6 +5,8 @@ const nextConfig = {
   compiler: {
     styledComponents: {
       ssr: true,
+      fileName: true,
+      meaninglessFileNames: ["index", "styles", "client", "server"],
     },
   },
 };

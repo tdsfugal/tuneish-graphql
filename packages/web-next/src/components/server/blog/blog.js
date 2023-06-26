@@ -1,13 +1,15 @@
 import React from "react";
-import { BlogView, MainWrapper } from "/src/styles/server";
+import Link from "next/link";
 
-import BlogBackground from "./blog-background";
+import { BlogView, MainWrapper, BlogBackgroundView } from "/src/styles/server";
 
 const Blog = () => {
   return (
     <MainWrapper className="MainWrapperView">
-      <BlogBackground />
-      <BlogView className="BlogView"></BlogView>
+      <BlogBackgroundView className="BlogBackgroundView" />
+      <BlogView className="BlogView">
+        <Link href="/">HOME</Link>
+      </BlogView>
     </MainWrapper>
   );
 };

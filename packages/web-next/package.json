@@ -7,7 +7,7 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "clean": "rm -rf .next",
+    "clean": "rm -r .next",
     "clobber": "nvm use && yarn install",
     "dev": "yarn run clean && next dev",
     "build": "next build",
