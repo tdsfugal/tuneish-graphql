@@ -1,6 +1,5 @@
-import React from "react";
-import Page from "/src/components/page";
+import HomePageComponent from "/src/components/home-page";
 
 export default function HomePage() {
-  return <Page pagePath="/" />;
+  return <HomePageComponent />;
 }

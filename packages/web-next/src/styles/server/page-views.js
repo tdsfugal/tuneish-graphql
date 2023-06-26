@@ -13,8 +13,9 @@ export const PageView = styled.div`
   align-items: center;
   overflow: hidden;
   background-color: ${getColorToken(["core", "white"])};
-  color: #000000;
-  font-familyL -apple-system, Roboto, sans-serif, serif;
+  color: ${getColorToken(["core", "black"])};
+  font-family: -apple-system, Roboto, sans-serif, serif;
+  z-index: 0;
 `;
 
 export const MainWrapper = styled.div`
@@ -26,6 +27,7 @@ export const MainWrapper = styled.div`
   display: box;
   overflow: hidden;
   background-color: transparent;
+  z-index: 10;
 `;
 
 export const NavWrapper = styled.div`
@@ -37,4 +39,5 @@ export const NavWrapper = styled.div`
   display: box;
   overflow: hidden;
   background-color: transparent;
+  z-index: 10;
 `;
