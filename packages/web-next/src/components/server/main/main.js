@@ -3,7 +3,7 @@ import { MainView, MainWrapper } from "/src/styles/server";
 
 import MainBackground from "./main-background";
 
-const Main = ({ pagePath }) => {
+const Main = () => {
   return (
     <MainWrapper className="MainWrapperView">
       <MainBackground />
