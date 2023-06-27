@@ -1,13 +1,13 @@
 import { PageView } from "src/styles/server";
 
-import { Main, Nav } from "./server";
-import { MainLinks } from "./client";
+import { Home, Nav } from "./server";
+import { HomeLinks } from "./client";
 
 const HomePage = () => {
   return (
     <PageView>
-      <Nav midSection={<MainLinks />} />
-      <Main />
+      <Nav midSection={<HomeLinks />} />
+      <Home />
     </PageView>
   );
 };

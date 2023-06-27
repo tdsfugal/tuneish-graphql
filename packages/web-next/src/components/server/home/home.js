@@ -1,18 +1,18 @@
 import React from "react";
-import { MainView, MainWrapper, MainBackgroundView } from "/src/styles/server";
+import { HomeView, HomeBackgroundView, MainWrapper } from "/src/styles/server";
 
 import { HeaderDrawer } from "src/components/client";
 
 import LinkBanner from "../link-banner";
 
-const Main = () => {
+const Home = () => {
   return (
     <MainWrapper className="MainWrapperView">
-      <MainBackgroundView className="MainBackgroundView" />
+      <HomeBackgroundView className="HomeBackgroundView" />
       <HeaderDrawer>
         <LinkBanner page="home" />
       </HeaderDrawer>
-      <MainView className="MainScrollView">
+      <HomeView className="HomeScrollView">
         <div
           style={{
             height: "1100px",
@@ -48,9 +48,9 @@ const Main = () => {
             backgroundColor: "pink",
           }}
         />
-      </MainView>
+      </HomeView>
     </MainWrapper>
   );
 };
 
-export default Main;
+export default Home;

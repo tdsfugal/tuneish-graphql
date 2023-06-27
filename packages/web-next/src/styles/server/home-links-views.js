@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import { getDimensionToken } from "src/design";
 
-export const MainLinksView = styled.div`
+export const HomeLinksView = styled.div`
   flex: 1 1 auto;
   width: ${getDimensionToken(["layout", "nav_width"])};
   position: relative;
