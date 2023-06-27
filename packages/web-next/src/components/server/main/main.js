@@ -1,14 +1,18 @@
 import React from "react";
 import { MainView, MainWrapper, MainBackgroundView } from "/src/styles/server";
 
+import { HeaderDrawer } from "src/components/client";
+
 import LinkBanner from "../link-banner";
 
 const Main = () => {
   return (
     <MainWrapper className="MainWrapperView">
       <MainBackgroundView className="MainBackgroundView" />
-      <MainView className="MainScrollView">
+      <HeaderDrawer>
         <LinkBanner page="home" />
+      </HeaderDrawer>
+      <MainView className="MainScrollView">
         <div
           style={{
             height: "1100px",
