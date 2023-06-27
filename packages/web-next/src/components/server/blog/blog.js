@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import { BlogView, MainWrapper, BlogBackgroundView } from "/src/styles/server";
 
-import { HeaderDrawer } from "src/components/client";
+import { FooterDrawer, HeaderDrawer } from "src/components/client";
 import LinkBanner from "../link-banner";
 
 const Blog = () => {
@@ -13,6 +13,7 @@ const Blog = () => {
         <LinkBanner page="blog" />
       </HeaderDrawer>
       <BlogView className="BlogView"></BlogView>
+      <FooterDrawer />
     </MainWrapper>
   );
 };

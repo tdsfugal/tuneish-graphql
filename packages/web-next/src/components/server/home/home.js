@@ -1,7 +1,7 @@
 import React from "react";
 import { HomeView, HomeBackgroundView, MainWrapper } from "/src/styles/server";
 
-import { HeaderDrawer } from "src/components/client";
+import { FooterDrawer, HeaderDrawer } from "src/components/client";
 
 import LinkBanner from "../link-banner";
 
@@ -49,6 +49,7 @@ const Home = () => {
           }}
         />
       </HomeView>
+      <FooterDrawer />
     </MainWrapper>
   );
 };
