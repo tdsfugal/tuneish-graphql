@@ -6,6 +6,7 @@ export * from "./circle-views";
 export * from "./footer-views";
 export * from "./header-views";
 export * from "./layout-views";
+export * from "./link-banner-views";
 export * from "./main-links-views";
 export * from "./main-views";
 export * from "./nav-views";

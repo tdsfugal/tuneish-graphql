@@ -1,13 +1,14 @@
 import React from "react";
-import Link from "next/link";
 import { MainView, MainWrapper, MainBackgroundView } from "/src/styles/server";
+
+import LinkBanner from "../link-banner";
 
 const Main = () => {
   return (
     <MainWrapper className="MainWrapperView">
       <MainBackgroundView className="MainBackgroundView" />
       <MainView className="MainScrollView">
-        <Link href="/blog">BLOG</Link>
+        <LinkBanner page="home" />
         <div
           style={{
             height: "1100px",
