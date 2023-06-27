@@ -39,7 +39,7 @@ export const semantic = {
   dimensions: {
     default: {
       button_height: "40px",
-      button_width: "60px",
+      button_width: "100px",
     },
     layout: {
       footer_height: "60px",

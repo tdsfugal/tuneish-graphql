@@ -5,6 +5,7 @@ import { getDimensionToken } from "src/design";
 const DrawerBarView = styled.div`
   width: calc(100vw-${getDimensionToken(["layout", "nav_width"])});
   position: relative;
+  z-index: 100;
 `;
 
 export const HeaderDrawerView = styled(DrawerBarView)`

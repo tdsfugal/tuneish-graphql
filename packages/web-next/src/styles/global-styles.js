@@ -45,4 +45,8 @@ export const GlobalStyles = createGlobalStyle`
     margin 0;
     border: none;
   }
+
+  a { 
+    text-decoration: none;
+  }
 `;
