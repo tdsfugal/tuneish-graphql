@@ -42,7 +42,7 @@ export const semantic = {
       button_width: "100px",
     },
     layout: {
-      footer_height: "60px",
+      footer_height: "360px",
       header_height: "60px",
       nav_width: "100px",
     },

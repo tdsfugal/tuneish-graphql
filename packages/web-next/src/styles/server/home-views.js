@@ -12,7 +12,7 @@ export const HomeView = styled.div`
   overflow-y: scroll;
   overflow-x: hidden;
   background-color: transparent;
-  z-index: 100;
+  z-index: 0;
 `;
 
 export const HomeBackgroundView = styled(BackgroundView)`

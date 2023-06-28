@@ -27,7 +27,6 @@ export const MainWrapper = styled.div`
   display: box;
   overflow: hidden;
   background-color: transparent;
-  z-index: 10;
 `;
 
 export const NavWrapper = styled.div`
@@ -39,5 +38,4 @@ export const NavWrapper = styled.div`
   display: box;
   overflow: hidden;
   background-color: transparent;
-  z-index: 10;
 `;
