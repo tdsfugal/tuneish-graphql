@@ -7,6 +7,10 @@ const foundation = {
     black: "rgb(0,0,0)",
     dark: "rgb(18,18,18)",
     light: "rgb(237, 237, 237)",
+    translucent_gray: "rgba(123, 123, 123, 0.8)",
+    gray_1: "rgba(123, 123, 123,1.0",
+    gray_1: "rgba(123, 123, 123,1.0",
+
     green_1: "darkseagreen",
     purple_1: "rebeccapurple",
     purple_2: "purple",
@@ -25,6 +29,7 @@ export const semantic = {
       tertiary: foundation.pallet.orange_1,
       white: foundation.pallet.white,
       black: foundation.pallet.black,
+      translucent: foundation.pallet.translucent_gray,
     },
     theory: {
       maj: foundation.pallet.purple_2,
@@ -42,7 +47,7 @@ export const semantic = {
       button_width: "100px",
     },
     layout: {
-      footer_height: "360px",
+      footer_height: "60px",
       header_height: "60px",
       nav_width: "100px",
     },

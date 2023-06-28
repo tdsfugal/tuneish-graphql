@@ -1,11 +1,12 @@
-// import React from "react";
+import { HeaderDrawer } from "src/components/client";
+import LinkBanner from "./link-banner";
 
-// import { HeaderView } from "src/styles/server";
+const Header = ({ page }) => {
+  return (
+    <HeaderDrawer>
+      <LinkBanner page={page} />
+    </HeaderDrawer>
+  );
+};
 
-// import { getDimensionToken } from "src/design";
-
-// const Header = ({ children }) => {
-//   return <HeaderView className="HeaderView">{children}</HeaderView>;
-// };
-
-// export default Header;
+export default Header;

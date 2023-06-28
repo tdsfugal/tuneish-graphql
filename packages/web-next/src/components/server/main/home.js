@@ -1,17 +1,14 @@
 import React from "react";
 import { HomeView, HomeBackgroundView, MainWrapper } from "/src/styles/server";
 
-import { FooterDrawer, HeaderDrawer } from "src/components/client";
-
-import LinkBanner from "../link-banner";
+import Footer from "../footer";
+import Header from "../header";
 
 const Home = () => {
   return (
     <MainWrapper className="MainWrapper">
       <HomeBackgroundView className="HomeBackground" />
-      <HeaderDrawer>
-        <LinkBanner page="home" />
-      </HeaderDrawer>
+      <Header page="home" />
       <HomeView className="HomeScroll">
         <div
           style={{
@@ -49,7 +46,7 @@ const Home = () => {
           }}
         />
       </HomeView>
-      <FooterDrawer />
+      <Footer />
     </MainWrapper>
   );
 };

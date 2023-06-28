@@ -12,7 +12,6 @@ export const BlogView = styled.div`
   overflow-y: scroll;
   overflow-x: hidden;
   background-color: transparent;
-  z-index: 100;
 `;
 
 export const BlogBackgroundView = styled(BackgroundView)`

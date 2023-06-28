@@ -1,19 +1,15 @@
-import Link from "next/link";
-
 import { BlogView, MainWrapper, BlogBackgroundView } from "/src/styles/server";
 
-import { FooterDrawer, HeaderDrawer } from "src/components/client";
-import LinkBanner from "../link-banner";
+import Footer from "../footer";
+import Header from "../header";
 
 const Blog = () => {
   return (
-    <MainWrapper className="MainWrapperView">
-      <BlogBackgroundView className="BlogBackgroundView" />
-      <HeaderDrawer className="HeaderDrawer">
-        <LinkBanner page="blog" />
-      </HeaderDrawer>
-      <BlogView className="BlogView"></BlogView>
-      <FooterDrawer className="FooterDrawer" />
+    <MainWrapper className="MainWrapper">
+      <BlogBackgroundView className="BlogBackground" />
+      <Header page="blog" />
+      <BlogView className="Blog"></BlogView>
+      <Footer />
     </MainWrapper>
   );
 };
