@@ -7,12 +7,12 @@ import LinkBanner from "../link-banner";
 
 const Home = () => {
   return (
-    <MainWrapper className="MainWrapperView">
-      <HomeBackgroundView className="HomeBackgroundView" />
+    <MainWrapper className="MainWrapper">
+      <HomeBackgroundView className="HomeBackground" />
       <HeaderDrawer>
         <LinkBanner page="home" />
       </HeaderDrawer>
-      <HomeView className="HomeScrollView">
+      <HomeView className="HomeScroll">
         <div
           style={{
             height: "1100px",

@@ -8,7 +8,7 @@ const LinkBanner = ({ page }) => {
   const pageLinks = LINKS[page];
 
   return (
-    <LinkBannerView className="LinkBannerView">
+    <LinkBannerView className="LinkBanner">
       {pageLinks.map(({ label, uri }) => (
         <Link key={label} href={uri}>
           <LinkView className="LinkView">{label}</LinkView>

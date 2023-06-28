@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { getDimensionToken } from "src/design";
 
 export const LinkBannerView = styled.div`
-  width: calc(100vw-${getDimensionToken(["layout", "nav_width"])});
+  flex: 1 1 calc(100vw - ${getDimensionToken(["layout", "nav_width"])});
   height: 100%;
   display: flex;
   flex-flow: row nowrap;

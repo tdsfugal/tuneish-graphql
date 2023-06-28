@@ -20,6 +20,7 @@ const FooterDrawerControl = ({ openVisual, closeVisual }) => {
   // Toggle button starts in off position
   return (
     <ToggleButton
+      className="FoooterBarControl"
       offAction={openDrawer}
       offVisual={openVisual}
       onAction={closeDrawer}

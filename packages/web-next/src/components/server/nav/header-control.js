@@ -3,18 +3,18 @@ import { HeaderDrawerControl } from "src/components/client";
 
 const HeaderControl = () => {
   const headerOpenVisual = (
-    <HeaderButtonTextView className="HeaderButtonLabelView">
+    <HeaderButtonTextView className="HeaderButtonLabel">
       HOPEN
     </HeaderButtonTextView>
   );
   const headerCloseVisual = (
-    <HeaderButtonTextView className="HeaderButtonLabelView">
+    <HeaderButtonTextView className="HeaderButtonLabel">
       HCLOSE
     </HeaderButtonTextView>
   );
 
   return (
-    <HeaderControlView className="HeaderControlView">
+    <HeaderControlView className="HeaderControl">
       <HeaderDrawerControl
         openVisual={headerOpenVisual}
         closeVisual={headerCloseVisual}

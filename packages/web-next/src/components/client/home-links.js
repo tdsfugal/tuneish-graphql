@@ -3,7 +3,7 @@
 import { HomeLinksView } from "src/styles/server";
 
 const HomeLinks = () => {
-  return <HomeLinksView className="HomeLinksView" />;
+  return <HomeLinksView className="HomeLinks" />;
 };
 
 export default HomeLinks;

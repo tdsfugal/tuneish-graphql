@@ -3,7 +3,9 @@
 import { FooterDrawerView } from "src/styles/client";
 
 const FooterDrawer = ({ children }) => {
-  return <FooterDrawerView>{children}</FooterDrawerView>;
+  return (
+    <FooterDrawerView className="FooterDrawer">{children}</FooterDrawerView>
+  );
 };
 
 export default FooterDrawer;

@@ -3,18 +3,18 @@ import { FooterDrawerControl } from "src/components/client";
 
 const FooterControl = () => {
   const footerOpenVisual = (
-    <FooterButtonTextView className="FooterButtonLabelView">
+    <FooterButtonTextView className="FooterButtonLabel">
       FOPEN
     </FooterButtonTextView>
   );
   const footerCloseVisual = (
-    <FooterButtonTextView className="FooterButtonLabelView">
+    <FooterButtonTextView className="FooterButtonLabel">
       FCLOSE
     </FooterButtonTextView>
   );
 
   return (
-    <FooterControlView className="FooterControlView">
+    <FooterControlView className="FooterControl">
       <FooterDrawerControl
         openVisual={footerOpenVisual}
         closeVisual={footerCloseVisual}

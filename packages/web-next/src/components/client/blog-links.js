@@ -3,7 +3,7 @@
 import { BlogLinksView } from "src/styles/server";
 
 const BlogLinks = () => {
-  return <BlogLinksView className="BlogLinksView" />;
+  return <BlogLinksView className="BlogLinks" />;
 };
 
 export default BlogLinks;

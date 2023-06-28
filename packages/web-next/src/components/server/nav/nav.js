@@ -6,8 +6,8 @@ import FooterControl from "./footer-control";
 const Nav = ({ midSection }) => {
   return (
     <NavWrapper className="NavWrapper">
-      <NavBackgroundView className="NavBackgroundView" />
-      <NavView className="NavView">
+      <NavBackgroundView className="NavBackground" />
+      <NavView className="Nav">
         <HeaderControl />
         {midSection}
         <FooterControl />

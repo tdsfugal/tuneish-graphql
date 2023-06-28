@@ -5,7 +5,7 @@ import { HomeLinks } from "./client";
 
 const HomePage = () => {
   return (
-    <PageView>
+    <PageView className="HomePage">
       <Nav midSection={<HomeLinks />} />
       <Home />
     </PageView>

@@ -5,7 +5,7 @@ import { BlogLinks } from "./client";
 
 const BlogPage = () => {
   return (
-    <PageView>
+    <PageView className="BlogPage">
       <Nav midSection={<BlogLinks />} />
       <Blog />
     </PageView>

@@ -9,11 +9,11 @@ const Blog = () => {
   return (
     <MainWrapper className="MainWrapperView">
       <BlogBackgroundView className="BlogBackgroundView" />
-      <HeaderDrawer>
+      <HeaderDrawer className="HeaderDrawer">
         <LinkBanner page="blog" />
       </HeaderDrawer>
       <BlogView className="BlogView"></BlogView>
-      <FooterDrawer />
+      <FooterDrawer className="FooterDrawer" />
     </MainWrapper>
   );
 };

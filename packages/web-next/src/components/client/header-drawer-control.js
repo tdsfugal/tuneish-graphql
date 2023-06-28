@@ -20,6 +20,7 @@ const HeaderDrawerControl = ({ openVisual, closeVisual }) => {
   // Toggle button starts in off position
   return (
     <ToggleButton
+      className="HeaderBarControl"
       offAction={openDrawer}
       offVisual={openVisual}
       onAction={closeDrawer}

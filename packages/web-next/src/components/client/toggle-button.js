@@ -14,7 +14,7 @@ const ToggleButton = ({ onAction, onVisual, offAction, offVisual }) => {
   };
 
   return (
-    <ToggleButtonView className="ToggleButtonView" onClick={handleClick}>
+    <ToggleButtonView className="ToggleButton" onClick={handleClick}>
       {state ? onVisual : offVisual}
     </ToggleButtonView>
   );
