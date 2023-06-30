@@ -1,13 +1,20 @@
-const HomeItem = () => {
+"use client";
+
+import { HomeItemView } from "src/styles/client";
+
+const HomeItem = ({ itemId }) => {
   return (
-    <div
-      style={{
-        height: "500px",
-        width: "100%",
-        backgroundColor: "brown",
-        border: "2px yellow solid",
-      }}
-    />
+    <HomeItemView key={itemId}>
+      <div
+        style={{
+          height: "500px",
+          width: "300px",
+          backgroundColor: "brown",
+        }}
+      >
+        <h1>{itemId}</h1>
+      </div>
+    </HomeItemView>
   );
 };
 
