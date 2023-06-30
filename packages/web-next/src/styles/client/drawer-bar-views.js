@@ -17,9 +17,11 @@ const DrawerBarView = styled.div`
 export const HeaderDrawerView = styled(DrawerBarView)`
   height: ${getDimensionToken(["layout", "header_height"])};
   top: 0px;
+  visibility: ${({ $open }) => ($open ? "visible" : "hidden")};
 `;
 
 export const FooterDrawerView = styled(DrawerBarView)`
   height: ${getDimensionToken(["layout", "footer_height"])};
   bottom: 0px;
+  visibility: ${({ $open }) => ($open ? "visible" : "hidden")};
 `;

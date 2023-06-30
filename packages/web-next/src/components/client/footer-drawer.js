@@ -6,12 +6,12 @@ import { FOOTER_DRAWER_OPEN } from "src/state/reactive";
 import { FooterDrawerView } from "src/styles/client";
 
 const FooterDrawer = ({ children }) => {
-  const footerDrawerOpen = useReactiveVar(FOOTER_DRAWER_OPEN);
-
-  console.log("footer drawer open = ", footerDrawerOpen);
+  const drawerOpen = useReactiveVar(FOOTER_DRAWER_OPEN);
 
   return (
-    <FooterDrawerView className="FooterDrawer">{children}</FooterDrawerView>
+    <FooterDrawerView className="FooterDrawer" $open={drawerOpen}>
+      {children}
+    </FooterDrawerView>
   );
 };
 
