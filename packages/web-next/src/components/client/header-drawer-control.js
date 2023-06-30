@@ -1,29 +1,17 @@
 "use client";
 
-import { useState } from "react";
+import { HEADER_DRAWER_OPEN } from "src/state/reactive";
 
 import ToggleButton from "./toggle-button";
 
 const HeaderDrawerControl = ({ openVisual, closeVisual }) => {
-  const [drawerOpen, setDrawerOpen] = useState(false);
-
-  const openDrawer = () => {
-    console.log("open Header Drawer");
-    setDrawerOpen(true);
-  };
-
-  const closeDrawer = () => {
-    console.log("close Header Drawer");
-    setDrawerOpen(false);
-  };
-
   // Toggle button starts in off position
   return (
     <ToggleButton
       className="HeaderBarControl"
-      offAction={openDrawer}
+      offAction={() => HEADER_DRAWER_OPEN(true)}
       offVisual={openVisual}
-      onAction={closeDrawer}
+      onAction={() => HEADER_DRAWER_OPEN(false)}
       onVisual={closeVisual}
     />
   );

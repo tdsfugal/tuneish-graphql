@@ -1,29 +1,17 @@
 "use client";
 
-import { useState } from "react";
+import { FOOTER_DRAWER_OPEN } from "src/state/reactive";
 
 import ToggleButton from "./toggle-button";
 
 const FooterDrawerControl = ({ openVisual, closeVisual }) => {
-  const [drawerOpen, setDrawerOpen] = useState(false);
-
-  const openDrawer = () => {
-    console.log("open Footer Drawer");
-    setDrawerOpen(true);
-  };
-
-  const closeDrawer = () => {
-    console.log("close Footer Drawer");
-    setDrawerOpen(false);
-  };
-
   // Toggle button starts in off position
   return (
     <ToggleButton
       className="FoooterBarControl"
-      offAction={openDrawer}
+      offAction={() => FOOTER_DRAWER_OPEN(true)}
       offVisual={openVisual}
-      onAction={closeDrawer}
+      onAction={() => FOOTER_DRAWER_OPEN(false)}
       onVisual={closeVisual}
     />
   );
