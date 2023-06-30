@@ -2,10 +2,10 @@
 
 import { HomeLinksItemView } from "src/styles/server";
 
-const HomeLinksItem = ({ x }) => {
+const HomeLinksItem = ({ label }) => {
   return (
     <HomeLinksItemView className="HomeLinksItem">
-      <p>{x}</p>
+      <p>{label}</p>
     </HomeLinksItemView>
   );
 };
