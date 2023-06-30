@@ -2,8 +2,6 @@ import { makeVar } from "@apollo/client";
 
 import { Keys, NULL_NOTE, NULL_CHORD, Cn, MAJOR } from "src/theory";
 
-import { getPageMeta } from "src/util";
-
 // The object in CURRENT_KEY must conform to the structure provided by Keys
 //  {
 //     name: Ab,
@@ -18,5 +16,3 @@ export const CURRENT_KEY = makeVar(Keys.getKey({ name: Cn, type: MAJOR }));
 export const STABLE_NOTE = makeVar(NULL_NOTE);
 
 export const CURRENT_CHORD = makeVar(NULL_CHORD);
-
-export const PAGE_META_DATA = makeVar(getPageMeta("/"));
