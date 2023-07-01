@@ -4,7 +4,7 @@ import { getColorToken } from "src/design";
 
 import { BackgroundView } from "./background-views";
 
-export const HomeView = styled.div`
+export const HomeScrollView = styled.div`
   position: absolute;
   height: 100%;
   width: 100%;
