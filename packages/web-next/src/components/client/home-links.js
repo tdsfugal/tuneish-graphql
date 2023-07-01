@@ -4,7 +4,7 @@ import { useReactiveVar } from "@apollo/client";
 
 import { HOME_MANIFEST } from "src/state/reactive";
 
-import { HomeLinksView } from "src/styles/server";
+import { NavLinksView } from "src/styles/server";
 
 import HomeLinksItem from "./home-links-item";
 
@@ -12,20 +12,32 @@ const HomeLinks = () => {
   const manifest = useReactiveVar(HOME_MANIFEST);
 
   const handleMouseDown = (e) => {
-    console.log(e);
-    const en = e.nativeEvent;
-    if (en.buttons == 2) {
+    if (e.button == 2) {
+      e.preventDefault();
       // secondary mouse button pressed, e.g. right click
-      console.log("right mouse click, y offset = ", en.offsetY);
+      if (e.target.className.match(/HomeLinks/)) {
+        // right click onto container "HomeLinks"
+        console.log(
+          "right mouse click on container, y offset = ",
+          e.nativeEvent.offsetY
+        );
+      } else {
+        // right click onto one of the Nav links
+        console.log("right mouse click on link");
+      }
     }
   };
 
   return (
-    <HomeLinksView className="HomeLinks" onMouseDown={handleMouseDown}>
+    <NavLinksView
+      className="HomeLinks"
+      onMouseDown={handleMouseDown}
+      onContextMenu={(e) => e.preventDefault()}
+    >
       {manifest.map(({ _id, label }) => (
         <HomeLinksItem key={_id} _id={_id} label={label} />
       ))}
-    </HomeLinksView>
+    </NavLinksView>
   );
 };
 
