@@ -11,13 +11,16 @@ import Header from "../header";
 
 const Home = () => {
   const manifest = useReactiveVar(HOME_MANIFEST);
-  const items = manifest.map(({ _id }) => <HomeItem key={_id} itemId={_id} />);
 
   return (
     <MainWrapper className="MainWrapper">
       <HomeBackgroundView className="HomeBackground" />
       <Header page="home" />
-      <HomeView className="HomeScroll">{items}</HomeView>
+      <HomeView className="HomeScroll">
+        {manifest.map(({ _id }) => (
+          <HomeItem key={_id} _id={_id} />
+        ))}
+      </HomeView>
       <Footer />
     </MainWrapper>
   );

@@ -1,10 +1,16 @@
 "use client";
 
+import { useRef } from "react";
+
 import { HomeItemView } from "src/styles/client";
 
-const HomeItem = ({ itemId }) => {
+const HomeItem = ({ _id }) => {
+  const ref = useRef(null);
+
+  console.log(ref);
+
   return (
-    <HomeItemView key={itemId}>
+    <HomeItemView key={_id} ref={ref}>
       <div
         style={{
           height: "500px",
@@ -12,7 +18,7 @@ const HomeItem = ({ itemId }) => {
           backgroundColor: "brown",
         }}
       >
-        <h1>{itemId}</h1>
+        <h1>{_id}</h1>
       </div>
     </HomeItemView>
   );
