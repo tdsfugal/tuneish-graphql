@@ -6,8 +6,7 @@ export const HomeItemView = styled.div`
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   background-color: transparent;
-  border: 2px yellow solid;
   padding: 10px;
 `;
