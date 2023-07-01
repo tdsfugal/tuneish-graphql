@@ -10,11 +10,14 @@ import HomeLinksItem from "./home-links-item";
 
 const HomeLinks = () => {
   const manifest = useReactiveVar(HOME_MANIFEST);
-  const items = manifest.map(({ label }) => {
-    return <HomeLinksItem label={label} />;
-  });
 
-  return <HomeLinksView className="HomeLinks">{items} </HomeLinksView>;
+  return (
+    <HomeLinksView className="HomeLinks">
+      {manifest.map(({ _id, label }) => (
+        <HomeLinksItem key={_id} _id={_id} label={label} />
+      ))}
+    </HomeLinksView>
+  );
 };
 
 export default HomeLinks;
