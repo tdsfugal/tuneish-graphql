@@ -1,9 +1,9 @@
 "use client";
 
-import { BlogLinksView } from "src/styles/server";
+import { NavLinksView } from "src/styles/server";
 
 const BlogLinks = () => {
-  return <BlogLinksView className="BlogLinks" />;
+  return <NavLinksView className="BlogLinks" />;
 };
 
 export default BlogLinks;

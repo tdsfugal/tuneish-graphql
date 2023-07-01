@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { getColorToken } from "src/design";
+import { getDimensionToken, getColorToken } from "src/design";
 
 import { BackgroundView } from "./background-views";
 
@@ -19,4 +19,26 @@ export const NavView = styled.div`
 
 export const NavBackgroundView = styled(BackgroundView)`
   background-color: ${getColorToken(["core", "secondary"])};
+`;
+
+export const NavLinksView = styled.div`
+  flex: 1 1 auto;
+  width: ${getDimensionToken(["layout", "nav_width"])};
+  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+`;
+
+export const NavLinksItemView = styled.div`
+  flex: 0 0 ${getDimensionToken(["navLinks", "button_height"])};
+  width: calc(
+    ${getDimensionToken(["layout", "nav_width"])} - 2 *
+      ${getDimensionToken(["navLinks", "margin"])}
+  );
+  margin: ${getDimensionToken(["navLinks", "margin"])};
+  padding: ${getDimensionToken(["navLinks", "padding"])};
+  position: relative;
+  color: ${getColorToken(["core", "white"])};
+  background: "transparent";
+  border: yellow solid 0.5px;
 `;

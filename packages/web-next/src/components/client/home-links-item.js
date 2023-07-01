@@ -1,6 +1,6 @@
 "use client";
 
-import { HomeLinksItemView } from "src/styles/server";
+import { NavLinksItemView } from "src/styles/server";
 import { SCROLL_TO } from "src/state/reactive";
 
 const HomeLinksItem = ({ _id, label }) => {
@@ -9,9 +9,9 @@ const HomeLinksItem = ({ _id, label }) => {
     SCROLL_TO(_id);
   };
   return (
-    <HomeLinksItemView className="HomeLinksItem" onClick={handleClick}>
+    <NavLinksItemView className="HomeLinksItem" onClick={handleClick}>
       <p>{label}</p>
-    </HomeLinksItemView>
+    </NavLinksItemView>
   );
 };
 
