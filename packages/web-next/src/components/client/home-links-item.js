@@ -1,10 +1,15 @@
 "use client";
 
 import { HomeLinksItemView } from "src/styles/server";
+import { SCROLL_TO } from "src/state/reactive";
 
-const HomeLinksItem = ({ label }) => {
+const HomeLinksItem = ({ _id, label }) => {
+  const handleClick = (e) => {
+    e.preventDefault();
+    SCROLL_TO(_id);
+  };
   return (
-    <HomeLinksItemView className="HomeLinksItem">
+    <HomeLinksItemView className="HomeLinksItem" onClick={handleClick}>
       <p>{label}</p>
     </HomeLinksItemView>
   );

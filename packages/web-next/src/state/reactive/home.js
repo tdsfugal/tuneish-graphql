@@ -7,3 +7,5 @@ export const HOME_MANIFEST = makeVar([
   { _id: "4", label: "four" },
   { _id: "5", label: "five" },
 ]);
+
+export const SCROLL_TO = makeVar("");
