@@ -3,8 +3,8 @@
 import { useReactiveVar } from "@apollo/client";
 
 import { HOME_MANIFEST } from "src/state/reactive";
-
 import { NavLinksView } from "src/styles/server";
+import computeManifestPosition from "src/util/compute-manifest-position";
 
 import HomeLinksItem from "./home-links-item";
 
@@ -17,10 +17,9 @@ const HomeLinks = () => {
       // secondary mouse button pressed, e.g. right click
       if (e.target.className.match(/HomeLinks/)) {
         // right click onto container "HomeLinks"
-        console.log(
-          "right mouse click on container, y offset = ",
-          e.nativeEvent.offsetY
-        );
+        const yPos = e.nativeEvent.offsetY;
+        const mPos = computeManifestPosition(yPos);
+        console.log("manifest position = ", mPos);
       } else {
         // right click onto one of the Nav links
         console.log("right mouse click on link");

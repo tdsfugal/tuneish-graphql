@@ -1,4 +1,5 @@
 {
   "home": [{ "label": "BLOG", "uri": "/blog" }],
-  "blog": [{ "label": "HOME", "uri": "/" }]
+  "blog": [{ "label": "HOME", "uri": "/home" }],
+  "splash": []
 }

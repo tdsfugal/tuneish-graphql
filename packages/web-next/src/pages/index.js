@@ -1,5 +1,5 @@
-import HomePage from "/src/components/home-page";
+import SplashPage from "/src/components/splash-page";
 
-export default function Home() {
-  return <HomePage />;
+export default function Splash() {
+  return <SplashPage />;
 }

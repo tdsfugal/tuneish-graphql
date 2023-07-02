@@ -9,3 +9,4 @@ export * from "./layout-views";
 export * from "./link-banner-views";
 export * from "./nav-views";
 export * from "./page-views";
+export * from "./splash-views";
