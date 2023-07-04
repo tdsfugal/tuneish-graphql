@@ -22,6 +22,6 @@ export default function getColorToken(dimensionTokenPath) {
   } catch (e) {
     // TODO add real logging
     console.log(e);
-    return null;
+    return "Token Not Found";
   }
 }

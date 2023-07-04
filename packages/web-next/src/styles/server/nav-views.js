@@ -30,13 +30,13 @@ export const NavLinksView = styled.div`
 `;
 
 export const NavLinksItemView = styled.div`
-  flex: 0 0 ${getDimensionToken(["navLinks", "button_height"])};
+  flex: 0 0 ${getDimensionToken(["nav_links", "button_height"])};
   width: calc(
     ${getDimensionToken(["layout", "nav_width"])} - 2 *
-      ${getDimensionToken(["navLinks", "margin"])}
+      ${getDimensionToken(["nav_links", "margin"])}
   );
-  margin: ${getDimensionToken(["navLinks", "margin"])};
-  padding: ${getDimensionToken(["navLinks", "padding"])};
+  margin: ${getDimensionToken(["nav_links", "margin"])};
+  padding: ${getDimensionToken(["nav_links", "padding"])};
   position: relative;
   color: ${getColorToken(["core", "white"])};
   background: "transparent";
