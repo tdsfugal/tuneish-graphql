@@ -38,7 +38,13 @@ export const NavLinksItemView = styled.div`
   margin: ${getDimensionToken(["nav_links", "margin"])};
   padding: ${getDimensionToken(["nav_links", "padding"])};
   position: relative;
+  background: ${getColorToken(["core", "secondary_light"])};
+  box-sizing: border-box;
+`;
+
+export const NavLinksTextView = styled.label`
+  height: 100%
+  width: 100% 
+  padding: ${getDimensionToken(["nav_links", "padding"])};
   color: ${getColorToken(["core", "white"])};
-  background: "transparent";
-  border: yellow solid 0.5px;
 `;

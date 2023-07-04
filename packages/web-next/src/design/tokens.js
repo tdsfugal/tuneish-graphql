@@ -14,6 +14,7 @@ const foundation = {
     green_1: "darkseagreen",
     purple_1: "rebeccapurple",
     purple_2: "purple",
+    purple_3: "#7241aa",
     orange_1: "orange",
   },
 };
@@ -27,6 +28,7 @@ export const semantic = {
       primary: foundation.pallet.green_1,
       secondary: foundation.pallet.purple_1,
       tertiary: foundation.pallet.orange_1,
+      secondary_light: foundation.pallet.purple_3,
       white: foundation.pallet.white,
       black: foundation.pallet.black,
       translucent: foundation.pallet.translucent_gray,
@@ -52,7 +54,7 @@ export const semantic = {
       nav_width: "200px",
     },
     nav_links: {
-      button_height: "30px",
+      button_height: "40px",
       margin: "10px",
       padding: "5px",
     },

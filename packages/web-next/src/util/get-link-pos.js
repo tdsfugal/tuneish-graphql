@@ -18,7 +18,7 @@ const getLinkPos = ({ yPos, nButtons, linksHeight }) => {
     y += HEIGHT;
     if (yPos <= y) return { type: "button", pos };
     pos += 1;
-    y += MARGIN;
+    y += 2 * MARGIN;
   }
   return { type: "gap", pos };
 };

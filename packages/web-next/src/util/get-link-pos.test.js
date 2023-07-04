@@ -50,20 +50,20 @@ describe("getLinkPos", () => {
   it("returns [gap, 1] when cursor is between first and second buttons", () => {
     const expected = { type: "gap", pos: 1 };
     expect(getLinkPos({ ...args.next().value, yPos: 41 })).toEqual(expected);
-    expect(getLinkPos({ ...args.next().value, yPos: 45 })).toEqual(expected);
-    expect(getLinkPos({ ...args.next().value, yPos: 49 })).toEqual(expected);
+    expect(getLinkPos({ ...args.next().value, yPos: 50 })).toEqual(expected);
+    expect(getLinkPos({ ...args.next().value, yPos: 59 })).toEqual(expected);
   });
 
   it("returns [button, 1] when cursor is over the second button", () => {
     const expected = { type: "button", pos: 1 };
-    expect(getLinkPos({ ...args.next().value, yPos: 50 })).toEqual(expected);
-    expect(getLinkPos({ ...args.next().value, yPos: 65 })).toEqual(expected);
-    expect(getLinkPos({ ...args.next().value, yPos: 80 })).toEqual(expected);
+    expect(getLinkPos({ ...args.next().value, yPos: 60 })).toEqual(expected);
+    expect(getLinkPos({ ...args.next().value, yPos: 75 })).toEqual(expected);
+    expect(getLinkPos({ ...args.next().value, yPos: 90 })).toEqual(expected);
   });
 
   it("returns [gap, 2] when cursor is below the second (last) button", () => {
     const expected = { type: "gap", pos: 2 };
-    expect(getLinkPos({ ...args.next().value, yPos: 81 })).toEqual(expected);
+    expect(getLinkPos({ ...args.next().value, yPos: 91 })).toEqual(expected);
     expect(getLinkPos({ ...args.next().value, yPos: 500 })).toEqual(expected);
     expect(getLinkPos({ ...args.next().value, yPos: 999 })).toEqual(expected);
   });
