@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { LinkBannerView, LinkView } from "src/styles/server";
+import { LinkBannerView, LinkView } from "./link-banner-views";
 
 import LINKS from "meta/links.json";
 
