@@ -2,7 +2,7 @@
 
 import { FOOTER_DRAWER_OPEN } from "src/state/reactive";
 
-import ToggleButton from "../toggle-button";
+import { ToggleButton } from "../toggle-button";
 
 const FooterDrawerControl = ({ openVisual, closeVisual }) => {
   // Toggle button starts in off position
