@@ -4,7 +4,7 @@ import { useRef, useEffect } from "react";
 import { useReactiveVar } from "@apollo/client";
 
 import { SCROLL_TO } from "src/state/reactive";
-import { HomeItemView } from "src/styles/client";
+import { HomeItemView } from "./home-item-views";
 
 const HomeItem = ({ _id }) => {
   const ref = useRef({ current: null });

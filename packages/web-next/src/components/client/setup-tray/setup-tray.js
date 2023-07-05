@@ -1,6 +1,6 @@
 "use client";
 
-import { SetupTrayView } from "src/styles/client";
+import { SetupTrayView } from "./setup-tray-views";
 
 const SetupTray = () => {
   const active = true;
