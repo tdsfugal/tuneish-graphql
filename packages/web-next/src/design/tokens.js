@@ -52,6 +52,7 @@ export const semantic = {
       footer_height: "60px",
       header_height: "60px",
       nav_width: "200px",
+      setup_width: "300px",
     },
     nav_links: {
       button_height: "40px",

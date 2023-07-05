@@ -25,7 +25,7 @@ const HomeItem = ({ _id }) => {
       <div
         style={{
           height: "500px",
-          width: "300px",
+          width: "600px",
           backgroundColor: "brown",
         }}
       >

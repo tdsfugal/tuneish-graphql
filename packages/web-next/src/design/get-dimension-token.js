@@ -1,6 +1,6 @@
 import { semantic } from "./tokens";
 
-export default function getColorToken(dimensionTokenPath) {
+export default function getDimensionToken(dimensionTokenPath) {
   try {
     let path = dimensionTokenPath.reverse();
     let dimension = semantic.dimensions;
