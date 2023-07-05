@@ -1,6 +1,7 @@
-import { PageView } from "src/styles/server";
+import { PageView } from "./page-views";
 
-import { Splash, Nav } from "./server";
+import { Splash } from "./main";
+import Nav from "./nav";
 
 const SplashPage = () => {
   return (

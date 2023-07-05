@@ -1,11 +1,8 @@
-import {
-  SplashView,
-  MainWrapper,
-  SplashBackgroundView,
-} from "/src/styles/server";
+import { MainWrapper } from "../../page-views";
 
-import Footer from "../footer";
-import Header from "../header";
+import { Footer, Header } from "../_marginals";
+
+import { SplashView, SplashBackgroundView } from "./splash-views";
 
 const Splash = () => {
   return (

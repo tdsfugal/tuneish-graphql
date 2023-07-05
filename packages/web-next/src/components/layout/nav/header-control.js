@@ -1,4 +1,7 @@
-import { HeaderControlView, HeaderButtonTextView } from "src/styles/server";
+import {
+  HeaderControlView,
+  HeaderButtonTextView,
+} from "./header-control-views";
 import { HeaderDrawerControl } from "src/components/client";
 
 const HeaderControl = () => {

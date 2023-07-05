@@ -1,4 +1,5 @@
-import { NavView, NavWrapper, NavBackgroundView } from "src/styles/server";
+import { NavWrapper } from "../page-views";
+import { NavView, NavBackgroundView } from "./nav-views";
 
 import HeaderControl from "./header-control";
 import FooterControl from "./footer-control";

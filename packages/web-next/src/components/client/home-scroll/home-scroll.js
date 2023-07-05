@@ -2,7 +2,7 @@ import React from "react";
 
 import { useReactiveVar } from "@apollo/client";
 
-import { HomeScrollView } from "/src/styles/server";
+import { HomeScrollView } from "./home-scroll-views";
 import { HOME_MANIFEST } from "src/state/reactive";
 
 import HomeItem from "src/components/client/home-item";

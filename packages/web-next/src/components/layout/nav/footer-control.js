@@ -1,5 +1,9 @@
-import { FooterControlView, FooterButtonTextView } from "src/styles/server";
 import { FooterDrawerControl } from "src/components/client";
+
+import {
+  FooterControlView,
+  FooterButtonTextView,
+} from "./footer-control-views";
 
 const FooterControl = () => {
   const footerOpenVisual = (

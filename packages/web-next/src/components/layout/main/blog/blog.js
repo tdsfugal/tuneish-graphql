@@ -1,7 +1,8 @@
-import { BlogView, MainWrapper, BlogBackgroundView } from "/src/styles/server";
+import { Footer, Header } from "../_marginals";
 
-import Footer from "../footer";
-import Header from "../header";
+import { MainWrapper } from "../../page-views";
+
+import { BlogView, BlogBackgroundView } from "./blog-views";
 
 const Blog = () => {
   return (

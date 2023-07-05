@@ -1,7 +1,9 @@
-import { PageView } from "src/styles/server";
+import { PageView } from "./page-views";
 
-import { Blog, Nav } from "./server";
-import { BlogLinks } from "./client";
+import { Blog } from "./main";
+import Nav from "./nav";
+
+import { BlogLinks } from "../client";
 
 const BlogPage = () => {
   return (

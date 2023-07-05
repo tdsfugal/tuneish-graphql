@@ -1,7 +1,9 @@
-import { PageView } from "src/styles/server";
+import { PageView } from "./page-views";
 
-import { Home, Nav } from "./server";
-import { HomeLinks } from "./client";
+import { Home } from "./main";
+import Nav from "./nav";
+
+import { HomeLinks } from "../client";
 
 const HomePage = () => {
   return (

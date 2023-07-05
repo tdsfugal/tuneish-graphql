@@ -1,7 +1,8 @@
 "use client";
 
-import { NavLinksItemView, NavLinksTextView } from "src/styles/server";
 import { SCROLL_TO } from "src/state/reactive";
+
+import { NavLinksItemView, NavLinksTextView } from "./nav-links-views";
 
 const HomeLinksItem = ({ _id, label }) => {
   const handleClick = (e) => {

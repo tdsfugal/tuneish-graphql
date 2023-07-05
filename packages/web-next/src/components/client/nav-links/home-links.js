@@ -4,8 +4,9 @@ import { useRef } from "react";
 import { useReactiveVar } from "@apollo/client";
 
 import { HOME_MANIFEST } from "src/state/reactive";
-import { NavLinksView } from "src/styles/server";
 import getLinkPos from "src/util/get-link-pos";
+
+import { NavLinksView } from "./nav-links-views";
 
 import HomeLinksItem from "./home-links-item";
 
