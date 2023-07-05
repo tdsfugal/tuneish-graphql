@@ -3,7 +3,8 @@
 import { useReactiveVar } from "@apollo/client";
 
 import { HEADER_DRAWER_OPEN } from "src/state/reactive";
-import { HeaderDrawerView } from "src/styles/client";
+
+import { HeaderDrawerView } from "./drawer-bar-views";
 
 const HeaderDrawer = ({ children }) => {
   const drawerOpen = useReactiveVar(HEADER_DRAWER_OPEN);
