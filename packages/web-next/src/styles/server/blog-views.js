@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import { getColorToken } from "src/design";
 
-import { BackgroundView } from "./background-views";
+import { BackgroundView } from "src/styles";
 
 export const BlogView = styled.div`
   position: absolute;

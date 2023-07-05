@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import { getColorToken } from "src/design";
 
-import { BackgroundView } from "./background-views";
+import { BackgroundView } from "src/styles";
 
 export const SplashView = styled.div`
   position: absolute;

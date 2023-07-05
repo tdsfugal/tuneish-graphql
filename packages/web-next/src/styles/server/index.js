@@ -1,4 +1,3 @@
-export * from "./background-views";
 export * from "./blog-views";
 export * from "./button-views";
 export * from "./circle-views";

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import { getDimensionToken, getColorToken } from "src/design";
 
-import { BackgroundView } from "./background-views";
+import { BackgroundView } from "src/styles";
 
 export const NavView = styled.div`
   position: absolute;
