@@ -2,7 +2,7 @@
 
 import { HEADER_DRAWER_OPEN } from "src/state/reactive";
 
-import ToggleButton from "./toggle-button";
+import ToggleButton from "../toggle-button";
 
 const HeaderDrawerControl = ({ openVisual, closeVisual }) => {
   // Toggle button starts in off position
