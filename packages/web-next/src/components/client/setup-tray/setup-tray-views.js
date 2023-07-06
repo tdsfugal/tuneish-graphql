@@ -26,6 +26,7 @@ export const SetupTrayView = styled.div`
 export const SetupTrayCardView = styled.div`
   height: 100px;
   width: 100%;
+  top: ${({ yPos }) => (yPos ? `${yPos}px` : "0px")};
   position: relative;
   background: yellow;
 `;
