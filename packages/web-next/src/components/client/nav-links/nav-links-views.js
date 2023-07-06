@@ -14,9 +14,9 @@ export const NavLinksItemView = styled.div`
   flex: 0 0 ${getDimensionToken(["nav_links", "button_height"])};
   width: calc(
     ${getDimensionToken(["layout", "nav_width"])} - 2 *
-      ${getDimensionToken(["nav_links", "margin"])}
+      ${getDimensionToken(["nav_links", "button_margin"])}
   );
-  margin: ${getDimensionToken(["nav_links", "margin"])};
+  margin: ${getDimensionToken(["nav_links", "button_margin"])};
   padding: ${getDimensionToken(["nav_links", "padding"])};
   position: relative;
   background: ${getColorToken(["core", "secondary_light"])};

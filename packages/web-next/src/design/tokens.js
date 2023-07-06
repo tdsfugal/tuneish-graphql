@@ -56,7 +56,7 @@ export const semantic = {
     },
     nav_links: {
       button_height: "40px",
-      margin: "10px",
+      button_margin: "10px",
       padding: "5px",
     },
   },

@@ -1,14 +1,12 @@
 import { getDimensionToken } from "src/design";
+import lengthToPx from "./length-to-px";
 
-const HEIGHT = parseInt(
-  getDimensionToken(["nav_links", "button_height"]).match(/^\d*/)[0]
-);
-const MARGIN = parseInt(
-  getDimensionToken(["nav_links", "margin"]).match(/^\d*/)[0]
-);
+const HEIGHT = lengthToPx(getDimensionToken(["nav_links", "button_height"]));
+const MARGIN = lengthToPx(getDimensionToken(["nav_links", "button_margin"]));
 
 const getLinkPos = ({ yPos, nButtons, linksHeight }) => {
   // filter out the out-of-bounds requests
+
   if (yPos < 0 || yPos > linksHeight) return `yPos=${yPos} out of bounds`;
 
   let pos = 0;

@@ -3,7 +3,7 @@ export function getDimensionToken(path) {
     switch (path[1]) {
       case "button_height":
         return "30px";
-      case "margin":
+      case "button_margin":
         return "10px";
       default:
         return "";
