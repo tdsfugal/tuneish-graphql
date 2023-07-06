@@ -9,7 +9,6 @@ const SetupTrayCard = ({ card }) => {
 
   const handleClick = (e) => {
     e.preventDefault();
-    console.log("closing card for ", _id);
     ACTIVE_SETUP_CARD(null);
   };
 

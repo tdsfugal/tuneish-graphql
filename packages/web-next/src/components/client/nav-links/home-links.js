@@ -3,12 +3,18 @@
 import { useRef } from "react";
 import { useReactiveVar } from "@apollo/client";
 
-import { HOME_MANIFEST } from "src/state/reactive";
-import getLinkPos from "src/util/get-link-pos";
+import { HOME_MANIFEST, ACTIVE_SETUP_CARD } from "src/state/reactive";
+import { getDimensionToken } from "src/design";
+
+import { getLinkPos, lengthToPx } from "src/util";
 
 import { NavLinksView } from "./nav-links-views";
 
 import HomeLinksItem from "./home-links-item";
+
+const STACK_HEIGHT =
+  lengthToPx(getDimensionToken(["nav_links", "button_margin"])) * 2 +
+  lengthToPx(getDimensionToken(["nav_links", "button_height"]));
 
 const HomeLinks = () => {
   const ref = useRef(null);
@@ -25,12 +31,16 @@ const HomeLinks = () => {
         const yPos = e.nativeEvent.offsetY;
         // type can be ignored because this is always in the gap
         //TOOD - edge case - click left or right of the button)
-        const { pos } = getLinkPos({
+        const { pos, type } = getLinkPos({
           yPos,
           nButtons: manifest.length,
           linksHeight,
         });
-        console.log("links position = ", pos);
+        if (type === "gap")
+          ACTIVE_SETUP_CARD({
+            yPos: pos * STACK_HEIGHT,
+            _id: pos === 0 ? "New above 0" : `New below ${pos}`,
+          });
       } else {
         // right click onto one of the Nav links. This makes yPos unreliable
         console.log("right mouse click on unknown link button");
