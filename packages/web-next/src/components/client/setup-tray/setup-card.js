@@ -8,7 +8,7 @@ import {
   SetupCardView,
   SetupCardHeaderView,
   SetupCardBodyView,
-  SetupCardDeleteView,
+  SetupCardHeaderButtonView,
 } from "./setup-tray-views";
 
 const SetupCard = ({ card }) => {
@@ -33,10 +33,20 @@ const SetupCard = ({ card }) => {
     );
   };
 
+  const handleDelete = (e) => {
+    e.preventDefault();
+    console.log("delete ", _id);
+  };
+
   return (
     <SetupCardView className="SetupCard" yPos={yPos} onClick={handleClick}>
       <SetupCardHeaderView className="SetupCardHeader">
-        <SetupCardDeleteView />
+        <SetupCardHeaderButtonView
+          className="SetupCardDeleteButton"
+          onClick={handleDelete}
+        >
+          DELETE
+        </SetupCardHeaderButtonView>
       </SetupCardHeaderView>
       <SetupCardBodyView className="SetupCardBody">
         {_id ? `Item at manifest ${pos}` : `New item for manifest pos ${pos}`}

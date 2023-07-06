@@ -35,7 +35,7 @@ export const SetupCardView = styled.div`
 `;
 
 export const SetupCardHeaderView = styled.div`
-  flex: 0 0 ${getDimensionToken(["nav-items", "button_height"])};
+  flex: 0 0 ${getDimensionToken(["nav_links", "button_height"])};
   width: 100%;
   display: flex;
   flex-flow: row nowrap;
@@ -50,11 +50,9 @@ export const SetupCardBodyView = styled.div`
   background: gray;
 `;
 
-export const SetupCardDeleteView = styled.button`
-  height: 40px;
-  width: 40px;
-  top: 0px;
-  right: 0px;
-  position: relative;
-  background: blue;
+export const SetupCardHeaderButtonView = styled.button`
+  flex: 0 0 calc(1.618 * ${getDimensionToken(["nav_links", "button_height"])});
+  height: 100%;
+  background: ${getColorToken(["core", "secondary"])};
+  color: ${getColorToken(["core", "white"])};
 `;

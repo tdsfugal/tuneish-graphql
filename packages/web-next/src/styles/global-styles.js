@@ -39,6 +39,7 @@ export const GlobalStyles = createGlobalStyle`
     padding 0;
     margin 0;
     border: none;
+    background-color: transparent;
   }
 
   a { 
