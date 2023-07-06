@@ -22,3 +22,10 @@ export const SetupTrayView = styled.div`
   align-items: left;
   justify-content: left;
 `;
+
+export const SetupTrayCardView = styled.div`
+  height: 100px;
+  width: 100%;
+  position: relative;
+  background: yellow;
+`;
