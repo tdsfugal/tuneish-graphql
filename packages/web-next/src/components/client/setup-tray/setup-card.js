@@ -4,9 +4,14 @@ import { useReactiveVar } from "@apollo/client";
 
 import { ACTIVE_SETUP_CARD, HOME_MANIFEST } from "src/state/reactive";
 
-import { SetupTrayCardView } from "./setup-tray-views";
+import {
+  SetupCardView,
+  SetupCardHeaderView,
+  SetupCardBodyView,
+  SetupCardDeleteView,
+} from "./setup-tray-views";
 
-const SetupTrayCard = ({ card }) => {
+const SetupCard = ({ card }) => {
   const manifest = useReactiveVar(HOME_MANIFEST);
 
   const { yPos, _id, pos } = card;
@@ -29,14 +34,15 @@ const SetupTrayCard = ({ card }) => {
   };
 
   return (
-    <SetupTrayCardView
-      className="SetupTrayCard"
-      yPos={yPos}
-      onClick={handleClick}
-    >
-      {_id ? `Item at manifest ${pos}` : `New item for manifest pos ${pos}`}
-    </SetupTrayCardView>
+    <SetupCardView className="SetupCard" yPos={yPos} onClick={handleClick}>
+      <SetupCardHeaderView className="SetupCardHeader">
+        <SetupCardDeleteView />
+      </SetupCardHeaderView>
+      <SetupCardBodyView className="SetupCardBody">
+        {_id ? `Item at manifest ${pos}` : `New item for manifest pos ${pos}`}
+      </SetupCardBodyView>
+    </SetupCardView>
   );
 };
 
-export default SetupTrayCard;
+export default SetupCard;
