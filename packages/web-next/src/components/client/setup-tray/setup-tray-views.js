@@ -15,8 +15,9 @@ export const SetupTrayView = styled.div`
       ? `width: ${getDimensionToken([
           "layout",
           "setup_width",
-        ])}; visibility: visible; background-color: rgba(0,0,0,.2); z-index: 200;`
-      : `width: 0px; visibility: hidden; background-color: transparent; z-index: -10;`}
+        ])}; visibility: visible; z-index: 200;`
+      : `width: 0px; visibility: hidden; z-index: -10;`}
+  background-color: transparent;
   display: flex;
   flex-flow: column nowrap;
   align-items: left;
