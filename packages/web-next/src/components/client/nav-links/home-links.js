@@ -39,7 +39,8 @@ const HomeLinks = () => {
         if (type === "gap")
           ACTIVE_SETUP_CARD({
             yPos: pos * STACK_HEIGHT,
-            _id: pos === 0 ? "New above 0" : `New below ${pos}`,
+            _id: null,
+            pos,
           });
       } else {
         // right click onto one of the Nav links. This makes yPos unreliable
@@ -55,8 +56,8 @@ const HomeLinks = () => {
       onMouseDown={handleMouseDown}
       onContextMenu={(e) => e.preventDefault()}
     >
-      {manifest.map(({ _id, label }) => (
-        <HomeLinksItem key={_id} _id={_id} label={label} />
+      {manifest.map(({ _id, label }, pos) => (
+        <HomeLinksItem key={_id} _id={_id} pos={pos} label={label} />
       ))}
     </NavLinksView>
   );
