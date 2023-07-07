@@ -9,6 +9,10 @@ import {
 import SetupCardAddButton from "./setup-card-add-button";
 import SetupCardDeleteButton from "./setup-card-delete-button";
 
+function generateShortId() {
+  return Math.random().toString().substring(3, 10);
+}
+
 const SetupCard = ({ card }) => {
   const { yPos, _id, pos } = card;
 
@@ -19,9 +23,10 @@ const SetupCard = ({ card }) => {
 
   // STUB
   const createItem = () => {
+    const id = generateShortId();
     const theNewThing = {
-      _id: Math.random().toString(),
-      label: "New Thing",
+      _id: id,
+      label: id,
     };
     return theNewThing;
   };
