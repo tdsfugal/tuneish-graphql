@@ -6,7 +6,7 @@ import { ACTIVE_SETUP_CARD, HOME_MANIFEST } from "src/state/reactive";
 
 import { SetupCardHeaderButtonView } from "./setup-tray-views";
 
-const SetupCardDeleteButton = ({ itemId }) => {
+const SetupCardDeleteButton = ({ itemId, children }) => {
   const manifest = useReactiveVar(HOME_MANIFEST);
 
   const handleDelete = (e) => {
@@ -24,7 +24,7 @@ const SetupCardDeleteButton = ({ itemId }) => {
       className="SetupCardDeleteButton"
       onClick={handleDelete}
     >
-      DELETE
+      {children}
     </SetupCardHeaderButtonView>
   );
 };
