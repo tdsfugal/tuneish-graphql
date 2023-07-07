@@ -18,13 +18,14 @@ const HomeLinksItem = ({ _id, pos, label }) => {
     if (e.button == 2) {
       e.preventDefault();
       e.stopPropagation();
-      ACTIVE_SETUP_CARD({ yPos: ref.current.offsetTop, _id: _id, pos });
+      ACTIVE_SETUP_CARD({ yPos: ref.current.offsetTop, _id, pos });
     }
   };
 
   return (
     <NavLinksItemView
       className="HomeLinksItem"
+      drag="y"
       ref={(x) => (ref.current = x)}
       onClick={handleClick}
       onMouseDown={handleMouseDown}

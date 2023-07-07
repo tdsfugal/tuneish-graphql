@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 import { getDimensionToken, getColorToken } from "src/design";
 
@@ -10,7 +11,7 @@ export const NavLinksView = styled.div`
   flex-flow: column nowrap;
 `;
 
-export const NavLinksItemView = styled.div`
+export const NavLinksItemView = styled(motion.div)`
   flex: 0 0 ${getDimensionToken(["nav_links", "button_height"])};
   width: calc(
     ${getDimensionToken(["layout", "nav_width"])} - 2 *
