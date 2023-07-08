@@ -8,7 +8,7 @@ import { getDimensionToken } from "src/design";
 
 import { getLinkPos, lengthToPx } from "src/util";
 
-import { NavLinksView } from "./nav-links-views";
+import { NavLinksGroupView, NavLinksItemView } from "./nav-links-views";
 
 import HomeLinksItem from "./home-links-item";
 
@@ -49,21 +49,23 @@ const HomeLinks = () => {
     }
   };
 
-  console.log("boop");
-
-  const items = manifest.map(({ _id, label }, pos) => (
-    <HomeLinksItem key={_id} _id={_id} pos={pos} label={label} />
-  ));
-
   return (
-    <NavLinksView
+    <NavLinksGroupView
       className="HomeLinks"
       ref={(x) => (ref.current = x)}
       onMouseDown={handleMouseDown}
       onContextMenu={(e) => e.preventDefault()}
+      values={manifest}
+      onReorder={HOME_MANIFEST}
     >
-      {items}
-    </NavLinksView>
+      {manifest.map((item, index) => {
+        return (
+          <NavLinksItemView key={item._id} value={item}>
+            <HomeLinksItem value={item} index={index} />
+          </NavLinksItemView>
+        );
+      })}
+    </NavLinksGroupView>
   );
 };
 
