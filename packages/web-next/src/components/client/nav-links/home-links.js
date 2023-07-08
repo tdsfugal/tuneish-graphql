@@ -49,6 +49,12 @@ const HomeLinks = () => {
     }
   };
 
+  console.log("boop");
+
+  const items = manifest.map(({ _id, label }, pos) => (
+    <HomeLinksItem key={_id} _id={_id} pos={pos} label={label} />
+  ));
+
   return (
     <NavLinksView
       className="HomeLinks"
@@ -56,9 +62,7 @@ const HomeLinks = () => {
       onMouseDown={handleMouseDown}
       onContextMenu={(e) => e.preventDefault()}
     >
-      {manifest.map(({ _id, label }, pos) => (
-        <HomeLinksItem key={_id} _id={_id} pos={pos} label={label} />
-      ))}
+      {items}
     </NavLinksView>
   );
 };
