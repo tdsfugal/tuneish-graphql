@@ -19,7 +19,6 @@ const HomeLinksItem = ({ index, value: { _id, label } }) => {
     if (e.button == 2) {
       e.preventDefault();
       e.stopPropagation();
-      console.log("Right Mouse click ", _id, index + 1);
       ACTIVE_SETUP_CARD({ yPos: ref.current.offsetTop, _id, pos: index + 1 });
     }
   };
