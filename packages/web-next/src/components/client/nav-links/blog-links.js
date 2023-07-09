@@ -1,9 +1,22 @@
 "use client";
 
-import { NavLinksView } from "./nav-links-views";
+import {
+  NavLinksStaticGroupView,
+  NavLinksButtonView,
+  NavLinksTextView,
+} from "./nav-links-views";
 
 const BlogLinks = () => {
-  return <NavLinksView className="BlogLinks" />;
+  return (
+    <NavLinksStaticGroupView className="BlogLinks">
+      <NavLinksButtonView className="BlogLinksButtonView">
+        <NavLinksTextView className="BlogLinksTextView">Foo</NavLinksTextView>
+      </NavLinksButtonView>
+      <NavLinksButtonView className="BlogLinksButtonView">
+        <NavLinksTextView className="BlogLinksTextView">Bar</NavLinksTextView>
+      </NavLinksButtonView>
+    </NavLinksStaticGroupView>
+  );
 };
 
 export default BlogLinks;

@@ -8,7 +8,10 @@ import { getDimensionToken } from "src/design";
 
 import { getLinkPos, lengthToPx } from "src/util";
 
-import { NavLinksGroupView, NavLinksItemView } from "./nav-links-views";
+import {
+  NavLinksDynamicGroupView,
+  NavLinksDynamicItemView,
+} from "./nav-links-views";
 
 import HomeLinksItem from "./home-links-item";
 
@@ -50,7 +53,7 @@ const HomeLinks = () => {
   };
 
   return (
-    <NavLinksGroupView
+    <NavLinksDynamicGroupView
       className="HomeLinks"
       ref={(x) => (ref.current = x)}
       onMouseDown={handleMouseDown}
@@ -60,12 +63,12 @@ const HomeLinks = () => {
     >
       {manifest.map((item, index) => {
         return (
-          <NavLinksItemView key={item._id} value={item}>
+          <NavLinksDynamicItemView key={item._id} value={item}>
             <HomeLinksItem value={item} index={index} />
-          </NavLinksItemView>
+          </NavLinksDynamicItemView>
         );
       })}
-    </NavLinksGroupView>
+    </NavLinksDynamicGroupView>
   );
 };
 
