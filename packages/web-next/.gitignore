@@ -1,8 +1,12 @@
 
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
+# dependencies; using yarn 2+ with pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
 
 # testing
 /coverage
