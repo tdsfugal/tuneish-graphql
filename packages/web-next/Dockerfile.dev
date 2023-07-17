@@ -1,0 +1,21 @@
+FROM node:20-alpine
+
+RUN yarn set version berry
+RUN yarn set version latest 
+
+WORKDIR /app
+
+COPY package.json yarn.lock*  ./
+RUN  yarn --immutable
+
+ENV NEXT_TELEMETRY_DISABLED 1
+
+COPY src ./src
+COPY meta ./meta
+COPY public ./public
+COPY next.config.js .
+COPY tsconfig.json .
+
+EXPOSE 3000
+
+CMD ["yarn", "dev"]

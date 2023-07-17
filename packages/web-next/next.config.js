@@ -1,5 +1,4 @@
 /** @type {import('next').NextConfig} */
-
 const nextConfig = {
   reactStrictMode: true,
   compiler: {
@@ -9,6 +8,7 @@ const nextConfig = {
       meaninglessFileNames: ["index", "styles", "client", "server"],
     },
   },
+  output: 'standalone'
 };
 
-export default nextConfig;
+module.exports = nextConfig;

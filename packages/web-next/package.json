@@ -9,9 +9,14 @@
   "scripts": {
     "clean": "rm -r .next",
     "clobber": "nvm use && yarn install",
+    "c-build-dev": "docker build -f Dockerfile.dev -t web-next-dev:latest .",
+    "c-build": "docker build -t web-next:latest .",
+    "c-dev": "docker run -it -d --rm -p 3000:3000 --name web-next-dev web-next-dev:latest",
+    "c-start": "docker run -it -d --rm -p 3000:3000 --name web-next web-next:latest",
+    "c-stop": "docker stop web-next",
     "dev": "next dev",
     "build": "next build",
-    "next": "next start",
+    "start": "next start",
     "lint": "next lint",
     "test": "jest --watch",
     "test-silent": "jest --watch --silent"
