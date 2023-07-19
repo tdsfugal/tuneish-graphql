@@ -5,7 +5,7 @@
   "main": "index.js",
   "private": "true",
   "author": "Tim Smith",
-  "license": "ISC",
+  "license": "LicenseRef-LICENSE",
   "scripts": {
     "dev-up": "docker compose -f docker-compose.dev.yml up -d --build --remove-orphans",
     "dev-down": "docker compose -f docker-compose.dev.yml down",

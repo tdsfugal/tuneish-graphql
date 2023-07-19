@@ -2,9 +2,9 @@ version: "3"
 
 services:
   web-next:
-    container_name: web-next
+    container_name: app-web
     build:
-      context: ./packages/web-next
+      context: ./packages/app-web
       dockerfile: Dockerfile.dev
     env_file:
       - ENVIRONMENT_VARS

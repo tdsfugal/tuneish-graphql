@@ -1452,6 +1452,31 @@ __metadata:
   languageName: node
   linkType: hard
 
+"app-web@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "app-web@workspace:."
+  dependencies:
+    "@apollo/client": ^3.7.17
+    "@testing-library/jest-dom": ^5.16.5
+    "@testing-library/react": ^14.0.0
+    "@types/node": ^20.4.1
+    "@types/react": ^18.2.14
+    "@types/react-dom": ^18.2.6
+    "@types/styled-components": ^5.1.26
+    framer-motion: 10.12.6
+    graphql: ^16.7.1
+    jest: ^29.6.1
+    jest-environment-jsdom: ^29.6.1
+    next: ^13.4.9
+    prettier: ^3.0.0
+    react: ^18.2.0
+    react-dom: ^18.2.0
+    react-is: ^18.2.0
+    styled-components: ^6.0.3
+    typescript: 5.1.6
+  languageName: unknown
+  linkType: soft
+
 "aproba@npm:^1.0.3 || ^2.0.0":
   version: 2.0.0
   resolution: "aproba@npm:2.0.0"
@@ -5340,31 +5365,6 @@ __metadata:
   checksum: 23d4bc58634dbe13b86093e01c6a68d8096028b664ab7139d58f0c37d962d549a940e98f2f201cecdabd6f9c340338dc73ef8bf094a2249ef582f35183d1a131
   languageName: node
   linkType: hard
-
-"web@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "web@workspace:."
-  dependencies:
-    "@apollo/client": ^3.7.17
-    "@testing-library/jest-dom": ^5.16.5
-    "@testing-library/react": ^14.0.0
-    "@types/node": ^20.4.1
-    "@types/react": ^18.2.14
-    "@types/react-dom": ^18.2.6
-    "@types/styled-components": ^5.1.26
-    framer-motion: 10.12.6
-    graphql: ^16.7.1
-    jest: ^29.6.1
-    jest-environment-jsdom: ^29.6.1
-    next: ^13.4.9
-    prettier: ^3.0.0
-    react: ^18.2.0
-    react-dom: ^18.2.0
-    react-is: ^18.2.0
-    styled-components: ^6.0.3
-    typescript: 5.1.6
-  languageName: unknown
-  linkType: soft
 
 "webidl-conversions@npm:^7.0.0":
   version: 7.0.0
