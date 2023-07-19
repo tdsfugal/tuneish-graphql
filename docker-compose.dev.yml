@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  web-next:
+    container_name: web-next
+    build:
+      context: ./packages/web-next
+      dockerfile: Dockerfile.dev
+    env_file:
+      - ENVIRONMENT_VARS
+    # volumes:
+    #   - ./pacakges/next-app/src:/app/src
+    #   - ./packages/next-app/public:/app/public
+    #   - ./packages/next-app/meta:/app/meta
+    restart: always
+    ports:
+      - 3000:3000

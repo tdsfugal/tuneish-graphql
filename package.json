@@ -1,0 +1,14 @@
+{
+  "name": "tuneish",
+  "version": "1.0.0",
+  "description": "Tunish system",
+  "main": "index.js",
+  "private": "true",
+  "author": "Tim Smith",
+  "license": "ISC",
+  "scripts": {
+    "dev-up": "docker compose -f docker-compose.dev.yml up -d --build --remove-orphans",
+    "dev-down": "docker compose -f docker-compose.dev.yml down",
+    "test": "test"
+  }
+}
