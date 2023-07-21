@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Tunish system",
   "main": "index.js",
-  "private": "true",
   "author": "Tim Smith",
   "license": "LicenseRef-LICENSE",
   "scripts": {

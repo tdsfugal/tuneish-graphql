@@ -10,12 +10,12 @@ RUN  yarn --immutable
 
 ENV NEXT_TELEMETRY_DISABLED 1
 
-COPY src ./src
-COPY meta ./meta
-COPY public ./public
-COPY next.config.js .
-COPY tsconfig.json .
+COPY --link src ./src
+COPY --link meta ./meta
+COPY --link public ./public
+COPY --link next.config.js .
+COPY --link tsconfig.json .
 
 EXPOSE 3000
 
-CMD ["yarn", "dev"]
+CMD yarn dev
