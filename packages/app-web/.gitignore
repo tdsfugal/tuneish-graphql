@@ -1,7 +1,7 @@
 
-# dependencies; using yarn 2+ with pnp
-.pnp.*
+# dependencies; using yarn 2+ with pnp abd zero installs
 .yarn/*
+!.yarn/cache
 !.yarn/patches
 !.yarn/plugins
 !.yarn/releases
