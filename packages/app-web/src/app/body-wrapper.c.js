@@ -6,11 +6,7 @@ import { LazyMotion, domMax } from "framer-motion";
 import { GlobalStyles } from "../styles";
 import { apolloClient } from "../state/apollo";
 
-export default function LayoutClient({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function LayoutClient({ children }) {
   return (
     <ApolloProvider client={apolloClient}>
       <GlobalStyles />
