@@ -1,6 +1,4 @@
-import BodyWrapper from "./body-wrapper.c";
-
-import StyledComponentsRegistry from "../state/styles-registry";
+import RootWrapper from "./root-wrapper.c";
 
 export const metadata = {
   title: "Next.js",
@@ -10,11 +8,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <BodyWrapper>
-        <body>
-          <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
-        </body>
-      </BodyWrapper>
+      <body>
+        <RootWrapper>{children}</RootWrapper>
+      </body>
     </html>
   );
 }

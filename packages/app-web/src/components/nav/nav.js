@@ -1,4 +1,6 @@
-import { NavWrapper } from "../page-views";
+"use client";
+
+import { NavWrapper } from "src/styles";
 import { NavView, NavBackgroundView } from "./nav-views";
 
 import HeaderControl from "./header-control";

@@ -1,6 +1,6 @@
 import React from "react";
 
-import { MainWrapper } from "../../page-views";
+import { MainWrapper } from "src/styles";
 
 import { HomeBackgroundView } from "./home-views";
 

@@ -27,7 +27,7 @@
     ".next/types/**/*.ts",
     "src/state/styles-registry.js",
     "src/app/page.js",
-    "src/app/body-wrapper.c.js",
+    "src/app/root-wrapper.c.js",
     "src/app/layout.js"
   ],
   "exclude": ["node_modules"]

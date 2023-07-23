@@ -1,6 +1,6 @@
 import { Footer, Header } from "../_marginals";
 
-import { MainWrapper } from "../../page-views";
+import { MainWrapper } from "src/styles";
 
 import { BlogView, BlogBackgroundView } from "./blog-views";
 

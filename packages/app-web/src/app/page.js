@@ -1,10 +1,17 @@
-// import { SplashPage } from "../components";
+"use client";
 
-export default function Splash() {
-  // return <SplashPage />;
+import { PageView } from "../styles/layout-views.c";
+
+import { Splash } from "../components/main";
+import Nav from "../components/nav";
+
+const SplashPage = () => {
   return (
-    <div>
-      <h1>Foo!</h1>
-    </div>
+    <PageView className="SplashPage">
+      <Nav midSection={null} />
+      <Splash />
+    </PageView>
   );
-}
+};
+
+export default SplashPage;

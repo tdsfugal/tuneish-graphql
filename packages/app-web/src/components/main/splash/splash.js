@@ -1,4 +1,4 @@
-import { MainWrapper } from "../../page-views";
+import { MainWrapper } from "src/styles";
 
 import { Footer, Header } from "../_marginals";
 
