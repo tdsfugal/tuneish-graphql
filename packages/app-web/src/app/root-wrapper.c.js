@@ -10,8 +10,8 @@ import StyledComponentsRegistry from "src/state/styles-registry";
 export default function LayoutClient({ children }) {
   return (
     <ApolloProvider client={apolloClient}>
-      <GlobalStyles />
       <StyledComponentsRegistry>
+        <GlobalStyles />
         <LazyMotion features={domMax}>{children}</LazyMotion>
       </StyledComponentsRegistry>
     </ApolloProvider>
