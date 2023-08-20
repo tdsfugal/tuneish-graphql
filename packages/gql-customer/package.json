@@ -1,0 +1,8 @@
+{
+  "name": "gql-customer",
+  "packageManager": "yarn@3.6.0",
+  "dependencies": {
+    "graphql": "^16.8.0",
+    "graphql-yoga": "^4.0.4"
+  }
+}
