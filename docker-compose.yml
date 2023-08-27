@@ -9,6 +9,7 @@ volumes:
 
 services:
   mongodb:
+    container_name: mongodb
     image: mongo
     restart: always
     ports:
@@ -20,6 +21,17 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
+
+  gql-customer:
+    container_name: gql-customer
+    build:
+      context: "./packages/gql-customer"
+    env_file: ENVIRONMENT_VARS
+    restart: always
+    networks:
+      - datalayer
+    ports:
+      - 4000:4000
 
   # mongo-express:
   #   image: mongo-express
