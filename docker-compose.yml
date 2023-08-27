@@ -22,10 +22,10 @@ services:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
 
-  gql-customer:
-    container_name: gql-customer
+  gql-lessons:
+    container_name: gql-lessons
     build:
-      context: "./packages/gql-customer"
+      context: "./packages/gql-lessons"
     env_file: ENVIRONMENT_VARS
     restart: always
     networks:
