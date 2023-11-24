@@ -4,60 +4,14 @@ networks:
   datalayer:
     driver: bridge
 
-volumes:
-  mongo-data:
-
 services:
-  mongodb:
-    container_name: mongodb
-    image: mongo
-    restart: always
-    ports:
-      - 27017:27017
-    networks:
-      - datalayer
-    volumes:
-      - mongo-data:/data/mongo
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: example
-
   gql-lessons:
     container_name: gql-lessons
     build:
-      context: "./packages/gql-lessons"
+      context: "./servers/gql-lessons"
     env_file: ENVIRONMENT_VARS
     restart: always
     networks:
       - datalayer
     ports:
       - 4000:4000
-
-  # mongo-express:
-  #   image: mongo-express
-  #   restart: always
-  #   ports:
-  #     - 8081:8081
-  #   networks:
-  #     - datalayer
-  #   depends_on:
-  #     - "mongodb"
-  #   environment:
-  #     ME_CONFIG_MONGODB_ADMINUSERNAME: root
-  #     ME_CONFIG_MONGODB_ADMINPASSWORD: example
-  #     ME_CONFIG_MONGODB_URL: "mongodb://root:example@mongodb:27017/"
-
-  # web-next:
-  #   container_name: app-web
-  #   build:
-  #     context: ./packages/app-web
-  #     dockerfile: Dockerfile.dev
-  #   env_file:
-  #     - ENVIRONMENT_VARS
-  #   volumes:
-  #     - ./packages/app-web/src/:/app/src
-  #     - ./packages/app-web/public/:/app/public
-  #     - ./packages/app-web/meta/:/app/meta
-  #   restart: always
-  #   ports:
-  #     - 3000:3000
