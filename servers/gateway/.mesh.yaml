@@ -1,0 +1,5 @@
+sources:
+  - name: Lessons
+    handler:
+      graphql:
+        source: http://localhost:4100/graphql
