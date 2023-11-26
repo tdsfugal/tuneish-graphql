@@ -16,15 +16,15 @@ services:
     ports:
       - 4100:4000
 
-  gateway:
-    container_name: gateway
-    build:
-      context: "./servers/gateway"
-    env_file: ENVIRONMENT_VARS
-    restart: always
-    depends_on:
-      - gql-lessons
-    networks:
-      - datalayer
-    ports:
-      - 4000:4000
+  # gateway:
+  #   container_name: gateway
+  #   build:
+  #     context: "./servers/gateway"
+  #   env_file: ENVIRONMENT_VARS
+  #   restart: always
+  #   depends_on:
+  #     - gql-lessons
+  #   networks:
+  #     - datalayer
+  #   ports:
+  #     - 4000:4000
