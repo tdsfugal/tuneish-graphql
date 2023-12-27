@@ -6,15 +6,15 @@ networks:
 
 services:
   gql-lessons:
-    container_name: gql-lessons
+    container_name: gql-configs
     build:
-      context: "./servers/gql-lessons"
+      context: "./servers/gql-configs"
     env_file: ENVIRONMENT_VARS
     restart: always
     networks:
       - datalayer
     ports:
-      - 4100:4000
+      - 4000:4000
 
   # gateway:
   #   container_name: gateway

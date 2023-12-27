@@ -1,8 +1,9 @@
 {
-  "name": "gql-lessons",
+  "name": "gql-configs",
   "packageManager": "yarn@3.6.0",
   "type": "module",
   "private": true,
+  "description": "Config server for tunish practice pages",
   "scripts": {
     "start": "node src/server.js"
   },
