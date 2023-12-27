@@ -5,7 +5,7 @@ networks:
     driver: bridge
 
 services:
-  gql-lessons:
+  gql-configs:
     container_name: gql-configs
     build:
       context: "./servers/gql-configs"
