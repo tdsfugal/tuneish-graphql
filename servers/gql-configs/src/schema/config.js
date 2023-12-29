@@ -7,7 +7,7 @@ export const typeDefs = `
 
   type Config {
     id: ID
-    items: [ConfigItem]!
+    manifest: [ConfigItem]!
   }
 
   type Query {
@@ -24,7 +24,7 @@ export const resolvers = {
     config: (_, { id }) => {
       return {
         id,
-        items: [
+        manifest: [
           { id: "9909u71", label: "foo-9909u71" },
           { id: "99dsu72", label: "foo-99dsu72" },
           { id: "9929u73", label: "foo-9929u73" },
