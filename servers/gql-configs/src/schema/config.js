@@ -1,18 +1,32 @@
 export const typeDefs = `
 
   type ConfigItem {
-    id: ID
-    label: String
+    id: ID!
+    label: String!
   }  
 
+  input ConfigItemInput {
+    id: ID!
+    label: String!
+  }
+
   type Config {
-    id: ID
+    id: ID!
     manifest: [ConfigItem]!
+  }
+
+  input ConfigInput {
+    id: ID!
+    manifest: [ConfigItemInput]!
   }
 
   type Query {
     configItem(id: ID!): ConfigItem
     config(id: ID!): Config
+  }
+
+  type Mutation {
+    upsertConfig(input: ConfigInput! ): Config
   }
 `;
 
@@ -32,6 +46,12 @@ export const resolvers = {
           { id: "1229u75", label: "foo-1229u75" },
         ],
       };
+    },
+  },
+
+  Mutation: {
+    upsertConfig: (_, { input }) => {
+      return input;
     },
   },
 };
