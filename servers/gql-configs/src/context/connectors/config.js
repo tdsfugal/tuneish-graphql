@@ -14,7 +14,6 @@ class ConfigConnector {
   constructor() {}
 
   getConfigItem(id) {
-    console.log(id);
     if (this.items.hasOwnProperty(id)) {
       return { id, manifest: this.items[id] };
     } else {
@@ -37,7 +36,19 @@ class ConfigConnector {
     }
   }
 
-  upsertConfig(input) {
+  upsertConfigItem(id, input) {
+    console.log(id);
+    console.log(input);
+    if (this.items.hasOwnProperty(id)) {
+      const original = this.items[id];
+      this.items[id] = { ...original, ...input };
+    } else {
+      this.items[id] = input;
+    }
+    return { id, ...this.items[id] };
+  }
+
+  upsertConfig(id, input) {
     return input;
   }
 }

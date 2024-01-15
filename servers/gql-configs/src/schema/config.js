@@ -6,7 +6,6 @@ export const typeDefs = `
   }  
 
   input ConfigItemInput {
-    id: ID!
     label: String!
   }
 
@@ -16,7 +15,6 @@ export const typeDefs = `
   }
 
   input ConfigInput {
-    id: ID!
     manifest: [ConfigItemInput]!
   }
 
@@ -26,7 +24,8 @@ export const typeDefs = `
   }
 
   type Mutation {
-    upsertConfig(input: ConfigInput! ): Config
+    upsertConfigItem(id: ID!, input: ConfigItemInput! ): ConfigItem
+    upsertConfig(id: ID!, input: ConfigInput! ): Config
   }
 `;
 
@@ -37,6 +36,9 @@ export const resolvers = {
   },
 
   Mutation: {
-    upsertConfig: (_, { input }, { config }) => config.upsertConfig(input),
+    upsertConfig: (_, { id, input }, { config }) =>
+      config.upsertConfig(id, input),
+    upsertConfigItem: (_, { id, input }, { config }) =>
+      config.upsertConfigItem(id, input),
   },
 };
