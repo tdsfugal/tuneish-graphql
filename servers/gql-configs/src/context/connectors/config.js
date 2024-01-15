@@ -1,22 +1,37 @@
 class ConfigConnector {
   configs = {
-    foo: [
-      { id: "9909u71", label: "foo-9909u71" },
-      { id: "99dsu72", label: "foo-99dsu72" },
-      { id: "9929u73", label: "foo-9929u73" },
-      { id: "9329u74", label: "foo-9329u74" },
-      { id: "1229u75", label: "foo-1229u75" },
-    ],
+    foo: ["9909u71", "99dsu72", "9929u73", "9329u74", "1229u75"],
   };
+
+  items = {
+    "9909u71": { label: "foo-9909u71" },
+    "99dsu72": { label: "foo-99dsu72" },
+    "9929u73": { label: "foo-9929u73" },
+    "9329u74": { label: "foo-9329u74" },
+    "1229u75": { label: "foo-1229u75" },
+  };
+
   constructor() {}
 
   getConfigItem(id) {
-    return { id, label: `foo-${id}` };
+    console.log(id);
+    if (this.items.hasOwnProperty(id)) {
+      return { id, manifest: this.items[id] };
+    } else {
+      return null;
+    }
   }
 
   getConfig(id) {
     if (this.configs.hasOwnProperty(id)) {
-      return { id, manifest: this.configs[id] };
+      const manifest = this.configs[id]
+        .map((itemId) => {
+          return this.items.hasOwnProperty(itemId)
+            ? { id: itemId, ...this.items[itemId] }
+            : null;
+        })
+        .filter((x) => x !== null);
+      return { id, manifest };
     } else {
       return null;
     }

@@ -2,7 +2,7 @@ export const typeDefs = `
 
   type ConfigItem {
     id: ID!
-    label: String!
+    label: String
   }  
 
   input ConfigItemInput {
