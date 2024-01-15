@@ -15,7 +15,7 @@ export const typeDefs = `
   }
 
   input ConfigInput {
-    manifest: [ConfigItemInput]!
+    manifest: [ID]!
   }
 
   type Query {

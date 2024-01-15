@@ -1,5 +1,5 @@
 class ConfigConnector {
-  configs = {
+  manifests = {
     foo: ["9909u71", "99dsu72", "9929u73", "9329u74", "1229u75"],
   };
 
@@ -22,8 +22,8 @@ class ConfigConnector {
   }
 
   getConfig(id) {
-    if (this.configs.hasOwnProperty(id)) {
-      const manifest = this.configs[id]
+    if (this.manifests.hasOwnProperty(id)) {
+      const manifest = this.manifests[id]
         .map((itemId) => {
           return this.items.hasOwnProperty(itemId)
             ? { id: itemId, ...this.items[itemId] }
@@ -37,8 +37,6 @@ class ConfigConnector {
   }
 
   upsertConfigItem(id, input) {
-    console.log(id);
-    console.log(input);
     if (this.items.hasOwnProperty(id)) {
       const original = this.items[id];
       this.items[id] = { ...original, ...input };
@@ -48,8 +46,11 @@ class ConfigConnector {
     return { id, ...this.items[id] };
   }
 
+  // TODO - improve the quality of this crap. No validation, no error trapping, ... ugh!!
+
   upsertConfig(id, input) {
-    return input;
+    this.manifests[id] = input.manifest;
+    return this.getConfig(id);
   }
 }
 
